@@ -2,13 +2,13 @@
 
     <div class="header-left active">
         <a href="/" class="logo logo-normal">
-            <img src="{{asset('assets/img/logo.png')}}" style="transform: scale(1.5);">
+            <img src="{{asset('assets/img/logo.png')}}" style="transform: scale(1.2);">
         </a>
         <a href="/" class="logo logo-white">
-            <img src="{{asset('assets/img/logo-white.png')}}" style="transform: scale(1.5);">
+            <img src="{{asset('assets/img/logo-white.png')}}" style="transform: scale(1.2);">
         </a>
         <a href="/" class="logo-small">
-            <img src="{{asset('assets/img/logo-small.png')}}" style="transform: scale(1.5);">
+            <img src="{{asset('assets/img/logo-small.png')}}" style="transform: scale(1.2);">
         </a>
         <a id="toggle_btn" href="javascript:void(0);">
             <i data-feather="chevrons-left" class="feather-16"></i>

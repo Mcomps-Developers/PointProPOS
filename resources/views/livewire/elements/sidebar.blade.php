@@ -206,20 +206,6 @@
                         </ul>
                     </li>
                     <li class="submenu-open">
-                        <h6 class="submenu-hdr">Pages</h6>
-                        <ul>
-                            <li><a href="profile.html"><i data-feather="user"></i><span>Profile</span></a></li>
-                            <li class="submenu">
-                                <a href="javascript:void(0);"><i data-feather="map"></i><span>Places</span><span
-                                        class="menu-arrow"></span></a>
-                                <ul>
-                                    <li><a href="countries.html">Countries</a></li>
-                                    <li><a href="states.html">States</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="submenu-open">
                         <h6 class="submenu-hdr">Settings</h6>
                         <ul>
                             <li class="submenu">
@@ -1229,27 +1215,6 @@
                             </ul>
                         </li>
                         <li><a href="javascript:void(0);"><span>Documentation</span></a></li>
-                        <li><a href="javascript:void(0);"><span>Changelog v2.0.7</span></a></li>
-                        <li class="submenu">
-                            <a href="javascript:void(0);"><span>Multi Level</span><span class="menu-arrow"></span></a>
-                            <ul>
-                                <li><a href="javascript:void(0);">Level 1.1</a></li>
-                                <li class="submenu submenu-two"><a href="javascript:void(0);">Level 1.2<span
-                                            class="menu-arrow inside-submenu"></span></a>
-                                    <ul>
-                                        <li><a href="javascript:void(0);">Level 2.1</a></li>
-                                        <li class="submenu submenu-two submenu-three"><a
-                                                href="javascript:void(0);">Level 2.2<span
-                                                    class="menu-arrow inside-submenu inside-submenu-two"></span></a>
-                                            <ul>
-                                                <li><a href="javascript:void(0);">Level 3.1</a></li>
-                                                <li><a href="javascript:void(0);">Level 3.2</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
                     </ul>
                 </li>
             </ul>
