@@ -91,7 +91,7 @@
                                     <ul class="customers">
                                         <li>
                                             <a href="javascript:void(0);">Aron Varu<img
-                                                    src="{{asset('{{asset('assets/img/profiles/avator1.jpg')}}')}}" alt
+                                                    src="{{asset('assets/img/profiles/avator1.jpg')}}" alt
                                                     class="img-fluid"></a>
                                         </li>
                                         <li>
