@@ -1,4 +1,7 @@
 <div class="page-wrapper">
+    @section('title')
+    Dashboard
+    @endsection
     <div class="content">
         <div class="row">
             <div class="col-xl-3 col-sm-6 col-12 d-flex">
@@ -135,8 +138,8 @@
                         <h4 class="card-title mb-0">Recent Products</h4>
                         <div class="view-all-link">
                             <a href="javascript:void(0);" class="view-all d-flex align-items-center">
-                                View All<span class="ps-2 d-flex align-items-center"><i
-                                        data-feather="arrow-right" class="feather-16"></i></span>
+                                View All<span class="ps-2 d-flex align-items-center"><i data-feather="arrow-right"
+                                        class="feather-16"></i></span>
                             </a>
                         </div>
                     </div>
@@ -155,7 +158,8 @@
                                         <td>1</td>
                                         <td class="productimgname">
                                             <a href="product-list.html" class="product-img">
-                                                <img src="{{asset('assets/img/products/stock-img-01.png')}}" alt="product">
+                                                <img src="{{asset('assets/img/products/stock-img-01.png')}}"
+                                                    alt="product">
                                             </a>
                                             <a href="product-list.html">Lenevo 3rd Generation</a>
                                         </td>
@@ -165,7 +169,8 @@
                                         <td>2</td>
                                         <td class="productimgname">
                                             <a href="product-list.html" class="product-img">
-                                                <img src="{{asset('assets/img/products/stock-img-06.png')}}" alt="product">
+                                                <img src="{{asset('assets/img/products/stock-img-06.png')}}"
+                                                    alt="product">
                                             </a>
                                             <a href="product-list.html">Bold V3.2</a>
                                         </td>
@@ -175,7 +180,8 @@
                                         <td>3</td>
                                         <td class="productimgname">
                                             <a href="product-list.html" class="product-img">
-                                                <img src="{{asset('assets/img/products/stock-img-02.png')}}" alt="product">
+                                                <img src="{{asset('assets/img/products/stock-img-02.png')}}"
+                                                    alt="product">
                                             </a>
                                             <a href="product-list.html">Nike Jordan</a>
                                         </td>
@@ -185,7 +191,8 @@
                                         <td>4</td>
                                         <td class="productimgname">
                                             <a href="product-list.html" class="product-img">
-                                                <img src="{{asset('assets/img/products/stock-img-03.png')}}" alt="product">
+                                                <img src="{{asset('assets/img/products/stock-img-03.png')}}"
+                                                    alt="product">
                                             </a>
                                             <a href="product-list.html">Apple Series 5 Watch</a>
                                         </td>
@@ -231,7 +238,8 @@
                                 <td>
                                     <div class="productimgname">
                                         <a href="javascript:void(0);" class="product-img stock-img">
-                                            <img src="{{asset('assets/img/products/expire-product-01.png')}}" alt="product">
+                                            <img src="{{asset('assets/img/products/expire-product-01.png')}}"
+                                                alt="product">
                                         </a>
                                         <a href="javascript:void(0);">Red Premium Handy </a>
                                     </div>
@@ -260,7 +268,8 @@
                                 <td>
                                     <div class="productimgname">
                                         <a href="javascript:void(0);" class="product-img stock-img">
-                                            <img src="{{asset('assets/img/products/expire-product-02.png')}}" alt="product">
+                                            <img src="{{asset('assets/img/products/expire-product-02.png')}}"
+                                                alt="product">
                                         </a>
                                         <a href="javascript:void(0);">Iphone 14 Pro</a>
                                     </div>
@@ -289,7 +298,8 @@
                                 <td>
                                     <div class="productimgname">
                                         <a href="javascript:void(0);" class="product-img stock-img">
-                                            <img src="{{asset('assets/img/products/expire-product-03.png')}}" alt="product">
+                                            <img src="{{asset('assets/img/products/expire-product-03.png')}}"
+                                                alt="product">
                                         </a>
                                         <a href="javascript:void(0);">Black Slim 200 </a>
                                     </div>
@@ -318,7 +328,8 @@
                                 <td>
                                     <div class="productimgname">
                                         <a href="javascript:void(0);" class="product-img stock-img">
-                                            <img src="{{asset('assets/img/products/expire-product-04.png')}}" alt="product">
+                                            <img src="{{asset('assets/img/products/expire-product-04.png')}}"
+                                                alt="product">
                                         </a>
                                         <a href="javascript:void(0);">Woodcraft Sandal</a>
                                     </div>
