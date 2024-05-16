@@ -25,16 +25,10 @@ class GoogleController extends Controller
             if ($finduser) {
 
                 Auth::login($finduser);
-                notyf()
-                    ->position('x', 'right')
-                    ->position('y', 'top')
-                    ->success('Logged in successfully.');
+                notyf()->success('Logged in successfully.');
                 return redirect()->intended('dashboard');
             } else {
-                notyf()
-                    ->position('x', 'right')
-                    ->position('y', 'top')
-                    ->error('Email not connected to PointPro');
+                notyf()->error('Email not connected to PointPro');
                 return redirect()->intended('login');
             }
         } catch (Exception $e) {
