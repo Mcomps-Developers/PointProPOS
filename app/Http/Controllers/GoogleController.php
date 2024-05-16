@@ -34,7 +34,7 @@ class GoogleController extends Controller
                 notyf()
                     ->position('x', 'right')
                     ->position('y', 'top')
-                    ->addError('Email not connected to PointPro');
+                    ->error('Email not connected to PointPro');
                 return redirect()->intended('login');
             }
         } catch (Exception $e) {
