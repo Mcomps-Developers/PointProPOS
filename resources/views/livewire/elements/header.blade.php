@@ -31,8 +31,8 @@
                     <i class="fa fa-search"></i>
                 </a>
                 <form action="#" class="dropdown">
-                    <div class="searchinputs dropdown-toggle" id="dropdownMenuClickable"
-                        data-bs-toggle="dropdown" data-bs-auto-close="false">
+                    <div class="searchinputs dropdown-toggle" id="dropdownMenuClickable" data-bs-toggle="dropdown"
+                        data-bs-auto-close="false">
                         <input type="text" placeholder="Search">
                         <div class="search-addon">
                             <span><i data-feather="x-circle" class="feather-14"></i></span>
@@ -80,12 +80,10 @@
 
 
         <li class="nav-item dropdown has-arrow main-drop select-store-dropdown">
-            <a href="javascript:void(0);" class="dropdown-toggle nav-link select-store"
-                data-bs-toggle="dropdown">
+            <a href="javascript:void(0);" class="dropdown-toggle nav-link select-store" data-bs-toggle="dropdown">
                 <span class="user-info">
                     <span class="user-letter">
-                        <img src="{{asset('assets/img/store/store-01.png')}}" alt="Store Logo"
-                            class="img-fluid">
+                        <img src="{{asset('assets/img/store/store-01.png')}}" alt="Store Logo" class="img-fluid">
                     </span>
                     <span class="user-detail">
                         <span class="user-name">Select Store</span>
@@ -114,8 +112,7 @@
 
 
         <li class="nav-item dropdown has-arrow flag-nav nav-item-box">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="javascript:void(0);"
-                role="button">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="javascript:void(0);" role="button">
                 <img src="{{asset('assets/img/flags/us.png')}}" alt="Language" class="img-fluid">
             </a>
             <div class="dropdown-menu dropdown-menu-right">
@@ -280,8 +277,12 @@
                     <a class="dropdown-item" href="general-settings.html"><i class="me-2"
                             data-feather="settings"></i>Settings</a>
                     <hr class="m-0">
-                    <a class="dropdown-item logout pb-0" href="signin.html"><img
+                    <a class="dropdown-item logout pb-0" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit()"><img
                             src="{{asset('assets/img/icons/log-out.svg')}}" class="me-2" alt="img">Logout</a>
+                    <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                        @csrf
+                    </form>
                 </div>
             </div>
         </li>
@@ -294,7 +295,11 @@
         <div class="dropdown-menu dropdown-menu-right">
             <a class="dropdown-item" href="profile.html">My Profile</a>
             <a class="dropdown-item" href="general-settings.html">Settings</a>
-            <a class="dropdown-item" href="signin.html">Logout</a>
+            <a class="dropdown-item" href="{{ route('logout') }}"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Logout</a>
+            <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                @csrf
+            </form>
         </div>
     </div>
 
