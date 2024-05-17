@@ -1,4 +1,7 @@
 <x-guest-layout>
+    @section('title')
+    Email Verification
+    @endsection
     <div class="main-wrapper">
         <div class="account-content">
             <div class="login-wrapper email-veri-wrap bg-img">
