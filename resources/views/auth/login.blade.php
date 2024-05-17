@@ -81,7 +81,9 @@
                                     </li>
                                 </ul>
                                 <div class="my-4 d-flex justify-content-center align-items-center copyright-text">
-                                    <p>Copyright &copy; 2023 {{config('app.name')}}. All rights reserved</p>
+                                    <p>&copy; <script>
+                                        document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+                                    </script> {{config('app.name')}}. All rights reserved. Powered by <a href="https://mcomps.co.ke"><b>Mcomps</b></a></p>
                                 </div>
                             </div>
                         </div>
