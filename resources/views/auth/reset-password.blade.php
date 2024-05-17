@@ -1,4 +1,7 @@
 <x-guest-layout>
+    @section('title')
+        Reset Password
+    @endsection
     <div class="main-wrapper">
         <div class="account-content">
             <div class="login-wrapper reset-pass-wrap bg-img">
@@ -23,7 +26,7 @@
                                 <div class="pass-group">
                                     <input type="email" name="email" class="pass-input" placeholder="example@domain.com"
                                         :value="old('email', $request->email)">
-                                    <img src="{{asset('assets/img/icons/mail.svg')}}" alt="img">
+                                        <span class="fas toggle-passworda fa-envelope"></span>
                                 </div>
                             </div>
                             <div class="form-login">
