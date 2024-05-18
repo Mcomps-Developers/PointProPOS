@@ -3,41 +3,18 @@
         <div class="sidebar-inner slimscroll">
             <div id="sidebar-menu" class="sidebar-menu">
                 <ul>
+                    @if (Auth::user()->utype==='adm')
                     <li class="submenu-open">
-                        <h6 class="submenu-hdr">Main</h6>
                         <ul>
                             <li class="submenu">
-                                <a href="javascript:void(0);" class="subdrop active"><i
-                                        data-feather="grid"></i><span>Dashboard</span><span
-                                        class="menu-arrow"></span></a>
-                                <ul>
-                                    <li><a href="{{route('user.dashboard')}}" class="active">Dashboard</a></li>
-                                    <li><a href="sales-dashboard.html">Sales Dashboard</a></li>
-                                </ul>
+                                <a href="{{route('user.dashboard')}}" class="active"><i
+                                        data-feather="grid"></i><span>Dashboard</span></a>
                             </li>
-                            <li class="submenu">
-                                <a href="javascript:void(0);"><i
-                                        data-feather="smartphone"></i><span>Application</span><span
-                                        class="menu-arrow"></span></a>
-                                <ul>
-                                    <li><a href="chat.html">Chat</a></li>
-                                    <li class="submenu submenu-two"><a href="javascript:void(0);">Call<span
-                                                class="menu-arrow inside-submenu"></span></a>
-                                        <ul>
-                                            <li><a href="video-call.html">Video Call</a></li>
-                                            <li><a href="audio-call.html">Audio Call</a></li>
-                                            <li><a href="call-history.html">Call History</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="calendar.html">Calendar</a></li>
-                                    <li><a href="email.html">Email</a></li>
-                                    <li><a href="todo.html">To Do</a></li>
-                                    <li><a href="notes.html">Notes</a></li>
-                                    <li><a href="file-manager.html">File Manager</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="{{route('admin.industries')}}"><i
+                                        data-feather="codepen"></i><span>Industries</span></a>
                         </ul>
                     </li>
+                    @else
                     <li class="submenu-open">
                         <h6 class="submenu-hdr">Inventory</h6>
                         <ul>
@@ -279,37 +256,7 @@
                             </li>
                         </ul>
                     </li>
-
-                    <li class="submenu-open">
-                        <h6 class="submenu-hdr">Help</h6>
-                        <ul>
-                            <li><a href="javascript:void(0);"><i
-                                        data-feather="file-text"></i><span>Documentation</span></a></li>
-                            <li><a href="javascript:void(0);"><i data-feather="lock"></i><span>Changelog
-                                        v2.0.7</span></a></li>
-                            <li class="submenu">
-                                <a href="javascript:void(0);"><i data-feather="file-minus"></i><span>Multi
-                                        Level</span><span class="menu-arrow"></span></a>
-                                <ul>
-                                    <li><a href="javascript:void(0);">Level 1.1</a></li>
-                                    <li class="submenu submenu-two"><a href="javascript:void(0);">Level 1.2<span
-                                                class="menu-arrow inside-submenu"></span></a>
-                                        <ul>
-                                            <li><a href="javascript:void(0);">Level 2.1</a></li>
-                                            <li class="submenu submenu-two submenu-three"><a
-                                                    href="javascript:void(0);">Level 2.2<span
-                                                        class="menu-arrow inside-submenu inside-submenu-two"></span></a>
-                                                <ul>
-                                                    <li><a href="javascript:void(0);">Level 3.1</a></li>
-                                                    <li><a href="javascript:void(0);">Level 3.2</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
+                    @endif
                 </ul>
             </div>
         </div>
