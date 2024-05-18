@@ -408,14 +408,3 @@
 
     </div>
 </div>
-<script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('assets/js/dataTables.bootstrap5.min.js')}}"></script>
-
-<script src="{{asset('assets/js/moment.min.js')}}"></script>
-<script src="{{asset('assets/js/bootstrap-datetimepicker.min.js')}}"></script>
-
-<script src="{{asset('assets/plugins/summernote/summernote-bs4.min.js')}}"></script>
-
-<script src="{{asset('assets/plugins/intltelinput/js/intlTelInput.js')}}"></script>
-
-<script src="{{asset('assets/plugins/select2/js/select2.min.js')}}"></script>
