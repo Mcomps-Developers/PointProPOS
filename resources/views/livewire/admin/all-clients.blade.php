@@ -43,8 +43,7 @@
                                     <div class="modal-body custom-modal-body">
                                         <form action="warehouse.html">
                                             <div class="modal-title-head">
-                                                <h6><span><i data-feather="info" class="feather-edit"></i></span>Company
-                                                    Info</h6>
+                                                <h6><span><i data-feather="info" class="feather-edit"></i></span>Contact Person</h6>
                                             </div>
                                             <div class="row">
                                                 <div class="col-lg-6">
