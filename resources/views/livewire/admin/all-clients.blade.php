@@ -82,13 +82,13 @@
                                                         <input type="text" class="form-control">
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-12">
+                                                <div class="col-lg-6">
                                                     <div class="mb-3">
                                                         <label class="form-label">Business Phone</label>
                                                         <input type="tel" class="form-control">
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-12">
+                                                <div class="col-lg-6">
                                                     <div class="mb-3">
                                                         <label class="form-label">KRA PIN Number</label>
                                                         <input type="text" class="form-control">
@@ -97,12 +97,6 @@
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
                                                         <label class="form-label">Address</label>
-                                                        <input type="text" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="mb-3 mb-0">
-                                                        <label class="form-label">Zipcode</label>
                                                         <input type="text" class="form-control">
                                                     </div>
                                                 </div>
