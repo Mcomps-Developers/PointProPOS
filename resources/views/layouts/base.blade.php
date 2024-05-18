@@ -21,6 +21,13 @@
     <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/all.min.css')}}">
 
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+
+    <link rel="stylesheet" href="{{asset('assets/plugins/summernote/summernote-bs4.min.css')}}">
+
+    <link rel="stylesheet" href="{{asset('assets/plugins/intltelinput/css/intlTelInput.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/plugins/intltelinput/css/demo.css')}}">
+
+    <link rel="stylesheet" href="{{asset('assets/css/dataTables.bootstrap5.min.css')}}">
     @livewireStyles
 </head>
 
