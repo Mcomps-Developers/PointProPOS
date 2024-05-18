@@ -173,7 +173,7 @@
                         </button>
                     </div>
                     <div class="modal-body custom-modal-body">
-                        <form wire:subnit.prevent='addIndustry'>
+                        <form wire:submit.prevent='addIndustry'>
                             <div class="mb-3">
                                 <label class="form-label">Industry</label>
                                 <input type="text" class="form-control" wire:model.live='name'>
