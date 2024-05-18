@@ -158,7 +158,7 @@
     </div>
 </div>
 
-
+{{-- Create --}}
 <div class="modal fade" id="add-category" wire:ignore.self>
     <div class="modal-dialog modal-dialog-centered custom-modal-two">
         <div class="modal-content">
@@ -166,7 +166,7 @@
                 <div class="content">
                     <div class="modal-header border-0 custom-modal-header">
                         <div class="page-title">
-                            <h4>Create Category</h4>
+                            <h4>Create Industry</h4>
                         </div>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -185,7 +185,7 @@
                                 <button type="button" class="btn btn-cancel me-2"
                                     data-bs-dismiss="modal">Cancel</button>
                                 <button type="submit" class="btn btn-submit" wire:target='addIndustry'
-                                    wire:loading.remove>Create Industry</button>
+                                    wire:loading.remove wire:click.prevent='addIndustry'>Create Industry</button>
                                 <button class="btn btn-warning-light" type="button" disabled wire:target='addIndustry'
                                     wire:loading>
                                     <span class="spinner-grow spinner-grow-sm align-middle" role="status"
@@ -201,7 +201,7 @@
     </div>
 </div>
 
-
+{{-- Edit --}}
 <div class="modal fade" id="edit-category">
     <div class="modal-dialog modal-dialog-centered custom-modal-two">
         <div class="modal-content">
