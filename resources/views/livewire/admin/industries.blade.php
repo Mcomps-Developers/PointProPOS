@@ -124,6 +124,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($collection as $item)
                                 <tr>
                                     <td>
                                         <label class="checkboxs">
@@ -131,9 +132,8 @@
                                             <span class="checkmarks"></span>
                                         </label>
                                     </td>
-                                    <td>Laptop</td>
-                                    <td>laptop</td>
-                                    <td>25 May 2023</td>
+                                    <td>{{$item->industry}}</td>
+                                    <td>{{date('d M Y',strtotime($item->created_at))}}</td>
                                     <td><span class="badge badge-linesuccess">Active</span></td>
                                     <td class="action-table-data">
                                         <div class="edit-delete-action">
@@ -147,167 +147,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>Electronics</td>
-                                    <td>electronics</td>
-                                    <td>24 Jun 2023</td>
-                                    <td><span class="badge badge-linesuccess">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-category">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a class="confirm-text p-2" href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>Shoe</td>
-                                    <td>shoe</td>
-                                    <td>23 Jul 2023</td>
-                                    <td><span class="badge badge-linesuccess">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-category">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a class="confirm-text p-2" href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>Speaker</td>
-                                    <td>speaker</td>
-                                    <td>22 Aug 2023</td>
-                                    <td><span class="badge badge-linesuccess">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-category">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a class="confirm-text p-2" href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>Furniture</td>
-                                    <td>furniture</td>
-                                    <td>21 Sep 2023</td>
-                                    <td><span class="badge badge-linesuccess">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-category">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a class="confirm-text p-2" href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>Bags</td>
-                                    <td>bags</td>
-                                    <td>20 Sep 2023</td>
-                                    <td><span class="badge badge-linesuccess">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-category">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a class="confirm-text p-2" href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>Phone</td>
-                                    <td>phone</td>
-                                    <td>20 Sep 2023</td>
-                                    <td><span class="badge badge-linesuccess">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-category">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a class="confirm-text p-2" href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>Chairs</td>
-                                    <td>chairs</td>
-                                    <td>20 Sep 2023</td>
-                                    <td><span class="badge badge-linesuccess">Active</span></td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#edit-category">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a class="confirm-text p-2" href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -319,7 +159,7 @@
 </div>
 
 
-<div class="modal fade" id="add-category">
+<div class="modal fade" id="add-category" wire:ignore.self>
     <div class="modal-dialog modal-dialog-centered custom-modal-two">
         <div class="modal-content">
             <div class="page-wrapper-new p-0">
@@ -333,27 +173,25 @@
                         </button>
                     </div>
                     <div class="modal-body custom-modal-body">
-                        <form action="">
+                        <form wire:subnit.prevent='addIndustry'>
                             <div class="mb-3">
                                 <label class="form-label">Industry</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Category Slug</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="mb-0">
-                                <div
-                                    class="status-toggle modal-status d-flex justify-content-between align-items-center">
-                                    <span class="status-label">Status</span>
-                                    <input type="checkbox" id="user2" class="check" checked>
-                                    <label for="user2" class="checktoggle"></label>
-                                </div>
+                                <input type="text" class="form-control" wire:model.live='name'>
+                                @error('name')
+                                <p class="text-danger">{{$message}}</p>
+                                @enderror
                             </div>
                             <div class="modal-footer-btn">
                                 <button type="button" class="btn btn-cancel me-2"
                                     data-bs-dismiss="modal">Cancel</button>
-                                <button type="submit" class="btn btn-submit">Create Category</button>
+                                <button type="submit" class="btn btn-submit" wire:target='addIndustry'
+                                    wire:loading.remove>Create Industry</button>
+                                <button class="btn btn-warning-light" type="button" disabled wire:target='addIndustry'
+                                    wire:loading>
+                                    <span class="spinner-grow spinner-grow-sm align-middle" role="status"
+                                        aria-hidden="true"></span>
+                                    Loading...
+                                </button>
                             </div>
                         </form>
                     </div>
