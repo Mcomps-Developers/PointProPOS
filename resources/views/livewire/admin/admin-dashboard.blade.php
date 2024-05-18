@@ -10,7 +10,7 @@
                         <span><img src="{{asset('assets/img/icons/dash1.svg')}}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>$<span class="counters" data-count="307144.00">$307,144.00</span></h5>
+                        <h5>Ksh <span class="counters" data-count="307144.00">Ksh 307,144.00</span></h5>
                         <h6>Total Purchase Due</h6>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                         <span><img src="{{asset('assets/img/icons/dash2.svg')}}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>$<span class="counters" data-count="4385.00">$4,385.00</span></h5>
+                        <h5>Ksh <span class="counters" data-count="4385.00">Ksh 4,385.00</span></h5>
                         <h6>Total Sales Due</h6>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                         <span><img src="{{asset('assets/img/icons/dash3.svg')}}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>$<span class="counters" data-count="385656.50">$385,656.50</span></h5>
+                        <h5>Ksh <span class="counters" data-count="385656.50">Ksh 385,656.50</span></h5>
                         <h6>Total Sale Amount</h6>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                         <span><img src="{{asset('assets/img/icons/dash4.svg')}}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>$<span class="counters" data-count="40000.00">$400.00</span></h5>
+                        <h5>Ksh <span class="counters" data-count="40000.00">Ksh 400.00</span></h5>
                         <h6>Total Expense Amount</h6>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
             <div class="col-xl-5 col-sm-12 col-12 d-flex">
                 <div class="card flex-fill default-cover mb-4">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h4 class="card-title mb-0">Recent Products</h4>
+                        <h4 class="card-title mb-0">Recent Transactions</h4>
                         <div class="view-all-link">
                             <a href="javascript:void(0);" class="view-all d-flex align-items-center">
                                 View All<span class="ps-2 d-flex align-items-center"><i data-feather="arrow-right"
@@ -149,8 +149,9 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Products</th>
-                                        <th>Price</th>
+                                        <th>Client</th>
+                                        <th>Amount</th>
+                                        <th>Date</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -163,7 +164,8 @@
                                             </a>
                                             <a href="product-list.html">Lenevo 3rd Generation</a>
                                         </td>
-                                        <td>$12500</td>
+                                        <td>Ksh 12500</td>
+                                        <td>29 Mar 2023</td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
@@ -174,7 +176,8 @@
                                             </a>
                                             <a href="product-list.html">Bold V3.2</a>
                                         </td>
-                                        <td>$1600</td>
+                                        <td>Ksh 1600</td>
+                                        <td>29 Mar 2023</td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
@@ -185,7 +188,8 @@
                                             </a>
                                             <a href="product-list.html">Nike Jordan</a>
                                         </td>
-                                        <td>$2000</td>
+                                        <td>Ksh 2000</td>
+                                        <td>29 Mar 2023</td>
                                     </tr>
                                     <tr>
                                         <td>4</td>
@@ -196,7 +200,8 @@
                                             </a>
                                             <a href="product-list.html">Apple Series 5 Watch</a>
                                         </td>
-                                        <td>$800</td>
+                                        <td>Ksh 800</td>
+                                        <td>29 Mar 2023</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -207,7 +212,7 @@
         </div>
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Expired Products</h4>
+                <h4 class="card-title">Our Clients</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive dataview">
@@ -220,10 +225,10 @@
                                         <span class="checkmarks"></span>
                                     </label>
                                 </th>
-                                <th>Product</th>
-                                <th>SKU</th>
-                                <th>Manufactured Date</th>
-                                <th>Expired Date</th>
+                                <th>Client</th>
+                                <th>Code</th>
+                                <th>Join Date</th>
+                                <th>Renewal Date</th>
                                 <th class="no-sort">Action</th>
                             </tr>
                         </thead>
