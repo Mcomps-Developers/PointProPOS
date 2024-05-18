@@ -245,10 +245,6 @@
                 </div>
             </div>
         </li>
-
-        <li class="nav-item nav-item-box">
-            <a href="general-settings.html"><i data-feather="settings"></i></a>
-        </li>
         <li class="nav-item dropdown has-arrow main-drop">
             <a href="javascript:void(0);" class="dropdown-toggle nav-link userset" data-bs-toggle="dropdown">
                 <span class="user-info">
@@ -274,8 +270,6 @@
                     <hr class="m-0">
                     <a class="dropdown-item" href="profile.html"> <i class="me-2" data-feather="user"></i> My
                         Profile</a>
-                    <a class="dropdown-item" href="general-settings.html"><i class="me-2"
-                            data-feather="settings"></i>Settings</a>
                     <hr class="m-0">
                     <a class="dropdown-item logout pb-0" href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit()"><img
