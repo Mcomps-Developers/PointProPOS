@@ -268,7 +268,8 @@
                         </div>
                     </div>
                     <hr class="m-0">
-                    <a class="dropdown-item" href="profile.html"> <i class="me-2" data-feather="user"></i> My
+                    <a class="dropdown-item" href="{{route('user.profile')}}"> <i class="me-2" data-feather="user"></i>
+                        My
                         Profile</a>
                     <hr class="m-0">
                     <a class="dropdown-item logout pb-0" href="{{ route('logout') }}"
@@ -287,7 +288,7 @@
         <a href="javascript:void(0);" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
             aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
         <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item" href="profile.html">My Profile</a>
+            <a class="dropdown-item" href="{{route('user.profile')}}">My Profile</a>
             <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Logout</a>
             <form id="logout-form" method="POST" action="{{ route('logout') }}">
