@@ -1,13 +1,13 @@
 <div class="header">
 
     <div class="header-left active">
-        <a href="/" class="logo logo-normal">
+        <a href="{{route('user.dashboard')}}" class="logo logo-normal">
             <img src="{{asset('assets/img/logo.png')}}" style="transform: scale(1.2);">
         </a>
-        <a href="/" class="logo logo-white">
+        <a href="{{route('user.dashboard')}}" class="logo logo-white">
             <img src="{{asset('assets/img/logo-white.png')}}" style="transform: scale(1.2);">
         </a>
-        <a href="/" class="logo-small">
+        <a href="{{route('user.dashboard')}}" class="logo-small">
             <img src="{{asset('assets/img/logo-small.png')}}" style="transform: scale(1.2);">
         </a>
         <a id="toggle_btn" href="javascript:void(0);">
@@ -294,7 +294,6 @@
             aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
         <div class="dropdown-menu dropdown-menu-right">
             <a class="dropdown-item" href="profile.html">My Profile</a>
-            <a class="dropdown-item" href="general-settings.html">Settings</a>
             <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Logout</a>
             <form id="logout-form" method="POST" action="{{ route('logout') }}">

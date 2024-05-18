@@ -12,7 +12,7 @@
                                 <img src="{{asset('assets/img/logo.png')}}" style="transform: scale(2);">
                             </div>
                         </div>
-                        <a href="/" class="login-logo logo-white">
+                        <a href="#!" class="login-logo logo-white">
                             <img src="{{asset('assets/img/logo-white.png')}}" style="transform: scale(2);">
                         </a>
                         <div class="login-userheading text-center">
