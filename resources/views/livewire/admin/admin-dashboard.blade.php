@@ -214,7 +214,7 @@
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h4 class="card-title">Our Clients</h4>
                 <div class="page-btn">
-                    <a href="{{route('admin.clients')}}" class="btn btn-primary"><i data-feather="plus-circle"
+                    <a href="{{route('admin.clients')}}" class="btn btn-primary"><i data-feather="menu"
                             class="me-2"></i>All Clients</a>
                 </div>
             </div>
