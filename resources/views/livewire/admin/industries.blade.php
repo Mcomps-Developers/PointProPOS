@@ -117,7 +117,6 @@
                                         </label>
                                     </th>
                                     <th>Industry</th>
-                                    <th>Category slug</th>
                                     <th>Created On</th>
                                     <th>Status</th>
                                     <th class="no-sort">Action</th>
@@ -173,7 +172,7 @@
                         </button>
                     </div>
                     <div class="modal-body custom-modal-body">
-                        <form wire:submit.prevent="addIndustry">
+                        <form wire:submit="addIndustry">
                             <div class="mb-3">
                                 <label class="form-label">Industry</label>
                                 <input type="text" class="form-control" wire:model.live="name">
@@ -185,7 +184,7 @@
                                 <button type="button" class="btn btn-cancel me-2"
                                     data-bs-dismiss="modal">Cancel</button>
                                 <button type="submit" class="btn btn-submit" wire:target="addIndustry"
-                                    wire:loading.remove wire:click.prevent="addIndustry">Create Industry</button>
+                                    wire:loading.remove>Create Industry</button>
                                 <button class="btn btn-warning-light" type="button" disabled wire:target="addIndustry"
                                     wire:loading>
                                     <span class="spinner-grow spinner-grow-sm align-middle" role="status"
