@@ -253,7 +253,17 @@
                     </span>
                     <span class="user-detail">
                         <span class="user-name">{{Auth::user()->name}}</span>
-                        <span class="user-role">Super Admin</span>
+                        <span class="user-role">@if (Auth::user()->utype === 'adm')
+                            Super Admin
+                            @elseif (Auth::user()->utype === 'man')
+                            Admin
+                            @elseif (Auth::user()->utype === 'csr')
+                            Cashier
+                            @elseif (Auth::user()->utype === 'agt')
+                            Agent
+                            @else
+                            Faker
+                            @endif</span>
                     </span>
                 </span>
             </a>
@@ -264,7 +274,17 @@
                             <span class="status online"></span></span>
                         <div class="profilesets">
                             <h6>{{Auth::user()->name}}</h6>
-                            <h5>Super Admin</h5>
+                            <h5>@if (Auth::user()->utype === 'adm')
+                                Super Admin
+                                @elseif (Auth::user()->utype === 'man')
+                                Admin
+                                @elseif (Auth::user()->utype === 'csr')
+                                Cashier
+                                @elseif (Auth::user()->utype === 'agt')
+                                Agent
+                                @else
+                                Faker
+                                @endif</h5>
                         </div>
                     </div>
                     <hr class="m-0">
