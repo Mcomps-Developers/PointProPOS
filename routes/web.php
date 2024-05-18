@@ -3,6 +3,7 @@
 use App\Http\Controllers\GoogleController;
 use App\Http\Middleware\AuthAdmin;
 use App\Livewire\Admin\AdminDashboard;
+use App\Livewire\Admin\AllClients;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
@@ -39,6 +40,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware(['auth', 'verified', AuthAdmin::class])->group(function () {
     Route::get('/', AdminDashboard::class)->name('admin.dashboard');
+    Route::get('/clients',AllClients::class)->name('admin.clients');
 });
 
 // Email Verification Routes

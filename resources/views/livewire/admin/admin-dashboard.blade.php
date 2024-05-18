@@ -213,6 +213,10 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">Our Clients</h4>
+                <div class="page-btn">
+                    <a href="{{route('admin.clients')}}" class="btn btn-added"><i data-feather="plus-circle"
+                            class="me-2"></i>All Clients</a>
+                </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive dataview">
