@@ -40,11 +40,6 @@
                         <div class="modal-content">
                             <div class="page-wrapper-new p-0">
                                 <div class="content">
-                                    <div class="modal-header border-0 custom-modal-header">
-                                        <div class="page-title">
-                                            <h4>New Client</h4>
-                                        </div>
-                                    </div>
                                     <div class="modal-body custom-modal-body">
                                         <form action="warehouse.html">
                                             <div class="modal-title-head">
