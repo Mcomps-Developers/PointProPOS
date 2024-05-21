@@ -41,7 +41,7 @@
                             <div class="page-wrapper-new p-0">
                                 <div class="content">
                                     <div class="modal-body custom-modal-body">
-                                        <form action="warehouse.html">
+                                        <form wire:submit='newClient'>
                                             <div class="modal-title-head">
                                                 <h6><span><i data-feather="info" class="feather-edit"></i></span>Contact
                                                     Person</h6>
@@ -151,10 +151,10 @@
                                             <div class="modal-footer-btn">
                                                 <button type="button" class="btn btn-cancel me-2"
                                                     data-bs-dismiss="modal">Cancel</button>
-                                                <button type="submit" class="btn btn-submit" wire:target="addIndustry"
+                                                <button type="submit" class="btn btn-submit" wire:target="newClient"
                                                     wire:loading.remove>Create Client</button>
                                                 <button class="btn btn-warning-light" type="button" disabled
-                                                    wire:target="addIndustry" wire:loading>
+                                                    wire:target="newClient" wire:loading>
                                                     <span class="spinner-grow spinner-grow-sm align-middle"
                                                         role="status" aria-hidden="true"></span>
                                                     Creating...
