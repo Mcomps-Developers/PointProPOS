@@ -13,10 +13,6 @@
                 <div class="modal-body custom-modal-body">
                     <form wire:submit='saveChanges'>
                         <div class="mb-3">
-                            <label class="form-label">Industry</label>
-                            <input type="text" class="form-control" value="Laptop">
-                        </div>
-                        <div class="mb-3">
                             <label class="form-label">Industry Name</label>
                             <input type="text" class="form-control" wire:model='name' value="{{$name}}">
                             @error('name')

@@ -26,7 +26,7 @@ class EditIndustry extends Component
         $this->validateOnly($fields);
     }
 
-    public function addIndustry()
+    public function saveChanges()
     {
         $this->validate();
 
