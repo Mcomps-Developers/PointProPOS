@@ -119,7 +119,7 @@ class AllClients extends Component
             $company->renewal_date = Carbon::now()->addMonthNoOverflow();
             $company->save();
             $this->reset();
-            $user = new NewCompanyNotification($user, $company, $this->userPassword);
+            $user->notify(new NewCompanyNotification($user, $company, $this->userPassword));
             notyf()->position('y', 'top')->success('Client created');
             return redirect()->to(request()->header('referer'));
         } catch (\Illuminate\Database\QueryException $ex) {
