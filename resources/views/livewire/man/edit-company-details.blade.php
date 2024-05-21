@@ -132,12 +132,6 @@
                                             <input type="text" class="form-control" wire:model='phone'>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <label class="form-label">Website</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                             <div class="company-info company-images">
@@ -164,10 +158,12 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        @if ($company->logo)
                                         <div class="new-logo ms-auto">
-                                            <a href="#"><img src="{{asset('assets/img/logo-small.png')}}"
+                                            <a href="#"><img src="{{asset('assets/img/clients')}}/{{$company->logo}}"
                                                     alt="Logo"><span><i data-feather="x"></i></span></a>
                                         </div>
+                                        @endif
                                     </li>
                                 </ul>
                             </div>
@@ -179,31 +175,7 @@
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <label class="form-label">Address</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-3">
-                                        <div class="mb-3">
-                                            <label class="form-label">Country</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-3">
-                                        <div class="mb-3">
-                                            <label class="form-label">State / Province</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-3">
-                                        <div class="mb-3">
-                                            <label class="form-label">City</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-3">
-                                        <div class="mb-3">
-                                            <label class="form-label">Postal Code</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" wire:model='address'>
                                         </div>
                                     </div>
                                 </div>
