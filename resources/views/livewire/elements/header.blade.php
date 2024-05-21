@@ -58,8 +58,7 @@
                             <ul class="customers">
                                 <li>
                                     <a href="javascript:void(0);">Aron Varu<img
-                                            src="{{asset('assets/img/profiles/avator1.jpg')}}" alt
-                                            class="img-fluid"></a>
+                                            src="{{Auth::user()->profile_photo_url}}" alt class="img-fluid"></a>
                                 </li>
                                 <li>
                                     <a href="javascript:void(0);">Jonita<img
@@ -78,7 +77,7 @@
             </div>
         </li>
 
-
+        @if (Auth::user()->utype === 'man')
         <li class="nav-item dropdown has-arrow main-drop select-store-dropdown">
             <a href="javascript:void(0);" class="dropdown-toggle nav-link select-store" data-bs-toggle="dropdown">
                 <span class="user-info">
@@ -109,7 +108,7 @@
                 </a>
             </div>
         </li>
-
+        @endif
 
         <li class="nav-item dropdown has-arrow flag-nav nav-item-box">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="javascript:void(0);" role="button">
@@ -249,7 +248,7 @@
             <a href="javascript:void(0);" class="dropdown-toggle nav-link userset" data-bs-toggle="dropdown">
                 <span class="user-info">
                     <span class="user-letter">
-                        <img src="{{asset('assets/img/profiles/avator1.jpg')}}" alt class="img-fluid">
+                        <img src="{{Auth::user()->profile_photo_url}}" alt class="img-fluid">
                     </span>
                     <span class="user-detail">
                         <span class="user-name">{{Auth::user()->name}}</span>
@@ -270,7 +269,7 @@
             <div class="dropdown-menu menu-drop-user">
                 <div class="profilename">
                     <div class="profileset">
-                        <span class="user-img"><img src="{{asset('assets/img/profiles/avator1.jpg')}}" alt>
+                        <span class="user-img"><img src="{{Auth::user()->profile_photo_url}}" alt>
                             <span class="status online"></span></span>
                         <div class="profilesets">
                             <h6>{{Auth::user()->name}}</h6>

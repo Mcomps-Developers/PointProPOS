@@ -10,7 +10,7 @@
                         <span><img src="{{asset('assets/img/icons/dash1.svg')}}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>$<span class="counters" data-count="307144.00">$307,144.00</span></h5>
+                        <h5>Ksh <span class="counters" data-count="307144.00">Ksh 307,144.00</span></h5>
                         <h6>Total Purchase Due</h6>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                         <span><img src="{{asset('assets/img/icons/dash2.svg')}}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>$<span class="counters" data-count="4385.00">$4,385.00</span></h5>
+                        <h5>Ksh <span class="counters" data-count="4385.00">Ksh 4,385.00</span></h5>
                         <h6>Total Sales Due</h6>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                         <span><img src="{{asset('assets/img/icons/dash3.svg')}}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>$<span class="counters" data-count="385656.50">$385,656.50</span></h5>
+                        <h5>Ksh <span class="counters" data-count="385656.50">Ksh 385,656.50</span></h5>
                         <h6>Total Sale Amount</h6>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                         <span><img src="{{asset('assets/img/icons/dash4.svg')}}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>$<span class="counters" data-count="40000.00">$400.00</span></h5>
+                        <h5>Ksh <span class="counters" data-count="40000.00">Ksh 400.00</span></h5>
                         <h6>Total Expense Amount</h6>
                     </div>
                 </div>
@@ -163,7 +163,7 @@
                                             </a>
                                             <a href="javascript:void(0);">Lenevo 3rd Generation</a>
                                         </td>
-                                        <td>$12500</td>
+                                        <td>Ksh 12500</td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
@@ -174,7 +174,7 @@
                                             </a>
                                             <a href="javascript:void(0);">Bold V3.2</a>
                                         </td>
-                                        <td>$1600</td>
+                                        <td>Ksh 1600</td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
@@ -185,7 +185,7 @@
                                             </a>
                                             <a href="javascript:void(0);">Nike Jordan</a>
                                         </td>
-                                        <td>$2000</td>
+                                        <td>Ksh 2000</td>
                                     </tr>
                                     <tr>
                                         <td>4</td>
@@ -196,7 +196,7 @@
                                             </a>
                                             <a href="javascript:void(0);">Apple Series 5 Watch</a>
                                         </td>
-                                        <td>$800</td>
+                                        <td>Ksh 800</td>
                                     </tr>
                                 </tbody>
                             </table>
