@@ -258,7 +258,7 @@
                                         <a href="javascript:void(0);">{{$item->name}} </a>
                                     </div>
                                 </td>
-                                <td><a href="javascript:void(0);">{{$item->reference}}</a></td>
+                                <td style="text-transform: uppercase"><a href="javascript:void(0);"><b>{{$item->reference}}</b></a></td>
                                 <td>{{(date('d M Y',strtotime($item->created_at)))}}</td>
                                 <td>Ksh {{$item->renewal_fee}}</td>
                                 <td class="action-table-data">
