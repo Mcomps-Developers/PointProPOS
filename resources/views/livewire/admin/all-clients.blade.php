@@ -386,7 +386,13 @@
                                     <span class="badge badge-linedanger">Expired</span>
                                     @endif
                                 </td>
-                                <td><span class="badge badge-linesuccess">Active</span></td>
+                                <td>
+                                    @if ($item->status==='actives')
+                                    <span class="badge badge-lineprimary">Active</span>
+                                    @else
+                                    <span class="badge badge-linedanger">Inactive</span>
+                                    @endif
+                                </td>
                                 <td class="action-table-data">
                                     <div class="edit-delete-action">
                                         <a class="me-2 edit-icon p-2" href="#" data-bs-toggle="modal"
