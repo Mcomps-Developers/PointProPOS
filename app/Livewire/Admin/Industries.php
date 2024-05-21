@@ -27,23 +27,21 @@ class Industries extends Component
             $industry = new Industry();
             $industry->industry = $this->name; // Corrected the typo in property name
             $industry->save();
+            $this->reset();
 
             notyf()->position('y', 'top')->success('Industry created');
-            return redirect()->refresh();
         } catch (\Illuminate\Database\QueryException $ex) {
             // Log the database exception
             Log::error('Database error: ' . $ex->getMessage() . ' in ' . $ex->getFile() . ' on line ' . $ex->getLine());
 
             // Notify user about the error
             notyf()->position('y', 'top')->error('Database error occurred. Please try again later.');
-            return redirect()->refresh();
         } catch (\Exception $ex) {
             // Log other exceptions
             Log::error('Error: ' . $ex->getMessage() . ' in ' . $ex->getFile() . ' on line ' . $ex->getLine());
 
             // Notify user about the error
             notyf()->position('y', 'top')->error('An unexpected error occurred. Please try again later.');
-            return redirect()->refresh();
         }
     }
     public function render()
