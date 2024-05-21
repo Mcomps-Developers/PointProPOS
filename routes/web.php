@@ -43,7 +43,7 @@ Route::get('/dashboard', function () {
 Route::prefix('/admin')->middleware(['auth', 'verified', AuthAdmin::class])->group(function () {
     Route::get('/dashboard', AdminDashboard::class)->name('admin.dashboard');
     Route::get('/clients', AllClients::class)->name('admin.clients');
-    Route::get('/industries',Industries::class)->name('admin.industries');
+    Route::get('/industries', Industries::class)->name('admin.industries');
 });
 
 Route::prefix('/my')->middleware(['auth', 'verified'])->group(function () {

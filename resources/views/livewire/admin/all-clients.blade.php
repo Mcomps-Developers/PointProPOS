@@ -43,25 +43,37 @@
                                     <div class="modal-body custom-modal-body">
                                         <form action="warehouse.html">
                                             <div class="modal-title-head">
-                                                <h6><span><i data-feather="info" class="feather-edit"></i></span>Contact Person</h6>
+                                                <h6><span><i data-feather="info" class="feather-edit"></i></span>Contact
+                                                    Person</h6>
                                             </div>
                                             <div class="row">
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
                                                         <label class="form-label">Name</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" class="form-control" wire:model.live='name'>
+                                                        @error('name')
+                                                        <p class="text-danger">{{$message}}</p>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
                                                         <label class="form-label">Email</label>
-                                                        <input type="email" class="form-control">
+                                                        <input type="email" class="form-control"
+                                                            wire:model.live='email'>
+                                                        @error('email')
+                                                        <p class="text-danger">{{$message}}</p>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12">
                                                     <div class="mb-3 war-add">
                                                         <label class="mb-2">Phone Number</label>
-                                                        <input class="form-control" id="phone" name="phone" type="text">
+                                                        <input class="form-control" id="phone" name="phone" type="tel"
+                                                            wire:model.live='phone_number'>
+                                                        @error('phone_number')
+                                                        <p class="text-danger">{{$message}}</p>
+                                                        @enderror
                                                     </div>
                                                 </div>
 
@@ -73,32 +85,80 @@
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
                                                         <label class="form-label">Business Name</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" class="form-control"
+                                                            wire:model.live='business_name'>
+                                                        @error('business_name')
+                                                        <p class="text-danger">{{$message}}</p>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Business Email</label>
+                                                        <input type="tel" class="form-control"
+                                                            wire:model.live='business_email'>
+                                                        @error('business_email')
+                                                        <p class="text-danger">{{$message}}</p>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
                                                         <label class="form-label">Business Phone</label>
-                                                        <input type="tel" class="form-control">
+                                                        <input type="tel" class="form-control"
+                                                            wire:model.live='business_phone_number'>
+                                                        @error('business_phone_number')
+                                                        <p class="text-danger">{{$message}}</p>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
                                                         <label class="form-label">KRA PIN Number</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" class="form-control"
+                                                            wire:model.live='kra_pin_number'>
+                                                        @error('kra_pin_number')
+                                                        <p class="text-danger">{{$message}}</p>
+                                                        @enderror
                                                     </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="mb-3 war-add">
+                                                        <label class="mb-2">Industry</label>
+                                                        <select name="" id="" class="form-control"
+                                                            wire:model.live='industry'>
+                                                            <option>--</option>
+                                                            @foreach ($collection as $item)
+                                                            <option value="{{$item->id}}">{{$item->industry}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    @error('industry')
+                                                    <p class="text-danger">{{$message}}</p>
+                                                    @enderror
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
                                                         <label class="form-label">Address</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" class="form-control"
+                                                            wire:model.live='address'>
+                                                        @error('address')
+                                                        <p class="text-danger">{{$message}}</p>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="modal-footer-btn">
                                                 <button type="button" class="btn btn-cancel me-2"
                                                     data-bs-dismiss="modal">Cancel</button>
-                                                <button type="submit" class="btn btn-submit">Create Client</button>
+                                                <button type="submit" class="btn btn-submit" wire:target="addIndustry"
+                                                    wire:loading.remove>Create Client</button>
+                                                <button class="btn btn-warning-light" type="button" disabled
+                                                    wire:target="addIndustry" wire:loading>
+                                                    <span class="spinner-grow spinner-grow-sm align-middle"
+                                                        role="status" aria-hidden="true"></span>
+                                                    Creating...
+                                                </button>
                                             </div>
                                         </form>
                                     </div>

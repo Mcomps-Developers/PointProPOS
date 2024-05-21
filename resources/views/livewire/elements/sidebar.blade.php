@@ -10,6 +10,7 @@
                                 <a href="{{route('user.dashboard')}}" class="active"><i
                                         data-feather="grid"></i><span>Dashboard</span></a>
                             </li>
+                            <li><a href="{{route('admin.clients')}}"><i data-feather="menu"></i><span>Clients</span></a>
                             <li><a href="{{route('admin.industries')}}"><i
                                         data-feather="codepen"></i><span>Industries</span></a>
                         </ul>
