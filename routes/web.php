@@ -2,14 +2,26 @@
 
 use App\Http\Controllers\GoogleController;
 use App\Http\Middleware\AuthAdmin;
+use App\Http\Middleware\AuthManager;
 use App\Livewire\Admin\AdminDashboard;
 use App\Livewire\Admin\AllClients;
 use App\Livewire\Admin\Industries;
+use App\Livewire\Man\ManagerDashboard;
 use App\Livewire\User\MyProfile;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
+
+
+
+
+
+
+
+
+
 
 // Manage Redirect
 Route::get('/dashboard', function () {
@@ -21,9 +33,9 @@ Route::get('/dashboard', function () {
                 // case 'byr':
                 //     return redirect()->route('buyer.dashboard');
                 //     break;
-                // case 'slr':
-                //     return redirect()->route('expert.dashboard');
-                //     break;
+                case 'man':
+                    return redirect()->route('manager.dashboard');
+                    break;
             case 'adm':
                 return redirect()->route('admin.dashboard');
                 break;
@@ -40,15 +52,71 @@ Route::get('/dashboard', function () {
 })->name('user.dashboard');
 
 
+
+
+
+
+
+
+
+
+
+
+
+// Admin
 Route::prefix('/admin')->middleware(['auth', 'verified', AuthAdmin::class])->group(function () {
     Route::get('/dashboard', AdminDashboard::class)->name('admin.dashboard');
     Route::get('/clients', AllClients::class)->name('admin.clients');
     Route::get('/industries', Industries::class)->name('admin.industries');
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Client
+Route::prefix('/manager')->middleware(['auth', 'verified', AuthManager::class])->group(function () {
+    Route::get('/dashboard', ManagerDashboard::class)->name('manager.dashboard');
+});
 Route::prefix('/my')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', MyProfile::class)->name('user.profile');
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Email Verification Routes
 Route::get('/email/verify', function () {
