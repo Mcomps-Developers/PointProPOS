@@ -30,18 +30,21 @@ class Industries extends Component
             $this->reset();
 
             notyf()->position('y', 'top')->success('Industry created');
+            return redirect()->to(request()->header('referer'));
         } catch (\Illuminate\Database\QueryException $ex) {
             // Log the database exception
             Log::error('Database error: ' . $ex->getMessage() . ' in ' . $ex->getFile() . ' on line ' . $ex->getLine());
 
             // Notify user about the error
             notyf()->position('y', 'top')->error('Database error occurred. Please try again later.');
+            return redirect()->to(request()->header('referer'));
         } catch (\Exception $ex) {
             // Log other exceptions
             Log::error('Error: ' . $ex->getMessage() . ' in ' . $ex->getFile() . ' on line ' . $ex->getLine());
 
             // Notify user about the error
             notyf()->position('y', 'top')->error('An unexpected error occurred. Please try again later.');
+            return redirect()->to(request()->header('referer'));
         }
     }
     public function render()
