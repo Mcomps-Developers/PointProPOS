@@ -33,7 +33,7 @@
                 </li>
             </ul>
             <div class="page-btn">
-                <a href="#" class="btn btn-added" data-bs-toggle="modal" data-bs-target="#add-units"><i
+                <a href="#" class="btn btn-added" data-bs-toggle="modal" data-bs-target="#add-units" wire:ignore.self><i
                         data-feather="plus-circle" class="me-2"></i>Add New Client</a>
                 <div class="modal fade" id="add-units">
                     <div class="modal-dialog modal-dialog-centered custom-modal-two">
