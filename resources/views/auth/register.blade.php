@@ -81,7 +81,7 @@
                                     </li>
                                 </ul>
                                 <div class="my-4 d-flex justify-content-center align-items-center copyright-text">
-                                    <p>Copyright &copy; 2023 {{config('app.name')}}. All rights reserved</p>
+                                    <p>Copyright &copy; {{ date('Y') }} {{config('app.name')}}. All rights reserved</p>
                                 </div>
                             </div>
                         </div>
