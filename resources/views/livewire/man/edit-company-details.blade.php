@@ -171,8 +171,8 @@
                                             </div>
                                         </div>
                                         <div class="new-logo ms-auto">
-                                            <a href="#"><img src="assets/img/logo-small.png" alt="Logo"><span><i
-                                                        data-feather="x"></i></span></a>
+                                            <a href="#"><img src="{{asset('assets/img/logo-small.png')}}"
+                                                    alt="Logo"><span><i data-feather="x"></i></span></a>
                                         </div>
                                     </li>
                                     <li class="d-flex align-items-center">
@@ -195,8 +195,8 @@
                                             </div>
                                         </div>
                                         <div class="new-logo ms-auto">
-                                            <a href="#"><img src="assets/img/logo-small.png" alt="Logo"><span><i
-                                                        data-feather="x"></i></span></a>
+                                            <a href="#"><img src="{{asset('assets/img/logo-small.png')}}"
+                                                    alt="Logo"><span><i data-feather="x"></i></span></a>
                                         </div>
                                     </li>
                                     <li class="d-flex align-items-center">
@@ -219,8 +219,8 @@
                                             </div>
                                         </div>
                                         <div class="new-logo ms-auto">
-                                            <a href="#"><img src="assets/img/logo-small.png" alt="Logo"><span><i
-                                                        data-feather="x"></i></span></a>
+                                            <a href="#"><img src="{{asset('assets/img/logo-small.png')}}"
+                                                    alt="Logo"><span><i data-feather="x"></i></span></a>
                                         </div>
                                     </li>
                                     <li class="d-flex align-items-center">
@@ -243,8 +243,8 @@
                                             </div>
                                         </div>
                                         <div class="new-logo ms-auto">
-                                            <a href="#"><img src="assets/img/logo-small.png" alt="Logo"><span><i
-                                                        data-feather="x"></i></span></a>
+                                            <a href="#"><img src="{{asset('assets/img/logo-small.png')}}"
+                                                    alt="Logo"><span><i data-feather="x"></i></span></a>
                                         </div>
                                     </li>
                                 </ul>
