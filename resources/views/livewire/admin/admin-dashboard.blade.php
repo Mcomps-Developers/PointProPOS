@@ -51,7 +51,7 @@
             <div class="col-xl-3 col-sm-6 col-12 d-flex">
                 <div class="dash-count">
                     <div class="dash-counts">
-                        <h4>100</h4>
+                        <h4>{{$countClients}}</h4>
                         <h5>Customers</h5>
                     </div>
                     <div class="dash-imgs">
@@ -62,8 +62,8 @@
             <div class="col-xl-3 col-sm-6 col-12 d-flex">
                 <div class="dash-count das1">
                     <div class="dash-counts">
-                        <h4>110</h4>
-                        <h5>Suppliers</h5>
+                        <h4>{{$activeClients}}</h4>
+                        <h5>Active Customers</h5>
                     </div>
                     <div class="dash-imgs">
                         <i data-feather="user-check"></i>
@@ -98,14 +98,14 @@
             <div class="col-xl-6 col-sm-12 col-12 d-flex">
                 <div class="card flex-fill">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="card-title mb-0">Purchase & Sales</h5>
+                        <h5 class="card-title mb-0">Clients History</h5>
                         <div class="graph-sets">
                             <ul class="mb-0">
                                 <li>
-                                    <span>Sales</span>
+                                    <span>Clients</span>
                                 </li>
                                 <li>
-                                    <span>Purchase</span>
+                                    <span>Earnings</span>
                                 </li>
                             </ul>
                             <div class="dropdown dropdown-wraper">
@@ -258,7 +258,8 @@
                                         <a href="javascript:void(0);">{{$item->name}} </a>
                                     </div>
                                 </td>
-                                <td style="text-transform: uppercase"><a href="javascript:void(0);"><b>{{$item->reference}}</b></a></td>
+                                <td style="text-transform: uppercase"><a
+                                        href="javascript:void(0);"><b>{{$item->reference}}</b></a></td>
                                 <td>{{(date('d M Y',strtotime($item->created_at)))}}</td>
                                 <td>Ksh {{$item->renewal_fee}}</td>
                                 <td class="action-table-data">
