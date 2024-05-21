@@ -170,7 +170,7 @@
             </div>
         </div>
 
-        <div class="card table-list-card">
+        <div class="card table-list-card" wire:ignore>
             <div class="card-body">
                 <div class="table-top">
                     <div class="search-set">
