@@ -1,4 +1,7 @@
 <div class="page-wrapper">
+    @section('title')
+    Dashboard
+    @endsection
     <div class="content">
         <div class="row">
             <div class="col-xl-3 col-sm-6 col-12 d-flex">
