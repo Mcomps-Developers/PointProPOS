@@ -10,9 +10,11 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Illuminate\Support\Str;
+use Livewire\WithPagination;
 
 class AllClients extends Component
 {
+    use WithPagination;
     public $name;
     public $phone_number;
     public $email;
@@ -126,6 +128,7 @@ class AllClients extends Component
     public function render()
     {
         $collection = Industry::orderBy('industry')->get();
+        $companies = Company::orderBy('name')->paginate(10);
         return view('livewire.admin.all-clients', ['collection' => $collection])->layout('layouts.base');
     }
 }
