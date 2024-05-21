@@ -344,18 +344,18 @@
                                         <span class="checkmarks"></span>
                                     </label>
                                 </th>
-                                <th>Clients</th>
+                                <th>Client</th>
                                 <th>Contact Person</th>
                                 <th>Phone</th>
-                                <th>Total Products</th>
-                                <th>Stock</th>
-                                <th>Qty</th>
-                                <th>Created On</th>
+                                <th>Stores</th>
+                                <th>Joined</th>
+                                <th>Renewal</th>
                                 <th>Status</th>
                                 <th class="no-sort">Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($companies as $item)
                             <tr>
                                 <td>
                                     <label class="checkboxs">
@@ -364,25 +364,28 @@
                                     </label>
                                 </td>
                                 <td>
-                                    Legendary
+                                    {{$item->name}}
                                 </td>
                                 <td>
                                     <div class="userimgname">
                                         <a href="javascript:void(0);" class="product-img">
                                             <img src="{{asset('assets/img/users/user-08.jpg')}}" alt="product">
                                         </a>
-                                        <a href="javascript:void(0);">Steven</a>
+                                        <a href="javascript:void(0);">{{$item->contactPerson->name}}</a>
                                     </div>
                                 </td>
                                 <td>
-                                    +1 45445 4454
+                                    <a href="tel:+{{$item->phone}}">+{{$item->phone}}</a>
                                 </td>
-                                <td>04</td>
-                                <td>
-                                    55
+                                <td>0</td>
+                                <td>{{date('d M Y',strtotime($item->created_at))}}</td>
+                                <td>{{date('d M Y',strtotime($item->renewal_date))}}
+                                    @if (\Carbon\Carbon::parse($item->renewal_date)>=\Carbon\Carbon::now())
+                                    <span class="badge badge-linesuccess">Active</span>
+                                    @else
+                                    <span class="badge badge-linedanger">Expired</span>
+                                    @endif
                                 </td>
-                                <td>600</td>
-                                <td>04 Aug 2023</td>
                                 <td><span class="badge badge-linesuccess">Active</span></td>
                                 <td class="action-table-data">
                                     <div class="edit-delete-action">
@@ -400,140 +403,10 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <label class="checkboxs">
-                                        <input type="checkbox">
-                                        <span class="checkmarks"></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    Determined
-                                </td>
-                                <td>
-                                    <div class="userimgname">
-                                        <a href="javascript:void(0);" class="product-img">
-                                            <img src="{{asset('assets/img/users/user-04.jpg')}}" alt="product">
-                                        </a>
-                                        <a href="javascript:void(0);">Gravely</a>
-                                    </div>
-                                </td>
-                                <td>
-                                    +1 63728 3467
-                                </td>
-                                <td>04</td>
-                                <td>
-                                    60
-                                </td>
-                                <td>300</td>
-                                <td>18 Sep 2023</td>
-                                <td><span class="badge badge-linesuccess">Active</span></td>
-                                <td class="action-table-data">
-                                    <div class="edit-delete-action">
-                                        <a class="me-2 edit-icon p-2" href="#" data-bs-toggle="modal"
-                                            data-bs-target="#edit-units">
-                                            <i data-feather="eye" class="feather-eye"></i>
-                                        </a>
-                                        <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                            data-bs-target="#edit-units">
-                                            <i data-feather="edit" class="feather-edit"></i>
-                                        </a>
-                                        <a class="confirm-text p-2" href="javascript:void(0);">
-                                            <i data-feather="trash-2" class="feather-trash-2"></i>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label class="checkboxs">
-                                        <input type="checkbox">
-                                        <span class="checkmarks"></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    Sincere
-                                </td>
-                                <td>
-                                    <div class="userimgname">
-                                        <a href="javascript:void(0);" class="product-img">
-                                            <img src="{{asset('assets/img/users/user-09.jpg')}}" alt="product">
-                                        </a>
-                                        <a href="javascript:void(0);">Kevin</a>
-                                    </div>
-                                </td>
-                                <td>
-                                    +1 95628 1036
-                                </td>
-                                <td>04</td>
-                                <td>
-                                    26
-                                </td>
-                                <td>250</td>
-                                <td>05 Oct 2023</td>
-                                <td><span class="badge badge-linesuccess">Active</span></td>
-                                <td class="action-table-data">
-                                    <div class="edit-delete-action">
-                                        <a class="me-2 edit-icon p-2" href="#" data-bs-toggle="modal"
-                                            data-bs-target="#edit-units">
-                                            <i data-feather="eye" class="feather-eye"></i>
-                                        </a>
-                                        <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                            data-bs-target="#edit-units">
-                                            <i data-feather="edit" class="feather-edit"></i>
-                                        </a>
-                                        <a class="confirm-text p-2" href="javascript:void(0);">
-                                            <i data-feather="trash-2" class="feather-trash-2"></i>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label class="checkboxs">
-                                        <input type="checkbox">
-                                        <span class="checkmarks"></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    Pretty
-                                </td>
-                                <td>
-                                    <div class="userimgname">
-                                        <a href="javascript:void(0);" class="product-img">
-                                            <img src="{{asset('assets/img/users/user-10.jpg')}}" alt="product">
-                                        </a>
-                                        <a href="javascript:void(0);">Grillo</a>
-                                    </div>
-                                </td>
-                                <td>
-                                    +1 65730 1603
-                                </td>
-                                <td>04</td>
-                                <td>
-                                    47
-                                </td>
-                                <td>400</td>
-                                <td>21 Nov 2023</td>
-                                <td><span class="badge badge-linesuccess">Active</span></td>
-                                <td class="action-table-data">
-                                    <div class="edit-delete-action">
-                                        <a class="me-2 edit-icon p-2" href="#" data-bs-toggle="modal"
-                                            data-bs-target="#edit-units">
-                                            <i data-feather="eye" class="feather-eye"></i>
-                                        </a>
-                                        <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                            data-bs-target="#edit-units">
-                                            <i data-feather="edit" class="feather-edit"></i>
-                                        </a>
-                                        <a class="confirm-text p-2" href="javascript:void(0);">
-                                            <i data-feather="trash-2" class="feather-trash-2"></i>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
+                    {{ $companies->links('pagination::bootstrap-5') }}
                 </div>
             </div>
         </div>

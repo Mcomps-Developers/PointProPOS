@@ -15,4 +15,8 @@ class Company extends Model
     {
         return $this->belongsTo(Industry::class, 'industry_id');
     }
+
+    public function contactPerson(){
+        return $this->belongsTo(User::class,'user_id');
+    }
 }

@@ -104,6 +104,7 @@ class AllClients extends Component
             $company->user_id = $user->id;
             $company->email = $this->business_email;
             $company->reference = $this->reference;
+            $company->renewal_date = Carbon::now()->addMonthNoOverflow();
             $company->save();
             $this->reset();
 
@@ -129,6 +130,6 @@ class AllClients extends Component
     {
         $collection = Industry::orderBy('industry')->get();
         $companies = Company::orderBy('name')->paginate(10);
-        return view('livewire.admin.all-clients', ['collection' => $collection])->layout('layouts.base');
+        return view('livewire.admin.all-clients', ['collection' => $collection, 'companies' => $companies])->layout('layouts.base');
     }
 }
