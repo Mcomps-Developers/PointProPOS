@@ -34,7 +34,7 @@ class EditIndustry extends Component
             $industry = Industry::findOrFail($this->rowID);
             $industry->industry = $this->name;
             $industry->save();
-            notyf()->position('y', 'top')->success('Industry created');
+            notyf()->position('y', 'top')->success('Industry Updated');
             return redirect()->to(request()->header('referer'));
         } catch (\Illuminate\Database\QueryException $ex) {
             // Log the database exception

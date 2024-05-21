@@ -6,7 +6,7 @@
                     @if (Auth::user()->utype==='adm')
                     <li class="submenu-open">
                         <ul>
-                            <li class="submenu">
+                            <li>
                                 <a href="{{route('user.dashboard')}}" class="active"><i
                                         data-feather="grid"></i><span>Dashboard</span></a>
                             </li>

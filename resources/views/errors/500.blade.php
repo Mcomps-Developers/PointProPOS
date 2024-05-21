@@ -35,7 +35,7 @@
             <h3 class="h2 mb-3">Oops, something went wrong</h3>
             <p>Server Error 500. We apologise and are fixing the problem
                 Please try again at a later stage</p>
-            <a href="/" class="btn btn-primary">Back to Dashboard</a>
+            <a href="{{route('user.dashboard')}}" class="btn btn-primary">Back to Dashboard</a>
         </div>
     </div>
 
