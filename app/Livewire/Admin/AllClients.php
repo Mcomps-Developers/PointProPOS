@@ -35,7 +35,6 @@ class AllClients extends Component
         'business_name' => 'required',
         'business_email' => 'required|email',
         'business_phone_number' => 'required|max_digits:12|min_digits:12',
-        'kra_pin_number' => 'required|string|size:11',
         'industry' => 'required',
         'address' => 'required',
     ];
@@ -66,6 +65,11 @@ class AllClients extends Component
     public function newClient()
     {
         $this->validate();
+        if ($this->kra_pin_number) {
+            $this->validate([
+                'kra_pin_number' => 'string|size:11',
+            ]);
+        }
         $this->userPassword = $this->generateRandomPassword();
         $this->generateReference();
         try {
