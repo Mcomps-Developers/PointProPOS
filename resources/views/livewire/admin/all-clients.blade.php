@@ -144,7 +144,7 @@
                                                         <input class="form-control" id="phone" name="phone"
                                                             type="number" wire:model.live='renewal_fee'>
                                                         @error('renewal_fee')
-                                                        <p class="text-danger">{{$message}}</p>
+                                                         <p class="text-danger">{{$message}}</p>
                                                         @enderror
                                                     </div>
                                                 </div>
