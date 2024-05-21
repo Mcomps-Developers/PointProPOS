@@ -7,13 +7,18 @@
                     <li class="submenu-open">
                         <ul>
                             <li>
-                                <a href="{{route('user.dashboard')}}" class="active"><i
+                                <a href="{{route('admin.dashboard')}}" class="active"><i
                                         data-feather="grid"></i><span>Dashboard</span></a>
                             </li>
                             <li><a href="{{route('admin.clients')}}"><i data-feather="menu"></i><span>Clients</span></a>
                             <li><a href="{{route('admin.industries')}}"><i
                                         data-feather="codepen"></i><span>Industries</span></a>
                         </ul>
+                    </li>
+                    @elseif (Auth::user()->utype==='man')
+                    <li>
+                        <a href="{{route('manager.dashboard')}}" class="active"><i
+                                data-feather="grid"></i><span>Dashboard</span></a>
                     </li>
                     @else
                     <li class="submenu-open">
