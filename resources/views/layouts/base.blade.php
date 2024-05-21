@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{{asset('assets/plugins/intltelinput/css/demo.css')}}">
 
     <link rel="stylesheet" href="{{asset('assets/css/dataTables.bootstrap5.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/plugins/summernote/summernote-bs4.min.css')}}">
     @livewireStyles
 </head>
 
@@ -74,6 +75,9 @@
     <script src="{{asset('assets/plugins/intltelinput/js/intlTelInput.js')}}"></script>
 
     <script src="{{asset('assets/plugins/select2/js/select2.min.js')}}"></script>
+
+    <script src="{{asset('assets/plugins/theia-sticky-sidebar/ResizeSensor.js')}}"></script>
+    <script src="{{asset('assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js')}}"></script>
     @livewireScripts
 </body>
 
