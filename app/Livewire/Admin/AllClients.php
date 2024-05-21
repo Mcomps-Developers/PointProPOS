@@ -24,12 +24,14 @@ class AllClients extends Component
     public $address;
     private $userPassword;
     private $reference;
+    public $business_email;
 
     protected $rules = [
         'name' => 'required',
         'phone_number' => 'required|numeric|max_digits:12|min_digits:12|unique:users,phone_number',
         'email' => 'required|unique:users,email',
         'business_name' => 'required',
+        'business_email' => 'required|email',
         'business_phone_number' => 'required|max_digits:12|min_digits:12',
         'kra_pin_number' => 'required|string|size:11',
         'industry' => 'required',
@@ -98,6 +100,7 @@ class AllClients extends Component
             $company->address = $this->address;
             $company->industry_id = $this->industry;
             $company->user_id = $user->id;
+            $company->email = $this->business_email;
             $company->reference = $this->reference;
             $company->save();
             $this->reset();
