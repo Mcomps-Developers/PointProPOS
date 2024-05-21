@@ -117,25 +117,19 @@
                                     <div class="col-xl-4 col-lg-6 col-md-4">
                                         <div class="mb-3">
                                             <label class="form-label">Company Name</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" wire:model='name'>
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-6 col-md-4">
                                         <div class="mb-3">
                                             <label class="form-label">Company Email Address</label>
-                                            <input type="email" class="form-control">
+                                            <input type="email" class="form-control" wire:model='email'>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
                                             <label class="form-label">Phone Number</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <label class="form-label">Fax</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" wire:model='phone'>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
