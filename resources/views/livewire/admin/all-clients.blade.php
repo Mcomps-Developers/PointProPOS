@@ -397,7 +397,11 @@
                                             data-bs-target="#edit-units">
                                             <i data-feather="edit" class="feather-edit"></i>
                                         </a>
-                                        <a class="confirm-text p-2" href="javascript:void(0);">
+                                        <a class="me-2 p-2" href="javascript:void(0);"
+                                            wire:target='deleteCompany({{$item->id}})'
+                                            wire:confirm='Are you sure you want to delete?'
+                                            wire:click.prevent='deleteCompany({{$item->id}})'>
+
                                             <i data-feather="trash-2" class="feather-trash-2"></i>
                                         </a>
                                     </div>
