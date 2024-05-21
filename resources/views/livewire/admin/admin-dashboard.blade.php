@@ -251,7 +251,7 @@
                                             @if ($item->logo)
                                             <img src="{{asset('assets/img/clients')}}/{{$item->logo}}" alt="Logo">
                                             @else
-                                            <span><i data-feather="home"></span>
+                                            <img src="{{$item->contactPerson->profile_photo_url}}" alt="Logo">
                                             @endif
 
                                         </a>
