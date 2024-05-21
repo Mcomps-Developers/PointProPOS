@@ -6,6 +6,7 @@ use App\Http\Middleware\AuthManager;
 use App\Livewire\Admin\AdminDashboard;
 use App\Livewire\Admin\AllClients;
 use App\Livewire\Admin\Industries;
+use App\Livewire\Man\EditCompanyDetails;
 use App\Livewire\Man\ManagerDashboard;
 use App\Livewire\User\MyProfile;
 use Illuminate\Support\Facades\Route;
@@ -88,7 +89,19 @@ Route::prefix('/admin')->middleware(['auth', 'verified', AuthAdmin::class])->gro
 // Client
 Route::prefix('/manager')->middleware(['auth', 'verified', AuthManager::class])->group(function () {
     Route::get('/dashboard', ManagerDashboard::class)->name('manager.dashboard');
+    Route::get('/company-details',EditCompanyDetails::class)->name('company.settings');
 });
+
+
+
+
+
+
+
+
+
+
+// User Routes
 Route::prefix('/my')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', MyProfile::class)->name('user.profile');
 });

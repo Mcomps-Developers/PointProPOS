@@ -244,6 +244,11 @@
                 </div>
             </div>
         </li>
+        @if (Auth::user()->utype === 'man')
+        <li class="nav-item nav-item-box">
+            <a href="{{route('company.settings')}}"><i data-feather="settings"></i></a>
+        </li>
+        @endif
         <li class="nav-item dropdown has-arrow main-drop">
             <a href="javascript:void(0);" class="dropdown-toggle nav-link userset" data-bs-toggle="dropdown">
                 <span class="user-info">
