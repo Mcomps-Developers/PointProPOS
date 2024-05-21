@@ -387,7 +387,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    @if ($item->status==='actives')
+                                    @if ($item->status==='active')
                                     <span class="badge badge-lineprimary">Active</span>
                                     @else
                                     <span class="badge badge-linedanger">Inactive</span>
