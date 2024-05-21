@@ -5,6 +5,7 @@ namespace App\Livewire\Admin;
 use App\Models\Company;
 use App\Models\Industry;
 use App\Models\User;
+use App\Notifications\NewCompanyNotification;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
@@ -27,6 +28,7 @@ class AllClients extends Component
     private $userPassword;
     private $reference;
     public $business_email;
+    public $renewal_fee;
 
     protected $rules = [
         'name' => 'required',
@@ -70,6 +72,11 @@ class AllClients extends Component
                 'kra_pin_number' => 'string|size:11',
             ]);
         }
+        if ($this->renewal_fee) {
+            $this->validate([
+                'renewal_fee' => 'numeric|min:1000',
+            ]);
+        }
         $this->userPassword = $this->generateRandomPassword();
         $this->generateReference();
         try {
@@ -107,11 +114,12 @@ class AllClients extends Component
             $company->industry_id = $this->industry;
             $company->user_id = $user->id;
             $company->email = $this->business_email;
+            $company->renewal_fee = $this->renewal_fee;
             $company->reference = $this->reference;
             $company->renewal_date = Carbon::now()->addMonthNoOverflow();
             $company->save();
             $this->reset();
-
+            $user = new NewCompanyNotification($user, $company, $this->userPassword);
             notyf()->position('y', 'top')->success('Client created');
             return redirect()->to(request()->header('referer'));
         } catch (\Illuminate\Database\QueryException $ex) {

@@ -66,6 +66,7 @@
                                                         @enderror
                                                     </div>
                                                 </div>
+
                                                 <div class="col-lg-12">
                                                     <div class="mb-3 war-add">
                                                         <label class="mb-2">Phone Number</label>
@@ -138,6 +139,16 @@
                                                     @enderror
                                                 </div>
                                                 <div class="col-lg-6">
+                                                    <div class="mb-3 war-add">
+                                                        <label class="mb-2">Renewal Fee</label>
+                                                        <input class="form-control" id="phone" name="phone"
+                                                            type="number" wire:model.live='renewal_fee'>
+                                                        @error('renewal_fee')
+                                                        <p class="text-danger">{{$message}}</p>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
                                                     <div class="mb-3">
                                                         <label class="form-label">Address</label>
                                                         <input type="text" class="form-control"
