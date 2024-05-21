@@ -212,7 +212,7 @@
         </div>
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h4 class="card-title">Our Clients</h4>
+                <h4 class="card-title">Recent Clients</h4>
                 <div class="page-btn">
                     <a href="{{route('admin.clients')}}" class="btn btn-primary"><i data-feather="menu"
                             class="me-2"></i>All Clients</a>
@@ -232,11 +232,12 @@
                                 <th>Client</th>
                                 <th>Code</th>
                                 <th>Join Date</th>
-                                <th>Renewal Date</th>
+                                <th>Renewal Fee</th>
                                 <th class="no-sort">Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($collection as $item)
                             <tr>
                                 <td>
                                     <label class="checkboxs">
@@ -250,12 +251,12 @@
                                             <img src="{{asset('assets/img/products/expire-product-01.png')}}"
                                                 alt="product">
                                         </a>
-                                        <a href="javascript:void(0);">Red Premium Handy </a>
+                                        <a href="javascript:void(0);">{{$item->name}} </a>
                                     </div>
                                 </td>
-                                <td><a href="javascript:void(0);">PT006</a></td>
-                                <td>17 Jan 2023</td>
-                                <td>29 Mar 2023</td>
+                                <td><a href="javascript:void(0);">{{$item->reference}}</a></td>
+                                <td>{{(date('d M Y',strtotime($item->created_at)))}}</td>
+                                <td>Ksh {{$item->renewal_fee}}</td>
                                 <td class="action-table-data">
                                     <div class="edit-delete-action">
                                         <a class="me-2 p-2" href="#">
@@ -267,126 +268,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <label class="checkboxs">
-                                        <input type="checkbox">
-                                        <span class="checkmarks"></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <div class="productimgname">
-                                        <a href="javascript:void(0);" class="product-img stock-img">
-                                            <img src="{{asset('assets/img/products/expire-product-02.png')}}"
-                                                alt="product">
-                                        </a>
-                                        <a href="javascript:void(0);">Iphone 14 Pro</a>
-                                    </div>
-                                </td>
-                                <td><a href="javascript:void(0);">PT007</a></td>
-                                <td>22 Feb 2023</td>
-                                <td>04 Apr 2023</td>
-                                <td class="action-table-data">
-                                    <div class="edit-delete-action">
-                                        <a class="me-2 p-2" href="#">
-                                            <i data-feather="edit" class="feather-edit"></i>
-                                        </a>
-                                        <a class="confirm-text p-2" href="javascript:void(0);">
-                                            <i data-feather="trash-2" class="feather-trash-2"></i>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label class="checkboxs">
-                                        <input type="checkbox">
-                                        <span class="checkmarks"></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <div class="productimgname">
-                                        <a href="javascript:void(0);" class="product-img stock-img">
-                                            <img src="{{asset('assets/img/products/expire-product-03.png')}}"
-                                                alt="product">
-                                        </a>
-                                        <a href="javascript:void(0);">Black Slim 200 </a>
-                                    </div>
-                                </td>
-                                <td><a href="javascript:void(0);">PT008</a></td>
-                                <td>18 Mar 2023</td>
-                                <td>13 May 2023</td>
-                                <td class="action-table-data">
-                                    <div class="edit-delete-action">
-                                        <a class="me-2 p-2" href="#">
-                                            <i data-feather="edit" class="feather-edit"></i>
-                                        </a>
-                                        <a class=" confirm-text p-2" href="javascript:void(0);">
-                                            <i data-feather="trash-2" class="feather-trash-2"></i>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label class="checkboxs">
-                                        <input type="checkbox">
-                                        <span class="checkmarks"></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <div class="productimgname">
-                                        <a href="javascript:void(0);" class="product-img stock-img">
-                                            <img src="{{asset('assets/img/products/expire-product-04.png')}}"
-                                                alt="product">
-                                        </a>
-                                        <a href="javascript:void(0);">Woodcraft Sandal</a>
-                                    </div>
-                                </td>
-                                <td><a href="javascript:void(0);">PT009</a></td>
-                                <td>29 Mar 2023</td>
-                                <td>27 May 2023</td>
-                                <td class="action-table-data">
-                                    <div class="edit-delete-action">
-                                        <a class="me-2 p-2" href="#">
-                                            <i data-feather="edit" class="feather-edit"></i>
-                                        </a>
-                                        <a class=" confirm-text p-2" href="javascript:void(0);">
-                                            <i data-feather="trash-2" class="feather-trash-2"></i>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label class="checkboxs">
-                                        <input type="checkbox">
-                                        <span class="checkmarks"></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <div class="productimgname">
-                                        <a href="javascript:void(0);" class="product-img stock-img">
-                                            <img src="{{asset('assets/img/products/stock-img-03.png')}}" alt="product">
-                                        </a>
-                                        <a href="javascript:void(0);">Apple Series 5 Watch </a>
-                                    </div>
-                                </td>
-                                <td><a href="javascript:void(0);">PT010</a></td>
-                                <td>24 Mar 2023</td>
-                                <td>26 May 2023</td>
-                                <td class="action-table-data">
-                                    <div class="edit-delete-action">
-                                        <a class="me-2 p-2" href="#" data-bs-toggle="modal"
-                                            data-bs-target="#edit-units">
-                                            <i data-feather="edit" class="feather-edit"></i>
-                                        </a>
-                                        <a class=" confirm-text p-2" href="javascript:void(0);">
-                                            <i data-feather="trash-2" class="feather-trash-2"></i>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -165,7 +165,7 @@ class AllClients extends Component
     public function render()
     {
         $collection = Industry::orderBy('industry')->get();
-        $companies = Company::orderBy('name')->paginate(10);
+        $companies = Company::orderByDesc('created_at')->paginate(10);
         return view('livewire.admin.all-clients', ['collection' => $collection, 'companies' => $companies])->layout('layouts.base');
     }
 }
