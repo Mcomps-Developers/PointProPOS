@@ -2,7 +2,7 @@
     @section('title')
     Industries
     @endsection
-    <div class="page-wrapper">
+    <div class="page-wrapper" wire:ignore>
         <div class="content">
             <div class="page-header">
                 <div class="add-item d-flex">
