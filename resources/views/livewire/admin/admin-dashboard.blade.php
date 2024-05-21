@@ -248,8 +248,12 @@
                                 <td>
                                     <div class="productimgname">
                                         <a href="javascript:void(0);" class="product-img stock-img">
-                                            <img src="{{asset('assets/img/products/expire-product-01.png')}}"
-                                                alt="product">
+                                            @if ($item->logo)
+                                            <img src="{{asset('assets/img/clients')}}/{{$item->logo}}" alt="Logo">
+                                            @else
+                                            <span><i data-feather="home"></span>
+                                            @endif
+
                                         </a>
                                         <a href="javascript:void(0);">{{$item->name}} </a>
                                     </div>

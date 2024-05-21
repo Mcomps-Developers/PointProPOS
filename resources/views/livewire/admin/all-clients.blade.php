@@ -380,7 +380,7 @@
                                 <td>
                                     <div class="userimgname">
                                         <a href="javascript:void(0);" class="product-img">
-                                            <img src="{{asset('assets/img/users/user-08.jpg')}}" alt="product">
+                                            <img src="{{$item->contactPerson->profile_photo_url}}" alt="product">
                                         </a>
                                         <a href="javascript:void(0);">{{$item->contactPerson->name}}</a>
                                     </div>
