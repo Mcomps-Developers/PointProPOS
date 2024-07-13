@@ -130,7 +130,7 @@
                     <div class="card-body">
                         <div id="sales_charts"></div>
                     </div>
-                </div>
+                </div> 
             </div>
             <div class="col-xl-6 col-sm-12 col-12 d-flex">
                 <div class="card flex-fill default-cover mb-4">
