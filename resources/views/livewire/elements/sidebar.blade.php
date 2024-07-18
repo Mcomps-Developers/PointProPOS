@@ -20,6 +20,7 @@
                         <a href="{{route('manager.dashboard')}}" class="active"><i
                                 data-feather="grid"></i><span>Dashboard</span></a>
                     </li>
+                    <li><a href="#!"><i data-feather="box"></i><span>Products</span></a></li>
                     @else
                     <li class="submenu-open">
                         <h6 class="submenu-hdr">Inventory</h6>
