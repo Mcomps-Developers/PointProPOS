@@ -195,7 +195,7 @@
                                     <select name="" class="form-control" wire:model.live='status'>
                                         <option>--</option>
                                         <option value="active">Active</option>
-                                        <option value="inactive">Inactive</option>
+                                        <option value="inactived">Inactive</option>
                                     </select>
                                     @error('status')
                                     <p class="text-danger"> {{$message}}</p>
