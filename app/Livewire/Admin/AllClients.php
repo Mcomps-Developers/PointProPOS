@@ -74,7 +74,7 @@ class AllClients extends Component
         }
         if ($this->renewal_fee) {
             $this->validate([
-                'renewal_fee' => 'numeric|min:1000',
+                'renewal_fee' => 'numeric|min:10',
             ]);
         }
         $this->userPassword = $this->generateRandomPassword();
