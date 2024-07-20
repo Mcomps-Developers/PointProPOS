@@ -18,12 +18,10 @@ class GoogleController extends Controller
     public function handleGoogleCallback()
     {
         try {
-
             $user = Socialite::driver('google')->user();
             $finduser = User::where('google_id', $user->id)->first();
 
             if ($finduser) {
-
                 Auth::login($finduser);
                 notyf()
                     ->position('x', 'right')
@@ -31,14 +29,31 @@ class GoogleController extends Controller
                     ->success('Logged in successfully.');
                 return redirect()->intended('dashboard');
             } else {
-                notyf()
-                    ->position('x', 'right')
-                    ->position('y', 'top')
-                    ->error('Email not connected to PointPro');
-                return redirect()->intended('login');
+                $finduserEmail = User::where('email', $user->email)->first();
+                if ($finduserEmail) {
+                    $finduserEmail->update(['google_id' => $user->id]);
+
+                    Auth::login($finduserEmail);
+                    notyf()
+                        ->position('x', 'right')
+                        ->position('y', 'top')
+                        ->success('Email connected. Logged in successfully.');
+                    return redirect()->intended('dashboard');
+                } else {
+                    notyf()
+                        ->position('x', 'right')
+                        ->position('y', 'top')
+                        ->error('Email not connected to PointPro');
+                    return redirect()->intended('login');
+                }
             }
         } catch (Exception $e) {
-            Log::error('Error: ', $e->getMessage());
+            Log::error('Error: ' . $e->getMessage());
+            notyf()
+                ->position('x', 'right')
+                ->position('y', 'top')
+                ->error('Something went wrong. Please try again.');
+            return redirect()->intended('login');
         }
     }
 }

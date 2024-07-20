@@ -66,7 +66,7 @@ Route::prefix('/manager')->middleware(['auth', 'verified', AuthManager::class])-
     // Products
     Route::prefix('products')->group(function () {
         Route::get('/view', Products::class)->name('products');
-        Route::get('/add',AddProduct::class)->name('product.add');
+        Route::get('/add', AddProduct::class)->name('product.add');
     });
 });
 
