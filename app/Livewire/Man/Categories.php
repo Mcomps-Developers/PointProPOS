@@ -16,6 +16,7 @@ class Categories extends Component
 
     protected $rules = [
         'name' => 'required|unique:categories,name',
+        'status' => 'required',
     ];
 
     public function updated($fields)
