@@ -137,7 +137,7 @@
                                     </td>
                                     <td>{{$item->name}}</td>
                                     <td>{{$item->slug}}</td>
-                                    <td>{{date('d M Y',strttotime($item->created_at))}}</td>
+                                    <td>{{date('d M Y',strtotime($item->created_at))}}</td>
                                     <td>
                                         @if ($item->status==='active')
                                         <span class="badge badge-linesuccess">Active</span>
