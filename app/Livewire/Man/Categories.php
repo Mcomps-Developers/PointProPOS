@@ -47,6 +47,30 @@ class Categories extends Component
             return redirect()->to(request()->header('referer'));
         }
     }
+
+    public function delete($rowID)
+    {
+        try {
+            $category = Category::findOrFail($rowID);
+            $category->delete();
+            notyf()->position('y', 'top')->success('Category deleted successfully');
+            return redirect()->to(request()->header('referer'));
+        } catch (\Illuminate\Database\QueryException $ex) {
+            // Log the database exception
+            Log::error('Database error: ' . $ex->getMessage() . ' in ' . $ex->getFile() . ' on line ' . $ex->getLine());
+
+            // Notify user about the error
+            notyf()->position('y', 'top')->error('Database error occurred. Please try again later.');
+            return redirect()->to(request()->header('referer'));
+        } catch (\Exception $ex) {
+            // Log other exceptions
+            Log::error('Error: ' . $ex->getMessage() . ' in ' . $ex->getFile() . ' on line ' . $ex->getLine());
+
+            // Notify user about the error
+            notyf()->position('y', 'top')->error('An unexpected error occurred. Please try again later.');
+            return redirect()->to(request()->header('referer'));
+        }
+    }
     public function render()
     {
         $company = Company::where('user_id', Auth::id())->first();
