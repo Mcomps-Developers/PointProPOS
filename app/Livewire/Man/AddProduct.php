@@ -81,7 +81,7 @@ class AddProduct extends Component
     }
     public function render()
     {
-        $categories = Category::orderBy('name')->where('user_id', Auth::id())->get()
-        return view('livewire.man.add-product',['categories'=>$categories])->layout('layouts.base');
+        $categories = Category::orderBy('name')->where('user_id', Auth::id())->get();
+        return view('livewire.man.add-product', ['categories' => $categories])->layout('layouts.base');
     }
 }
