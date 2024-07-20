@@ -48,7 +48,7 @@ class Categories extends Component
         }
     }
 
-    public function delete($rowID)
+    public function deleteItem($rowID)
     {
         try {
             $category = Category::findOrFail($rowID);

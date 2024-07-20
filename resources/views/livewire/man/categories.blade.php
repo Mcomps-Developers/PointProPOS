@@ -153,9 +153,7 @@
                                                 <i data-feather="edit" class="feather-edit"></i>
                                             </a>
                                             <a class="confirm-text p-2" href="javascript:void(0);"
-                                                wire:target='delete({{$item->id}})'
-                                                wire:confirm='Are you sure you want to delete?'
-                                                wire:click.prevent='delete({{$item->id}})'>
+                                                data-item-id="{{ $item->id }}">
                                                 <i data-feather="trash-2" class="feather-trash-2"></i>
                                             </a>
                                         </div>
@@ -270,3 +268,47 @@
         </div>
     </div>
 </div>
+<script>
+    $(".confirm-text").on("click", function () {
+    var itemId = $(this).data('item-id');
+
+    Swal.fire({
+        title: "Are you sure you want to delete?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+        customClass: {
+            confirmButton: "btn btn-primary",
+            cancelButton: "btn btn-danger ml-1",
+        },
+        buttonsStyling: false,
+    }).then(function (result) {
+        if (result.isConfirmed) {
+            // Call Livewire method here
+            Livewire.emit('deleteItem', itemId);
+
+            Swal.fire({
+                icon: "success",
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                customClass: {
+                    confirmButton: "btn btn-success",
+                },
+            });
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+            Swal.fire({
+                title: "Cancelled",
+                text: "Your imaginary file is safe :)",
+                icon: "error",
+                customClass: {
+                    confirmButton: "btn btn-success",
+                },
+            });
+        }
+    });
+});
+
+</script>
