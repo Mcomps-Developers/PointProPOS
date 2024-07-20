@@ -17,8 +17,9 @@ use Illuminate\Support\Facades\Auth;
 
 // If Logged Out
 Route::get('/', function () {
-    Route::get('/dashboard');
+    return redirect('/dashboard');
 });
+
 // Manage Redirect
 Route::get('/dashboard', function () {
     $user = Auth::user();
