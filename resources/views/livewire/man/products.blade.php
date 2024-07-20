@@ -154,7 +154,7 @@
                                     <th>Category</th>
                                     {{-- <th>Brand</th> --}}
                                     <th>Price</th>
-                                    <th>Unit</th>
+                                    {{-- <th>Unit</th> --}}
                                     {{-- <th>Qty</th> --}}
                                     <th>Created by</th>
                                     <th class="no-sort">Action</th>
@@ -188,7 +188,7 @@
                                     </td>
                                     {{-- <td>Brand</td> --}}
                                     <td>Ksh {{$item->price}}</td>
-                                    <td>{{$item->unit}}</td>
+                                    {{-- <td>{{$item->unit}}</td> --}}
                                     {{-- <td>100</td> --}}
                                     <td>
                                         <div class="userimgname">
