@@ -148,10 +148,10 @@
                                     </td>
                                     <td class="action-table-data">
                                         <div class="edit-delete-action">
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
+                                            {{-- <a class="me-2 p-2" href="#" data-bs-toggle="modal"
                                                 data-bs-target="#edit-category">
                                                 <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
+                                            </a> --}}
                                             <a class="confirm-text p-2" href="javascript:void(0);"
                                                 data-item-id="{{ $item->id }}">
                                                 <i data-feather="trash-2" class="feather-trash-2"></i>
