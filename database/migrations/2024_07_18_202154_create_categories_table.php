@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('company_id');
-            $table->string('name')->unique();
+            $table->string('name');
             $table->string('slug');
             $table->enum('status', ['active', 'inactived']);
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
+            $table->unique(['company_id', 'name']);
         });
     }
 
