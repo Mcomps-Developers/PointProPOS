@@ -21,7 +21,7 @@
                                 data-feather="grid"></i><span>Dashboard</span></a>
                     </li>
                     <li>
-                        <a href="category-list.html"><i data-feather="codepen"></i><span>Categories</span></a>
+                        <a href="{{route('categories')}}"><i data-feather="codepen"></i><span>Categories</span></a>
                     </li>
                     <li><a href="#!"><i data-feather="box"></i><span>Products</span></a></li>
                     @else
