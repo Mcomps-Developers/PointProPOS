@@ -102,7 +102,7 @@
                                                                     class="plus-down-add"></i><span>Add New</span></a>
                                                             --}}
                                                         </div>
-                                                        <select class="select" wire:model.live='category'>
+                                                        <select class="form-control" wire:model.live='category'>
                                                             <option>Choose</option>
                                                             @foreach ($categories as $item)
                                                             <option value="{{$item->id}}">{{$item->name}}</option>
