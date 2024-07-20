@@ -351,7 +351,9 @@
                                                                                         <h4>
                                                                                             <span wire:target='image'
                                                                                                 wire:loading>Uploading</span>
-                                                                                            Add Image
+                                                                                            <span wire:target='image'
+                                                                                                wire:loading.remove>Add
+                                                                                                Image</span>
                                                                                         </h4>
                                                                                     </div>
                                                                                 </div>
