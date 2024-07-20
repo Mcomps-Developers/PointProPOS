@@ -183,7 +183,7 @@
                         </button>
                     </div>
                     <div class="modal-body custom-modal-body">
-                        <form wire:submit.prevent='create'>
+                        <form wire:submit='create'>
                             <div class="mb-3">
                                 <label class="form-label">Category</label>
                                 <input type="text" class="form-control" wire:model.live='name' />
