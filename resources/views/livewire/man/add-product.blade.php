@@ -24,7 +24,7 @@
                     </li>
                 </ul>
             </div>
-            <form>
+            <form wire:submit.prevent='create'>
                 <div class="card">
                     <div class="pb-0 card-body add-product">
                         <div class="accordion-card-one accordion" id="accordionExample">
@@ -45,7 +45,7 @@
                                 <div id="collapseOne" class="accordion-collapse collapse show"
                                     aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        <div class="row">
+                                        {{-- <div class="row">
                                             <div class="col-lg-4 col-sm-6 col-12">
                                                 <div class="mb-3 add-product">
                                                     <label class="form-label">Store</label>
@@ -68,21 +68,18 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <div class="row">
-                                            <div class="col-lg-4 col-sm-6 col-12">
+                                            <div class="col-lg-12 col-sm-12 col-12">
                                                 <div class="mb-3 add-product">
                                                     <label class="form-label">Product Name</label>
-                                                    <input type="text" class="form-control" />
+                                                    <input type="text" class="form-control" wire:model.live='name' />
+                                                    @error('name')
+                                                    <p class="text-danger">{{$message}}</p>
+                                                    @enderror
                                                 </div>
                                             </div>
-                                            <div class="col-lg-4 col-sm-6 col-12">
-                                                <div class="mb-3 add-product">
-                                                    <label class="form-label">Slug</label>
-                                                    <input type="text" class="form-control" />
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 col-sm-6 col-12">
+                                            {{-- <div class="col-lg-4 col-sm-6 col-12">
                                                 <div class="input-blocks add-product list">
                                                     <label>SKU</label>
                                                     <input type="text" class="form-control list"
@@ -91,27 +88,32 @@
                                                         Generate Code
                                                     </button>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                         <div class="addservice-info">
                                             <div class="row">
-                                                <div class="col-lg-4 col-sm-6 col-12">
+                                                <div class="col-lg-12 col-sm-12 col-12">
                                                     <div class="mb-3 add-product">
                                                         <div class="add-newplus">
                                                             <label class="form-label">Category</label>
-                                                            <a href="javascript:void(0);" data-bs-toggle="modal"
+                                                            {{-- <a href="javascript:void(0);" data-bs-toggle="modal"
                                                                 data-bs-target="#add-units-category"><i
                                                                     data-feather="plus-circle"
                                                                     class="plus-down-add"></i><span>Add New</span></a>
+                                                            --}}
                                                         </div>
-                                                        <select class="select">
+                                                        <select class="select" wire:model.live='category'>
                                                             <option>Choose</option>
-                                                            <option>Lenovo</option>
-                                                            <option>Electronics</option>
+                                                            @foreach ($categories as $item)
+                                                            <option value="{{$item->id}}">{{$item->name}}</option>
+                                                            @endforeach
                                                         </select>
+                                                        @error('category')
+                                                        <p class="text-danger">{{$message}}</p>
+                                                        @enderror
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-4 col-sm-6 col-12">
+                                                {{-- <div class="col-lg-4 col-sm-6 col-12">
                                                     <div class="mb-3 add-product">
                                                         <label class="form-label">Sub Category</label>
                                                         <select class="select">
@@ -120,8 +122,8 @@
                                                             <option>Electronics</option>
                                                         </select>
                                                     </div>
-                                                </div>
-                                                <div class="col-lg-4 col-sm-6 col-12">
+                                                </div> --}}
+                                                {{-- <div class="col-lg-4 col-sm-6 col-12">
                                                     <div class="mb-3 add-product">
                                                         <label class="form-label">Sub Sub Category</label>
                                                         <select class="select">
@@ -131,10 +133,10 @@
                                                             <option>Shoes</option>
                                                         </select>
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
-                                        <div class="add-product-new">
+                                        {{-- <div class="add-product-new">
                                             <div class="row">
                                                 <div class="col-lg-4 col-sm-6 col-12">
                                                     <div class="mb-3 add-product">
@@ -178,8 +180,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
+                                        </div> --}}
+                                        {{-- <div class="row">
                                             <div class="col-lg-6 col-sm-6 col-12">
                                                 <div class="mb-3 add-product">
                                                     <label class="form-label">Barcode Symbology</label>
@@ -201,15 +203,15 @@
                                                     </button>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
 
-                                        <div class="col-lg-12">
+                                        {{-- <div class="col-lg-12">
                                             <div class="mb-3 input-blocks summer-description-box transfer">
                                                 <label>Description</label>
                                                 <textarea class="form-control h-100" rows="5"></textarea>
                                                 <p class="mt-1">Maximum 60 Characters</p>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
@@ -222,8 +224,11 @@
                                         <div class="text-editor add-list">
                                             <div class="addproduct-icon list icon">
                                                 <h5>
-                                                    <i data-feather="life-buoy" class="add-info"></i><span>Pricing &
-                                                        Stocks</span>
+                                                    <i data-feather="life-buoy" class="add-info"></i>
+                                                    <span>
+                                                        {{-- Pricing & Stocks --}}
+                                                        Pricing
+                                                    </span>
                                                 </h5>
                                                 <a href="javascript:void(0);"><i data-feather="chevron-down"
                                                         class="chevron-down-add"></i></a>
@@ -234,7 +239,7 @@
                                 <div id="collapseTwo" class="accordion-collapse collapse show"
                                     aria-labelledby="headingTwo" data-bs-parent="#accordionExample2">
                                     <div class="accordion-body">
-                                        <div class="input-blocks add-products">
+                                        {{-- <div class="input-blocks add-products">
                                             <label class="d-block">Product Type</label>
                                             <div class="single-pill-product">
                                                 <ul class="nav nav-pills" id="pills-tab1" role="tablist">
@@ -257,24 +262,28 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <div class="tab-content" id="pills-tabContent">
                                             <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                                                 aria-labelledby="pills-home-tab">
                                                 <div class="row">
-                                                    <div class="col-lg-4 col-sm-6 col-12">
+                                                    {{-- <div class="col-lg-4 col-sm-6 col-12">
                                                         <div class="input-blocks add-product">
                                                             <label>Quantity</label>
                                                             <input type="text" class="form-control" />
                                                         </div>
-                                                    </div>
-                                                    <div class="col-lg-4 col-sm-6 col-12">
+                                                    </div> --}}
+                                                    <div class="col-lg-12 col-sm-12 col-12">
                                                         <div class="input-blocks add-product">
                                                             <label>Price</label>
-                                                            <input type="text" class="form-control" />
+                                                            <input type="number" class="form-control"
+                                                                wire:model.live='price' />
+                                                            @error('price')
+                                                            <p class="text-danger">{{$message}}</p>
+                                                            @enderror
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-4 col-sm-6 col-12">
+                                                    {{-- <div class="col-lg-4 col-sm-6 col-12">
                                                         <div class="input-blocks add-product">
                                                             <label>Tax Type</label>
                                                             <select class="select">
@@ -282,9 +291,9 @@
                                                                 <option>Sales Tax</option>
                                                             </select>
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
-                                                <div class="row">
+                                                {{-- <div class="row">
                                                     <div class="col-lg-4 col-sm-6 col-12">
                                                         <div class="input-blocks add-product">
                                                             <label>Discount Type</label>
@@ -307,7 +316,7 @@
                                                             <input type="text" class="form-control" />
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                                 <div class="accordion-card-one accordion" id="accordionExample3">
                                                     <div class="accordion-item">
                                                         <div class="accordion-header" id="headingThree">
@@ -317,7 +326,7 @@
                                                                 <div class="addproduct-icon list">
                                                                     <h5>
                                                                         <i data-feather="image"
-                                                                            class="add-info"></i><span>Images</span>
+                                                                            class="add-info"></i><span>Image</span>
                                                                     </h5>
                                                                     <a href="javascript:void(0);"><i
                                                                             data-feather="chevron-down"
@@ -334,28 +343,29 @@
                                                                         <div class="add-choosen">
                                                                             <div class="input-blocks">
                                                                                 <div class="image-upload">
-                                                                                    <input type="file" />
+                                                                                    <input type="file"
+                                                                                        wire:model.live='image' />
                                                                                     <div class="image-uploads">
                                                                                         <i data-feather="plus-circle"
                                                                                             class="plus-down-add me-0"></i>
-                                                                                        <h4>Add Images</h4>
+                                                                                        <h4>
+                                                                                            <span wire:target='image'
+                                                                                                wire:loading>Uploading</span>
+                                                                                            Add Image
+                                                                                        </h4>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
+                                                                            @if ($image)
                                                                             <div class="phone-img">
-                                                                                <img src="assets/img/products/phone-add-2.png"
-                                                                                    alt="image" />
-                                                                                <a href="javascript:void(0);"><i
+                                                                                <img src="{{$image->temporaryUrl()}}" />
+                                                                                {{-- <a href="javascript:void(0);"><i
                                                                                         data-feather="x"
                                                                                         class="x-square-add remove-product"></i></a>
+                                                                                --}}
                                                                             </div>
-                                                                            <div class="phone-img">
-                                                                                <img src="assets/img/products/phone-add-1.png"
-                                                                                    alt="image" />
-                                                                                <a href="javascript:void(0);"><i
-                                                                                        data-feather="x"
-                                                                                        class="x-square-add remove-product"></i></a>
-                                                                            </div>
+                                                                            @endif
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -366,7 +376,7 @@
                                             </div>
                                             <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                                                 aria-labelledby="pills-profile-tab">
-                                                <div class="row select-color-add">
+                                                {{-- <div class="row select-color-add">
                                                     <div class="col-lg-6 col-sm-6 col-12">
                                                         <div class="input-blocks add-product">
                                                             <label>Variant Attribute</label>
@@ -410,8 +420,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="modal-body-table variant-table" id="variant-table">
+                                                </div> --}}
+                                                {{-- <div class="modal-body-table variant-table" id="variant-table">
                                                     <div class="table-responsive">
                                                         <table class="table">
                                                             <thead>
@@ -547,14 +557,14 @@
                                                             </tbody>
                                                         </table>
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-card-one accordion" id="accordionExample4">
+                        {{-- <div class="accordion-card-one accordion" id="accordionExample4">
                             <div class="accordion-item">
                                 <div class="accordion-header" id="headingFour">
                                     <div class="accordion-button" data-bs-toggle="collapse"
@@ -635,23 +645,25 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="mb-4 btn-addproduct">
-                        <button type="button" class="btn btn-cancel me-2">
-                            Cancel
-                        </button>
-                        <button type="submit" class="btn btn-submit">
-                            Save Product
+                        <button type="button" class="btn btn-cancel me-2" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-submit" wire:target="create" wire:loading.remove>Create
+                            Product</button>
+                        <button class="btn btn-warning-light" type="button" disabled wire:target="create" wire:loading>
+                            <span class="align-middle spinner-grow spinner-grow-sm" role="status"
+                                aria-hidden="true"></span>
+                            Creating...
                         </button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-    <div class="modal fade" id="add-units">
+    {{-- <div class="modal fade" id="add-units">
         <div class="modal-dialog modal-dialog-centered stock-adjust-modal">
             <div class="modal-content">
                 <div class="p-0 page-wrapper-new">
@@ -954,5 +966,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
