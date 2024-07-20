@@ -6,6 +6,7 @@ use App\Http\Middleware\AuthManager;
 use App\Livewire\Admin\AdminDashboard;
 use App\Livewire\Admin\AllClients;
 use App\Livewire\Admin\Industries;
+use App\Livewire\Man\Categories;
 use App\Livewire\Man\EditCompanyDetails;
 use App\Livewire\Man\ManagerDashboard;
 use App\Livewire\User\MyProfile;
@@ -27,18 +28,12 @@ Route::get('/dashboard', function () {
     if ($user) {
         // Redirect based on user type (utype)
         switch ($user->utype) {
-                // case 'byr':
-                //     return redirect()->route('buyer.dashboard');
-                //     break;
             case 'man':
                 return redirect()->route('manager.dashboard');
                 break;
             case 'adm':
                 return redirect()->route('admin.dashboard');
                 break;
-                // case 'sadm':
-                //     return redirect()->route('super.dashboard');
-                //     break;
             default:
                 abort(403);
                 break;
@@ -57,11 +52,14 @@ Route::prefix('/admin')->middleware(['auth', 'verified', AuthAdmin::class])->gro
 });
 
 
-
 // Client
 Route::prefix('/manager')->middleware(['auth', 'verified', AuthManager::class])->group(function () {
     Route::get('/dashboard', ManagerDashboard::class)->name('manager.dashboard');
     Route::get('/company-details', EditCompanyDetails::class)->name('company.settings');
+    // Category
+    Route::prefix('category')->group(function () {
+        Route::get('/view', Categories::class)->name('categories');
+    });
 });
 
 // User Routes
