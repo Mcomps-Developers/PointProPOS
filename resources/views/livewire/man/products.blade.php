@@ -179,7 +179,13 @@
                                         </div>
                                     </td>
                                     <td>{{$item->sku}}</td>
-                                    <td>{{$item->category->name}}</td>
+                                    <td>
+                                        @if ($item->category_id)
+                                        {{$item->category->name}}
+                                        @else
+                                        Uncategorized
+                                        @endif
+                                    </td>
                                     {{-- <td>Brand</td> --}}
                                     <td>Ksh {{$item->price}}</td>
                                     <td>{{$item->unit}}</td>

@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('slug');
             $table->string('image')->nullable();
             $table->float('price');
-            $table->string('unit');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
             $table->softDeletes();
