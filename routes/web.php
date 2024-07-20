@@ -9,6 +9,7 @@ use App\Livewire\Admin\Industries;
 use App\Livewire\Man\Categories;
 use App\Livewire\Man\EditCompanyDetails;
 use App\Livewire\Man\ManagerDashboard;
+use App\Livewire\Man\Products;
 use App\Livewire\User\MyProfile;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -59,6 +60,11 @@ Route::prefix('/manager')->middleware(['auth', 'verified', AuthManager::class])-
     // Category
     Route::prefix('category')->group(function () {
         Route::get('/view', Categories::class)->name('categories');
+    });
+
+    // Products
+    Route::prefix('products')->group(function () {
+        Route::get('/view', Products::class)->name('products');
     });
 });
 
