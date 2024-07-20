@@ -22,6 +22,9 @@ return new class extends Migration
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->unique(['company_id', 'name']);
         });
+        Schema::table('categories', function (Blueprint $table) {
+            $table->dropUnique(['name']);
+        });
     }
 
     /**
