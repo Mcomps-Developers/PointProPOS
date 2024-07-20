@@ -96,7 +96,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
                                                         <label class="form-label">Business Email</label>
-                                                        <input type="tel" class="form-control"
+                                                        <input type="email" class="form-control"
                                                             wire:model.live='business_email'>
                                                         @error('business_email')
                                                         <p class="text-danger">{{$message}}</p>
