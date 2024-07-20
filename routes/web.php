@@ -15,15 +15,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
-
-
-
-
-
-
-
-
-
+// If Logged Out
+Route::get('/', function () {
+    Route::get('/dashboard');
+});
 // Manage Redirect
 Route::get('/dashboard', function () {
     $user = Auth::user();
@@ -34,9 +29,9 @@ Route::get('/dashboard', function () {
                 // case 'byr':
                 //     return redirect()->route('buyer.dashboard');
                 //     break;
-                case 'man':
-                    return redirect()->route('manager.dashboard');
-                    break;
+            case 'man':
+                return redirect()->route('manager.dashboard');
+                break;
             case 'adm':
                 return redirect()->route('admin.dashboard');
                 break;
@@ -53,17 +48,6 @@ Route::get('/dashboard', function () {
 })->name('user.dashboard');
 
 
-
-
-
-
-
-
-
-
-
-
-
 // Admin
 Route::prefix('/admin')->middleware(['auth', 'verified', AuthAdmin::class])->group(function () {
     Route::get('/dashboard', AdminDashboard::class)->name('admin.dashboard');
@@ -73,63 +57,16 @@ Route::prefix('/admin')->middleware(['auth', 'verified', AuthAdmin::class])->gro
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Client
 Route::prefix('/manager')->middleware(['auth', 'verified', AuthManager::class])->group(function () {
     Route::get('/dashboard', ManagerDashboard::class)->name('manager.dashboard');
-    Route::get('/company-details',EditCompanyDetails::class)->name('company.settings');
+    Route::get('/company-details', EditCompanyDetails::class)->name('company.settings');
 });
-
-
-
-
-
-
-
-
-
 
 // User Routes
 Route::prefix('/my')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', MyProfile::class)->name('user.profile');
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Email Verification Routes
 Route::get('/email/verify', function () {
