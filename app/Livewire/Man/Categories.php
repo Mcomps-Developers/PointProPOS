@@ -13,11 +13,20 @@ class Categories extends Component
 {
     public $name;
     public $status;
+    private $company_id;
 
-    protected $rules = [
-        'name' => 'required|unique:categories,name',
-        'status' => 'required',
-    ];
+    public function mount()
+    {
+        $this->company_id = Company::where('user_id', Auth::id())->first()->id;
+    }
+
+    public function rules()
+    {
+        return [
+            'name' => 'required|unique:categories,name,NULL,id,company_id,' . $this->company_id,
+            'status' => 'required',
+        ];
+    }
 
     public function updated($fields)
     {
