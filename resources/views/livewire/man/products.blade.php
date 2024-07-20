@@ -34,7 +34,7 @@
                     </li>
                 </ul>
                 <div class="page-btn">
-                    <a href="add-product.html" class="btn btn-added"><i data-feather="plus-circle" class="me-2"></i>Add
+                    <a href="{{route('product.add')}}" class="btn btn-added"><i data-feather="plus-circle" class="me-2"></i>Add
                         New
                         Product</a>
                 </div>

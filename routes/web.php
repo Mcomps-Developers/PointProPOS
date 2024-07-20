@@ -6,6 +6,7 @@ use App\Http\Middleware\AuthManager;
 use App\Livewire\Admin\AdminDashboard;
 use App\Livewire\Admin\AllClients;
 use App\Livewire\Admin\Industries;
+use App\Livewire\Man\AddProduct;
 use App\Livewire\Man\Categories;
 use App\Livewire\Man\EditCompanyDetails;
 use App\Livewire\Man\ManagerDashboard;
@@ -65,6 +66,7 @@ Route::prefix('/manager')->middleware(['auth', 'verified', AuthManager::class])-
     // Products
     Route::prefix('products')->group(function () {
         Route::get('/view', Products::class)->name('products');
+        Route::get('/add',AddProduct::class)->name('product.add');
     });
 });
 
