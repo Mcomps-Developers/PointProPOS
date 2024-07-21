@@ -205,13 +205,13 @@
                                             <div class="row">
                                                 <div class="col-lg-10 col-sm-10 col-10">
                                                     <input type="email" name="" id="" class="form-control"
-                                                        wire:model.live='email' wire:keyDown='CheckUser'>
+                                                        wire:model.live='email' wire:blur='CheckUser'>
                                                     @error('email')
                                                     <p class="text-danger">{{$message}}</p>
                                                     @enderror
                                                     @if ($name)
-                                                    <p class="text-success"><span>Client found.</span> <strong>Name:
-                                                        </strong>{{$name}} <strong> Phone:
+                                                    <p class="text-success"><strong>Name:
+                                                        </strong>{{$name}} <strong><br> Phone:
                                                         </strong>+{{$phone_number}}<br>
                                                         <strong><span>Unpaid Debts: </span> {{$debtBalance}}</strong>
                                                     </p>
