@@ -256,7 +256,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-8">
                                         <div class="input-blocks">
                                             <label>Product Name</label>
                                             <div class="input-groupicon">
@@ -273,6 +273,19 @@
                                                 @endforeach
                                             </ul>
                                             @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="input-blocks">
+                                            <label>Invoice Type</label>
+                                            <select name="" id="" class="form-control" wire:model.live='loanType'>
+                                                <option>-:-</option>
+                                                <option value="pay_later">Collect Pay later</option>
+                                                <option value="collect_later">Pay collect later</option>
+                                            </select>
+                                            @error('loanType')
+                                            <p class="text-danger">{{$message}}</p>
+                                            @enderror
                                         </div>
                                     </div>
 

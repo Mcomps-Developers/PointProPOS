@@ -24,6 +24,7 @@ class Invoices extends Component
     public $shipping_fee = 0;
     private $user_id;
     public $productName = '';
+    public $loanType;
 
     public function addToCart($productId)
     {
@@ -86,6 +87,8 @@ class Invoices extends Component
             'shipping_fee' => 'nullable|numeric',
             'repayment_frequency' => 'required',
             'first_repayment_date' => 'required|date',
+            'status' => 'required',
+            'loanType' => 'required',
         ];
     }
 
@@ -97,14 +100,18 @@ class Invoices extends Component
     {
         $this->validate();
         $this->handleUser();
+        $this->calculateAmount();
         try {
             $company = Company::where('user_id', Auth::id())->first();
-            $category = new Invoice();
-            $category->company_id = $company->id;
-            $category->name = $this->name;
-            $category->status = $this->status;
-            $category->save();
-            notyf()->position('y', 'top')->success('Category created successfully.');
+            $invoice = new Invoice();
+            $invoice->company_id = $company->id;
+            $invoice->user_id = $this->user_id;
+            $invoice->type = $this->loanType;
+            $invoice->status = $this->status;
+            // $invoice->amount = $this->status;
+            // $invoice->reference = $this->status;
+            $invoice->save();
+            notyf()->position('y', 'top')->success('Loan processed successfully.');
             return redirect()->to(request()->header('referer'));
         } catch (\Illuminate\Database\QueryException $ex) {
             Log::error('Database error: ' . $ex->getMessage() . ' in ' . $ex->getFile() . ' on line ' . $ex->getLine());
@@ -116,6 +123,10 @@ class Invoices extends Component
             notyf()->position('y', 'top')->error('An unexpected error occurred. Please try again later.');
             return redirect()->to(request()->header('referer'));
         }
+    }
+
+    private function calculateAmount()
+    {
     }
     public function increaseQuantity($rowId)
     {
