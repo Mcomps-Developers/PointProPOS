@@ -299,18 +299,35 @@
                                                                 </div>
                                                             </td>
                                                             <td>
-                                                                <div class="">
-                                                                    <a
+                                                                <div class="quantity-control d-flex align-items-center">
+                                                                    <a class="btn btn-outline-secondary btn-sm"
                                                                         wire:click="increaseQuantity('{{ $item->rowId }}')">
                                                                         <i class="fa fa-plus"></i>
                                                                     </a>
-                                                                    <input type="text" class="form-control"
-                                                                        value="{{ $item->qty }}" />
-                                                                    <a
+                                                                    <input type="text"
+                                                                        class="form-control text-center mx-2"
+                                                                        value="{{ $item->qty }}" readonly />
+                                                                    <a class="btn btn-outline-secondary btn-sm"
                                                                         wire:click="decreaseQuantity('{{ $item->rowId }}')">
                                                                         <i class="fa fa-minus"></i>
                                                                     </a>
                                                                 </div>
+                                                                <style>
+                                                                    .quantity-control .btn {
+                                                                        width: 32px;
+                                                                        height: 32px;
+                                                                        padding: 0;
+                                                                        display: flex;
+                                                                        align-items: center;
+                                                                        justify-content: center;
+                                                                    }
+
+                                                                    .quantity-control .form-control {
+                                                                        width: 60px;
+                                                                        max-width: 60px;
+                                                                        padding: 0.375rem 0.75rem;
+                                                                    }
+                                                                </style>
                                                             </td>
                                                             <td>{{ $item->model->price }}</td>
                                                             <td>{{ $item->subtotal }}</td>
