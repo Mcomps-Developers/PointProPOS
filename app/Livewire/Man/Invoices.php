@@ -121,6 +121,32 @@ class Invoices extends Component
             return redirect()->to(request()->header('referer'));
         }
     }
+    public $cartItems = [];
+
+    public function mount()
+    {
+        $this->loadCart();
+    }
+
+    public function loadCart()
+    {
+        $this->cartItems = Cart::content();
+    }
+    public function increaseQuantity($rowId)
+    {
+        $item = Cart::get($rowId);
+        Cart::update($rowId, $item->qty + 1);
+        $this->loadCart();
+    }
+
+    public function decreaseQuantity($rowId)
+    {
+        $item = Cart::get($rowId);
+        if ($item->qty > 1) {
+            Cart::update($rowId, $item->qty - 1);
+            $this->loadCart();
+        }
+    }
     public function render()
     {
         $company = Company::where('user_id', Auth::id())->first();

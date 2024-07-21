@@ -276,57 +276,47 @@
                                                 <table class="table datanew">
                                                     <thead>
                                                         <tr>
+                                                        <tr>
                                                             <th>Product</th>
-                                                            <th>Qty</th>
-                                                            <th>Purchase Price(KES)</th>
-                                                            <th>Discount(KES)</th>
-                                                            <th>Tax(%)</th>
-                                                            <th>Tax Amount(KES)</th>
-                                                            <th>Unit Cost(KES)</th>
-                                                            <th>Total Cost(%)</th>
+                                                            <th>Quantity</th>
+                                                            <th>Price</th>
+                                                            <th>Subtotal</th>
+                                                        </tr>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr style="background: #ffffff">
-                                                            <td class="p-5"></td>
-                                                            <td class="p-5"></td>
-                                                            <td class="p-5"></td>
-                                                            <td class="p-5"></td>
-                                                            <td class="p-5"></td>
-                                                            <td class="p-5"></td>
-                                                            <td class="p-5"></td>
-                                                            <td class="p-5"></td>
-                                                        </tr>
+                                                        @foreach ($cartItems as $item)
                                                         <tr>
                                                             <td>
                                                                 <div class="productimgname">
                                                                     <a href="javascript:void(0);"
                                                                         class="product-img stock-img">
-                                                                        <img src="{{asset('assets/img/products/stock-img-02.png')}}"
+                                                                        <img src="{{ asset('assets/img/products/stock-img-02.png') }}"
                                                                             alt="product" />
                                                                     </a>
-                                                                    <a href="javascript:void(0);">Nike Jordan</a>
+                                                                    <a href="javascript:void(0);">{{ $item->name }}</a>
                                                                 </div>
                                                             </td>
                                                             <td>
                                                                 <div class="product-quantity">
-                                                                    <span class="quantity-btn">+<i
-                                                                            data-feather="plus-circle"
-                                                                            class="plus-circle"></i></span>
+                                                                    <span class="quantity-btn"
+                                                                        wire:click="increaseQuantity('{{ $item->rowId }}')">
+                                                                        +<i data-feather="plus-circle"
+                                                                            class="plus-circle"></i>
+                                                                    </span>
                                                                     <input type="text" class="quntity-input"
-                                                                        value="2" />
-                                                                    <span class="quantity-btn"><i
-                                                                            data-feather="minus-circle"
-                                                                            class="feather-search"></i></span>
+                                                                        value="{{ $item->qty }}" />
+                                                                    <span class="quantity-btn"
+                                                                        wire:click="decreaseQuantity('{{ $item->rowId }}')">
+                                                                        <i data-feather="minus-circle"
+                                                                            class="feather-search"></i>
+                                                                    </span>
                                                                 </div>
                                                             </td>
-                                                            <td>2000</td>
-                                                            <td>500</td>
-                                                            <td>0.00</td>
-                                                            <td>0.00</td>
-                                                            <td>0.00</td>
-                                                            <td>1500</td>
+                                                            <td>{{ $item->price }}</td>
+                                                            <td>{{ $item->subtotal }}</td>
                                                         </tr>
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>
