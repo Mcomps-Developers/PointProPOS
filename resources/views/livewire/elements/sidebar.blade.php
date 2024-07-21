@@ -24,6 +24,7 @@
                         <a href="{{route('categories')}}"><i data-feather="codepen"></i><span>Categories</span></a>
                     </li>
                     <li><a href="{{route('products')}}"><i data-feather="box"></i><span>Products</span></a></li>
+                    <li><a href="{{route('customers')}}"><i data-feather="user"></i><span>Customers</span></a></li>
                     @else
                     <li class="submenu-open">
                         <h6 class="submenu-hdr">Inventory</h6>
