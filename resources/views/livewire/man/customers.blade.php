@@ -210,19 +210,28 @@
                                         <div class="mb-3">
                                             <label class="form-label">Customer Name</label>
                                             <input type="text" class="form-control" wire:model.live='name' />
+                                            @error('name')
+                                            <p class="text-danger">{{$message}}</p>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-lg-4 pe-0">
                                         <div class="mb-3">
                                             <label class="form-label">Email</label>
                                             <input type="email" class="form-control" wire:model.live='email' />
+                                            @error('email')
+                                            <p class="text-danger">{{$message}}</p>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-lg-4 pe-0">
                                         <div class="input-blocks">
                                             <label class="mb-2">Phone</label>
                                             <input class="form-control form-control-lg group_formcontrol" id="phone"
-                                                name="phone" type="text" wire:model.live='phone_number' />
+                                                name="phone" type="tel" wire:model.live='phone_number' />
+                                            @error('phone_number')
+                                            <p class="text-danger">{{$message}}</p>
+                                            @enderror
                                         </div>
                                     </div>
                                     {{-- <div class="col-lg-12 pe-0">
