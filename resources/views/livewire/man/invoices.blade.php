@@ -332,12 +332,14 @@
                                                             </td>
                                                             <td>{{ $item->model->price }}</td>
                                                             <td>{{ $item->subtotal }}</td>
-                                                            <div class="quantity-control d-flex align-items-center">
-                                                                <a class="btn btn-outline-danger btn-sm"
-                                                                    wire:click="destroy('{{ $item->rowId }}')">
-                                                                    <i class="fa fa-trash"></i>
-                                                                </a>
-                                                            </div>
+                                                            <td>
+                                                                <div class="quantity-control d-flex align-items-center">
+                                                                    <a class="btn btn-outline-danger btn-sm"
+                                                                        wire:click="destroy('{{ $item->rowId }}')">
+                                                                        <i class="fa fa-trash"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </td>
                                                         </tr>
                                                         @endforeach
                                                     </tbody>
