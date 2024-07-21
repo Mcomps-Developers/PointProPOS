@@ -24,21 +24,12 @@ class Invoices extends Component
     public $productName = '';
     public $products = [];
 
-    public function updatedProductName()
-    {
-        $company = Company::where('user_id', Auth::id())->first();
-        $this->products = Product::orderBy('name')
-            ->where('company_id', $company->id)
-            ->where('name', 'like', '%' . $this->productName . '%')
-            ->get();
-    }
-
     public function addToCart($productId)
     {
         $product = Product::find($productId);
 
         if ($product) {
-            Cart::add($product->id, $product->name, 1, $product->price);
+            Cart::instance('cart')->add($product->id, $product->name, 1, $product->price)->associate('App\Models\Product');
             notyf()->position('y', 'top')->success('Product added to cart successfully!');
         }
     }
@@ -121,22 +112,10 @@ class Invoices extends Component
             return redirect()->to(request()->header('referer'));
         }
     }
-    public $cartItems = [];
-
-    public function mount()
-    {
-        $this->loadCart();
-    }
-
-    public function loadCart()
-    {
-        $this->cartItems = Cart::content();
-    }
     public function increaseQuantity($rowId)
     {
         $item = Cart::get($rowId);
         Cart::update($rowId, $item->qty + 1);
-        $this->loadCart();
     }
 
     public function decreaseQuantity($rowId)
@@ -144,7 +123,6 @@ class Invoices extends Component
         $item = Cart::get($rowId);
         if ($item->qty > 1) {
             Cart::update($rowId, $item->qty - 1);
-            $this->loadCart();
         }
     }
     public function render()
@@ -152,7 +130,10 @@ class Invoices extends Component
         $company = Company::where('user_id', Auth::id())->first();
         $invoices = Invoice::orderByDesc('created_at')->get();
         $customers = User::where('company_id', $company->id)->where('utype', 'cst')->get();
-        $products = Product::orderBy('name')->where('company_id', $company->id)->get();
+        $products = Product::orderBy('name')
+            ->where('company_id', $company->id)
+            ->where('name', 'like', '%' . $this->productName . '%')
+            ->get();
         return view('livewire.man.invoices', ['invoices' => $invoices, 'customers' => $customers, 'products' => $products])->layout('layouts.base');
     }
 }

@@ -256,7 +256,7 @@
                                             <div class="input-groupicon">
                                                 <input type="text" class="form-control"
                                                     placeholder="Please type product code and select"
-                                                    wire:model.debounce.300ms="productName">
+                                                    wire:model.live="productName">
                                             </div>
                                             @if (!empty($products))
                                             <ul class="list-group mt-2">
@@ -285,16 +285,17 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        @foreach ($cartItems as $item)
+                                                        @foreach (Cart::instance('cart')->content() as $item)
                                                         <tr>
                                                             <td>
                                                                 <div class="productimgname">
                                                                     <a href="javascript:void(0);"
                                                                         class="product-img stock-img">
-                                                                        <img src="{{ asset('assets/img/products/stock-img-02.png') }}"
+                                                                        <img src="{{ asset('assets/img/products')/{{$item->model->image}} }}"
                                                                             alt="product" />
                                                                     </a>
-                                                                    <a href="javascript:void(0);">{{ $item->name }}</a>
+                                                                    <a href="javascript:void(0);">{{ $item->model->name
+                                                                        }}</a>
                                                                 </div>
                                                             </td>
                                                             <td>
@@ -313,7 +314,7 @@
                                                                     </span>
                                                                 </div>
                                                             </td>
-                                                            <td>{{ $item->price }}</td>
+                                                            <td>{{ $item->model->price }}</td>
                                                             <td>{{ $item->subtotal }}</td>
                                                         </tr>
                                                         @endforeach
