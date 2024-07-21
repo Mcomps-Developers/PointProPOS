@@ -4,8 +4,11 @@ namespace App\Livewire\Man;
 
 use App\Models\Company;
 use App\Models\Invoice;
+use App\Models\Product;
 use App\Models\User;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
 class Invoices extends Component
@@ -18,6 +21,28 @@ class Invoices extends Component
     public $repayment_frequency;
     public $debtBalance = 0;
     private $user_id;
+    public $productName = '';
+    public $products = [];
+
+    public function updatedProductName()
+    {
+        $company = Company::where('user_id', Auth::id())->first();
+        $this->products = Product::orderBy('name')
+            ->where('company_id', $company->id)
+            ->where('name', 'like', '%' . $this->productName . '%')
+            ->get();
+    }
+
+    public function addToCart($productId)
+    {
+        $product = Product::find($productId);
+
+        if ($product) {
+            Cart::add($product->id, $product->name, 1, $product->price);
+            notyf()->position('y', 'top')->success('Product added to cart successfully!');
+        }
+    }
+
 
 
     // Check User
@@ -101,6 +126,7 @@ class Invoices extends Component
         $company = Company::where('user_id', Auth::id())->first();
         $invoices = Invoice::orderByDesc('created_at')->get();
         $customers = User::where('company_id', $company->id)->where('utype', 'cst')->get();
-        return view('livewire.man.invoices', ['invoices' => $invoices, 'customers' => $customers])->layout('layouts.base');
+        $products = Product::orderBy('name')->where('company_id', $company->id)->get();
+        return view('livewire.man.invoices', ['invoices' => $invoices, 'customers' => $customers, 'products' => $products])->layout('layouts.base');
     }
 }
