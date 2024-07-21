@@ -17,7 +17,7 @@ class Invoices extends Component
     public $email;
     public $phone_number;
     public $status;
-    public $firt_repayment_date;
+    public $first_repayment_date;
     public $repayment_frequency;
     public $debtBalance = 0;
     public $discount = 0;
@@ -81,7 +81,11 @@ class Invoices extends Component
     public function rules()
     {
         return [
-            'status' => 'required',
+            'email' => 'required|email',
+            'discount' => 'nullable|numeric',
+            'shipping_fee' => 'nullable|numeric',
+            'repayment_frequency' => 'required',
+            'first_repayment_date' => 'required|date',
         ];
     }
 

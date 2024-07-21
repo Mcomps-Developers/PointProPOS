@@ -232,7 +232,10 @@
                                             <label>Fisrt Day of Repayment</label>
                                             <div class="input-groupicon calender-input">
                                                 <input type="date" class="form-control" placeholder="Choose"
-                                                    wire:model.live='firt_repayment_date' />
+                                                    wire:model.live='first_repayment_date' />
+                                                @error('first_repayment_date')
+                                                <p class="text-danger">{{$message}}</p>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -246,6 +249,9 @@
                                                 <option value="weekly">Weekly</option>
                                                 <option value="monthly">Monthly</option>
                                             </select>
+                                            @error('repayment_frequency')
+                                            <p class="text-danger">{{$message}}</p>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -402,7 +408,14 @@
                                     <button type="button" class="btn btn-cancel me-2" data-bs-dismiss="modal">
                                         Cancel
                                     </button>
-                                    <button type="submit" class="btn btn-submit">Submit</button>
+                                    <button type="submit" class="btn btn-submit" wire:target="create"
+                                        wire:loading.remove>Process Loan</button>
+                                    <button class="btn btn-warning-light" type="button" disabled wire:target="create"
+                                        wire:loading>
+                                        <span class="align-middle spinner-grow spinner-grow-sm" role="status"
+                                            aria-hidden="true"></span>
+                                        Processing...
+                                    </button>
                                 </div>
                             </form>
                         </div>
