@@ -25,6 +25,8 @@
                     </li>
                     <li><a href="{{route('products')}}"><i data-feather="box"></i><span>Products</span></a></li>
                     <li><a href="{{route('customers')}}"><i data-feather="user"></i><span>Customers</span></a></li>
+                    <li><a href="{{route('invoices')}}"><i data-feather="file-text"></i><span>Invoices</span></a>
+                    </li>
                     @else
                     <li class="submenu-open">
                         <h6 class="submenu-hdr">Inventory</h6>
