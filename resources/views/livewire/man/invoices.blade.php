@@ -311,6 +311,10 @@
                                                                         wire:click="decreaseQuantity('{{ $item->rowId }}')">
                                                                         <i class="fa fa-minus"></i>
                                                                     </a>
+                                                                    <a class="btn btn-outline-danger btn-sm"
+                                                                        wire:click="destroy('{{ $item->rowId }}')">
+                                                                        <i class="fa fa-trush"></i>
+                                                                    </a>
                                                                 </div>
                                                                 <style>
                                                                     .quantity-control .btn {
@@ -342,41 +346,53 @@
                                         <div class="col-lg-3 col-md-6 col-sm-12">
                                             <div class="mb-3 input-blocks">
                                                 <label>Order Tax</label>
-                                                <input type="text" value="0" />
+                                                <input type="text" value="{{Cart::instance('cart')->tax}}" disabled />
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-md-6 col-sm-12">
                                             <div class="mb-3 input-blocks">
-                                                <label>Discount</label>
-                                                <input type="text" value="0" />
+                                                <label>Discount (KES)</label>
+                                                <input type="text" value="0" wire:model.live='discount' />
+                                                @error('discount')
+                                                <p class="text-danger">{{$message}}</p>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-md-6 col-sm-12">
                                             <div class="mb-3 input-blocks">
                                                 <label>Shipping</label>
-                                                <input type="text" value="0" />
+                                                <input type="text" value="0" wire:model.live='shipping_fee' />
+                                                @error('shipping_fee')
+                                                <p class="text-danger">{{$message}}</p>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-md-6 col-sm-12">
                                             <div class="mb-3 input-blocks">
                                                 <label>Status</label>
-                                                <select class="form-control">
+                                                <select class="form-control" wire:model.live='status'>
                                                     <option>-:-</option>
                                                     <option value="pending">Pending</option>
-                                                    <option value="progressing">Progress</option>
+                                                    <option value="cancelled">Cancelled</option>
+                                                    <option value="complete">Complete</option>
+                                                    <option value="progress">In Progress</option>
+                                                    <option value="defaulted">Defaulted</option>
                                                 </select>
+                                                @error('status')
+                                                <p class="text-danger">{{$message}}</p>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-12">
+                                {{-- <div class="col-lg-12">
                                     <div class="input-blocks summer-description-box">
                                         <label>Notes</label>
                                         <textarea name="" id="" cols="30" rows="10" class="form-control">
                                             Additional notes....
                                         </textarea>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="modal-footer-btn">
                                     <button type="button" class="btn btn-cancel me-2" data-bs-dismiss="modal">
                                         Cancel

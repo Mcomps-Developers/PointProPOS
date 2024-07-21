@@ -20,6 +20,8 @@ class Invoices extends Component
     public $firt_repayment_date;
     public $repayment_frequency;
     public $debtBalance = 0;
+    public $discount = 0;
+    public $shipping_fee = 0;
     private $user_id;
     public $productName = '';
 
@@ -123,6 +125,11 @@ class Invoices extends Component
         if ($item->qty > 1) {
             Cart::update($rowId, $item->qty - 1);
         }
+    }
+    public function destroy($rowId)
+    {
+        Cart::instance('cart')->remove($rowId);
+        session()->flash('success', 'Product successfully removed from cart');
     }
     public function render()
     {
