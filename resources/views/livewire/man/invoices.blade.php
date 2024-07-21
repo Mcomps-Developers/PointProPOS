@@ -281,6 +281,7 @@
                                                             <th>Quantity</th>
                                                             <th>Price</th>
                                                             <th>Subtotal</th>
+                                                            <th></th>
                                                         </tr>
                                                         </tr>
                                                     </thead>
@@ -311,11 +312,6 @@
                                                                         wire:click="decreaseQuantity('{{ $item->rowId }}')">
                                                                         <i class="fa fa-minus"></i>
                                                                     </a>
-                                                                    <a class="btn btn-outline-danger btn-sm"
-                                                                        wire:click="destroy('{{ $item->rowId }}')"
-                                                                        style="margin-left: 6px">
-                                                                        <i class="fa fa-trash"></i>
-                                                                    </a>
                                                                 </div>
                                                                 <style>
                                                                     .quantity-control .btn {
@@ -336,6 +332,12 @@
                                                             </td>
                                                             <td>{{ $item->model->price }}</td>
                                                             <td>{{ $item->subtotal }}</td>
+                                                            <div class="quantity-control d-flex align-items-center">
+                                                                <a class="btn btn-outline-danger btn-sm"
+                                                                    wire:click="destroy('{{ $item->rowId }}')">
+                                                                    <i class="fa fa-trash"></i>
+                                                                </a>
+                                                            </div>
                                                         </tr>
                                                         @endforeach
                                                     </tbody>
