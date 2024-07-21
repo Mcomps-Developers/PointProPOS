@@ -2,13 +2,12 @@
 
 namespace App\Notifications;
 
-use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class NewCompanyNotification extends Notification
+class NewCustomerNotification extends Notification
 {
     use Queueable;
     public $user;
@@ -21,6 +20,7 @@ class NewCompanyNotification extends Notification
     {
         $this->user = $user;
         $this->company = $company;
+
         $this->userPassword = $userPassword;
     }
 
@@ -42,23 +42,24 @@ class NewCompanyNotification extends Notification
         return (new MailMessage)
             ->subject('Welcome')
             ->greeting('Dear ' . $this->user->name . ',')
-            ->line('Thank you for choosing ' . env('APP_NAME') . ' as your Pont of Sale (POS) solution. It is great to see you make the best strategic move to revolutionize and effectively manage your sales in real time Like A Pro. Big Up!')
-            ->line('Your business has been successfully created and credentials created. Below, find the information needed to get started.')
+            ->line('We are delighted to welcome you to ' . env('APP_NAME'))
+            ->line(env('APP_NAME') . ' is a Point Of Sale (POS) system designed to do an extra work of credit management besides the obvious POS & Inventory management. Your account was created to help enable you access installment purchases.')
+            ->line('For assurance, below are the details of our client that registered you to this service. We sent you this email to consent you.')
+            ->line('***********************')
             ->line('Business Details:')
             ->line('Business Name: ' . $this->company->name)
             ->line('Business Email: ' . $this->company->email)
             ->line('Business Phone: ' . $this->company->phone)
-            ->line('Monthly renewal fee: Ksh ' . $this->company->renewal_fee)
-            ->line('Renewal Date: ' . date('d M Y', strtotime($this->company->renewal_date)))
             ->line('Business Address: ' . $this->company->address)
+            ->line('***********************')
             ->line('Your Credentials')
             ->line('Login Email: ' . $this->user->email)
             ->line('Password: ' . $this->userPassword)
             ->line('Contact Phone: +' . $this->user->phone_number)
-            ->line('To access your dashboard and finish setting up your business, click the link below.')
+            ->line('Access your dashboard to consent for this service.')
             ->line('Note: You can use login with google to connect your G-Mail with PointPro for direct login without password.')
-            ->action('Dashboard', url('/dashboard'))
-            ->line('Thank you for choosing ' . env('APP_NAME'));
+            ->action('Login', url('/dashboard'))
+            ->line('Great experience awaits you!');
     }
 
     /**
@@ -70,7 +71,7 @@ class NewCompanyNotification extends Notification
     {
         return [
             'title' => 'Welcome to ' . env('APP_NAME'),
-            'message' => 'Thank you for choosing ' . env('APP_NAME') . '. Business created successfully.'
+            'message' => 'Customer account was created successfully'
         ];
     }
 }

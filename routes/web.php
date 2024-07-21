@@ -8,6 +8,7 @@ use App\Livewire\Admin\AllClients;
 use App\Livewire\Admin\Industries;
 use App\Livewire\Man\AddProduct;
 use App\Livewire\Man\Categories;
+use App\Livewire\Man\Customers;
 use App\Livewire\Man\EditCompanyDetails;
 use App\Livewire\Man\ManagerDashboard;
 use App\Livewire\Man\Products;
@@ -68,6 +69,9 @@ Route::prefix('/manager')->middleware(['auth', 'verified', AuthManager::class])-
         Route::get('/view', Products::class)->name('products');
         Route::get('/add', AddProduct::class)->name('product.add');
     });
+
+    // Customers
+    Route::get('/customers', Customers::class)->name('customers');
 });
 
 // User Routes
@@ -81,8 +85,7 @@ Route::get('/email/verify', function () {
 })->middleware('auth')->name('verification.notice');
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
-
-    return redirect('/home');
+    return redirect('/dashboard');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::post('/email/verification-notification', function (Request $request) {
