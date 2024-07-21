@@ -253,15 +253,23 @@
                                     <div class="col-lg-12">
                                         <div class="input-blocks">
                                             <label>Product Name</label>
-                                            <div class="input-groupicon select-code">
-                                                <input type="text" placeholder="Please type product code and select" />
-                                                <div class="addonset">
-                                                    <img src="{{asset('assets/img/icons/qrcode-scan.svg')}}"
-                                                        alt="img" />
-                                                </div>
+                                            <div class="input-groupicon">
+                                                <input type="text" class="form-control"
+                                                    placeholder="Please type product code and select"
+                                                    wire:model.debounce.300ms="productName">
                                             </div>
+                                            @if (!empty($products))
+                                            <ul class="list-group mt-2">
+                                                @foreach ($products as $product)
+                                                <li class="list-group-item" wire:click="addToCart({{ $product->id }})">
+                                                    {{ $product->name }}
+                                                </li>
+                                                @endforeach
+                                            </ul>
+                                            @endif
                                         </div>
                                     </div>
+
                                     <div class="col-lg-12">
                                         <div class="modal-body-table">
                                             <div class="table-responsive">
@@ -288,6 +296,36 @@
                                                             <td class="p-5"></td>
                                                             <td class="p-5"></td>
                                                             <td class="p-5"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="productimgname">
+                                                                    <a href="javascript:void(0);"
+                                                                        class="product-img stock-img">
+                                                                        <img src="{{asset('assets/img/products/stock-img-02.png')}}"
+                                                                            alt="product" />
+                                                                    </a>
+                                                                    <a href="javascript:void(0);">Nike Jordan</a>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="product-quantity">
+                                                                    <span class="quantity-btn">+<i
+                                                                            data-feather="plus-circle"
+                                                                            class="plus-circle"></i></span>
+                                                                    <input type="text" class="quntity-input"
+                                                                        value="2" />
+                                                                    <span class="quantity-btn"><i
+                                                                            data-feather="minus-circle"
+                                                                            class="feather-search"></i></span>
+                                                                </div>
+                                                            </td>
+                                                            <td>2000</td>
+                                                            <td>500</td>
+                                                            <td>0.00</td>
+                                                            <td>0.00</td>
+                                                            <td>0.00</td>
+                                                            <td>1500</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -316,8 +354,10 @@
                                         <div class="col-lg-3 col-md-6 col-sm-12">
                                             <div class="mb-3 input-blocks">
                                                 <label>Status</label>
-                                                <select class="select">
-                                                    <option>Choose</option>
+                                                <select class="form-control">
+                                                    <option>-:-</option>
+                                                    <option value="pending">Pending</option>
+                                                    <option value="progressing">Progress</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -325,8 +365,10 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="input-blocks summer-description-box">
-                                        <label>Description</label>
-                                        <div id="summernote"></div>
+                                        <label>Notes</label>
+                                        <textarea name="" id="" cols="30" rows="10" class="form-control">
+                                            Additional notes....
+                                        </textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer-btn">
@@ -343,7 +385,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="edit-units">
+    {{-- <div class="modal fade" id="edit-units">
         <div class="modal-dialog edit-sales-modal">
             <div class="modal-content">
                 <div class="p-0 m-0 page-wrapper">
@@ -588,5 +630,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
