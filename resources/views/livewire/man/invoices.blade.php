@@ -300,14 +300,14 @@
                                                             </td>
                                                             <td>
                                                                 <div class="product-quantity">
-                                                                    <span class="quantity-btn"
+                                                                    <span class=""
                                                                         wire:click="increaseQuantity('{{ $item->rowId }}')">
                                                                         +<i data-feather="plus-circle"
                                                                             class="plus-circle"></i>
                                                                     </span>
                                                                     <input type="text" class="quntity-input"
                                                                         value="{{ $item->qty }}" />
-                                                                    <span class="quantity-btn"
+                                                                    <span class=""
                                                                         wire:click="decreaseQuantity('{{ $item->rowId }}')">
                                                                         <i data-feather="minus-circle"
                                                                             class="feather-search"></i>
