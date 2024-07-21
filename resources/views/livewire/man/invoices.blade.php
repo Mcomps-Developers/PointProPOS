@@ -7,8 +7,8 @@
             <div class="page-header">
                 <div class="add-item d-flex">
                     <div class="page-title">
-                        <h4>Quotation List</h4>
-                        <h6>Manage Your Quotation</h6>
+                        <h4>Invoices</h4>
+                        <h6>Manage Your Invoices</h6>
                     </div>
                 </div>
                 <ul class="table-top-head">
@@ -36,7 +36,7 @@
                 <div class="page-btn">
                     <a href="#" class="btn btn-added" data-bs-toggle="modal" data-bs-target="#add-units"><i
                             data-feather="plus-circle" class="me-2"></i>Add New
-                        Quotation</a>
+                        Invoice</a>
                 </div>
             </div>
 
@@ -183,38 +183,45 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="add-units">
+    <div class="modal fade" id="add-units" wire:ignore.self>
         <div class="modal-dialog purchase modal-dialog-centered stock-adjust-modal">
             <div class="modal-content">
                 <div class="p-0 page-wrapper-new">
                     <div class="content">
                         <div class="border-0 modal-header custom-modal-header">
                             <div class="page-title">
-                                <h4>Add Quotation</h4>
+                                <h4>New Invoice</h4>
                             </div>
                             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body custom-modal-body">
-                            <form action="quotationList.html">
+                            <form wire:submit.prevent='create'>
                                 <div class="row">
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="input-blocks add-product">
-                                            <label>Customer Name</label>
+                                            <label>Customer Email</label>
                                             <div class="row">
                                                 <div class="col-lg-10 col-sm-10 col-10">
-                                                    <select class="select">
-                                                        <option>Choose</option>
-                                                        <option>Benjamin</option>
-                                                        <option>Nydia Fitzgerald</option>
-                                                    </select>
+                                                    <input type="email" name="" id="" class="form-control"
+                                                        wire:model.live='email' wire:keyDown='CheckUser'>
+                                                    @error('email')
+                                                    <p class="text-danger">{{$message}}</p>
+                                                    @enderror
+                                                    @if ($name)
+                                                    <p class="text-success"><span>Client found.</span> <strong>Name:
+                                                        </strong>{{$name}} <strong> Phone:
+                                                        </strong>+{{$phone_number}}<br>
+                                                        <strong><span>Unpaid Debts: </span> {{$debtBalance}}</strong>
+                                                    </p>
+                                                    @endif
                                                 </div>
                                                 <div class="p-0 col-lg-2 col-sm-2 col-2">
                                                     <div class="add-icon tab">
                                                         <a class="btn btn-filter" data-bs-toggle="modal"
                                                             data-bs-target="#add-units"><img
-                                                                src="assets/img/icons/plus1.svg" alt="img" />
+                                                                src="{{asset('assets/img/icons/plus1.svg')}}" />
                                                         </a>
                                                     </div>
                                                 </div>
@@ -223,17 +230,23 @@
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="input-blocks">
-                                            <label>Date</label>
+                                            <label>Fisrt Day of Repayment</label>
                                             <div class="input-groupicon calender-input">
-                                                <i data-feather="calendar" class="info-img"></i>
-                                                <input type="text" class="datetimepicker" placeholder="Choose" />
+                                                <input type="date" class="form-control" placeholder="Choose"
+                                                    wire:model.live='firt_repayment_date' />
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="input-blocks">
-                                            <label>Reference Number</label>
-                                            <input type="text" class="form-control" />
+                                            <label>Repayment frequency</label>
+                                            <select name="" id="" class="form-control"
+                                                wire:model.live='repayment_frequency'>
+                                                <option>-:-</option>
+                                                <option value="daily">Daily</option>
+                                                <option value="weekly">Weekly</option>
+                                                <option value="monthly">Monthly</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -244,7 +257,8 @@
                                             <div class="input-groupicon select-code">
                                                 <input type="text" placeholder="Please type product code and select" />
                                                 <div class="addonset">
-                                                    <img src="assets/img/icons/qrcode-scan.svg" alt="img" />
+                                                    <img src="{{asset('assets/img/icons/qrcode-scan.svg')}}"
+                                                        alt="img" />
                                                 </div>
                                             </div>
                                         </div>
@@ -257,11 +271,11 @@
                                                         <tr>
                                                             <th>Product</th>
                                                             <th>Qty</th>
-                                                            <th>Purchase Price($)</th>
-                                                            <th>Discount($)</th>
+                                                            <th>Purchase Price(KES)</th>
+                                                            <th>Discount(KES)</th>
                                                             <th>Tax(%)</th>
-                                                            <th>Tax Amount($)</th>
-                                                            <th>Unit Cost($)</th>
+                                                            <th>Tax Amount(KES)</th>
+                                                            <th>Unit Cost(KES)</th>
                                                             <th>Total Cost(%)</th>
                                                         </tr>
                                                     </thead>
