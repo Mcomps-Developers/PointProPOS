@@ -291,11 +291,11 @@
                                                                 <div class="productimgname">
                                                                     <a href="javascript:void(0);"
                                                                         class="product-img stock-img">
-                                                                        <img src="{{ asset('assets/img/products')/{{$item->model->image}} }}"
+                                                                        <img src="{{ asset('assets/img/products')}}/{{$item->model->image}}"
                                                                             alt="product" />
                                                                     </a>
-                                                                    <a href="javascript:void(0);">{{ $item->model->name
-                                                                        }}</a>
+                                                                    <a href="javascript:void(0);">{{
+                                                                        $item->model->name}}</a>
                                                                 </div>
                                                             </td>
                                                             <td>
