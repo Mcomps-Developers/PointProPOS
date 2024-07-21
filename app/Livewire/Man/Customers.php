@@ -57,6 +57,7 @@ class Customers extends Component
             $user->save();
             $user->notify(new NewCustomerNotification($user, $company, $this->userPassword));
             notyf()->position('y', 'top')->success('Customer person created successfully!');
+            return redirect()->to(request()->header('referer'));
         } catch (\Illuminate\Database\QueryException $ex) {
             // Log the database exception
             Log::error('Database error: ' . $ex->getMessage() . ' in ' . $ex->getFile() . ' on line ' . $ex->getLine());
