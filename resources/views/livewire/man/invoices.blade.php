@@ -219,8 +219,7 @@
                                                 </div>
                                                 <div class="p-0 col-lg-2 col-sm-2 col-2">
                                                     <div class="add-icon tab">
-                                                        <a class="btn btn-filter" data-bs-toggle="modal"
-                                                            data-bs-target="#add-units"><i
+                                                        <a class="btn btn-filter" href="{{route('customers')}}"><i
                                                                 class="fa fa-plus text-danger"></i>
                                                         </a>
                                                     </div>
