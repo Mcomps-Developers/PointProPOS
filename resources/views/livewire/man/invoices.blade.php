@@ -300,18 +300,16 @@
                                                             </td>
                                                             <td>
                                                                 <div class="">
-                                                                    <span class=""
+                                                                    <a
                                                                         wire:click="increaseQuantity('{{ $item->rowId }}')">
-                                                                        +<i data-feather="plus-circle"
-                                                                            class="plus-circle"></i>
-                                                                    </span>
-                                                                    <input type="text" class="quntity-input"
+                                                                        <i class="fa fa-plus"></i>
+                                                                    </a>
+                                                                    <input type="text" class="form-control"
                                                                         value="{{ $item->qty }}" />
-                                                                    <span class=""
+                                                                    <a
                                                                         wire:click="decreaseQuantity('{{ $item->rowId }}')">
-                                                                        <i data-feather="minus-circle"
-                                                                            class="feather-search"></i>
-                                                                    </span>
+                                                                        <i class="fa fa-minus"></i>
+                                                                    </a>
                                                                 </div>
                                                             </td>
                                                             <td>{{ $item->model->price }}</td>
