@@ -130,15 +130,16 @@
                                             <span class="checkmarks"></span>
                                         </label>
                                     </th>
-                                    <th>Product Name</th>
+                                    {{-- <th>Product Name</th> --}}
                                     <th>Reference</th>
-                                    <th>Custmer Name</th>
+                                    <th>Customer</th>
                                     <th>Status</th>
                                     <th>Grand Total (KES)</th>
                                     <th class="no-sort">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($invoices as $item)
                                 <tr>
                                     <td>
                                         <label class="checkboxs">
@@ -146,18 +147,18 @@
                                             <span class="checkmarks"></span>
                                         </label>
                                     </td>
-                                    <td class="productimgname">
+                                    <td>{{$item->reference}}</td>
+                                    {{-- <td class="productimgname">
                                         <div class="view-product me-2">
                                             <a href="javascript:void(0);">
                                                 <img src="assets/img/products/stock-img-01.png" alt="product" />
                                             </a>
                                         </div>
                                         <a href="javascript:void(0);">Lenovo 3rd Generation</a>
-                                    </td>
-                                    <td>PT001</td>
-                                    <td>walk-in-customer</td>
-                                    <td><span class="badges status-badge">Sent</span></td>
-                                    <td>$550</td>
+                                    </td> --}}
+                                    <td>{{$item->customer->name}}</td>
+                                    <td><span class="badges status-badge">{{$item->status}}</span></td>
+                                    <td>KES {{$item->amount}}</td>
                                     <td class="action-table-data">
                                         <div class="edit-delete-action data-row">
                                             <a class="p-2 mb-0 me-2" href="javascript:void(0);">
@@ -173,6 +174,8 @@
                                         </div>
                                     </td>
                                 </tr>
+                                @endforeach
+
                             </tbody>
                         </table>
                     </div>
