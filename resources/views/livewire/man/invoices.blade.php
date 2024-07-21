@@ -299,7 +299,7 @@
                                                                 </div>
                                                             </td>
                                                             <td>
-                                                                <div class="product-quantity">
+                                                                <div class="">
                                                                     <span class=""
                                                                         wire:click="increaseQuantity('{{ $item->rowId }}')">
                                                                         +<i data-feather="plus-circle"
