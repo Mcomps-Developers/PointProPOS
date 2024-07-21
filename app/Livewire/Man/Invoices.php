@@ -38,9 +38,8 @@ class Invoices extends Component
                 'user_id' => $user->id,
                 'status' => 'pending'
             ])->get();
-
             $this->debtBalance = $pendingInvoices->sum('amount');
-            notyf()->position('y', 'top')->success('Success! Client found in your database!');
+            notyf()->position('y', 'top')->success('Client found in your database!');
         } else {
             $this->reset('email');
             notyf()->position('y', 'top')->error('Client not found!');
