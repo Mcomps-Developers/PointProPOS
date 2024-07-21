@@ -77,7 +77,7 @@ class Customers extends Component
     public function render()
     {
         $company = Company::where('user_id', Auth::id())->first();
-        $customers = User::where('company_id', $company->id)->get();
+        $customers = User::where('company_id', $company->id)->where('utype', 'cst')->get();
         return view('livewire.man.customers', ['customers' => $customers])->layout('layouts.base');
     }
 }
