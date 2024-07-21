@@ -132,7 +132,6 @@ class Invoices extends Component
         $customers = User::where('company_id', $company->id)->where('utype', 'cst')->get();
         $products = Product::orderBy('name')
             ->where('company_id', $company->id)
-            ->where('name', 'like', '%' . $this->productName . '%')
             ->get();
         return view('livewire.man.invoices', ['invoices' => $invoices, 'customers' => $customers, 'products' => $products])->layout('layouts.base');
     }
