@@ -45,7 +45,6 @@ class Customers extends Component
     {
         $this->validate();
         $this->userPassword = $this->generateRandomPassword();
-        $this->generateReference();
         try {
             $company = Company::where('user_id', Auth::id())->first();
             $user = new User();
