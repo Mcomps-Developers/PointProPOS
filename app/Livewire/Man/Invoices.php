@@ -11,6 +11,7 @@ use Livewire\Component;
 class Invoices extends Component
 {
     public $name;
+    public $email;
     public $phone_number;
     public $status;
     public $firt_repayment_date;
