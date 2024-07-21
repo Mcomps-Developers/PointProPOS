@@ -252,21 +252,14 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="input-blocks">
-                                            <label>Product Name</label>
-                                            <div class="input-groupicon">
-                                                <input type="text" class="form-control"
-                                                    placeholder="Please type product code and select"
-                                                    wire:model.live="productName">
-                                            </div>
-                                            @if (!empty($products))
-                                            <ul class="list-group mt-2">
+                                            <label>Repayment frequency</label>
+                                            <select name="" id="" class="form-control">
+                                                <option>-:-</option>
                                                 @foreach ($products as $product)
-                                                <li class="list-group-item" wire:click="addToCart({{ $product->id }})">
-                                                    {{ $product->name }}
-                                                </li>
+                                                <option wire:click="addToCart({{ $product->id }})">{{ $product->name
+                                                    }}</option>
                                                 @endforeach
-                                            </ul>
-                                            @endif
+                                            </select>
                                         </div>
                                     </div>
 
