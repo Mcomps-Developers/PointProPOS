@@ -185,7 +185,7 @@
                             </button>
                         </div>
                         <div class="modal-body custom-modal-body">
-                            <form action="customers.html">
+                            <form wire:submit.prevent='create'>
                                 <div class="modal-title-head people-cust-avatar">
                                     <h6>Avatar</h6>
                                 </div>
