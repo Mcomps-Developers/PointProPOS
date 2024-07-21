@@ -21,8 +21,6 @@ class Invoices extends Component
     public $repayment_frequency;
     public $debtBalance = 0;
     private $user_id;
-    public $productName = '';
-    public $products = [];
 
     public function addToCart($productId)
     {
@@ -130,9 +128,7 @@ class Invoices extends Component
         $company = Company::where('user_id', Auth::id())->first();
         $invoices = Invoice::orderByDesc('created_at')->get();
         $customers = User::where('company_id', $company->id)->where('utype', 'cst')->get();
-        $products = Product::orderBy('name')
-            ->where('company_id', $company->id)
-            ->get();
+        $products = Product::orderBy('name')->where('company_id', $company->id)->get();
         return view('livewire.man.invoices', ['invoices' => $invoices, 'customers' => $customers, 'products' => $products])->layout('layouts.base');
     }
 }

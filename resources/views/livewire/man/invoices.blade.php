@@ -252,7 +252,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="input-blocks">
-                                            <label>Repayment frequency</label>
+                                            <label>Products</label>
                                             <select name="" id="" class="form-control">
                                                 <option>-:-</option>
                                                 @foreach ($products as $product)
