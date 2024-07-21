@@ -312,8 +312,9 @@
                                                                         <i class="fa fa-minus"></i>
                                                                     </a>
                                                                     <a class="btn btn-outline-danger btn-sm"
-                                                                        wire:click="destroy('{{ $item->rowId }}')">
-                                                                        <i class="fa fa-trush"></i>
+                                                                        wire:click="destroy('{{ $item->rowId }}')"
+                                                                        style="margin-left: 6px">
+                                                                        <i class="fa fa-trash"></i>
                                                                     </a>
                                                                 </div>
                                                                 <style>
