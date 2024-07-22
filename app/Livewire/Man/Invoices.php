@@ -255,14 +255,27 @@ class Invoices extends Component
 
     private function calculateAmount()
     {
-        $this->subtotalAfterDiscount = Cart::instance('cart')->subtotal() - $this->discount;
+        // Get subtotal from cart and remove commas if present
+        $subtotal = str_replace(',', '', Cart::instance('cart')->subtotal());
+
+        // Convert subtotal to float
+        $subtotal = (float) $subtotal;
+
+        // Calculate subtotal after discount
+        $this->subtotalAfterDiscount = $subtotal - $this->discount;
+
+        // Calculate tax after discount (adjust config('cart.tax') as needed)
         $this->taxAfterDiscount = ($this->subtotalAfterDiscount * config('cart.tax')) / 100;
+
+        // Calculate total after discount and tax
         $this->totalAfterDiscount = $this->subtotalAfterDiscount + $this->taxAfterDiscount;
+
+        // Check if total after discount is negative
         if ($this->totalAfterDiscount < 0) {
             throw new \Exception('The total amount cannot be negative.');
-            notyf()->position('y', 'top')->success('The total amount cannot be negative.');
         }
     }
+
 
     private function generateReference()
     {
