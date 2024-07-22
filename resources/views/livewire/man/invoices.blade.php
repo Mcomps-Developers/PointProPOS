@@ -176,7 +176,8 @@
                                         <td>KES {{ $item->amount }}</td>
                                         <td class="action-table-data">
                                             <div class="edit-delete-action data-row">
-                                                <a class="p-2 mb-0 me-2" href="javascript:void(0);">
+                                                <a class="p-2 mb-0 me-2"
+                                                    href="{{ route('invoice.details', ['reference' => $item->reference]) }}">
                                                     <i data-feather="eye" class="action-eye"></i>
                                                 </a>
                                                 <a class="p-2 mb-0 me-2" data-bs-toggle="modal"
