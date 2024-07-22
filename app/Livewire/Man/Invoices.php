@@ -206,20 +206,21 @@ class Invoices extends Component
         $remainder = $amount % $duration;
 
         // Initialize date variables
-        $dueDate = new DateTime($firstRepaymentDate);
+        $dueDate = new DateTime($firstRepaymentDate); // Initialize without modification
 
         // Loop through the duration to generate schedules
         for ($i = 1; $i <= $duration; $i++) {
             // Determine payment date based on repayment frequency
+            // Note: $dueDate should not be modified here, it should be modified inside the loop
             switch ($repaymentFrequency) {
                 case 'daily':
-                    $dueDate->modify('+1 day');
+                    // For daily frequency, increment by 1 day
                     break;
                 case 'weekly':
-                    $dueDate->modify('+1 week');
+                    // For weekly frequency, increment by 1 week
                     break;
                 case 'monthly':
-                    $dueDate->modify('+1 month');
+                    // For monthly frequency, increment by 1 month
                     break;
                 default:
                     // Handle unsupported frequency (optional)
@@ -243,11 +244,25 @@ class Invoices extends Component
                 'created_at' => now(),
                 'updated_at' => now(),
             ];
+
+            // Modify $dueDate based on repayment frequency for the next iteration
+            switch ($repaymentFrequency) {
+                case 'daily':
+                    $dueDate->modify('+1 day');
+                    break;
+                case 'weekly':
+                    $dueDate->modify('+1 week');
+                    break;
+                case 'monthly':
+                    $dueDate->modify('+1 month');
+                    break;
+                default:
+                    break;
+            }
         }
 
         return $paymentSchedules;
     }
-
 
 
     private function calculateAmount()
