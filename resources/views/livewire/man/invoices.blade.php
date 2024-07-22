@@ -147,7 +147,10 @@
                                                 <span class="checkmarks"></span>
                                             </label>
                                         </td>
-                                        <td>{{ $item->reference }}</td>
+                                        <td style="text-transform: uppercase"><a
+                                                href="{{ route('invoice.details', ['reference' => $item->reference]) }}"><span
+                                                    class="badges status-badge">INV{{ $item->reference }}PP</span></a>
+                                        </td>
                                         {{-- <td class="productimgname">
                                         <div class="view-product me-2">
                                             <a href="javascript:void(0);">
@@ -157,7 +160,20 @@
                                         <a href="javascript:void(0);">Lenovo 3rd Generation</a>
                                     </td> --}}
                                         <td>{{ $item->customer->name }}</td>
-                                        <td><span class="badges status-badge">{{ $item->status }}</span></td>
+                                        <td style="text-transform: capitalize;">
+                                            @if ($item->status === 'progress')
+                                                <span class="badges bg-lightblue">{{ $item->status }}</span>
+                                            @elseif ($item->status === 'complete')
+                                                <span class="badges bg-lightgreen">{{ $item->status }}</span>
+                                            @elseif ($item->status === 'cancelled')
+                                                <span class="badges bg-lightred">{{ $item->status }}</span>
+                                            @elseif ($item->status === 'defaulted')
+                                                <span class="badges bg-lightyellow">{{ $item->status }}</span>
+                                            @elseif ($item->status === 'pending')
+                                                <span class="badges bg-lightgray">{{ $item->status }}</span>
+                                            @endif
+
+                                        </td>
                                         <td>KES {{ $item->amount }}</td>
                                         <td class="action-table-data">
                                             <div class="edit-delete-action data-row">

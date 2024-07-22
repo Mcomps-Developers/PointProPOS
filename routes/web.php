@@ -10,6 +10,7 @@ use App\Livewire\Man\AddProduct;
 use App\Livewire\Man\Categories;
 use App\Livewire\Man\Customers;
 use App\Livewire\Man\EditCompanyDetails;
+use App\Livewire\Man\InvoiceDetails;
 use App\Livewire\Man\Invoices;
 use App\Livewire\Man\ManagerDashboard;
 use App\Livewire\Man\Products;
@@ -76,6 +77,7 @@ Route::prefix('/manager')->middleware(['auth', 'verified', AuthManager::class])-
 
     // Invoices
     Route::get('/invoices', Invoices::class)->name('invoices');
+    Route::get('invoice/{reference}/details', InvoiceDetails::class)->name('invoice.details');
 });
 
 // User Routes
