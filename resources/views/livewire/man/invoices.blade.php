@@ -430,7 +430,7 @@
                                         <div class="col-lg-3 col-md-6 col-sm-12">
                                             <div class="mb-3 input-blocks">
                                                 <label>Discount (KES)</label>
-                                                <input type="number" value="{{ $discount }}" wire:model.live='discount' form-control/>
+                                                <input type="number" value="{{ $discount }}" wire:model.live='discount' class="form-control"/>
                                                 @error('discount')
                                                     <p class="text-danger">{{ $message }}</p>
                                                 @enderror
@@ -478,7 +478,7 @@
                                             {{ Cart::instance('cart')->subtotal }}
                                         </a>
                                         <a class="btn btn-success">Total: KES
-                                            {{ number_format((float) Cart::instance('cart')->total() + (float) $shipping_fee - (float) $discount, 2) }}
+                                            {{ number_format((float) Cart::instance('cart')->total + (float) $shipping_fee - (float) $discount, 2) }}
                                         </a>                                        
                                     </div>
 
