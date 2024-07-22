@@ -475,7 +475,7 @@
                                 <div class="modal-footer-btn">
                                     <div class="text-left" style="margin-bottom: 16px;">
                                         <a class="btn btn-info">Subtotal: KES
-                                            {{ (float) Cart::instance('cart')->subtotal }}
+                                            {{ Cart::instance('cart')->subtotal }}
                                         </a>
                                         <a class="btn btn-success">Total: KES
                                             {{ (float) Cart::instance('cart')->total() + (float) $shipping_fee - (float) $discount }}
