@@ -269,7 +269,7 @@
                                                         months
                                                     @endif
                                                 </label>
-                                                <input type="text" name="" id=""
+                                                <input type="number" name="" id=""
                                                     class="form-control" wire:model.live='duration'>
                                                 @error('duration')
                                                     <p class="text-danger">{{ $message }}</p>
