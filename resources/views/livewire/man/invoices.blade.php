@@ -172,7 +172,7 @@
                                             @elseif ($item->status === 'pending')
                                                 <span class="badge badges-info">{{ $item->status }}</span>
                                             @endif
-
+                                            <span class="badge badges-info">{{ $item->status }}</span>
                                         </td>
                                         <td>KES {{ $item->amount }}</td>
                                         <td class="action-table-data">
