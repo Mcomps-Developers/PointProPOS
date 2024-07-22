@@ -46,6 +46,11 @@ class Invoices extends Component
         'loanType' => 'required',
         'duration' => 'required|numeric',
     ];
+
+    public function updated($fields)
+    {
+        $this->validateOnly($fields);
+    }
     public function addToCart($productId)
     {
         $product = Product::find($productId);
@@ -99,10 +104,7 @@ class Invoices extends Component
         }
     }
 
-    public function updated($fields)
-    {
-        $this->validateOnly($fields);
-    }
+    
     public function create()
     {
         try {
