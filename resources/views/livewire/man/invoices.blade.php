@@ -423,14 +423,15 @@
                                         <div class="col-lg-3 col-md-6 col-sm-12">
                                             <div class="mb-3 input-blocks">
                                                 <label>Order Tax</label>
-                                                <input type="text"
-                                                    value="{{ Cart::instance('cart')->tax }}" disabled />
+                                                <input type="text" value="{{ Cart::instance('cart')->tax }}"
+                                                    disabled />
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-md-6 col-sm-12">
                                             <div class="mb-3 input-blocks">
                                                 <label>Discount (KES)</label>
-                                                <input type="number" value="{{ $discount }}" wire:model.live='discount' class="form-control"/>
+                                                <input type="number" value="{{ $discount }}"
+                                                    wire:model.live='discount' class="form-control" />
                                                 @error('discount')
                                                     <p class="text-danger">{{ $message }}</p>
                                                 @enderror
@@ -440,7 +441,7 @@
                                             <div class="mb-3 input-blocks">
                                                 <label>Shipping</label>
                                                 <input type="number" value="{{ $shipping_fee }}"
-                                                    wire:model.live='shipping_fee' class="form-control"/>
+                                                    wire:model.live='shipping_fee' class="form-control" />
                                                 @error('shipping_fee')
                                                     <p class="text-danger">{{ $message }}</p>
                                                 @enderror
@@ -478,8 +479,8 @@
                                             {{ Cart::instance('cart')->subtotal }}
                                         </a>
                                         <a class="btn btn-success">Total: KES
-                                            {{ number_format((float) Cart::instance('cart')->total + (float) $shipping_fee - (float) $discount, 2) }}
-                                        </a>                                        
+                                            {{ (float) Cart::instance('cart')->total + number_format((float) $shipping_fee - (float) $discount, 2) }}
+                                        </a>
                                     </div>
 
                                     <button type="button" class="btn btn-cancel me-2" data-bs-dismiss="modal">
