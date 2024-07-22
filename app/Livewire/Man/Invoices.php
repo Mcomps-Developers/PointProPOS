@@ -36,7 +36,7 @@ class Invoices extends Component
     public $totalAfterDiscount;
     private $reference;
     public $duration;
-    public $quantity;
+    public $quantity = 1;
     protected $rules = [
         'email' => 'required|email',
         'discount' => 'nullable|numeric',
