@@ -134,23 +134,21 @@
                                             <span class="badge badge-linesuccess">Paid</span>
                                         @else
                                             <span class="badge badge-linedanger">Not Paid</span>
-                                            @foreach ($paymentSchedules as $item)
-                                                @php
-                                                    $dueDate = \Carbon\Carbon::parse($item->date_due);
-                                                    $today = \Carbon\Carbon::today();
-                                                    $tomorrow = \Carbon\Carbon::tomorrow();
-                                                @endphp
+                                            @php
+                                                $dueDate = \Carbon\Carbon::parse($item->date_due);
+                                                $today = \Carbon\Carbon::today();
+                                                $tomorrow = \Carbon\Carbon::tomorrow();
+                                            @endphp
 
-                                                @if ($dueDate->lessThan($today))
-                                                    <span class="badge badge-linedanger">Overdue</span>
-                                                @elseif ($dueDate->equalTo($today))
-                                                    <span class="badge badge-warning">Due Today</span>
-                                                @elseif ($dueDate->equalTo($tomorrow))
-                                                    <span class="badge badge-info">Due Tomorrow</span>
-                                                @elseif ($dueDate->greaterThanOrEqualTo($tomorrow))
-                                                    {{-- Do nothing or handle cases where due date is later than tomorrow --}}
-                                                @endif
-                                            @endforeach
+                                            @if ($dueDate->lessThan($today))
+                                                <span class="badge badge-linedanger">Overdue</span>
+                                            @elseif ($dueDate->equalTo($today))
+                                                <span class="badge badge-warning">Due Today</span>
+                                            @elseif ($dueDate->equalTo($tomorrow))
+                                                <span class="badge badge-info">Due Tomorrow</span>
+                                            @elseif ($dueDate->greaterThanOrEqualTo($tomorrow))
+                                                {{-- Do nothing or handle cases where due date is later than tomorrow --}}
+                                            @endif
                                         @endif
                                     </td>
                                     <td style="text-transform: capitalize">
