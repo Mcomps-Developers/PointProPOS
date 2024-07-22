@@ -207,7 +207,7 @@
                                             href="javascript:void(0);">{{ $item->product->sku }}</a></td>
                                     <td>KES {{ number_format($item->amount, 2) }}</td>
                                     <td>{{ $item->qty }}</td>
-                                    <td>KES {{ number_format($ite->qty * $item->amount, 2) }}</td>
+                                    <td>KES {{ number_format($item->qty * $item->amount, 2) }}</td>
                                 </tr>
                             @endforeach
 
