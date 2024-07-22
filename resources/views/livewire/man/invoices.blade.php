@@ -1,10 +1,10 @@
 <div>
     @section('title')
-    Invoices
+        Invoices
     @endsection
     <div class="page-wrapper">
         <div class="content">
-            <div class="page-header">
+            <div class="page-header" wire:ignore>
                 <div class="add-item d-flex">
                     <div class="page-title">
                         <h4>Invoices</h4>
@@ -14,11 +14,11 @@
                 <ul class="table-top-head">
                     <li>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Pdf"><img
-                                src="{{asset('assets/img/icons/pdf.svg')}}" alt="img" /></a>
+                                src="{{ asset('assets/img/icons/pdf.svg') }}" alt="img" /></a>
                     </li>
                     <li>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Excel"><img
-                                src="{{asset('assets/img/icons/excel.svg')}}" alt="img" /></a>
+                                src="{{ asset('assets/img/icons/excel.svg') }}" alt="img" /></a>
                     </li>
                     <li>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Print"><i data-feather="printer"
@@ -40,7 +40,7 @@
                 </div>
             </div>
 
-            <div class="card table-list-card">
+            <div class="card table-list-card"wire:ignore.self>
                 <div class="card-body">
                     <div class="table-top">
                         <div class="search-set">
@@ -53,7 +53,7 @@
                             <div class="d-flex align-items-center">
                                 <a class="btn btn-filter" id="filter_search">
                                     <i data-feather="filter" class="filter-icon"></i>
-                                    <span><img src="{{asset('assets/img/icons/closes.svg')}}" alt="img" /></span>
+                                    <span><img src="{{ asset('assets/img/icons/closes.svg') }}" alt="img" /></span>
                                 </a>
                             </div>
                         </div>
@@ -140,15 +140,15 @@
                             </thead>
                             <tbody>
                                 @foreach ($invoices as $item)
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox" />
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>{{$item->reference}}</td>
-                                    {{-- <td class="productimgname">
+                                    <tr>
+                                        <td>
+                                            <label class="checkboxs">
+                                                <input type="checkbox" />
+                                                <span class="checkmarks"></span>
+                                            </label>
+                                        </td>
+                                        <td>{{ $item->reference }}</td>
+                                        {{-- <td class="productimgname">
                                         <div class="view-product me-2">
                                             <a href="javascript:void(0);">
                                                 <img src="assets/img/products/stock-img-01.png" alt="product" />
@@ -156,24 +156,24 @@
                                         </div>
                                         <a href="javascript:void(0);">Lenovo 3rd Generation</a>
                                     </td> --}}
-                                    <td>{{$item->customer->name}}</td>
-                                    <td><span class="badges status-badge">{{$item->status}}</span></td>
-                                    <td>KES {{$item->amount}}</td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action data-row">
-                                            <a class="p-2 mb-0 me-2" href="javascript:void(0);">
-                                                <i data-feather="eye" class="action-eye"></i>
-                                            </a>
-                                            <a class="p-2 mb-0 me-2" data-bs-toggle="modal"
-                                                data-bs-target="#edit-units">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a class="p-2 mb-0 me-2 confirm-text" href="javascript:void(0);">
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        <td>{{ $item->customer->name }}</td>
+                                        <td><span class="badges status-badge">{{ $item->status }}</span></td>
+                                        <td>KES {{ $item->amount }}</td>
+                                        <td class="action-table-data">
+                                            <div class="edit-delete-action data-row">
+                                                <a class="p-2 mb-0 me-2" href="javascript:void(0);">
+                                                    <i data-feather="eye" class="action-eye"></i>
+                                                </a>
+                                                <a class="p-2 mb-0 me-2" data-bs-toggle="modal"
+                                                    data-bs-target="#edit-units">
+                                                    <i data-feather="edit" class="feather-edit"></i>
+                                                </a>
+                                                <a class="p-2 mb-0 me-2 confirm-text" href="javascript:void(0);">
+                                                    <i data-feather="trash-2" class="feather-trash-2"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
                                 @endforeach
 
                             </tbody>
@@ -204,22 +204,24 @@
                                             <label>Customer Email</label>
                                             <div class="row">
                                                 <div class="col-lg-10 col-sm-10 col-10">
-                                                    <input type="email" name="" id="" class="form-control"
-                                                        wire:model.live='email' wire:blur='CheckUser'>
+                                                    <input type="email" name="" id=""
+                                                        class="form-control" wire:model.live='email'
+                                                        wire:blur='CheckUser'>
                                                     @error('email')
-                                                    <p class="text-danger">{{$message}}</p>
+                                                        <p class="text-danger">{{ $message }}</p>
                                                     @enderror
                                                     @if ($name)
-                                                    <p class="text-success"><strong>Name:
-                                                        </strong>{{$name}} <strong><br> Phone:
-                                                        </strong>+{{$phone_number}}<br>
-                                                        <strong><span>Unpaid Debts: </span> {{$debtBalance}}</strong>
-                                                    </p>
+                                                        <p class="text-success"><strong>Name:
+                                                            </strong>{{ $name }} <strong><br> Phone:
+                                                            </strong>+{{ $phone_number }}<br>
+                                                            <strong><span>Unpaid Debts: </span>
+                                                                {{ $debtBalance }}</strong>
+                                                        </p>
                                                     @endif
                                                 </div>
                                                 <div class="p-0 col-lg-2 col-sm-2 col-2">
                                                     <div class="add-icon tab">
-                                                        <a class="btn btn-filter" href="{{route('customers')}}"><i
+                                                        <a class="btn btn-filter" href="{{ route('customers') }}"><i
                                                                 class="fa fa-plus text-danger"></i>
                                                         </a>
                                                     </div>
@@ -234,7 +236,7 @@
                                                 <input type="date" class="form-control" placeholder="Choose"
                                                     wire:model.live='first_repayment_date' />
                                                 @error('first_repayment_date')
-                                                <p class="text-danger">{{$message}}</p>
+                                                    <p class="text-danger">{{ $message }}</p>
                                                 @enderror
                                             </div>
                                         </div>
@@ -250,7 +252,7 @@
                                                 <option value="monthly">Monthly</option>
                                             </select>
                                             @error('repayment_frequency')
-                                            <p class="text-danger">{{$message}}</p>
+                                                <p class="text-danger">{{ $message }}</p>
                                             @enderror
                                         </div>
                                     </div>
@@ -265,26 +267,28 @@
                                                     wire:model.live="productName">
                                             </div>
                                             @if (!empty($productName))
-                                            <ul class="list-group mt-2">
-                                                @foreach ($products as $product)
-                                                <li class="list-group-item" wire:click="addToCart({{ $product->id }})">
-                                                    {{ $product->name }}
-                                                </li>
-                                                @endforeach
-                                            </ul>
+                                                <ul class="mt-2 list-group">
+                                                    @foreach ($products as $product)
+                                                        <li class="list-group-item"
+                                                            wire:click="addToCart({{ $product->id }})">
+                                                            {{ $product->name }}
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
                                             @endif
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="input-blocks">
                                             <label>Invoice Type</label>
-                                            <select name="" id="" class="form-control" wire:model.live='loanType'>
+                                            <select name="" id="" class="form-control"
+                                                wire:model.live='loanType'>
                                                 <option>-:-</option>
                                                 <option value="pay_later">Collect Pay later</option>
                                                 <option value="collect_later">Pay collect later</option>
                                             </select>
                                             @error('loanType')
-                                            <p class="text-danger">{{$message}}</p>
+                                                <p class="text-danger">{{ $message }}</p>
                                             @enderror
                                         </div>
                                     </div>
@@ -306,60 +310,62 @@
                                                     </thead>
                                                     <tbody>
                                                         @foreach (Cart::instance('cart')->content() as $item)
-                                                        <tr>
-                                                            <td>
-                                                                <div class="productimgname">
-                                                                    <a href="javascript:void(0);"
-                                                                        class="product-img stock-img">
-                                                                        <img src="{{ asset('assets/img/products')}}/{{$item->model->image}}"
-                                                                            alt="product" />
-                                                                    </a>
-                                                                    <a href="javascript:void(0);">{{
-                                                                        $item->model->name}}</a>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="quantity-control d-flex align-items-center">
-                                                                    <a class="btn btn-outline-secondary btn-sm"
-                                                                        wire:click="increaseQuantity('{{ $item->rowId }}')">
-                                                                        <i class="fa fa-plus"></i>
-                                                                    </a>
-                                                                    <input type="text"
-                                                                        class="form-control text-center mx-2"
-                                                                        value="{{ $item->qty }}" readonly />
-                                                                    <a class="btn btn-outline-secondary btn-sm"
-                                                                        wire:click="decreaseQuantity('{{ $item->rowId }}')">
-                                                                        <i class="fa fa-minus"></i>
-                                                                    </a>
-                                                                </div>
-                                                                <style>
-                                                                    .quantity-control .btn {
-                                                                        width: 32px;
-                                                                        height: 32px;
-                                                                        padding: 0;
-                                                                        display: flex;
-                                                                        align-items: center;
-                                                                        justify-content: center;
-                                                                    }
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="productimgname">
+                                                                        <a href="javascript:void(0);"
+                                                                            class="product-img stock-img">
+                                                                            <img src="{{ asset('assets/img/products') }}/{{ $item->model->image }}"
+                                                                                alt="product" />
+                                                                        </a>
+                                                                        <a
+                                                                            href="javascript:void(0);">{{ $item->model->name }}</a>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div
+                                                                        class="quantity-control d-flex align-items-center">
+                                                                        <a class="btn btn-outline-secondary btn-sm"
+                                                                            wire:click="increaseQuantity('{{ $item->rowId }}')">
+                                                                            <i class="fa fa-plus"></i>
+                                                                        </a>
+                                                                        <input type="text"
+                                                                            class="mx-2 text-center form-control"
+                                                                            value="{{ $item->qty }}" readonly />
+                                                                        <a class="btn btn-outline-secondary btn-sm"
+                                                                            wire:click="decreaseQuantity('{{ $item->rowId }}')">
+                                                                            <i class="fa fa-minus"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                    <style>
+                                                                        .quantity-control .btn {
+                                                                            width: 32px;
+                                                                            height: 32px;
+                                                                            padding: 0;
+                                                                            display: flex;
+                                                                            align-items: center;
+                                                                            justify-content: center;
+                                                                        }
 
-                                                                    .quantity-control .form-control {
-                                                                        width: 60px;
-                                                                        max-width: 60px;
-                                                                        padding: 0.375rem 0.75rem;
-                                                                    }
-                                                                </style>
-                                                            </td>
-                                                            <td>{{ $item->model->price }}</td>
-                                                            <td>{{ $item->subtotal }}</td>
-                                                            <td>
-                                                                <div class="quantity-control d-flex align-items-center">
-                                                                    <a class="btn btn-outline-danger btn-sm"
-                                                                        wire:click="destroy('{{ $item->rowId }}')">
-                                                                        <i class="fa fa-trash"></i>
-                                                                    </a>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
+                                                                        .quantity-control .form-control {
+                                                                            width: 60px;
+                                                                            max-width: 60px;
+                                                                            padding: 0.375rem 0.75rem;
+                                                                        }
+                                                                    </style>
+                                                                </td>
+                                                                <td>{{ $item->model->price }}</td>
+                                                                <td>{{ $item->subtotal }}</td>
+                                                                <td>
+                                                                    <div
+                                                                        class="quantity-control d-flex align-items-center">
+                                                                        <a class="btn btn-outline-danger btn-sm"
+                                                                            wire:click="destroy('{{ $item->rowId }}')">
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
                                                         @endforeach
                                                     </tbody>
                                                 </table>
@@ -370,7 +376,8 @@
                                         <div class="col-lg-3 col-md-6 col-sm-12">
                                             <div class="mb-3 input-blocks">
                                                 <label>Order Tax</label>
-                                                <input type="text" value="{{Cart::instance('cart')->tax}}" disabled />
+                                                <input type="text" value="{{ Cart::instance('cart')->tax }}"
+                                                    disabled />
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-md-6 col-sm-12">
@@ -378,16 +385,17 @@
                                                 <label>Discount (KES)</label>
                                                 <input type="text" value="0" wire:model.live='discount' />
                                                 @error('discount')
-                                                <p class="text-danger">{{$message}}</p>
+                                                    <p class="text-danger">{{ $message }}</p>
                                                 @enderror
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-md-6 col-sm-12">
                                             <div class="mb-3 input-blocks">
                                                 <label>Shipping</label>
-                                                <input type="text" value="0" wire:model.live='shipping_fee' />
+                                                <input type="text" value="0"
+                                                    wire:model.live='shipping_fee' />
                                                 @error('shipping_fee')
-                                                <p class="text-danger">{{$message}}</p>
+                                                    <p class="text-danger">{{ $message }}</p>
                                                 @enderror
                                             </div>
                                         </div>
@@ -403,7 +411,7 @@
                                                     <option value="defaulted">Defaulted</option>
                                                 </select>
                                                 @error('status')
-                                                <p class="text-danger">{{$message}}</p>
+                                                    <p class="text-danger">{{ $message }}</p>
                                                 @enderror
                                             </div>
                                         </div>
@@ -418,13 +426,16 @@
                                     </div>
                                 </div> --}}
                                 <div class="modal-footer-btn">
+                                    <a class="btn btn-submit">Subtotal: KES {{ Cart::instance('cart')->subtotal }}</a>
+                                    <a class="btn btn-submit">Total: KES
+                                        {{ Cart::instance('cart')->total + $shipping_fee - $discount }}</a>
                                     <button type="button" class="btn btn-cancel me-2" data-bs-dismiss="modal">
                                         Cancel
                                     </button>
                                     <button type="submit" class="btn btn-submit" wire:target="create"
                                         wire:loading.remove>Process Loan</button>
-                                    <button class="btn btn-warning-light" type="button" disabled wire:target="create"
-                                        wire:loading>
+                                    <button class="btn btn-warning-light" type="button" disabled
+                                        wire:target="create" wire:loading>
                                         <span class="align-middle spinner-grow spinner-grow-sm" role="status"
                                             aria-hidden="true"></span>
                                         Processing...

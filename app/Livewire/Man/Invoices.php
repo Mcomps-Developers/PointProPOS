@@ -32,6 +32,7 @@ class Invoices extends Component
 
         if ($product) {
             Cart::instance('cart')->add($product->id, $product->name, 1, $product->price)->associate('App\Models\Product');
+            $this->reset('productName');
             notyf()->position('y', 'top')->success('Product added to cart successfully!');
         }
     }
@@ -108,7 +109,9 @@ class Invoices extends Component
             $invoice->user_id = $this->user_id;
             $invoice->type = $this->loanType;
             $invoice->status = $this->status;
-            // $invoice->amount = $this->status;
+            $invoice->first_repayment_date = $this->first_repayment_date;
+            $invoice->amount = $this->totalAfterDiscount;
+            $invoice->repayment_frequency = $this->repayment_frequency;
             // $invoice->reference = $this->status;
             $invoice->save();
             notyf()->position('y', 'top')->success('Loan processed successfully.');
@@ -125,8 +128,15 @@ class Invoices extends Component
         }
     }
 
+    // Variables
+    public $subtotalAfterDiscount;
+    public $taxAfterDiscount;
+    public $totalAfterDiscount;
     private function calculateAmount()
     {
+        $this->subtotalAfterDiscount = Cart::instance('cart')->subtotal() - $this->discount;
+        $this->taxAfterDiscount = ($this->subtotalAfterDiscount * config('cart.tax')) / 100;
+        $this->totalAfterDiscount = $this->subtotalAfterDiscount + $this->taxAfterDiscount;
     }
     public function increaseQuantity($rowId)
     {
@@ -144,7 +154,7 @@ class Invoices extends Component
     public function destroy($rowId)
     {
         Cart::instance('cart')->remove($rowId);
-        session()->flash('success', 'Product successfully removed from cart');
+        notyf()->position('y', 'top')->success('Product removed from cart.');
     }
     public function render()
     {
