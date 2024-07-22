@@ -373,7 +373,7 @@
                                                                         <a class="btn btn-outline-secondary btn-sm" wire:click="increaseQuantity('{{ $item->rowId }}')">
                                                                             <i class="fa fa-plus"></i>
                                                                         </a>
-                                                                        <input type="text" class="mx-2 text-center form-control" disabled/>
+                                                                        <input type="text" class="mx-2 text-center form-control" value="{{ $item->qty }}" disabled/>
                                                                         <a class="btn btn-outline-secondary btn-sm" wire:click="decreaseQuantity('{{ $item->rowId }}')">
                                                                             <i class="fa fa-minus"></i>
                                                                         </a>
