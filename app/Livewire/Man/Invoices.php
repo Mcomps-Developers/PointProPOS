@@ -202,27 +202,23 @@ class Invoices extends Component
         $paymentSchedules = [];
 
         // Calculate amount per installment and remainder
-        $amountPerInstallment = floor($amount / $duration);
+        $amountPerInstallment = $amount / $duration;
         $remainder = $amount % $duration;
 
         // Initialize date variables
         $dueDate = new DateTime($firstRepaymentDate);
-        $paymentDate = null; // Initially payment date is null
 
         // Loop through the duration to generate schedules
         for ($i = 1; $i <= $duration; $i++) {
             // Determine payment date based on repayment frequency
             switch ($repaymentFrequency) {
                 case 'daily':
-                    $paymentDate = clone $dueDate;
                     $dueDate->modify('+1 day');
                     break;
                 case 'weekly':
-                    $paymentDate = clone $dueDate;
                     $dueDate->modify('+1 week');
                     break;
                 case 'monthly':
-                    $paymentDate = clone $dueDate;
                     $dueDate->modify('+1 month');
                     break;
                 default:
@@ -230,16 +226,17 @@ class Invoices extends Component
                     break;
             }
 
-            // Adjust amount for the last installment to include remainder
+            // Calculate the installment amount
             $installmentAmount = $amountPerInstallment;
-            if ($remainder > 0) {
-                $installmentAmount += 1; // Add extra amount to cover remainder
-                $remainder--; // Decrease remainder count
+
+            // Add any remaining fractional amount to the last installment
+            if ($remainder > 0 && $i === $duration) {
+                $installmentAmount += $remainder;
             }
 
             // Prepare payment schedule data
             $paymentSchedules[] = [
-                'amount' => $installmentAmount,
+                'amount' => round($installmentAmount, 2), // Round to handle decimal places
                 'date_due' => $dueDate->format('Y-m-d'),
                 'payment_date' => null,
                 'status' => 'not_paid',

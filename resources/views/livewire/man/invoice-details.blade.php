@@ -13,8 +13,8 @@
             </div>
             <ul class="table-top-head">
                 <li>
-                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Pdf"><img src="{{ asset('assets/img/icons/pdf.svg') }}"
-                            alt="img" /></a>
+                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Pdf"><img
+                            src="{{ asset('assets/img/icons/pdf.svg') }}" alt="img" /></a>
                 </li>
                 <li>
                     <a data-bs-toggle="tooltip" data-bs-placement="top" title="Excel"><img
@@ -158,6 +158,59 @@
                                     </td>
                                 </tr>
                             @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Products</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive dataview">
+                    <table class="table dashboard-expired-products">
+                        <thead>
+                            <tr>
+                                <th class="no-sort">
+                                    <label class="checkboxs">
+                                        <input type="checkbox" id="select-all">
+                                        <span class="checkmarks"></span>
+                                    </label>
+                                </th>
+                                <th>Product</th>
+                                <th>SKU</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($products as $item)
+                                <tr>
+                                    <td>
+                                        <label class="checkboxs">
+                                            <input type="checkbox">
+                                            <span class="checkmarks"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <div class="productimgname">
+                                            <a href="javascript:void(0);" class="product-img stock-img">
+                                                <img
+                                                    src="{{ asset('assets/img/products') }}/{{ $item->product->image }}">
+                                            </a>
+                                            <a href="javascript:void(0);">{{ $item->product->name }} </a>
+                                        </div>
+                                    </td>
+                                    <td style="text-transform: uppercase"><a
+                                            href="javascript:void(0);">{{ $item->product->sku }}</a></td>
+                                    <td>KES {{ number_format($item->amount, 2) }}</td>
+                                    <td>{{ $item->qty }}</td>
+                                    <td>KES {{ number_format($ite->qty * $item->amount, 2) }}</td>
+                                </tr>
+                            @endforeach
+
                         </tbody>
                     </table>
                 </div>
