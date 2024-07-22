@@ -138,7 +138,7 @@
                                         @if ($item->status === 'paid')
                                             <span class="badge badge-linesuccess">Paid</span>
                                         @else
-                                            <span class="badge badge-linesuccess">Not Paid</span>
+                                            <span class="badge badge-linedanger">Not Paid</span>
                                         @endif
                                     </td>
                                 </tr>
