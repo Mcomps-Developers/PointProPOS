@@ -143,7 +143,7 @@ class Invoices extends Component
                 $invoice->status = $this->status;
                 $invoice->first_repayment_date = $this->first_repayment_date;
                 $invoice->amount = $this->totalAfterDiscount;
-                $invoice->repayment_frequency = $this->repayment_frequency;
+                $invoice->repayment_frequency = $this->duration;
                 $invoice->reference = $this->reference;
                 $invoice->save();
 
