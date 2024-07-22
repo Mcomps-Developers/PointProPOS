@@ -478,7 +478,7 @@
                                             {{ Cart::instance('cart')->subtotal }}
                                         </a>
                                         <a class="btn btn-success">Total: KES
-                                            {{ Cart::instance('cart')->total() + (float) $shipping_fee - (float) $discount }}
+                                            {{ Cart::instance('cart')->total() }}
                                         </a>
                                     </div>
 
