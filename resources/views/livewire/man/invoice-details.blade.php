@@ -172,12 +172,6 @@
                     <table class="table dashboard-expired-products">
                         <thead>
                             <tr>
-                                <th class="no-sort">
-                                    <label class="checkboxs">
-                                        <input type="checkbox" id="select-all">
-                                        <span class="checkmarks"></span>
-                                    </label>
-                                </th>
                                 <th>Product</th>
                                 <th>SKU</th>
                                 <th>Price</th>
@@ -188,12 +182,6 @@
                         <tbody>
                             @foreach ($products as $item)
                                 <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
                                     <td>
                                         <div class="productimgname">
                                             <a href="javascript:void(0);" class="product-img stock-img">
