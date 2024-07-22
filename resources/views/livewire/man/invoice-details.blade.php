@@ -134,7 +134,7 @@
                                             <span class="badge badge-linesuccess">Paid</span>
                                         @else
                                             <span class="badge badge-linedanger">Not Paid</span>
-                                            @if (\Carbon\Carbon::parse($item->date_due) < \Carbon\Carbon::now())
+                                            @if (\Carbon\Carbon::parse($item->date_due) < \Carbon\Carbon::today())
                                                 <span class="badge badge-linedanger">Overdue</span>
                                             @endif
                                         @endif
