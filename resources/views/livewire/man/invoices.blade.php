@@ -40,7 +40,7 @@
                 </div>
             </div>
 
-            <div class="card table-list-card"wire:ignore.self>
+            <div class="card table-list-card"wire:ignore>
                 <div class="card-body">
                     <div class="table-top">
                         <div class="search-set">
@@ -151,7 +151,7 @@
                                         {{-- <td class="productimgname">
                                         <div class="view-product me-2">
                                             <a href="javascript:void(0);">
-                                                <img src="assets/img/products/stock-img-01.png" alt="product" />
+                                                <img src="assets/img/products/stock-img-01.png"  />
                                             </a>
                                         </div>
                                         <a href="javascript:void(0);">Lenovo 3rd Generation</a>
@@ -199,7 +199,7 @@
                         <div class="modal-body custom-modal-body">
                             <form wire:submit.prevent='create'>
                                 <div class="row">
-                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                    <div class="col-lg-3 col-md-6 col-sm-12">
                                         <div class="input-blocks add-product">
                                             <label>Customer Email</label>
                                             <div class="row">
@@ -229,7 +229,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                    <div class="col-lg-3 col-md-6 col-sm-12">
                                         <div class="input-blocks">
                                             <label>Fisrt Day of Repayment</label>
                                             <div class="input-groupicon calender-input">
@@ -241,7 +241,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                    <div class="col-lg-3 col-md-6 col-sm-12">
                                         <div class="input-blocks">
                                             <label>Repayment frequency</label>
                                             <select name="" id="" class="form-control"
@@ -252,6 +252,26 @@
                                                 <option value="monthly">Monthly</option>
                                             </select>
                                             @error('repayment_frequency')
+                                                <p class="text-danger">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-sm-12">
+                                        <div class="input-blocks">
+                                            <label>
+                                                @if ($repayment_frequency)
+                                                    Repayable in how many
+                                                    @if ($repayment_frequency == 'daily')
+                                                        days
+                                                    @elseif ($repayment_frequency == 'weekly')
+                                                        weeks
+                                                    @elseif ($repayment_frequency == 'months')
+                                                    @endif
+                                                @endif
+                                            </label>
+                                            <input type="text" name="" id="" class="form-control"
+                                                wire:model.live='duration'>
+                                            @error('duration')
                                                 <p class="text-danger">{{ $message }}</p>
                                             @enderror
                                         </div>
@@ -315,8 +335,8 @@
                                                                     <div class="productimgname">
                                                                         <a href="javascript:void(0);"
                                                                             class="product-img stock-img">
-                                                                            <img src="{{ asset('assets/img/products') }}/{{ $item->model->image }}"
-                                                                                alt="product" />
+                                                                            <img
+                                                                                src="{{ asset('assets/img/products') }}/{{ $item->model->image }}" />
                                                                         </a>
                                                                         <a
                                                                             href="javascript:void(0);">{{ $item->model->name }}</a>
@@ -540,7 +560,7 @@
                                                         <div class="productimgname">
                                                             <a href="javascript:void(0);" class="product-img stock-img">
                                                                 <img src="assets/img/products/stock-img-02.png"
-                                                                    alt="product" />
+                                                                     />
                                                             </a>
                                                             <a href="javascript:void(0);">Nike Jordan</a>
                                                         </div>
@@ -566,7 +586,7 @@
                                                         <div class="productimgname">
                                                             <a href="javascript:void(0);" class="product-img stock-img">
                                                                 <img src="assets/img/products/stock-img-03.png"
-                                                                    alt="product" />
+                                                                     />
                                                             </a>
                                                             <a href="javascript:void(0);">Apple Series 5 Watch</a>
                                                         </div>
@@ -592,7 +612,7 @@
                                                         <div class="productimgname">
                                                             <a href="javascript:void(0);" class="product-img stock-img">
                                                                 <img src="assets/img/products/stock-img-05.png"
-                                                                    alt="product" />
+                                                                     />
                                                             </a>
                                                             <a href="javascript:void(0);">Lobar Handy</a>
                                                         </div>

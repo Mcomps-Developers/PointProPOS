@@ -4,12 +4,18 @@ namespace App\Livewire\Man;
 
 use App\Models\Company;
 use App\Models\Invoice;
+use App\Models\InvoiceProduct;
+use App\Models\PaymentSchedule;
 use App\Models\Product;
 use App\Models\User;
+use DateTime;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
+use Illuminate\Support\Str;
 
 class Invoices extends Component
 {
@@ -25,6 +31,11 @@ class Invoices extends Component
     private $user_id;
     public $productName = '';
     public $loanType;
+    public $subtotalAfterDiscount;
+    public $taxAfterDiscount;
+    public $totalAfterDiscount;
+    private $reference;
+    public $duration;
 
     public function addToCart($productId)
     {
@@ -36,8 +47,6 @@ class Invoices extends Component
             notyf()->position('y', 'top')->success('Product added to cart successfully!');
         }
     }
-
-
 
     // Check User
     public function CheckUser()
@@ -90,6 +99,7 @@ class Invoices extends Component
             'first_repayment_date' => 'required|date',
             'status' => 'required',
             'loanType' => 'required',
+            'duration' => 'required|numeric',
         ];
     }
 
@@ -99,44 +109,153 @@ class Invoices extends Component
     }
     public function create()
     {
-        $this->validate();
-        $this->handleUser();
-        $this->calculateAmount();
         try {
-            $company = Company::where('user_id', Auth::id())->first();
-            $invoice = new Invoice();
-            $invoice->company_id = $company->id;
-            $invoice->user_id = $this->user_id;
-            $invoice->type = $this->loanType;
-            $invoice->status = $this->status;
-            $invoice->first_repayment_date = $this->first_repayment_date;
-            $invoice->amount = $this->totalAfterDiscount;
-            $invoice->repayment_frequency = $this->repayment_frequency;
-            // $invoice->reference = $this->status;
-            $invoice->save();
-            notyf()->position('y', 'top')->success('Loan processed successfully.');
-            return redirect()->to(request()->header('referer'));
-        } catch (\Illuminate\Database\QueryException $ex) {
-            Log::error('Database error: ' . $ex->getMessage() . ' in ' . $ex->getFile() . ' on line ' . $ex->getLine());
-            notyf()->position('y', 'top')->error('Database error occurred. Please try again later.');
-            return redirect()->to(request()->header('referer'));
-        } catch (\Exception $ex) {
-            Log::error('Exception Error. Details: ' . $ex->getMessage() . ' in ' . $ex->getFile() . ' on line ' . $ex->getLine());
+            // Validate inputs
+            $this->validate();
 
+            // Handle user-related actions (if any)
+            $this->handleUser();
+
+            // Calculate amounts and validate them
+            $this->calculateAmount();
+
+            // Generate reference for the invoice
+            $this->generateReference();
+
+            // Generate payment schedules
+            $paymentSchedules = $this->generatePaymentSchedules(
+                $this->first_repayment_date,
+                $this->repayment_frequency,
+                $this->totalAfterDiscount,
+                $this->duration
+            );
+
+            // Begin transaction for atomicity
+            DB::beginTransaction();
+
+            try {
+                // Create invoice
+                $company = Company::where('user_id', Auth::id())->first();
+                $invoice = new Invoice();
+                $invoice->company_id = $company->id;
+                $invoice->user_id = $this->user_id;
+                $invoice->type = $this->loanType;
+                $invoice->status = $this->status;
+                $invoice->first_repayment_date = $this->first_repayment_date;
+                $invoice->amount = $this->totalAfterDiscount;
+                $invoice->repayment_frequency = $this->repayment_frequency;
+                $invoice->reference = $this->reference;
+                $invoice->save();
+
+                // Add products from cart to invoice (if needed)
+                foreach (Cart::instance('cart')->content() as $item) {
+                    $invoiceProduct = new InvoiceProduct();
+                    $invoiceProduct->invoice_id = $invoice->id;
+                    $invoiceProduct->product_id = $item->id;
+                    $invoiceProduct->amount = $item->price;
+                    $invoiceProduct->qty = $item->qty;
+                    $invoiceProduct->save();
+                }
+
+                // Save payment schedules related to the invoice
+                foreach ($paymentSchedules as $schedule) {
+                    $paymentSchedule = new PaymentSchedule();
+                    $paymentSchedule->invoice_id = $invoice->id;
+                    $paymentSchedule->amount = $schedule['amount'];
+                    $paymentSchedule->date_due = $schedule['date_due'];
+                    $paymentSchedule->payment_date = $schedule['payment_date'];
+                    $paymentSchedule->status = $schedule['status'];
+                    $paymentSchedule->save();
+                }
+
+                // Commit transaction
+                DB::commit();
+                // Success notification
+                notyf()->position('y', 'top')->success('Loan processed successfully.');
+                return redirect()->to(request()->header('referer'));
+            } catch (\Exception $ex) {
+                // Rollback transaction on failure
+                DB::rollBack();
+                Log::error('Error: ' . $ex->getMessage());
+                notyf()->position('y', 'top')->error('An unexpected error occurred. Please try again later.');
+                return redirect()->to(request()->header('referer'));
+            }
+        } catch (\Illuminate\Validation\ValidationException $ex) {
+            // Handle validation errors
+            notyf()->position('y', 'top')->error('Validation error: ' . $ex->getMessage());
+            return redirect()->to(request()->header('referer'))->withErrors($ex->errors());
+        } catch (\Exception $ex) {
+            // Handle other exceptions
+            Log::error('Error: ' . $ex->getMessage());
             notyf()->position('y', 'top')->error('An unexpected error occurred. Please try again later.');
             return redirect()->to(request()->header('referer'));
         }
     }
 
-    // Variables
-    public $subtotalAfterDiscount;
-    public $taxAfterDiscount;
-    public $totalAfterDiscount;
+
+    private function generatePaymentSchedules($firstRepaymentDate, $repaymentFrequency, $amount, $duration)
+    {
+        $paymentSchedules = [];
+
+        // Calculate amount per installment
+        $amountPerInstallment = $amount / $duration;
+
+        // Initialize date variables
+        $dueDate = new DateTime($firstRepaymentDate);
+        $paymentDate = null; // Initially payment date is null
+
+        // Loop through the duration to generate schedules
+        for ($i = 1; $i <= $duration; $i++) {
+            // Determine payment date based on repayment frequency
+            switch ($repaymentFrequency) {
+                case 'daily':
+                    $paymentDate = clone $dueDate;
+                    $dueDate->modify('+1 day');
+                    break;
+                case 'weekly':
+                    $paymentDate = clone $dueDate;
+                    $dueDate->modify('+1 week');
+                    break;
+                case 'monthly':
+                    $paymentDate = clone $dueDate;
+                    $dueDate->modify('+1 month');
+                    break;
+                default:
+                    // Handle unsupported frequency (optional)
+                    break;
+            }
+
+            // Prepare payment schedule data
+            $paymentSchedules[] = [
+                'amount' => $amountPerInstallment,
+                'date_due' => $dueDate->format('Y-m-d'),
+                'payment_date' => $paymentDate ? $paymentDate->format('Y-m-d') : null,
+                'status' => 'not_paid',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ];
+        }
+
+        return $paymentSchedules;
+    }
+
+
     private function calculateAmount()
     {
         $this->subtotalAfterDiscount = Cart::instance('cart')->subtotal() - $this->discount;
         $this->taxAfterDiscount = ($this->subtotalAfterDiscount * config('cart.tax')) / 100;
         $this->totalAfterDiscount = $this->subtotalAfterDiscount + $this->taxAfterDiscount;
+        if ($this->totalAfterDiscount < 0) {
+            throw new \Exception('The total amount cannot be negative.');
+            notyf()->position('y', 'top')->success('The total amount cannot be negative.');
+        }
+    }
+
+    private function generateReference()
+    {
+        do {
+            $this->reference = Str::random(5);
+        } while (Invoice::where('reference', $this->reference)->exists());
     }
     public function increaseQuantity($rowId)
     {
