@@ -273,7 +273,7 @@ class Invoices extends Component
     public function increaseQuantity($rowId)
     {
         $item = Cart::instance('cart')->get($rowId);
-        Cart::update($rowId, $item->qty + 1);
+        Cart::instance('cart')->update($rowId, $item->qty + 1);
 
     }
 
@@ -281,7 +281,7 @@ class Invoices extends Component
     {
         $item = Cart::instance('cart')->get($rowId);
         if ($item->qty > 1) {
-            Cart::update($rowId, $item->qty - 1);
+            Cart::instance('cart')->update($rowId, $item->qty - 1);
 
         }
     }
