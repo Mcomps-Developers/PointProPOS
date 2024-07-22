@@ -199,8 +199,9 @@ class Invoices extends Component
     {
         $paymentSchedules = [];
 
-        // Calculate amount per installment
-        $amountPerInstallment = $amount / $duration;
+        // Calculate amount per installment and remainder
+        $amountPerInstallment = floor($amount / $duration);
+        $remainder = $amount % $duration;
 
         // Initialize date variables
         $dueDate = new DateTime($firstRepaymentDate);
@@ -227,9 +228,16 @@ class Invoices extends Component
                     break;
             }
 
+            // Adjust amount for the last installment to include remainder
+            $installmentAmount = $amountPerInstallment;
+            if ($remainder > 0) {
+                $installmentAmount += 1; // Add extra amount to cover remainder
+                $remainder--; // Decrease remainder count
+            }
+
             // Prepare payment schedule data
             $paymentSchedules[] = [
-                'amount' => $amountPerInstallment,
+                'amount' => $installmentAmount,
                 'date_due' => $dueDate->format('Y-m-d'),
                 'payment_date' => $paymentDate ? $paymentDate->format('Y-m-d') : null,
                 'status' => 'not_paid',
@@ -240,6 +248,7 @@ class Invoices extends Component
 
         return $paymentSchedules;
     }
+
 
 
     private function calculateAmount()
