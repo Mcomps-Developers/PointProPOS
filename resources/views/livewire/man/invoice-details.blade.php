@@ -133,7 +133,13 @@
                                     </td>
                                     <td>{{ date('d M Y', strtotime($item->date_due)) }}</td>
                                     <td>KES {{ $item->amount }}</td>
-                                    <td>{{ date('d M Y', strtotime($item->payment_date)) }}</td>
+                                    <td>
+                                        @if ($payment_date)
+                                            {{ date('d M Y', strtotime($item->payment_date)) }}
+                                        @else
+                                            .........
+                                        @endif
+                                    </td>
                                     <td style="text-transform: capitalize">
                                         @if ($item->status === 'paid')
                                             <span class="badge badge-linesuccess">Paid</span>
