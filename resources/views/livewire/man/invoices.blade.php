@@ -149,7 +149,7 @@
                                         </td>
                                         <td style="text-transform: uppercase"><a
                                                 href="{{ route('invoice.details', ['reference' => $item->reference]) }}"><span
-                                                    class="badges status-badge">INV{{ $item->reference }}PP</span></a>
+                                                    class="badges status-badge">INV-{{ $item->reference }}PP</span></a>
                                         </td>
                                         {{-- <td class="productimgname">
                                         <div class="view-product me-2">
@@ -162,15 +162,15 @@
                                         <td>{{ $item->customer->name }}</td>
                                         <td style="text-transform: capitalize;">
                                             @if ($item->status === 'progress')
-                                                <span class="badges bg-lightblue">{{ $item->status }}</span>
+                                                <span class="badge badges-primary">{{ $item->status }}</span>
                                             @elseif ($item->status === 'complete')
-                                                <span class="badges bg-lightgreen">{{ $item->status }}</span>
+                                                <span class="badge badges-success">{{ $item->status }}</span>
                                             @elseif ($item->status === 'cancelled')
-                                                <span class="badges bg-lightred">{{ $item->status }}</span>
+                                                <span class="badge badges-danger">{{ $item->status }}</span>
                                             @elseif ($item->status === 'defaulted')
-                                                <span class="badges bg-lightyellow">{{ $item->status }}</span>
+                                                <span class="badge badges-warning">{{ $item->status }}</span>
                                             @elseif ($item->status === 'pending')
-                                                <span class="badges bg-lightgray">{{ $item->status }}</span>
+                                                <span class="badge badges-info">{{ $item->status }}</span>
                                             @endif
 
                                         </td>
