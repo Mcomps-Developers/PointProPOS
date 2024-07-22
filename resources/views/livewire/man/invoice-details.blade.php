@@ -153,7 +153,7 @@
                                     </td>
                                     <td style="text-transform: capitalize">
                                         @if ($item->status === 'not_paid')
-                                            <span class="badge badge-lineprimary">Payment</span>
+                                            <span class="badge badge-linesuccess">Payment</span>
                                         @endif
                                     </td>
                                 </tr>
