@@ -46,12 +46,13 @@ class Invoices extends Component
         'loanType' => 'required',
         'duration' => 'required|numeric',
     ];
-    public $quantity = 1; // Default quantity
+    public $quantity = 1;
 
     public function mount()
     {
-        // Initialize quantity based on current item quantity in the cart
-        $this->quantity = Cart::get($this->item->rowId)->qty;
+        if(Cart::instance('cart')->count() > 0){
+        $this->quantity = Cart::instance('cart')->get($this->item->rowId)->qty;
+        }
     }
     public function updated($fields)
     {
@@ -277,7 +278,7 @@ class Invoices extends Component
         $item = Cart::instance('cart')->get($rowId);
         Cart::update($rowId, $item->qty + 1);
         // Refresh the quantity displayed after update
-        $this->quantity = Cart::get($rowId)->qty;
+        $this->quantity = Cart::instance('cart')->get($rowId)->qty;
 
     }
 
@@ -287,7 +288,7 @@ class Invoices extends Component
         if ($item->qty > 1) {
             Cart::update($rowId, $item->qty - 1);
             // Refresh the quantity displayed after update
-        $this->quantity = Cart::get($rowId)->qty;
+        $this->quantity = Cart::instance('cart')->get($rowId)->qty;
 
         }
     }
