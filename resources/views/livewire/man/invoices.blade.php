@@ -478,8 +478,26 @@
                                         <a class="btn btn-info">Subtotal: KES
                                             {{ Cart::instance('cart')->subtotal }}
                                         </a>
+                                        @php
+                                            // Example formatted total with commas
+                                            $formattedTotal = Cart::instance('cart')->total(); // Assuming this returns '5,876.00'
+
+                                            // Remove commas and convert to float
+                                            $totalFloat = (float) str_replace(',', '', $formattedTotal);
+
+                                            // Example additional variables for operations
+                                            $shipping_fee = $this->shipping_fee; // Example shipping fee
+                                            $discount = $this->discount; // Example discount
+
+                                            // Perform arithmetic operations
+                                            $totalAfterOperations = $totalFloat + $shipping_fee - $discount;
+
+                                            // Format result with number_format() for display
+                                            $formattedResult = number_format($totalAfterOperations, 2);
+                                        @endphp
+
                                         <a class="btn btn-success">Total: KES
-                                            {{ Cart::instance('cart')->total + number_format((float) $shipping_fee - (float) $discount, 2) }}
+                                            {{ $formattedResult }}
                                         </a>
                                     </div>
 
