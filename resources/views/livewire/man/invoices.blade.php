@@ -395,8 +395,8 @@
                                                                         }
                                                                     </style>
                                                                 </td>
-                                                                <td>{{ $item->model->price }}</td>
-                                                                <td>{{ $item->subtotal }}</td>
+                                                                <td>{{ (float)  $item->model->price }}</td>
+                                                                <td>{{ (float)  $item->subtotal }}</td>
                                                                 <td>
                                                                     <div
                                                                         class="quantity-control d-flex align-items-center">
@@ -417,7 +417,7 @@
                                         <div class="col-lg-3 col-md-6 col-sm-12">
                                             <div class="mb-3 input-blocks">
                                                 <label>Order Tax</label>
-                                                <input type="text" value="{{ Cart::instance('cart')->tax }}"
+                                                <input type="text" value="{{ (float) Cart::instance('cart')->tax }}"
                                                     disabled />
                                             </div>
                                         </div>
@@ -469,9 +469,9 @@
                                 <div class="modal-footer-btn">
                                     <div class="text-left" style="margin-bottom: 16px;">
                                         <a class="btn btn-info">Subtotal: KES
-                                            {{ Cart::instance('cart')->subtotal }}</a>
+                                            {{ (float)  Cart::instance('cart')->subtotal }}</a>
                                         <a class="btn btn-success">Total: KES
-                                            {{ Cart::instance('cart')->total + $shipping_fee - $discount }}</a>
+                                            {{ (float) Cart::instance('cart')->total + $shipping_fee - $discount }}</a>
                                     </div>
 
                                     <button type="button" class="btn btn-cancel me-2" data-bs-dismiss="modal">
