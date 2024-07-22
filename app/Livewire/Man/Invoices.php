@@ -104,8 +104,12 @@ class Invoices extends Component
         }
     }
 
-    
-    public function create()
+    public function validateInput()
+    {
+        $this->validate();
+        $this->create();
+    }
+    private function create()
     {
         try {
             // Validate inputs
