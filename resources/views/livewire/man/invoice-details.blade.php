@@ -110,12 +110,6 @@
                     <table class="table datanew">
                         <thead>
                             <tr>
-                                <th class="no-sort">
-                                    <label class="checkboxs">
-                                        <input type="checkbox" id="select-all" />
-                                        <span class="checkmarks"></span>
-                                    </label>
-                                </th>
                                 <th>Due Date</th>
                                 <th>Amount</th>
                                 <th>Payment Date</th>
@@ -126,12 +120,6 @@
                         <tbody>
                             @foreach ($schedules as $item)
                                 <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox" />
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
                                     <td>{{ date('d M Y', strtotime($item->date_due)) }}</td>
                                     <td>KES {{ $item->amount }}</td>
                                     <td>
