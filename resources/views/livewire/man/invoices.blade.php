@@ -162,15 +162,15 @@
                                         <td>{{ $item->customer->name }}</td>
                                         <td style="text-transform: capitalize;">
                                             @if ($item->status === 'progress')
-                                                <span class="badge badge-lineprimary">{{ $item->status }}</span>
+                                                <span class="text-primary">{{ $item->status }}</span>
                                             @elseif ($item->status === 'complete')
-                                                <span class="badge badge-linesuccess">{{ $item->status }}</span>
+                                                <span class="text-success">{{ $item->status }}</span>
                                             @elseif ($item->status === 'cancelled')
-                                                <span class="badge badge-linedanger">{{ $item->status }}</span>
+                                                <span class="text-danger">{{ $item->status }}</span>
                                             @elseif ($item->status === 'defaulted')
-                                                <span class="badge badge-linewarning">{{ $item->status }}</span>
+                                                <span class="text-warning">{{ $item->status }}</span>
                                             @elseif ($item->status === 'pending')
-                                                <span class="badge badge-lineinfo">{{ $item->status }}</span>
+                                                <span class="text-info">{{ $item->status }}</span>
                                             @endif
                                         </td>
                                         <td>KES {{ $item->amount }}</td>
