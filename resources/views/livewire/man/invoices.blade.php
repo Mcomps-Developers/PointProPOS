@@ -214,7 +214,7 @@
                                                         <p class="text-success"><strong>Name:
                                                             </strong>{{ $name }} <strong><br> Phone:
                                                             </strong>+{{ $phone_number }}<br>
-                                                            <strong><span>Unpaid Debts: </span>
+                                                            <strong class="text-danger"><span>Unpaid Debts: </span>
                                                                 {{ $debtBalance }}</strong>
                                                         </p>
                                                     @endif
@@ -257,24 +257,25 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-md-6 col-sm-12">
-                                        <div class="input-blocks">
-                                            <label>
-                                                @if ($repayment_frequency)
+                                        @if ($repayment_frequency)
+                                            <div class="input-blocks">
+                                                <label>
                                                     Repayable in how many
                                                     @if ($repayment_frequency == 'daily')
                                                         days
                                                     @elseif ($repayment_frequency == 'weekly')
                                                         weeks
                                                     @elseif ($repayment_frequency == 'months')
+                                                        months
                                                     @endif
-                                                @endif
-                                            </label>
-                                            <input type="text" name="" id="" class="form-control"
-                                                wire:model.live='duration'>
-                                            @error('duration')
-                                                <p class="text-danger">{{ $message }}</p>
-                                            @enderror
-                                        </div>
+                                                </label>
+                                                <input type="text" name="" id=""
+                                                    class="form-control" wire:model.live='duration'>
+                                                @error('duration')
+                                                    <p class="text-danger">{{ $message }}</p>
+                                                @enderror
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="row">
