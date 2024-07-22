@@ -26,8 +26,8 @@ class Invoices extends Component
     public $first_repayment_date;
     public $repayment_frequency;
     public $debtBalance = 0;
-    public $discount = 0;
-    public $shipping_fee = 0;
+    public $discount = 0.0;
+    public $shipping_fee = 0.0;
     private $user_id;
     public $productName = '';
     public $loanType;
