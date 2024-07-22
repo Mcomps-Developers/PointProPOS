@@ -90,19 +90,16 @@ class Invoices extends Component
         }
     }
 
-    public function rules()
-    {
-        return [
-            'email' => 'required|email',
-            'discount' => 'nullable|numeric',
-            'shipping_fee' => 'nullable|numeric',
-            'repayment_frequency' => 'required',
-            'first_repayment_date' => 'required|date',
-            'status' => 'required',
-            'loanType' => 'required',
-            'duration' => 'required|numeric',
-        ];
-    }
+    protected $rules = [
+        'email' => 'required|email',
+        'discount' => 'nullable|numeric',
+        'shipping_fee' => 'nullable|numeric',
+        'repayment_frequency' => 'required',
+        'first_repayment_date' => 'required|date',
+        'status' => 'required',
+        'loanType' => 'required',
+        'duration' => 'required|numeric',
+    ];
 
     public function updated($fields)
     {
