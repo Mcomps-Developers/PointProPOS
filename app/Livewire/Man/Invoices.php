@@ -179,10 +179,6 @@ class Invoices extends Component
                 notyf()->position('y', 'top')->error('An unexpected error occurred. Please try again later.');
                 return redirect()->to(request()->header('referer'));
             }
-        } catch (\Illuminate\Validation\ValidationException $ex) {
-            // Handle validation errors
-            notyf()->position('y', 'top')->error('Validation error: ' . $ex->getMessage());
-            return redirect()->to(request()->header('referer'))->withErrors($ex->errors());
         } catch (\Exception $ex) {
             // Handle other exceptions
             Log::error('Error: ' . $ex->getMessage());
