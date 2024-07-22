@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('invoice_id');
             $table->float('amount');
             $table->date('date_due');
-            $table->date('payment_date');
+            $table->date('payment_date')->nullable();
             $table->enum('status', ['paid', 'not_paid'])->default('not_paid');
             $table->timestamps();
             $table->softDeletes();
