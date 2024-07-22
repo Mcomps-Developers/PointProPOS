@@ -134,7 +134,7 @@
                                     <td>{{ date('d M Y', strtotime($item->date_due)) }}</td>
                                     <td>KES {{ $item->amount }}</td>
                                     <td>
-                                        @if ($payment_date)
+                                        @if ($item->payment_date)
                                             {{ date('d M Y', strtotime($item->payment_date)) }}
                                         @else
                                             .........
