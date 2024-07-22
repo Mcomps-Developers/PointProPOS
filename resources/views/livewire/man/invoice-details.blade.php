@@ -120,6 +120,7 @@
                                 <th>Amount</th>
                                 <th>Payment Date</th>
                                 <th>Status</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -145,6 +146,14 @@
                                             <span class="badge badge-linesuccess">Paid</span>
                                         @else
                                             <span class="badge badge-linedanger">Not Paid</span>
+                                            @if (\Carbon\Carbon::parse($item->date_due) < \Carbon\Carbon::now())
+                                                <span class="badge badge-linewarning">Overdue</span>
+                                            @endif
+                                        @endif
+                                    </td>
+                                    <td style="text-transform: capitalize">
+                                        @if ($item->status === 'not_paid')
+                                            <span class="badge badge-lineprimary">Payment</span>
                                         @endif
                                     </td>
                                 </tr>
