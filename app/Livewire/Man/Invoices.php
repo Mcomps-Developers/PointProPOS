@@ -236,7 +236,7 @@ class Invoices extends Component
             $paymentSchedules[] = [
                 'amount' => $installmentAmount,
                 'date_due' => $dueDate->format('Y-m-d'),
-                'payment_date' => $paymentDate ? $paymentDate->format('Y-m-d') : null,
+                'payment_date' => null,
                 'status' => 'not_paid',
                 'created_at' => now(),
                 'updated_at' => now(),

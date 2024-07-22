@@ -3,6 +3,7 @@
 namespace App\Livewire\Man;
 
 use App\Models\Invoice;
+use App\Models\PaymentSchedule;
 use Livewire\Component;
 
 class InvoiceDetails extends Component
@@ -15,6 +16,7 @@ class InvoiceDetails extends Component
     public function render()
     {
         $invoice = Invoice::where('reference', $this->reference)->first();
-        return view('livewire.man.invoice-details', ['invoice' => $invoice])->layout('layouts.base');
+        $schedules = PaymentSchedule::where('invoice_id', $invoice->id)->get();
+        return view('livewire.man.invoice-details', ['invoice' => $invoice, 'schedules' => $schedules])->layout('layouts.base');
     }
 }
