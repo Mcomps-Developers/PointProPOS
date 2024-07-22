@@ -318,7 +318,8 @@
                                     <div class="col-lg-2">
                                         <div class="input-blocks">
                                             <label>Qty</label>
-                                            <input type="number" name="" id="" class="form-control" wire:model.live='quantity'> 
+                                            <input type="number" name="" id="" class="form-control"
+                                                wire:model.live='quantity'>
                                             @error('quantity')
                                                 <p class="text-danger">{{ $message }}</p>
                                             @enderror
@@ -369,15 +370,20 @@
                                                                     </div>
                                                                 </td>
                                                                 <td>
-                                                                    <div class="quantity-control d-flex align-items-center">
-                                                                        <a class="btn btn-outline-secondary btn-sm" wire:click="increaseQuantity('{{ $item->rowId }}')">
+                                                                    <div
+                                                                        class="quantity-control d-flex align-items-center">
+                                                                        <a class="btn btn-outline-secondary btn-sm"
+                                                                            wire:click="increaseQuantity('{{ $item->rowId }}')">
                                                                             <i class="fa fa-plus"></i>
                                                                         </a>
-                                                                        <input type="text" class="mx-2 text-center form-control" value="{{ $item->qty }}" disabled/>
-                                                                        <a class="btn btn-outline-secondary btn-sm" wire:click="decreaseQuantity('{{ $item->rowId }}')">
+                                                                        <input type="text"
+                                                                            class="mx-2 text-center form-control"
+                                                                            value="{{ $item->qty }}" disabled />
+                                                                        <a class="btn btn-outline-secondary btn-sm"
+                                                                            wire:click="decreaseQuantity('{{ $item->rowId }}')">
                                                                             <i class="fa fa-minus"></i>
                                                                         </a>
-                                                                    </div>                                                                    
+                                                                    </div>
                                                                     <style>
                                                                         .quantity-control .btn {
                                                                             width: 32px;
@@ -395,8 +401,8 @@
                                                                         }
                                                                     </style>
                                                                 </td>
-                                                                <td>{{ (float)  $item->model->price }}</td>
-                                                                <td>{{ (float)  $item->subtotal }}</td>
+                                                                <td>{{ (float) $item->model->price }}</td>
+                                                                <td>{{ (float) $item->subtotal }}</td>
                                                                 <td>
                                                                     <div
                                                                         class="quantity-control d-flex align-items-center">
@@ -417,8 +423,8 @@
                                         <div class="col-lg-3 col-md-6 col-sm-12">
                                             <div class="mb-3 input-blocks">
                                                 <label>Order Tax</label>
-                                                <input type="text" value="{{ (float) Cart::instance('cart')->tax }}"
-                                                    disabled />
+                                                <input type="text"
+                                                    value="{{ (float) Cart::instance('cart')->tax }}" disabled />
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-md-6 col-sm-12">
@@ -469,9 +475,11 @@
                                 <div class="modal-footer-btn">
                                     <div class="text-left" style="margin-bottom: 16px;">
                                         <a class="btn btn-info">Subtotal: KES
-                                            {{ (float)  Cart::instance('cart')->subtotal }}</a>
+                                            {{ number_format((float) Cart::instance('cart')->subtotal, 2) }}
+                                        </a>
                                         <a class="btn btn-success">Total: KES
-                                            {{ (float) Cart::instance('cart')->total + $shipping_fee - $discount }}</a>
+                                            {{ number_format((float) Cart::instance('cart')->total() + (float) $shipping_fee - (float) $discount, 2) }}
+                                        </a>
                                     </div>
 
                                     <button type="button" class="btn btn-cancel me-2" data-bs-dismiss="modal">
