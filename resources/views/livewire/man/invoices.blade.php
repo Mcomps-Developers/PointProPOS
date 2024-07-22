@@ -197,7 +197,7 @@
                             </button>
                         </div>
                         <div class="modal-body custom-modal-body">
-                            <form wire:submit.prevent='create'>
+                            <form wire:submit.prevent='validateInput'>
                                 <div class="row">
                                     <div class="col-lg-3 col-md-6 col-sm-12">
                                         <div class="input-blocks add-product">
@@ -457,10 +457,10 @@
                                     <button type="button" class="btn btn-cancel me-2" data-bs-dismiss="modal">
                                         Cancel
                                     </button>
-                                    <button type="submit" class="btn btn-submit" wire:target="create"
+                                    <button type="submit" class="btn btn-submit" wire:target="validateInput"
                                         wire:loading.remove>Process Loan</button>
                                     <button class="btn btn-warning-light" type="button" disabled
-                                        wire:target="create" wire:loading>
+                                        wire:target="validateInput" wire:loading>
                                         <span class="align-middle spinner-grow spinner-grow-sm" role="status"
                                             aria-hidden="true"></span>
                                         Processing...
