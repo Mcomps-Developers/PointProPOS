@@ -17,7 +17,7 @@ class InvoiceDetails extends Component
     public function render()
     {
         $invoice = Invoice::where('reference', $this->reference)->first();
-        $schedules = PaymentSchedule::orderByDesc('created_at')->where('invoice_id', $invoice->id)->get();
+        $schedules = PaymentSchedule::orderBy('date_due','asc')->where('invoice_id', $invoice->id)->get();
         $products = InvoiceProduct::where('invoice_id', $invoice->id)->get();
         return view('livewire.man.invoice-details', ['invoice' => $invoice, 'schedules' => $schedules, 'products' => $products])->layout('layouts.base');
     }
