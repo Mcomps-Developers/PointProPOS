@@ -295,7 +295,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-8">
+                                    <div class="col-lg-6">
                                         <div class="input-blocks">
                                             <label>Product Name</label>
                                             <div class="input-groupicon">
@@ -313,6 +313,15 @@
                                                     @endforeach
                                                 </ul>
                                             @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="input-blocks">
+                                            <label>Qty</label>
+                                            <input type="number" name="" id="" class="form-control" wire:model.live='quantity'> 
+                                            @error('quantity')
+                                                <p class="text-danger">{{ $message }}</p>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
@@ -364,7 +373,7 @@
                                                                         <a class="btn btn-outline-secondary btn-sm" wire:click="increaseQuantity('{{ $item->rowId }}')">
                                                                             <i class="fa fa-plus"></i>
                                                                         </a>
-                                                                        <input type="text" class="mx-2 text-center form-control" wire:model="quantity" />
+                                                                        <input type="text" class="mx-2 text-center form-control" disabled/>
                                                                         <a class="btn btn-outline-secondary btn-sm" wire:click="decreaseQuantity('{{ $item->rowId }}')">
                                                                             <i class="fa fa-minus"></i>
                                                                         </a>

@@ -36,6 +36,7 @@ class Invoices extends Component
     public $totalAfterDiscount;
     private $reference;
     public $duration;
+    public $quantity;
     protected $rules = [
         'email' => 'required|email',
         'discount' => 'nullable|numeric',
@@ -55,12 +56,16 @@ class Invoices extends Component
         $product = Product::find($productId);
 
         if ($product) {
+            // Explicitly cast price and qty to numeric types
             $price = (float) $product->price;
-            Cart::instance('cart')->add($product->id, $product->name, 1, $price)->associate('App\Models\Product');
+            $qty = (int) $this->quantity;
+
+            Cart::instance('cart')->add($product->id, $product->name, $qty, $price)->associate('App\Models\Product');
             $this->reset('productName');
             notyf()->position('y', 'top')->success('Product added to cart successfully!');
         }
     }
+
 
     // Check User
     public function CheckUser()
