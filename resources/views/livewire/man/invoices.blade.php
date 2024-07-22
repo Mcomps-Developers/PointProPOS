@@ -426,8 +426,8 @@
                                     </div>
                                 </div> --}}
                                 <div class="modal-footer-btn">
-                                    <a class="btn btn-submit">Subtotal: KES {{ Cart::instance('cart')->subtotal }}</a>
-                                    <a class="btn btn-submit">Total: KES
+                                    <a class="btn btn-info">Subtotal: KES {{ Cart::instance('cart')->subtotal }}</a>
+                                    <a class="btn btn-success">Total: KES
                                         {{ Cart::instance('cart')->total + $shipping_fee - $discount }}</a>
                                     <button type="button" class="btn btn-cancel me-2" data-bs-dismiss="modal">
                                         Cancel
