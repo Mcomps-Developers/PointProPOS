@@ -57,7 +57,7 @@ class Invoices extends Component
 
         if ($product) {
             $price = (float) $product->price;
-            Cart::instance('cart')->add($product->id, $product->name, 1, $product->price)->associate('App\Models\Product');
+            Cart::instance('cart')->add($product->id, $product->name, 1, $price)->associate('App\Models\Product');
             $this->reset('productName');
             notyf()->position('y', 'top')->success('Product added to cart successfully!');
         }
