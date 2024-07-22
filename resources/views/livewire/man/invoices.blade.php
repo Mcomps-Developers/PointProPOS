@@ -426,7 +426,7 @@
                                     </div>
                                 </div> --}}
                                 <div class="modal-footer-btn">
-                                    <div class="text-left">
+                                    <div class="text-left" style="margin-bottom: 16px;">
                                         <a class="btn btn-info">Subtotal: KES
                                             {{ Cart::instance('cart')->subtotal }}</a>
                                         <a class="btn btn-success">Total: KES
