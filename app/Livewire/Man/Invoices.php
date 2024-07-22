@@ -62,10 +62,11 @@ class Invoices extends Component
             $this->phone_number = $user->phone_number;
 
             // Check for pending debts
-            $pendingInvoices = Invoice::where([
-                'user_id' => $user->id,
-                'status' => 'pending'
-            ])->get();
+            $loanStatusesToExclude = ['complete', 'cancelled', 'pending'];
+            $pendingInvoices = Invoice::where('user_id', $user->id)
+                ->whereNotIn('status', $loanStatusesToExclude)
+                ->get();
+
             $this->debtBalance = $pendingInvoices->sum('amount');
             notyf()->position('y', 'top')->success('Client found in your database!');
         } else {
@@ -170,6 +171,7 @@ class Invoices extends Component
 
                 // Commit transaction
                 DB::commit();
+                Cart::instance('cart')->destroy();
                 // Success notification
                 notyf()->position('y', 'top')->success('Loan processed successfully.');
                 return redirect()->to(request()->header('referer'));
