@@ -36,7 +36,16 @@ class Invoices extends Component
     public $totalAfterDiscount;
     private $reference;
     public $duration;
-
+    protected $rules = [
+        'email' => 'required|email',
+        'discount' => 'nullable|numeric',
+        'shipping_fee' => 'nullable|numeric',
+        'repayment_frequency' => 'required',
+        'first_repayment_date' => 'required|date',
+        'status' => 'required',
+        'loanType' => 'required',
+        'duration' => 'required|numeric',
+    ];
     public function addToCart($productId)
     {
         $product = Product::find($productId);
@@ -89,17 +98,6 @@ class Invoices extends Component
             $this->user_id = $user->id;
         }
     }
-
-    protected $rules = [
-        'email' => 'required|email',
-        'discount' => 'nullable|numeric',
-        'shipping_fee' => 'nullable|numeric',
-        'repayment_frequency' => 'required',
-        'first_repayment_date' => 'required|date',
-        'status' => 'required',
-        'loanType' => 'required',
-        'duration' => 'required|numeric',
-    ];
 
     public function updated($fields)
     {
