@@ -118,7 +118,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($schedules->orderBy('date_due', 'asc') as $item)
+                            @foreach ($schedules as $item)
                                 <tr>
                                     <td>{{ date('d M Y', strtotime($item->date_due)) }}</td>
                                     <td>KES {{ $item->amount }}</td>
