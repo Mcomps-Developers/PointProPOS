@@ -158,8 +158,7 @@
                                     <td style="text-transform: capitalize">
                                         @if ($item->status === 'not_paid')
                                             <button class="badge badge-linesuccess intaSendPayButton"
-                                                data-amount="{{ $item->amount - $item->amount_paid }}"
-                                                data-user_id="{{ $item->invoice->user_id }}" data-currency="KES"
+                                                data-amount="{{ $item->amount - $item->amount_paid }}" data-currency="KES"
                                                 data-email="{{ $item->invoice->customer->email }}"
                                                 data-first_name="{{ $item->invoice->customer->name }}"
                                                 data-last_name=""
