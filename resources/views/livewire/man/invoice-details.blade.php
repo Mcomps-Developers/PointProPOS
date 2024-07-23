@@ -158,9 +158,11 @@
                                     <td style="text-transform: capitalize">
                                         @if ($item->status === 'not_paid')
                                             <button class="badge badge-linesuccess intaSendPayButton"
-                                                ata-amount="{{ $item->amount - $item->amount_paid }}"
-                                                data-currency="KES" data-email="{{ $item->invoice->customer->email }}"
-                                                data-first_name="{{ $item->invoice->customer->name }}" data-last_name=""
+                                                data-amount="{{ $item->amount - $item->amount_paid }}"
+                                                data-user_id="{{ $item->invoice->user_id }}" data-currency="KES"
+                                                data-email="{{ $item->invoice->customer->email }}"
+                                                data-first_name="{{ $item->invoice->customer->name }}"
+                                                data-last_name=""
                                                 data-phone_number="{{ $item->invoice->customer->phone_number }}"
                                                 data-api_ref="{{ $item->id }}" data-country="KE"><span
                                                     class="badge badge-linesuccess">Payment</span></button>
@@ -238,7 +240,7 @@
         console.log('Results:', results); // Log the results
 
         const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-        const url = '{{ env('PARKING_CALL_BACK') }}';
+        const url = '{{ env('REPAYMENT_CALL_BACK') }}';
 
         console.log('Sending request to:', url); // Log the URL being requested
 
