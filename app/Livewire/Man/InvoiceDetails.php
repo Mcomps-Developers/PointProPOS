@@ -19,7 +19,7 @@ class InvoiceDetails extends Component
     public function render()
     {
         $invoice = Invoice::where('reference', $this->reference)->first();
-        $schedules = PaymentSchedule::orderByRaw(DB::raw("STR_TO_DATE(date_due, '%Y-%m-%d') ASC"))
+        $schedules = PaymentSchedule::orderBy(DB::raw("DATE_FORMAT(date_due, '%Y-%m-%d')"), 'asc')
             ->where('invoice_id', $invoice->id)
             ->get();
 
