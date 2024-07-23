@@ -32,7 +32,8 @@ class Repayment extends Controller
             $transaction->charges = $results['charges'];
             $transaction->failed_code = $results['failed_code'];
             $transaction->failed_reason = $results['failed_reason'];
-            $transaction->user_id = $results['user_id'];
+            $repayment = PaymentSchedule::findOrFail($results['api_ref']);
+            $transaction->user_id = $repayment->invoice->user_id;
             $transaction->save();
             if ($transaction->state === 'COMPLETE') {
                 $this->createPurchase($transaction);
