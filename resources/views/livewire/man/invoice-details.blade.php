@@ -141,11 +141,11 @@
                                             @endphp
 
                                             @if ($dueDate->lessThan($today))
-                                                <span class="badge badge-linedanger">Overdue</span>
+                                            <span class="badge badge-warning">Overdue</span>
                                             @elseif ($dueDate->equalTo($today))
-                                                <span class="badge badge-warning">Due Today</span>
+                                                <span class="badge badge-info">Due Today</span>
                                             @elseif ($dueDate->equalTo($tomorrow))
-                                                <span class="badge badge-info">Due Tomorrow</span>
+                                                <span class="badge badge-primary">Due Tomorrow</span>
                                             @elseif ($dueDate->greaterThanOrEqualTo($tomorrow))
                                                 {{-- Do nothing or handle cases where due date is later than tomorrow --}}
                                             @endif
