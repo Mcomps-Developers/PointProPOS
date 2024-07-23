@@ -157,7 +157,12 @@
                                     <td>{{ number_format($item->amount - $item->amount_paid, 2) }}</td>
                                     <td style="text-transform: capitalize">
                                         @if ($item->status === 'not_paid')
-                                            <button class="badge badge-linesuccess"><span
+                                            <button class="badge badge-linesuccess intaSendPayButton"
+                                                ata-amount="{{ $item->amount - $item->amount_paid }}"
+                                                data-currency="KES" data-email="{{ $item->invoice->customer->email }}"
+                                                data-first_name="{{ $item->invoice->customer->name }}" data-last_name=""
+                                                data-phone_number="{{ $item->invoice->customer->phone_number }}"
+                                                data-api_ref="{{ $item->id }}" data-country="KE"><span
                                                     class="badge badge-linesuccess">Payment</span></button>
                                         @else
                                             .........
@@ -213,3 +218,64 @@
         </div>
     </div>
 </div>
+<script src="https://unpkg.com/intasend-inlinejs-sdk@3.0.4/build/intasend-inline.js"></script>
+<script>
+    new window.IntaSend({
+            publicAPIKey: '{{ env('INTASEND_PUB_KEY') }}',
+            live: true
+        })
+        .on("COMPLETE", (results) => {
+            // console.log("Success", results);
+            saveTransactionToController(results);
+        })
+        .on("FAILED", (results) => {
+            // console.log("Failed", results);
+            saveTransactionToController(results);
+        })
+        .on("IN-PROGRESS", (results) => console.log("Payment in progress status", results));
+
+    function saveTransactionToController(results) {
+        console.log('Results:', results); // Log the results
+
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        const url = '{{ env('PARKING_CALL_BACK') }}';
+
+        console.log('Sending request to:', url); // Log the URL being requested
+
+        fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken
+                },
+                body: JSON.stringify({
+                    results: results
+                })
+            })
+            .then(response => {
+                console.log('Response received:', response); // Log the response received
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                // Check if the response body is empty
+                if (response.headers.get('Content-Length') === '0') {
+                    // Response body is empty, return an empty object
+                    return {};
+                }
+                // Log the response body
+                return response.text().then(text => {
+                    console.log('Response body:', text);
+                    return text ? JSON.parse(text) : {};
+                });
+            })
+            .then(data => {
+                console.log('Response data:', data); // Log the response data
+
+                // Reload the current page
+                window.location.reload();
+            })
+            .catch(error => console.error('Error saving transaction:', error));
+
+    }
+</script>
