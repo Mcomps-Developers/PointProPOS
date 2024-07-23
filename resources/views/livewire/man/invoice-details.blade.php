@@ -118,7 +118,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($schedules as $item)
+                            @foreach ($schedules->orderBy('date_due', 'asc') as $item)
                                 <tr>
                                     <td>{{ date('d M Y', strtotime($item->date_due)) }}</td>
                                     <td>KES {{ $item->amount }}</td>
@@ -141,7 +141,7 @@
                                             @endphp
 
                                             @if ($dueDate->lessThan($today))
-                                            <span class="badge badge-warning">Overdue</span>
+                                                <span class="badge badge-warning">Overdue</span>
                                             @elseif ($dueDate->equalTo($today))
                                                 <span class="badge badge-info">Due Today</span>
                                             @elseif ($dueDate->equalTo($tomorrow))
