@@ -114,6 +114,8 @@
                                 <th>Amount</th>
                                 <th>Payment Date</th>
                                 <th>Status</th>
+                                <th>Amount Paid</th>
+                                <th>Amount Due</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -151,6 +153,8 @@
                                             @endif
                                         @endif
                                     </td>
+                                    <td>{{ number_format($item->amount_paid, 2) }}</td>
+                                    <td>{{ number_format($item->amount - $item->amount_paid, 2) }}</td>
                                     <td style="text-transform: capitalize">
                                         @if ($item->status === 'not_paid')
                                             <button class="badge badge-linesuccess"><span
