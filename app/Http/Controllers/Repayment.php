@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PaymentSchedule;
 use App\Models\Repayment as ModelsRepayment;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -65,6 +66,7 @@ class Repayment extends Controller
                 // Update status to 'paid'
                 $repayment->status = 'paid';
                 $repayment->amount_paid = $repayment->amount;
+                $repayment->payment_date = Carbon::now();
                 $repayment->save();
             }
             notyf()
