@@ -60,9 +60,10 @@ class Repayment extends Controller
             $repayment = PaymentSchedule::findOrFail($transaction->api_ref);
             $repayment->amount_paid += $transaction->value;
             $repayment->save();
-            if ($repayment->amount - $repayment->amount_paid == 0) {
+            if ($repayment->amount - $repayment->amount_paid < 0) {
                 // Update status to 'paid'
                 $repayment->status = 'paid';
+                $repayment->amount_paid = $repayment->amount;
                 $repayment->save();
             }
             notyf()
