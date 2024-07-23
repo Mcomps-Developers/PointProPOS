@@ -42,6 +42,7 @@ class Repayment extends Controller
                     ->position('x', 'right')
                     ->position('y', 'top')
                     ->addError('Transaction failed.');
+                return redirect(request()->header('Referer'));
             }
         } catch (\Exception $e) {
             notyf()
