@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class PaymentSchedule extends Model
 {
     use HasFactory;
+    public function invoice()
+    {
+        return $this->belongsTo(Invoice::class, 'invoice_id');
+    }
 }
