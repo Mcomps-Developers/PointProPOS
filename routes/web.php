@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\Repayment;
 use App\Http\Middleware\AuthAdmin;
 use App\Http\Middleware\AuthManager;
 use App\Livewire\Admin\AdminDashboard;
@@ -105,4 +106,9 @@ Route::post('/email/verification-notification', function (Request $request) {
 Route::controller(GoogleController::class)->group(function () {
     Route::get('auth/google', 'redirectToGoogle')->name('auth.google');
     Route::get('auth/google/callback', 'handleGoogleCallback');
+});
+
+
+Route::middleware(['auth:sanctum', config('jetstream.auth_session')])->group(function () {
+    Route::post('/repayment/callback', [Repayment::class, 'saveTransaction'])->name('save.transaction');
 });
