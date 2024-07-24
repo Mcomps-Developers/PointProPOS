@@ -111,10 +111,6 @@ class Repayment extends Controller
             $wallet = CompanyWallet::findOrFail($transaction->company_id);
             $wallet->balance += $transaction->value - $transaction->convenience_fee;
             $wallet->save();
-            notyf()
-                ->position('x', 'right')
-                ->position('y', 'top')
-                ->success('Company wallet updated.');
 
         } catch (\Exception $e) {
             Log::error('Unexpected Exception on updating wallet. Details: ' . $e->getMessage());
