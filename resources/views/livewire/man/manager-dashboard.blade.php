@@ -155,7 +155,7 @@
                                         <th>Timestamp</th>
                                         <th>Customer</th>
                                         <th>Amount</th>
-                                        <th>Convenience Fee</th>
+                                        <th>Charges</th>
                                         <th>Total</th>
                                     </tr>
                                 </thead>
@@ -178,7 +178,7 @@
                                             <td style="text-transform: capitalize;">{{ $item->customer->name }}</td>
                                             <td>KES {{ number_format($item->value, 2) }}</td>
                                             <td>KES {{ number_format($item->convenience_fee, 2) }}</td>
-                                            <td>{{ number_format($item->convenience_fee + $item->value, 2) }}</td>
+                                            <td>{{ number_format($item->value + $item->convenience_fee, 2) }}</td>
                                         </tr>
                                     @endforeach
 
