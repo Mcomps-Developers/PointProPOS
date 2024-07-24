@@ -156,7 +156,7 @@
                                         <th>Customer</th>
                                         <th>Amount</th>
                                         <th>Charges</th>
-                                        <th>Total</th>
+                                        <th>Net</th>
                                     </tr>
                                 </thead>
                                 <tbody>
