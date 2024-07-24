@@ -6,6 +6,7 @@ use App\Models\Company;
 use App\Models\CompanyWallet;
 use App\Models\PaymentSchedule;
 use App\Models\Repayment as ModelsRepayment;
+use App\Models\User;
 use App\Notifications\RepaymentFailed;
 use App\Notifications\RepaymentSuccess;
 use Carbon\Carbon;
@@ -54,7 +55,7 @@ class Repayment extends Controller
                 // DB::commit(); // Commit the transaction
                 return redirect(request()->header('Referer'));
             } else {
-                $user = $transaction->user_id;
+                $user = User::findOrFail($transaction->user_id);
                 $company = Company::findOrFail($transaction->company_id);
                 $user->notify(new RepaymentFailed($user, $transaction, $company));
                 notyf()
@@ -86,7 +87,7 @@ class Repayment extends Controller
                 $repayment->payment_date = Carbon::now();
                 $repayment->save();
             }
-            $user = $transaction->user_id;
+            $user = User::findOrFail($transaction->user_id);
             $company = Company::findOrFail($transaction->company_id);
             $user->notify(new RepaymentSuccess($user, $repayment, $transaction, $company));
             notyf()
