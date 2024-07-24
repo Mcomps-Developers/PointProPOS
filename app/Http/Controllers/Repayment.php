@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use App\Models\PaymentSchedule;
 use App\Models\Repayment as ModelsRepayment;
 use Carbon\Carbon;
@@ -35,6 +36,8 @@ class Repayment extends Controller
             $transaction->failed_reason = $results['failed_reason'];
             $repayment = PaymentSchedule::findOrFail($results['api_ref']);
             $transaction->user_id = $repayment->invoice->user_id;
+            $transaction->convenience_fee = env('CONVENIENCE_FEE');
+            $transaction->company_id = $repayment->invoice->company_id;
             $transaction->save();
             if ($transaction->state === 'COMPLETE') {
                 $this->createPurchase($transaction);
