@@ -53,7 +53,6 @@ class Repayment extends Controller
                 DB::commit(); // Commit the transaction
                 return redirect(request()->header('Referer'));
             } else {
-                DB::rollBack(); // Rollback the transaction if an exception occurs
                 notyf()
                     ->position('x', 'right')
                     ->position('y', 'top')
