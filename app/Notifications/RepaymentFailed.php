@@ -42,7 +42,7 @@ class RepaymentFailed extends Notification
             ->subject('Payment Failed')
             ->greeting('Dear ' . $this->user->name . ',')
             ->line('Your payment of KES ' . $this->transaction->value . ' to ' . $this->company->name . ' failed because ' . $this->transaction->failed_reason)
-            ->line('If you believe this is an error, login your dashboard and contact ' . $this->company->name . 'via ' . $this->company->phone_number . ' for further assistance.')
+            ->line('If you believe this is an error, login your dashboard and contact ' . $this->company->name . ' via ' . $this->company->phone . ' for further assistance.')
             ->action('Dashboard', url('/'))
             ->line('Thank you for using our application!');
     }
