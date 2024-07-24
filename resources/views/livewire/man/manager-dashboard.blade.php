@@ -178,7 +178,7 @@
                                             <td style="text-transform: capitalize;">{{ $item->customer->name }}</td>
                                             <td>KES {{ number_format($item->value, 2) }}</td>
                                             <td>KES {{ number_format($item->convenience_fee, 2) }}</td>
-                                            <td>{{ number_format($item->value + $item->convenience_fee, 2) }}</td>
+                                            <td>{{ number_format($item->value - $item->convenience_fee, 2) }}</td>
                                         </tr>
                                     @endforeach
 
