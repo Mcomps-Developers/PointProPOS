@@ -56,7 +56,7 @@ class Repayment extends Controller
                 notyf()
                     ->position('x', 'right')
                     ->position('y', 'top')
-                    ->addError($transaction->failed_reason);
+                    ->error($transaction->failed_reason);
                 return redirect(request()->header('Referer'));
             }
         } catch (\Exception $e) {
@@ -64,7 +64,7 @@ class Repayment extends Controller
             notyf()
                 ->position('x', 'right')
                 ->position('y', 'top')
-                ->addError('An error occurred. Please try again later.');
+                ->error('An error occurred. Please try again later.');
             Log::error('Error saving transaction: ' . $e->getMessage());
             return redirect(request()->header('Referer'));
         }
@@ -94,13 +94,13 @@ class Repayment extends Controller
             notyf()
                 ->position('x', 'right')
                 ->position('y', 'top')
-                ->addError('An error occurred. Please try again later.');
+                ->error('An error occurred. Please try again later.');
         } catch (\Throwable $th) {
             Log::error('Throwable error on updating schedule. Details: ' . $th->getMessage());
             notyf()
                 ->position('x', 'right')
                 ->position('y', 'top')
-                ->addError('An error occurred. Please try again later.');
+                ->error('An error occurred. Please try again later.');
         }
     }
 
@@ -116,13 +116,13 @@ class Repayment extends Controller
             notyf()
                 ->position('x', 'right')
                 ->position('y', 'top')
-                ->addError('An error occurred. Please try again later.');
+                ->error('An error occurred. Please try again later.');
         } catch (\Throwable $th) {
             Log::error('Throwable error on updating wallet. Details: ' . $th->getMessage());
             notyf()
                 ->position('x', 'right')
                 ->position('y', 'top')
-                ->addError('An error occurred. Please try again later.');
+                ->error('An error occurred. Please try again later.');
         }
     }
 }
