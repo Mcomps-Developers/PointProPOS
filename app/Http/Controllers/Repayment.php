@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Company;
 use App\Models\CompanyWallet;
 use App\Models\PaymentSchedule;
 use App\Models\Repayment as ModelsRepayment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
@@ -22,7 +20,7 @@ class Repayment extends Controller
 
     private function recordTransaction($results)
     {
-        DB::beginTransaction(); // Start a database transaction
+        // DB::beginTransaction(); // Start a database transaction
 
         try {
             $transaction = new ModelsRepayment();
@@ -50,7 +48,7 @@ class Repayment extends Controller
                     ->position('x', 'right')
                     ->position('y', 'top')
                     ->success('Transaction successful. Wallet updated.');
-                DB::commit(); // Commit the transaction
+                // DB::commit(); // Commit the transaction
                 return redirect(request()->header('Referer'));
             } else {
                 notyf()
@@ -60,7 +58,7 @@ class Repayment extends Controller
                 return redirect(request()->header('Referer'));
             }
         } catch (\Exception $e) {
-            DB::rollBack(); // Rollback the transaction if an exception occurs
+            // DB::rollBack(); // Rollback the transaction if an exception occurs
             notyf()
                 ->position('x', 'right')
                 ->position('y', 'top')
