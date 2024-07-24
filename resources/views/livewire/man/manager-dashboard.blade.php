@@ -62,7 +62,7 @@
             <div class="col-xl-3 col-sm-6 col-12 d-flex">
                 <div class="dash-count das1">
                     <div class="dash-counts">
-                        <h4>110</h4>
+                        <h4>0</h4>
                         <h5>Suppliers</h5>
                     </div>
                     <div class="dash-imgs">
@@ -73,7 +73,7 @@
             <div class="col-xl-3 col-sm-6 col-12 d-flex">
                 <div class="dash-count das2">
                     <div class="dash-counts">
-                        <h4>150</h4>
+                        <h4>0</h4>
                         <h5>Purchase Invoice</h5>
                     </div>
                     <div class="dash-imgs">
@@ -84,7 +84,7 @@
             <div class="col-xl-3 col-sm-6 col-12 d-flex">
                 <div class="dash-count das3">
                     <div class="dash-counts">
-                        <h4>170</h4>
+                        <h4>{{ $invoices }}</h4>
                         <h5>Sales Invoice</h5>
                     </div>
                     <div class="dash-imgs">
