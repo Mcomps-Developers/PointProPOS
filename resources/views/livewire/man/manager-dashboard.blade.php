@@ -97,7 +97,7 @@
         </div>
 
         <div class="row">
-            <div class="col-xl-4 col-sm-12 col-12 d-flex">
+            {{-- <div class="col-xl-4 col-sm-12 col-12 d-flex">
                 <div class="card flex-fill">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h5 class="card-title mb-0">Purchase & Sales</h5>
@@ -133,8 +133,8 @@
                         <div id="sales_charts"></div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-8 col-sm-12 col-12 d-flex">
+            </div> --}}
+            <div class="col-xl-12 col-sm-12 col-12 d-flex">
                 <div class="card flex-fill default-cover mb-4">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h4 class="card-title mb-0">Recent Transactions</h4>
@@ -191,7 +191,6 @@
                                             @endif
                                         </tr>
                                     @endforeach
-
                                 </tbody>
                             </table>
                         </div>
