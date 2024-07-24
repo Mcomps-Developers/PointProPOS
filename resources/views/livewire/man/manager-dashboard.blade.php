@@ -177,8 +177,18 @@
                                             <td>{{ date('d M Y h:iA', strtotime($item->created_at)) }}</td>
                                             <td style="text-transform: capitalize;">{{ $item->customer->name }}</td>
                                             <td>KES {{ number_format($item->value, 2) }}</td>
-                                            <td>KES {{ number_format($item->convenience_fee, 2) }}</td>
-                                            <td>{{ number_format($item->value - $item->convenience_fee, 2) }}</td>
+                                            @if ($item->state === 'COMPLETE')
+                                                <td>KES {{ number_format($item->convenience_fee, 2) }}</td>
+                                            @else
+                                                <td>KES 0</td>
+                                            @endif
+
+                                            @if ($item->state === 'COMPLETE')
+                                                <td>KES {{ number_format($item->value - $item->convenience_fee, 2) }}
+                                                </td>
+                                            @else
+                                                <td>KES 0</td>
+                                            @endif
                                         </tr>
                                     @endforeach
 
