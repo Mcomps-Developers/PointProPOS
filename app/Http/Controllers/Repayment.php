@@ -91,13 +91,13 @@ class Repayment extends Controller
                 ->success('Transaction successful');
 
         } catch (\Exception $e) {
-            Log::error('Unexpected Exception on updating daily parking payment. Details: ' . $e->getMessage());
+            Log::error('Unexpected Exception on updating schedule. Details: ' . $e->getMessage());
             notyf()
                 ->position('x', 'right')
                 ->position('y', 'top')
                 ->addError('An error occurred. Please try again later.');
         } catch (\Throwable $th) {
-            Log::error('Throwable error on updating daily parking payment. Details: ' . $th->getMessage());
+            Log::error('Throwable error on updating schedule. Details: ' . $th->getMessage());
             notyf()
                 ->position('x', 'right')
                 ->position('y', 'top')
@@ -117,13 +117,13 @@ class Repayment extends Controller
                 ->success('Company wallet updated.');
 
         } catch (\Exception $e) {
-            Log::error('Unexpected Exception on updating daily parking payment. Details: ' . $e->getMessage());
+            Log::error('Unexpected Exception on updating wallet. Details: ' . $e->getMessage());
             notyf()
                 ->position('x', 'right')
                 ->position('y', 'top')
                 ->addError('An error occurred. Please try again later.');
         } catch (\Throwable $th) {
-            Log::error('Throwable error on updating daily parking payment. Details: ' . $th->getMessage());
+            Log::error('Throwable error on updating wallet. Details: ' . $th->getMessage());
             notyf()
                 ->position('x', 'right')
                 ->position('y', 'top')
