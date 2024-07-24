@@ -109,7 +109,7 @@ class Repayment extends Controller
     private function updateCompanyWallet($transaction)
     {
         try {
-            $wallet = CompanyWallet::findOrFail($transaction->company_id);
+            $wallet = CompanyWallet::where('company_id', $transaction->company_id)->first();
             $wallet->balance += $transaction->value - $transaction->convenience_fee;
             $wallet->save();
 
