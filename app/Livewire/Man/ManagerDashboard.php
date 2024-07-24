@@ -20,7 +20,7 @@ class ManagerDashboard extends Component
         $customers = User::where('company_id', $company->id)->where('utype', 'cst')->count();
         $invoices = Invoice::orderByDesc('created_at')->where('company_id', $company->id)->count();
         $repayments = Repayment::orderByDesc('created_at')->where('company_id', $company->id)->limit(4)->get();
-        $wallet = CompanyWallet::where('company_id', $company->id)->get();
+        $wallet = CompanyWallet::where('company_id', $company->id)->first();
         return view('livewire.man.manager-dashboard', ['products' => $products, 'customers' => $customers, 'invoices' => $invoices, 'wallet' => $wallet, 'repayments' => $repayments])->layout('layouts.base');
     }
 }
