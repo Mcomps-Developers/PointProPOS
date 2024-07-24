@@ -233,6 +233,10 @@
             // console.log("Failed", results);
             saveTransactionToController(results);
         })
+        .on("RETRY", (results) => {
+            // console.log("Retry", results);
+            saveTransactionToController(results);
+        })
         .on("IN-PROGRESS", (results) => console.log("Payment in progress status", results));
 
     function saveTransactionToController(results) {
