@@ -38,27 +38,28 @@ class Repayment extends Controller
             $transaction->charges = $results['charges'];
             $transaction->failed_code = $results['failed_code'];
             $transaction->failed_reason = $results['failed_reason'];
-
             $repayment = PaymentSchedule::findOrFail($results['api_ref']);
             $transaction->user_id = $repayment->invoice->user_id;
             $transaction->convenience_fee = env('CONVENIENCE_FEE');
             $transaction->company_id = $repayment->invoice->company_id;
-
             $transaction->save();
-
             if ($transaction->state === 'COMPLETE') {
                 $this->createPurchase($transaction);
                 $this->updateCompanyWallet($transaction);
-                return redirect(request()->header('Referer'));
-            } else {
                 notyf()
                     ->position('x', 'right')
                     ->position('y', 'top')
-                    ->addError('Transaction failed.');
+                    ->success('Transaction successful. Wallet updated.');
+                DB::commit(); // Commit the transaction
+                return redirect(request()->header('Referer'));
+            } else {
+                DB::rollBack(); // Rollback the transaction if an exception occurs
+                notyf()
+                    ->position('x', 'right')
+                    ->position('y', 'top')
+                    ->addError($transaction->failed_reason);
                 return redirect(request()->header('Referer'));
             }
-
-            DB::commit(); // Commit the transaction
         } catch (\Exception $e) {
             DB::rollBack(); // Rollback the transaction if an exception occurs
             notyf()
@@ -66,9 +67,8 @@ class Repayment extends Controller
                 ->position('y', 'top')
                 ->addError('An error occurred. Please try again later.');
             Log::error('Error saving transaction: ' . $e->getMessage());
+            return redirect(request()->header('Referer'));
         }
-
-        return redirect(request()->header('Referer'));
     }
 
     private function createPurchase($transaction)
@@ -90,7 +90,6 @@ class Repayment extends Controller
                 ->position('x', 'right')
                 ->position('y', 'top')
                 ->success('Transaction successful');
-
         } catch (\Exception $e) {
             Log::error('Unexpected Exception on updating schedule. Details: ' . $e->getMessage());
             notyf()
