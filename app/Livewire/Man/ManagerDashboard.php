@@ -5,6 +5,7 @@ namespace App\Livewire\Man;
 use App\Models\Company;
 use App\Models\Invoice;
 use App\Models\Product;
+use App\Models\Repayment;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -17,6 +18,7 @@ class ManagerDashboard extends Component
         $products = Product::orderBy('name')->where('company_id', $company->id)->get();
         $customers = User::where('company_id', $company->id)->where('utype', 'cst')->count();
         $invoices = Invoice::orderByDesc('created_at')->where('company_id', $company->id)->count();
-        return view('livewire.man.manager-dashboard', ['products' => $products, 'customers' => $customers, 'invoices' => $invoices])->layout('layouts.base');
+        $repayments = Repayment::orderByDesc('created_at')->where('company_id', $company->id)->limit(4)->get();
+        return view('livewire.man.manager-dashboard', ['products' => $products, 'customers' => $customers, 'invoices' => $invoices, 'repayments' => $repayments])->layout('layouts.base');
     }
 }
