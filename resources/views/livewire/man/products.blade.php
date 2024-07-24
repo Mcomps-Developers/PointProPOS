@@ -64,8 +64,8 @@
                             <i data-feather="sliders" class="info-img"></i>
                             <select class="select">
                                 <option>Sort by Date</option>
-                                <option>14 09 23</option>
-                                <option>11 09 23</option>
+                                {{-- <option>14 09 23</option>
+                                <option>11 09 23</option> --}}
                             </select>
                         </div>
                     </div>
@@ -80,8 +80,8 @@
                                                 <i data-feather="box" class="info-img"></i>
                                                 <select class="select">
                                                     <option>Choose Product</option>
-                                                    <option>Lenovo 3rd Generation</option>
-                                                    <option>Nike Jordan</option>
+                                                    {{-- <option>Lenovo 3rd Generation</option>
+                                                    <option>Nike Jordan</option> --}}
                                                 </select>
                                             </div>
                                         </div>
@@ -89,9 +89,9 @@
                                             <div class="input-blocks">
                                                 <i data-feather="stop-circle" class="info-img"></i>
                                                 <select class="select">
-                                                    <option>Choose Categroy</option>
-                                                    <option>Laptop</option>
-                                                    <option>Shoe</option>
+                                                    <option>Choose Category</option>
+                                                    {{-- <option>Laptop</option>
+                                                    <option>Shoe</option> --}}
                                                 </select>
                                             </div>
                                         </div>
@@ -100,8 +100,8 @@
                                                 <i data-feather="git-merge" class="info-img"></i>
                                                 <select class="select">
                                                     <option>Choose Sub Category</option>
-                                                    <option>Computers</option>
-                                                    <option>Fruits</option>
+                                                    {{-- <option>Computers</option>
+                                                    <option>Fruits</option> --}}
                                                 </select>
                                             </div>
                                         </div>
@@ -110,8 +110,8 @@
                                                 <i data-feather="stop-circle" class="info-img"></i>
                                                 <select class="select">
                                                     <option>All Brand</option>
-                                                    <option>Lenovo</option>
-                                                    <option>Nike</option>
+                                                    {{-- <option>Lenovo</option>
+                                                    <option>Nike</option> --}}
                                                 </select>
                                             </div>
                                         </div>
@@ -120,8 +120,8 @@
                                                 <i class="fas fa-money-bill info-img"></i>
                                                 <select class="select">
                                                     <option>Price</option>
-                                                    <option>$12500.00</option>
-                                                    <option>$12500.00</option>
+                                                    {{-- <option>$12500.00</option>
+                                                    <option>$12500.00</option> --}}
                                                 </select>
                                             </div>
                                         </div>
