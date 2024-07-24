@@ -10,8 +10,9 @@
                         <span><img src="{{ asset('assets/img/icons/dash1.svg') }}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>Ksh <span class="counters" data-count="307144.00">Ksh 307,144.00</span></h5>
-                        <h6>Total Purchase Due</h6>
+                        <h5>KES <span class="counters" data-count="{{ $wallet->balance }}">KES
+                                {{ number_format($wallet->balance, 2) }}</span></h5>
+                        <h6>Wallet</h6>
                     </div>
                 </div>
             </div>
