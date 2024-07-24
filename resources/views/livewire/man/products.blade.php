@@ -178,7 +178,7 @@
                                             </a>
                                         </div>
                                     </td>
-                                    <td>{{$item->sku}}</td>
+                                    <td style="text-transform: uppercase">{{$item->sku}}</td>
                                     <td>
                                         @if ($item->category_id)
                                         {{$item->category->name}}
