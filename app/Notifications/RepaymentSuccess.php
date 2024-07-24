@@ -43,7 +43,7 @@ class RepaymentSuccess extends Notification
         return (new MailMessage)
             ->subject('Payment Successful')
             ->greeting('Dear ' . $this->user->name . ',')
-            ->line('Your payment of KES ' . $this->transaction->value . 'reference' . $this->transaction->tracking_id . ' has been received on behalf of ' . $this->company->name . '. Payment for ' . date('d M Y', strtotime($this->repayment->date_due)) . ' installment updated.')
+            ->line('Your payment of KES ' . $this->transaction->value . ' reference ' . $this->transaction->tracking_id . ' has been received on behalf of ' . $this->company->name . '. Payment for ' . date('d M Y', strtotime($this->repayment->date_due)) . ' installment updated.')
             ->line('Find more updates on your dashboard.')
             ->action('Dashboard', url('/dashboard'))
             ->line('If you have complaints, login to raise a ticket. Do not reply to this email.');
