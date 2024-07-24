@@ -149,7 +149,9 @@
                             <table class="table dashboard-recent-products">
                                 <thead>
                                     <tr>
+
                                         <th>#</th>
+                                        <th>Timestamp</th>
                                         <th>Customer</th>
                                         <th>Amount</th>
                                         <th>Convenience Fee</th>
@@ -159,7 +161,19 @@
                                 <tbody>
                                     @foreach ($repayments as $item)
                                         <tr>
-                                            <td>{{ $item->tracking_id }}</td>
+                                            <td>{{ $item->tracking_id }}<br>
+                                                <small>
+                                                    @if ($item->state === 'COMPLETE')
+                                                        <span class="badge badge-linesuccess">Successful</span>
+                                                    @else
+                                                        <span class="badge badge-linedanger">Failed:
+                                                            ({{ $item->failed_reason }})
+                                                        </span>
+                                                    @endif
+
+                                                </small>
+                                            </td>
+                                            <td>{{ date('d M Y h:iA', strtotime($item->created_at)) }}</td>
                                             <td style="text-transform: capitalize;">{{ $item->customer->name }}</td>
                                             <td>KES {{ number_format($item->value, 2) }}</td>
                                             <td>KES {{ number_format($item->convenience_fee, 2) }}</td>
