@@ -1,13 +1,13 @@
 <div class="page-wrapper">
     @section('title')
-    Dashboard
+        Dashboard
     @endsection
     <div class="content">
         <div class="row">
             <div class="col-xl-3 col-sm-6 col-12 d-flex">
                 <div class="dash-widget w-100">
                     <div class="dash-widgetimg">
-                        <span><img src="{{asset('assets/img/icons/dash1.svg')}}" alt="img"></span>
+                        <span><img src="{{ asset('assets/img/icons/dash1.svg') }}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
                         <h5>Ksh <span class="counters" data-count="307144.00">Ksh 307,144.00</span></h5>
@@ -18,7 +18,7 @@
             <div class="col-xl-3 col-sm-6 col-12 d-flex">
                 <div class="dash-widget dash1 w-100">
                     <div class="dash-widgetimg">
-                        <span><img src="{{asset('assets/img/icons/dash2.svg')}}" alt="img"></span>
+                        <span><img src="{{ asset('assets/img/icons/dash2.svg') }}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
                         <h5>Ksh <span class="counters" data-count="4385.00">Ksh 4,385.00</span></h5>
@@ -29,7 +29,7 @@
             <div class="col-xl-3 col-sm-6 col-12 d-flex">
                 <div class="dash-widget dash2 w-100">
                     <div class="dash-widgetimg">
-                        <span><img src="{{asset('assets/img/icons/dash3.svg')}}" alt="img"></span>
+                        <span><img src="{{ asset('assets/img/icons/dash3.svg') }}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
                         <h5>Ksh <span class="counters" data-count="385656.50">Ksh 385,656.50</span></h5>
@@ -40,7 +40,7 @@
             <div class="col-xl-3 col-sm-6 col-12 d-flex">
                 <div class="dash-widget dash3 w-100">
                     <div class="dash-widgetimg">
-                        <span><img src="{{asset('assets/img/icons/dash4.svg')}}" alt="img"></span>
+                        <span><img src="{{ asset('assets/img/icons/dash4.svg') }}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
                         <h5>Ksh <span class="counters" data-count="40000.00">Ksh 400.00</span></h5>
@@ -77,7 +77,8 @@
                         <h5>Purchase Invoice</h5>
                     </div>
                     <div class="dash-imgs">
-                        <img src="{{asset('assets/img/icons/file-text-icon-01.svg')}}" class="img-fluid" alt="icon">
+                        <img src="{{ asset('assets/img/icons/file-text-icon-01.svg') }}" class="img-fluid"
+                            alt="icon">
                     </div>
                 </div>
             </div>
@@ -149,55 +150,23 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Products</th>
-                                        <th>Price</th>
+                                        <th>Customer</th>
+                                        <th>Amount</th>
+                                        <th>Convenience Fee</th>
+                                        <th>Total</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td class="productimgname">
-                                            <a href="javascript:void(0);" class="product-img">
-                                                <img src="{{asset('assets/img/products/stock-img-01.png')}}"
-                                                    alt="product">
-                                            </a>
-                                            <a href="javascript:void(0);">Lenevo 3rd Generation</a>
-                                        </td>
-                                        <td>Ksh 12500</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td class="productimgname">
-                                            <a href="javascript:void(0);" class="product-img">
-                                                <img src="{{asset('assets/img/products/stock-img-06.png')}}"
-                                                    alt="product">
-                                            </a>
-                                            <a href="javascript:void(0);">Bold V3.2</a>
-                                        </td>
-                                        <td>Ksh 1600</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td class="productimgname">
-                                            <a href="javascript:void(0);" class="product-img">
-                                                <img src="{{asset('assets/img/products/stock-img-02.png')}}"
-                                                    alt="product">
-                                            </a>
-                                            <a href="javascript:void(0);">Nike Jordan</a>
-                                        </td>
-                                        <td>Ksh 2000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td class="productimgname">
-                                            <a href="javascript:void(0);" class="product-img">
-                                                <img src="{{asset('assets/img/products/stock-img-03.png')}}"
-                                                    alt="product">
-                                            </a>
-                                            <a href="javascript:void(0);">Apple Series 5 Watch</a>
-                                        </td>
-                                        <td>Ksh 800</td>
-                                    </tr>
+                                    @foreach ($repayments as $item)
+                                        <tr>
+                                            <td>{{ $item->tracking_id }}</td>
+                                            <td style="text-transform: capitalize;">{{ $item->customer->name }}</td>
+                                            <td>KES {{ number_format($item->value, 2) }}</td>
+                                            <td>KES {{ number_format($item->convenience_fee, 2) }}</td>
+                                            <td>{{ number_format($item->convenience_fee + $item->value, 2) }}</td>
+                                        </tr>
+                                    @endforeach
+
                                 </tbody>
                             </table>
                         </div>
@@ -231,43 +200,43 @@
                     </thead>
                     <tbody>
                         @foreach ($products as $item)
-                        <tr>
-                            <td>
-                                <label class="checkboxs">
-                                    <input type="checkbox" />
-                                    <span class="checkmarks"></span>
-                                </label>
-                            </td>
-                            <td>
-                                <div class="productimgname">
-                                    <a href="javascript:void(0);" class="product-img stock-img">
-                                        <img src="{{asset('assets/img/products')}}/{{$item->image}}" />
-                                    </a>
-                                    <a href="javascript:void(0);">{{$item->name}}
-                                    </a>
-                                </div>
-                            </td>
-                            <td style="text-transform: uppercase">{{$item->sku}}</td>
-                            <td>
-                                @if ($item->category_id)
-                                {{$item->category->name}}
-                                @else
-                                Uncategorized
-                                @endif
-                            </td>
-                            {{-- <td>Brand</td> --}}
-                            <td>Ksh {{$item->price}}</td>
-                            {{-- <td>{{$item->unit}}</td> --}}
-                            {{-- <td>100</td> --}}
-                            <td>
-                                <div class="userimgname">
-                                    <a href="javascript:void(0);" class="product-img">
-                                        <img src="{{$item->user->profile_photo_url}}" />
-                                    </a>
-                                    <a href="javascript:void(0);">{{$item->user->name}}</a>
-                                </div>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td>
+                                    <label class="checkboxs">
+                                        <input type="checkbox" />
+                                        <span class="checkmarks"></span>
+                                    </label>
+                                </td>
+                                <td>
+                                    <div class="productimgname">
+                                        <a href="javascript:void(0);" class="product-img stock-img">
+                                            <img src="{{ asset('assets/img/products') }}/{{ $item->image }}" />
+                                        </a>
+                                        <a href="javascript:void(0);">{{ $item->name }}
+                                        </a>
+                                    </div>
+                                </td>
+                                <td style="text-transform: uppercase">{{ $item->sku }}</td>
+                                <td>
+                                    @if ($item->category_id)
+                                        {{ $item->category->name }}
+                                    @else
+                                        Uncategorized
+                                    @endif
+                                </td>
+                                {{-- <td>Brand</td> --}}
+                                <td>Ksh {{ $item->price }}</td>
+                                {{-- <td>{{$item->unit}}</td> --}}
+                                {{-- <td>100</td> --}}
+                                <td>
+                                    <div class="userimgname">
+                                        <a href="javascript:void(0);" class="product-img">
+                                            <img src="{{ $item->user->profile_photo_url }}" />
+                                        </a>
+                                        <a href="javascript:void(0);">{{ $item->user->name }}</a>
+                                    </div>
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
