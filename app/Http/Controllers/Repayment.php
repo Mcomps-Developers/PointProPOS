@@ -42,7 +42,7 @@ class Repayment extends Controller
             $transaction->company_id = $repayment->invoice->company_id;
             $transaction->save();
             if ($transaction->state === 'COMPLETE') {
-                $this->createPurchase($transaction);
+                $this->updateSchedule($transaction);
                 $this->updateCompanyWallet($transaction);
                 notyf()
                     ->position('x', 'right')
@@ -68,15 +68,13 @@ class Repayment extends Controller
         }
     }
 
-    private function createPurchase($transaction)
+    private function updateSchedule($transaction)
     {
         try {
             $repayment = PaymentSchedule::findOrFail($transaction->api_ref);
             $repayment->amount_paid += $transaction->value;
             $repayment->save();
-
             if ($repayment->amount - $repayment->amount_paid <= 0) {
-                // Update status to 'paid'
                 $repayment->status = 'paid';
                 $repayment->amount_paid = $repayment->amount;
                 $repayment->payment_date = Carbon::now();
@@ -108,7 +106,6 @@ class Repayment extends Controller
             $wallet = CompanyWallet::where('company_id', $transaction->company_id)->first();
             $wallet->balance += $transaction->value - $transaction->convenience_fee;
             $wallet->save();
-
         } catch (\Exception $e) {
             Log::error('Unexpected Exception on updating wallet. Details: ' . $e->getMessage());
             notyf()
