@@ -151,7 +151,7 @@
                                 <thead>
                                     <tr>
 
-                                        <th>#</th>
+                                        <th>Reference #</th>
                                         <th>Timestamp</th>
                                         <th>Customer</th>
                                         <th>Amount</th>
