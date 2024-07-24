@@ -49,6 +49,7 @@ class Repayment extends Controller
             if ($transaction->state === 'COMPLETE') {
                 $this->createPurchase($transaction);
                 $this->updateCompanyWallet($transaction);
+                return redirect(request()->header('Referer'));
             } else {
                 notyf()
                     ->position('x', 'right')
