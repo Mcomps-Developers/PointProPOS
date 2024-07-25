@@ -171,7 +171,7 @@
                                                             class="badge badge-linedanger">Failed
                                                         </span>
                                                         <span title="{{ $item->failed_reason }}"
-                                                            class="badge badge-linewarning">
+                                                            class="badge badge-linesuccess">
                                                             <i title="{{ $item->failed_reason }}"
                                                                 class="fa fa-info-circle text-info"></i>
                                                         </span>
