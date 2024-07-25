@@ -55,7 +55,7 @@ class newCredit extends Notification
             ->level('success')
             ->subject('Congratulations')
             ->greeting('Congratulations ' . $this->user->name . ' from ' . $this->company->name)
-            ->line('Your credit has been processed with Invoice No INV-' . $this->invoice->reference . '. Credit status is set to: ' . $this->invoice->status)
+            ->line('Your credit has been processed with Invoice No.# INV-' . $this->invoice->reference . '-PP. Credit status is set to: ' . $this->invoice->status)
 
             ->line('***********************')
 
