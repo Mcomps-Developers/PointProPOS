@@ -100,7 +100,7 @@
             {{-- <div class="col-xl-4 col-sm-12 col-12 d-flex">
                 <div class="card flex-fill">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="card-title mb-0">Purchase & Sales</h5>
+                        <h5 class="mb-0 card-title">Purchase & Sales</h5>
                         <div class="graph-sets">
                             <ul class="mb-0">
                                 <li>
@@ -135,9 +135,9 @@
                 </div>
             </div> --}}
             <div class="col-xl-12 col-sm-12 col-12 d-flex">
-                <div class="card flex-fill default-cover mb-4">
+                <div class="mb-4 card flex-fill default-cover">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h4 class="card-title mb-0">Recent Transactions</h4>
+                        <h4 class="mb-0 card-title">Recent Transactions</h4>
                         <div class="view-all-link">
                             <a href="javascript:void(0);" class="view-all d-flex align-items-center">
                                 View All<span class="ps-2 d-flex align-items-center"><i data-feather="arrow-right"
@@ -167,8 +167,9 @@
                                                     @if ($item->state === 'COMPLETE')
                                                         <span class="badge badge-linesuccess">Successful</span>
                                                     @else
-                                                        <span class="badge badge-linedanger">Failed:
-                                                            ({{ $item->failed_reason }})
+                                                        <span title="{{ $item->failed_reason }}"
+                                                            class="badge badge-linedanger">Failed:
+                                                            <i class="fa fa-info"></i>
                                                         </span>
                                                     @endif
                                                 </small>
