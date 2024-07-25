@@ -89,10 +89,9 @@
         <div class="container">
             <div class="balance-area-bg balance-area-bg-home">
                 <div class="text-center balance-title">
-                    <h6>Welcome! <br> Dear Mr Suvro - Bankapp Wallet</h6>
+                    <h6>Welcome! <br> {{ Auth::user()->name }} - {{ config('app.name') }}</h6>
                 </div>
-                <div class="text-center ba-balance-inner"
-                    style="background-image: url(cst/img/bg/2.png);">
+                <div class="text-center ba-balance-inner" style="background-image: url(cst/img/bg/2.png);">
                     <div class="icon">
                         <img src="{{ asset('cst/img/icon/1.png') }}" alt="img">
                     </div>
@@ -118,16 +117,8 @@
                                 class="fa fa-arrow-down"></i></a>
                     </div>
                     <div class="col-6">
-                        <a class="btn btn-red ba-add-balance-btn" href="#">Send <i
+                        <a class="btn btn-red ba-add-balance-btn" href="#">Recharge <i
                                 class="fa fa-arrow-right"></i></a>
-                    </div>
-                    <div class="col-6">
-                        <a class="btn btn-purple ba-add-balance-btn" href="#">Cards <i
-                                class="fa fa-credit-card-alt "></i></a>
-                    </div>
-                    <div class="col-6">
-                        <a class="btn btn-green ba-add-balance-btn" href="#">Exchange <i
-                                class="fa fa-arrow-down"></i></a>
                     </div>
                 </div>
             </div>
@@ -139,28 +130,39 @@
     <div class="goal-area pd-top-36">
         <div class="container">
             <div class="section-title">
-                <h3 class="title">Saving Goals</h3>
+                <h3 class="title">Credit Purchases</h3>
                 <a href="#">View All</a>
             </div>
-            <div class="single-goal single-goal-one">
-                <div class="row">
-                    <div class="pr-0 col-7">
-                        <div class="details">
-                            <h6>Finance Business</h6>
-                            <p>Business</p>
+            @foreach (invoices as $item)
+                <div class="single-goal single-goal-one">
+                    <div class="row">
+                        <div class="pr-0 col-7">
+                            <div class="details">
+                                <h6 style="text-transform: uppercase">INV-{{ $item->reference }}-PP</h6>
+                                <p>
+                                    @if ($item->type === 'pay_later')
+                                        Loan | {{ $item->company->name }}
+                                    @else
+                                        Installement | {{ $item->company->name }}
+                                    @endif
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="pl-0 col-5">
-                        <div class="circle-inner circle-inner-one">
-                            <h6 class="goal-amount">$130</h6>
-                            <div class="chart-circle" data-value="0.30">
-                                <canvas width="52" height="52"></canvas>
-                                <div class="text-center chart-circle-value">30%</div>
+                        <div class="pl-0 col-5">
+                            <div class="circle-inner circle-inner-one">
+                                <h6 class="goal-amount">$130</h6>
+                                <div class="chart-circle" data-value="0.30">
+                                    <canvas width="52" height="52"></canvas>
+                                    <div class="text-center chart-circle-value">
+                                        {{ number_format(($item->repayments->sum('amount_paid') / $item->amount) * 100) }}%
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
+
             <div class="single-goal single-goal-two">
                 <div class="row">
                     <div class="pr-0 col-7">
@@ -347,8 +349,7 @@
     <!-- transaction End -->
 
     <!-- send-money start -->
-    <div class="send-money-area pd-top-36 pd-bottom-40 mg-top-40"
-        style="background-image: url(cst/img/bg/5.png);">
+    <div class="send-money-area pd-top-36 pd-bottom-40 mg-top-40" style="background-image: url(cst/img/bg/5.png);">
         <div class="container">
             <div class="section-title style-two">
                 <h3 class="title">Send Money</h3>
