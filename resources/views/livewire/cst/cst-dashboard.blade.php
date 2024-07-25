@@ -8,7 +8,7 @@
                 <i class="la la-times"></i>
             </div>
             <div class="thumb">
-                <img src="{{ asset('assets/cst/assets/img/user.png') }}" alt="user">
+                <img src="{{ asset('cst/assets/img/user.png') }}" alt="user">
             </div>
             <div class="details">
                 <h5>Raduronto kelax</h5>
@@ -92,9 +92,9 @@
                     <h6>Welcome! <br> Dear Mr Suvro - Bankapp Wallet</h6>
                 </div>
                 <div class="text-center ba-balance-inner"
-                    style="background-image: url(assets/cst/assets/img/bg/2.png);">
+                    style="background-image: url(cst/assets/img/bg/2.png);">
                     <div class="icon">
-                        <img src="{{ asset('assets/cst/assets/img/icon/1.png') }}" alt="img">
+                        <img src="{{ asset('cst/assets/img/icon/1.png') }}" alt="img">
                     </div>
                     <h5 class="title">Total Balance</h5>
                     <h5 class="amount">$56,985.00</h5>
@@ -233,28 +233,28 @@
                 <div class="row custom-gutters-20">
                     <div class="col-6">
                         <div class="ba-single-history ba-single-history-one"
-                            style="background-image: url(assets/cst/assets/img/bg/3.png);">
+                            style="background-image: url(cst/assets/img/bg/3.png);">
                             <h6>Income</h6>
                             <h5>$58,968.00</h5>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="ba-single-history ba-single-history-two"
-                            style="background-image: url(assets/cst/assets/img/bg/3.png);">
+                            style="background-image: url(cst/assets/img/bg/3.png);">
                             <h6>Expenses</h6>
                             <h5>$50,968.00</h5>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="ba-single-history ba-single-history-three"
-                            style="background-image: url(assets/cst/assets/img/bg/3.png);">
+                            style="background-image: url(cst/assets/img/bg/3.png);">
                             <h6>Total Bills</h6>
                             <h5>$50,968.00</h5>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="ba-single-history ba-single-history-four"
-                            style="background-image: url(assets/cst/assets/img/bg/3.png);">
+                            style="background-image: url(cst/assets/img/bg/3.png);">
                             <h6>Savings</h6>
                             <h5>$58.00</h5>
                         </div>
@@ -272,7 +272,7 @@
                 <h3 class="title">My Cart</h3>
                 <a href="#">View All</a>
             </div>
-            <div class="ba-cart-inner" style="background-image: url(assets/cst/assets/img/bg/4.png);">
+            <div class="ba-cart-inner" style="background-image: url(cst/assets/img/bg/4.png);">
                 <p>Balance</p>
                 <h4>$56,985.00</h4>
                 <p>Card Number</p>
@@ -303,7 +303,7 @@
             <ul class="transaction-inner">
                 <li class="ba-single-transaction">
                     <div class="thumb">
-                        <img src="assets/cst/assets/img/icon/2.png" alt="img">
+                        <img src="cst/assets/img/icon/2.png" alt="img">
                     </div>
                     <div class="details">
                         <h5>Namecheap Inc.</h5>
@@ -313,7 +313,7 @@
                 </li>
                 <li class="ba-single-transaction">
                     <div class="thumb">
-                        <img src="assets/cst/assets/img/icon/3.png" alt="img">
+                        <img src="cst/assets/img/icon/3.png" alt="img">
                     </div>
                     <div class="details">
                         <h5>Namecheap Inc.</h5>
@@ -323,7 +323,7 @@
                 </li>
                 <li class="ba-single-transaction">
                     <div class="thumb">
-                        <img src="assets/cst/assets/img/icon/4.png" alt="img">
+                        <img src="cst/assets/img/icon/4.png" alt="img">
                     </div>
                     <div class="details">
                         <h5>Namecheap Inc.</h5>
@@ -333,7 +333,7 @@
                 </li>
                 <li class="ba-single-transaction">
                     <div class="thumb">
-                        <img src="assets/cst/assets/img/icon/5.png" alt="img">
+                        <img src="cst/assets/img/icon/5.png" alt="img">
                     </div>
                     <div class="details">
                         <h5>Namecheap Inc.</h5>
@@ -348,7 +348,7 @@
 
     <!-- send-money start -->
     <div class="send-money-area pd-top-36 pd-bottom-40 mg-top-40"
-        style="background-image: url(assets/cst/assets/img/bg/5.png);">
+        style="background-image: url(cst/assets/img/bg/5.png);">
         <div class="container">
             <div class="section-title style-two">
                 <h3 class="title">Send Money</h3>
@@ -358,25 +358,25 @@
         <div class="send-money-slider owl-carousel">
             <div class="item">
                 <div class="single-send-money">
-                    <img src="assets/cst/assets/img/send-money/1.png" alt="img">
+                    <img src="cst/assets/img/send-money/1.png" alt="img">
                     <p>Alex Smith</p>
                 </div>
             </div>
             <div class="item">
                 <div class="single-send-money">
-                    <img src="assets/cst/assets/img/send-money/2.png" alt="img">
+                    <img src="cst/assets/img/send-money/2.png" alt="img">
                     <p>Mariano </p>
                 </div>
             </div>
             <div class="item">
                 <div class="single-send-money">
-                    <img src="assets/cst/assets/img/send-money/3.png" alt="img">
+                    <img src="cst/assets/img/send-money/3.png" alt="img">
                     <p>Karitika</p>
                 </div>
             </div>
             <div class="item">
                 <div class="single-send-money">
-                    <img src="assets/cst/assets/img/send-money/4.png" alt="img">
+                    <img src="cst/assets/img/send-money/4.png" alt="img">
                     <p>Jhone</p>
                 </div>
             </div>
@@ -393,7 +393,7 @@
             <div class="ba-bill-pay-inner">
                 <div class="ba-single-bill-pay">
                     <div class="thumb">
-                        <img src="assets/cst/assets/img/icon/6.png" alt="img">
+                        <img src="cst/assets/img/icon/6.png" alt="img">
                     </div>
                     <div class="details">
                         <h5>Envato.com</h5>
@@ -408,7 +408,7 @@
             <div class="ba-bill-pay-inner">
                 <div class="ba-single-bill-pay">
                     <div class="thumb">
-                        <img src="assets/cst/assets/img/icon/3.png" alt="img">
+                        <img src="cst/assets/img/icon/3.png" alt="img">
                     </div>
                     <div class="details">
                         <h5>Apple.com</h5>
@@ -423,7 +423,7 @@
             <div class="ba-bill-pay-inner">
                 <div class="ba-single-bill-pay">
                     <div class="thumb">
-                        <img src="assets/cst/assets/img/icon/4.png" alt="img">
+                        <img src="cst/assets/img/icon/4.png" alt="img">
                     </div>
                     <div class="details">
                         <h5>Amazon.com</h5>
@@ -443,7 +443,7 @@
     <!-- bill-pay End -->
 
     <!-- blog-area start -->
-    <div class="pb-2 blog-area pd-top-36 mg-top-40" style="background-image: url(assets/cst/assets/img/bg/6.png);">
+    <div class="pb-2 blog-area pd-top-36 mg-top-40" style="background-image: url(cst/assets/img/bg/6.png);">
         <div class="container">
             <div class="section-title">
                 <h3 class="title">Recent Posts</h3>
@@ -453,7 +453,7 @@
                 <div class="item">
                     <div class="single-blog">
                         <div class="thumb">
-                            <img src="assets/cst/assets/img/blog/1.png" alt="img">
+                            <img src="cst/assets/img/blog/1.png" alt="img">
                         </div>
                         <div class="details">
                             <a href="blog-details.html">How to save your money in own business firm.</a>
@@ -463,7 +463,7 @@
                 <div class="item">
                     <div class="single-blog">
                         <div class="thumb">
-                            <img src="assets/cst/assets/img/blog/2.png" alt="img">
+                            <img src="cst/assets/img/blog/2.png" alt="img">
                         </div>
                         <div class="details">
                             <a href="blog-details.html">How to save your money in own business firm.</a>
