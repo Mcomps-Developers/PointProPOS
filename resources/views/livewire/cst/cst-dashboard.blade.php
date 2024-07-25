@@ -288,11 +288,14 @@
                     <div class="thumb">
                         <img src="cst/img/icon/2.png" alt="img">
                     </div>
+                    @php
+                        $schedule = \App\Models\PaymentSchedule::findOrFail($item->api_ref);
+                    @endphp
                     <div class="details">
-                        <h5 style="text-transform: uppercase">INV-{{ $item->invoice->reference }}-PP -
-                            {{ date('d M Y', strtotime($item->date_due)) }}</h5>
+                        <h5 style="text-transform: uppercase">INV-{{ $schedule->invoice->reference }}-PP -
+                            {{ date('d M Y', strtotime($schedule->date_due)) }}</h5>
                         <p>Domain Purchase</p>
-                        <h5 class="amount">-KES {{ $item->amount_paid }}</h5>
+                        <h5 class="amount">-KES {{ $schedule->amount_paid }}</h5>
                     </div>
                 </li>
             @endforeach
