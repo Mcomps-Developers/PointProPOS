@@ -26,7 +26,7 @@
         <div class="ba-main-menu">
             <h5>Menu</h5>
             <ul>
-                <li><a href="{{ route('cst') }}">Bankapp Display</a></li>
+                <li><a href="{{ route('cst.dashboard') }}">Bankapp Display</a></li>
                 <li><a href="all-page.html">Pages</a></li>
                 <li><a href="component.html">Components</a></li>
                 <li><a href="carts.html">My Cart</a></li>
