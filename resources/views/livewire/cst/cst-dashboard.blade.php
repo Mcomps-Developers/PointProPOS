@@ -285,17 +285,21 @@
         <ul class="transaction-inner">
             @foreach ($repayments as $item)
                 <li class="ba-single-transaction">
-                    <div class="thumb">
-                        <img src="cst/img/icon/2.png" alt="img">
-                    </div>
                     @php
                         $schedule = \App\Models\PaymentSchedule::findOrFail($item->api_ref);
                     @endphp
                     <div class="details">
                         <h5 style="text-transform: uppercase">INV-{{ $schedule->invoice->reference }}-PP -
                             {{ date('d M Y', strtotime($schedule->date_due)) }}</h5>
-                        <p>Domain Purchase</p>
-                        <h5 class="amount">-KES {{ $schedule->amount_paid }}</h5>
+                        @if ($item->state === 'COMPLETE')
+                            <p>Successful at {{ date('d M Y h:iA', strtotime($item->created_at)) }}</p>
+                        @else
+                            <p>Failed at {{ date('d M Y h:iA', strtotime($item->created_at)) }} <br>
+                                <small class="text-danger">{{ $item->failed_reason }}</small>
+                            </p>
+                        @endif
+
+                        <h5 class="amount">- KES {{ $schedule->amount_paid }}</h5>
                     </div>
                 </li>
             @endforeach
