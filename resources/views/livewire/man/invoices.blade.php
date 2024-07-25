@@ -169,7 +169,7 @@
                                         <td>KES {{ number_format($item->amount, 2) }}</td>
                                         <td>KES {{ number_format($item->repayments()->sum('amount_paid'), 2) }} <br>
                                             <small>
-                                                <div class="progress progress-lg custom-progress-3 progress-animate"
+                                                <div class="progress progress-sm custom-progress-3 progress-animate"
                                                     role="progressbar"
                                                     aria-valuenow="{{ ($item->repayments()->sum('amount_paid') / $item->amount) * 100 }}"
                                                     aria-valuemin="0" aria-valuemax="100">
