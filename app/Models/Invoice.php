@@ -15,4 +15,9 @@ class Invoice extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function repayments()
+    {
+        return $this->hasMany(PaymentSchedule::class, 'invoice_id');
+    }
 }
