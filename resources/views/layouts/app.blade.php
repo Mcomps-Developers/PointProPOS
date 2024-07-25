@@ -9,9 +9,9 @@
     <title>{{ config('app.name') }} - @yield('title')</title>
 
     <!-- Stylesheet File -->
-    <link rel="stylesheet" href="{{ asset('cst/assets/css/vendor.css') }}">
-    <link rel="stylesheet" href="{{ asset('cst/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('cst/assets/css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('cst/css/vendor.css') }}">
+    <link rel="stylesheet" href="{{ asset('cst/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('cst/css/responsive.css') }}">
     @livewireStyles
 </head>
 
@@ -35,7 +35,7 @@
                 <div class="ba-bill-pay-inner">
                     <div class="ba-single-bill-pay">
                         <div class="thumb">
-                            <img src="{{ asset('cst/assets/img/icon/6.png') }}" alt="img">
+                            <img src="{{ asset('cst/img/icon/6.png') }}" alt="img">
                         </div>
                         <div class="details">
                             <h5>Recived Money By Aron Fince</h5>
@@ -53,7 +53,7 @@
     <!-- auto notification end -->
 
     <!-- header start -->
-    <div class="header-area" style="background-image: url({{ @asset('cst/assets/img/bg/1.png') }});">
+    <div class="header-area" style="background-image: url({{ @asset('cst/img/bg/1.png') }});">
         <div class="container">
             <div class="row">
                 <div class="col-sm-4 col-3">
@@ -63,7 +63,7 @@
                 </div>
                 <div class="text-center col-sm-4 col-4">
                     <a href="{{ route('cst.dashboard') }}" class="logo">
-                        <img src="{{ asset('cst/assets/img/logo.png') }}" alt="logo">
+                        <img src="{{ asset('cst/img/logo.png') }}" alt="logo">
                     </a>
                 </div>
                 <div class="text-right col-sm-4 col-5">
@@ -82,7 +82,7 @@
                         </li>
                         <li>
                             <a class="header-user" href="user-setting.html"><img
-                                    src="{{ asset('cst/assets/img/user.png') }}" alt="img"></a>
+                                    src="{{ asset('cst/img/user.png') }}" alt="img"></a>
                         </li>
                     </ul>
                 </div>
@@ -95,7 +95,7 @@
 
     <!-- Footer Area -->
     <div class="footer-area">
-        <div class="text-center footer-top" style="background-image: url(cst/assets/img/bg/7.png);">
+        <div class="text-center footer-top" style="background-image: url(cst/img/bg/7.png);">
             <div class="container">
                 <p>© {{ config('app.name') }} {{ date('Y') }}. All Rights Reserved. Designed By S7template</p>
             </div>
@@ -145,8 +145,8 @@
     <!-- back to top area end -->
 
     <!-- All Js File here -->
-    <script src="{{ asset('cst/assets/js/vendor.js') }}"></script>
-    <script src="{{ asset('cst/assets/js/main.js') }}"></script>
+    <script src="{{ asset('cst/js/vendor.js') }}"></script>
+    <script src="{{ asset('cst/js/main.js') }}"></script>
     @livewireScripts
 
 </body>
