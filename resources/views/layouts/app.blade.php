@@ -63,7 +63,7 @@
                 </div>
                 <div class="text-center col-sm-4 col-4">
                     <a href="{{ route('cst.dashboard') }}" class="logo">
-                        <img src="{{ asset('assets/img/logo.png') }}">
+                        <h3 class="text-white">PointPro</h3>
                     </a>
                 </div>
                 <div class="text-right col-sm-4 col-5">
