@@ -176,7 +176,7 @@
                                                     <div class="progress-bar"
                                                         style="width: {{ number_format(($item->repayments()->sum('amount_paid') / $item->amount) * 100, 2) }}%">
                                                         <div title="Paid KES {{ number_format($item->repayments()->sum('amount_paid'), 2) }} out of KES {{ number_format($item->amount, 2) }}"
-                                                            class="">
+                                                            class="text-success">
                                                             {{ number_format(($item->repayments()->sum('amount_paid') / $item->amount) * 100, 2) }}%
                                                         </div>
                                                     </div>
