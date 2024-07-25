@@ -29,7 +29,7 @@
     <!-- preloader area end -->
 
     <!-- auto notification start -->
-    <div class="modal fade fade-modal-nitification" id="overlay">
+    {{-- <div class="modal fade fade-modal-nitification" id="overlay">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="ba-bill-pay-inner">
@@ -49,7 +49,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- auto notification end -->
 
     <!-- header start -->
@@ -63,7 +63,7 @@
                 </div>
                 <div class="text-center col-sm-4 col-4">
                     <a href="{{ route('cst.dashboard') }}" class="logo">
-                        <img src="{{ asset('cst/img/logo.png') }}" alt="logo">
+                        <img src="{{ asset('assets/img/logo.png') }}">
                     </a>
                 </div>
                 <div class="text-right col-sm-4 col-5">
