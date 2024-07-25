@@ -12,9 +12,9 @@ class Header extends Component
     {
         $user = User::findOrFail(Auth::id());
 
-        $unreadNotftbs = $user->unreadNotifications;
+        $unreadNotifications = $user->unreadNotifications;
         $allNotfctns = $user->notifications;
-        return view('livewire.elements.header', ['unreadNotftbs' => $unreadNotftbs, 'allNotfctns' => $allNotfctns]);
+        return view('livewire.elements.header', ['unreadNotifications' => $unreadNotifications, 'allNotfctns' => $allNotfctns]);
     }
     public function markNotificationAsRead($notificationId)
     {
