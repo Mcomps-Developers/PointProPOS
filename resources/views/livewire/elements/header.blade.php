@@ -135,12 +135,12 @@
                 <i data-feather="maximize"></i>
             </a>
         </li>
-        <li class="nav-item nav-item-box">
-            <a href="email.html">
+        {{-- <li class="nav-item nav-item-box">
+            <a href="javascript:void(0);">
                 <i data-feather="mail"></i>
-                <span class="badge rounded-pill">1</span>
+                <span class="badge rounded-pill">0</span>
             </a>
-        </li>
+        </li> --}}
 
         <li class="nav-item dropdown nav-item-box">
             <a href="javascript:void(0);" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
