@@ -11,7 +11,7 @@
                     </div>
                     <div class="dash-widgetcontent">
                         <h5>KES <span class="counters" data-count="{{ $wallet->balance }}">KES
-                                {{ number_format($wallet->balance, 2,'.', ',') }}</span></h5>
+                                {{ number_format($wallet->balance, 2, '.', ',') }}</span></h5>
                         <h6>Wallet</h6>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                     </div>
                     <div class="dash-widgetcontent">
                         <h5>KES <span class="counters" data-count="{{ $paidAmount }}">KES
-                                {{ number_format($paidAmount, 2,'.', ',') }}</span></h5>
+                                {{ number_format($paidAmount, 2, '.', ',') }}</span></h5>
                         <h6>Repayments</h6>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                     </div>
                     <div class="dash-widgetcontent">
                         <h5>KES <span class="counters" data-count="{{ $invoicesAmount }}">KES
-                                {{ number_format($invoicesAmount, 2,'.', ',') }}</span></h5>
+                                {{ number_format($invoicesAmount, 2, '.', ',') }}</span></h5>
                         <h6>Total Credit Amount</h6>
                     </div>
                 </div>
