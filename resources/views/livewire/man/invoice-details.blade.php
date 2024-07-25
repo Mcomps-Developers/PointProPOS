@@ -54,6 +54,9 @@
                             <a href class="btn btn-searchset"><i data-feather="search" class="feather-search"></i></a>
                         </div>
                     </div>
+                    <a class="btn btn-filters ms-auto">
+                        KES {{ number_format($invoice->amount, 2) }}
+                    </a>
                     <div class="search-path">
                         <div class="d-flex align-items-center">
                             <a class="btn btn-filter" id="filter_search">
@@ -72,7 +75,7 @@
                     </div>
                 </div>
 
-                <div class="card" id="">
+                <div class="card" id="filter_inputs">
                     <div class="pb-0 card-body">
                         <div class="row">
                             <div class="col-lg-3 col-sm-6 col-12">
