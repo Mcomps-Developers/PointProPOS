@@ -11,6 +11,21 @@
                     <h6>Manage Your Invoice Report</h6>
                 </div>
             </div>
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Custom Progress 3</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-5 progress progress-lg custom-progress-3 progress-animate" role="progressbar"
+                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar" style="width: 50%">
+                                <div class="progress-bar-value">50%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <ul class="table-top-head">
                 <li>
                     <a data-bs-toggle="tooltip" data-bs-placement="top" title="Pdf"><img
@@ -159,7 +174,8 @@
                                         @if ($item->status === 'not_paid')
                                             <button class="badge badge-linesuccess intaSendPayButton"
                                                 data-amount="{{ $item->amount - $item->amount_paid }}"
-                                                data-currency="KES" data-email="{{ $item->invoice->customer->email }}"
+                                                data-currency="KES"
+                                                data-email="{{ $item->invoice->customer->email }}"
                                                 data-first_name="{{ $item->invoice->customer->name }}"
                                                 data-last_name=""
                                                 data-phone_number="{{ $item->invoice->customer->phone_number }}"
