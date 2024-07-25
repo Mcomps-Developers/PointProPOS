@@ -10,19 +10,10 @@
                     </h4>
                     <h6>Manage Your Invoice Report</h6>
                 </div>
-            </div>
-            <div class="col-xl-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title">Custom Progress 3</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="mb-5 progress progress-lg custom-progress-3 progress-animate" role="progressbar"
-                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar" style="width: 50%">
-                                <div class="progress-bar-value">50%</div>
-                            </div>
-                        </div>
+                <div class="mb-5 progress progress-lg custom-progress-3 progress-animate" role="progressbar"
+                    aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" style="width: 50%">
+                        <div class="progress-bar-value">50%</div>
                     </div>
                 </div>
             </div>
