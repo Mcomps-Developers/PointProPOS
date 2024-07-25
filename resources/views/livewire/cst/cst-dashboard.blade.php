@@ -294,7 +294,8 @@
                         @if ($item->state === 'COMPLETE')
                             <p>Successful at {{ date('d M Y h:iA', strtotime($item->created_at)) }}</p>
                         @else
-                            <p>Failed at {{ date('d M Y h:iA', strtotime($item->created_at)) }} <br>
+                            <p class="text-danger">Failed at {{ date('d M Y h:iA', strtotime($item->created_at)) }}
+                                <br>
                                 <small class="text-danger">{{ $item->failed_reason }}</small>
                             </p>
                         @endif
