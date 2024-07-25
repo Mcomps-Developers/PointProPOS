@@ -40,15 +40,38 @@ class newCredit extends Notification
      */
     public function toMail(object $notifiable): MailMessage
     {
+        $numS = '';
+
+        if ($this->frequency === 'daily') {
+            $numS = 'days';
+        } elseif ($this->frequency === 'weekly') {
+            $numS = 'weeks';
+        } elseif ($this->frequency === 'monthly') {
+            $numS = 'months';
+        }
         return (new MailMessage)
             ->success()
             ->priority(1)
             ->level('success')
             ->subject('Congratulations')
-            ->greeting('Congratulations ' . $this->user->name . ',')
-            ->line('Your credit has been processed.')
+            ->greeting('Congratulations ' . $this->user->name . ' from ' . $this->company->name)
+            ->line('Your credit has been processed with Invoice No INV-' . $this->invoice->reference . '. Credit status is set to: ' . $this->invoice->status)
+
+            ->line('***********************')
+
+            ->line('Credit Summary')
+            ->line('Invoice Subtotal: KES ' . $this->invoice->subtotal)
+            ->line('Invoice Discount: KES ' . $this->invoice->discount)
+            ->line('Invoice Tax: KES ' . $this->invoice->tax)
+            ->line('Invoice Total: KES ' . $this->invoice->amount)
+
+            ->line('***********************')
+
+            ->line('You are set to pay the credit total amount ' . $this->frequency . ' for ' . $this->invoice->repayment_frequency . ' ' . $numS . ' installments, first installment due on ' . date('d M Y', strtotime($this->invoice->first_repayment_date)))
+            ->line('***********************')
+            ->line('To get more details about this credit, associated products and payment progress, login your account to get started.')
             ->action('Dashboard', url('/dashboard'))
-            ->line('Thank you for using our application!');
+            ->line('If this was an error, do not hesitate to contact ' . $this->company->name . ' via +' . $this->company->phone . '. If not satisfied with their response, report the issue to pointpro@mcomps.africa');
     }
 
     /**
