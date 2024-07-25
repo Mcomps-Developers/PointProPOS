@@ -9,7 +9,7 @@
                     <h4>Invoice <span style="text-transform: uppercase">INV-{{ $invoice->reference }}PP </span>Report
                     </h4>
                     <h6>Manage Your Invoice Report</h6>
-                    <div class="col-xl-8">
+                    <div class="col-xl-12">
                         <div class="card">
                             <div class="card-body">
                                 <div class="mb-5 progress progress-lg custom-progress-3 progress-animate" role="progressbar"
