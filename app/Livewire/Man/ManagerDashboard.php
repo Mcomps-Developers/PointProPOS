@@ -19,8 +19,11 @@ class ManagerDashboard extends Component
         $products = Product::orderBy('name')->where('company_id', $company->id)->get();
         $customers = User::where('company_id', $company->id)->where('utype', 'cst')->count();
         $invoices = Invoice::orderByDesc('created_at')->where('company_id', $company->id)->count();
-        $repayments = Repayment::orderByDesc('created_at')->where('company_id', $company->id)->limit(4)->get();
+        $repayments = Repayment::orderByDesc('created_at')->where('company_id', $company->id)->limit(10)->get();
         $wallet = CompanyWallet::where('company_id', $company->id)->first();
-        return view('livewire.man.manager-dashboard', ['products' => $products, 'customers' => $customers, 'invoices' => $invoices, 'wallet' => $wallet, 'repayments' => $repayments])->layout('layouts.base');
+        $invoicesAmount = Invoice::where('company_id', $company->id)->sum('amount');
+        $paidAmount = Repayment::orderByDesc('created_at')->where('company_id', $company->id)->sum('amount_paid');
+        $amountDue = $invoicesAmount - $paidAmount;
+        return view('livewire.man.manager-dashboard', ['invoicesAmount'=>$invoicesAmount,'paidAmount' => $paidAmount, 'amountDue' => $amountDue, 'products' => $products, 'customers' => $customers, 'invoices' => $invoices, 'wallet' => $wallet, 'repayments' => $repayments])->layout('layouts.base');
     }
 }
