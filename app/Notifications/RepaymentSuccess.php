@@ -41,6 +41,9 @@ class RepaymentSuccess extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
+        ->success()
+            ->priority(1)
+            ->level('success')
             ->subject('Payment Successful')
             ->greeting('Dear ' . $this->user->name . ',')
             ->line('Your payment of KES ' . $this->transaction->value . ' reference ' . $this->transaction->tracking_id . ' has been received on behalf of ' . $this->company->name . '. Payment for ' . date('d M Y', strtotime($this->repayment->date_due)) . ' installment updated.')
