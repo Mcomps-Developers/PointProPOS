@@ -59,7 +59,9 @@ class newCredit extends Notification
     public function toArray(object $notifiable): array
     {
         return [
-            //
+            'title' => 'Congratulations ',
+            'message' => 'Credit has been processed successfully',
+            'identity' => 'credit_success'
         ];
     }
 }
