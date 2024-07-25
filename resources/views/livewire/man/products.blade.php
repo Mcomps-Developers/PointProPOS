@@ -1,6 +1,6 @@
 <div>
     @section('title')
-    Products
+        Products
     @endsection
     <div class="page-wrapper">
         <div class="content">
@@ -14,11 +14,11 @@
                 <ul class="table-top-head">
                     <li>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Pdf"><img
-                                src="{{asset('assets/img/icons/pdf.svg')}}" alt="img" /></a>
+                                src="{{ asset('assets/img/icons/pdf.svg') }}" alt="img" /></a>
                     </li>
                     <li>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Excel"><img
-                                src="{{asset('assets/img/icons/excel.svg')}}" alt="img" /></a>
+                                src="{{ asset('assets/img/icons/excel.svg') }}" alt="img" /></a>
                     </li>
                     <li>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Print"><i data-feather="printer"
@@ -34,7 +34,7 @@
                     </li>
                 </ul>
                 <div class="page-btn">
-                    <a href="{{route('product.add')}}" class="btn btn-added"><i data-feather="plus-circle"
+                    <a href="{{ route('product.add') }}" class="btn btn-added"><i data-feather="plus-circle"
                             class="me-2"></i>Add
                         New
                         Product</a>
@@ -57,13 +57,13 @@
                         <div class="search-path">
                             <a class="btn btn-filter" id="filter_search">
                                 <i data-feather="filter" class="filter-icon"></i>
-                                <span><img src="{{asset('assets/img/icons/closes.svg')}}" alt="img" /></span>
+                                <span><img src="{{ asset('assets/img/icons/closes.svg') }}" alt="img" /></span>
                             </a>
                         </div>
                         <div class="form-sort">
                             <i data-feather="sliders" class="info-img"></i>
                             <select class="select">
-                                <option>Sort by Date</option>
+                                <option>-:-</option>
                                 {{-- <option>14 09 23</option>
                                 <option>11 09 23</option> --}}
                             </select>
@@ -93,58 +93,58 @@
                             </thead>
                             <tbody>
                                 @foreach ($products as $item)
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox" />
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <div class="productimgname">
-                                            <a href="javascript:void(0);" class="product-img stock-img">
-                                                <img src="{{asset('assets/img/products')}}/{{$item->image}}" />
-                                            </a>
-                                            <a href="javascript:void(0);">{{$item->name}}
-                                            </a>
-                                        </div>
-                                    </td>
-                                    <td style="text-transform: uppercase">{{$item->sku}}</td>
-                                    <td>
-                                        @if ($item->category_id)
-                                        {{$item->category->name}}
-                                        @else
-                                        Uncategorized
-                                        @endif
-                                    </td>
-                                    {{-- <td>Brand</td> --}}
-                                    <td>Ksh {{$item->price}}</td>
-                                    {{-- <td>{{$item->unit}}</td> --}}
-                                    {{-- <td>100</td> --}}
-                                    <td>
-                                        <div class="userimgname">
-                                            <a href="javascript:void(0);" class="product-img">
-                                                <img src="{{$item->user->profile_photo_url}}" />
-                                            </a>
-                                            <a href="javascript:void(0);">{{$item->user->name}}</a>
-                                        </div>
-                                    </td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a class="p-2 me-2 edit-icon" href="javascript:void(0);">
-                                                <i data-feather="eye" class="feather-eye"></i>
-                                            </a>
-                                            <a class="p-2 me-2" href="javascript:void(0);">
-                                                <i data-feather="edit" class="feather-edit"></i>
-                                            </a>
-                                            <a class="p-2" href="javascript:void(0);"
-                                                wire:confirm='Are you sure you want to delete?'
-                                                wire:click.prevent='delete({{$item->id}})'>
-                                                <i data-feather="trash-2" class="feather-trash-2"></i>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="checkboxs">
+                                                <input type="checkbox" />
+                                                <span class="checkmarks"></span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <div class="productimgname">
+                                                <a href="javascript:void(0);" class="product-img stock-img">
+                                                    <img src="{{ asset('assets/img/products') }}/{{ $item->image }}" />
+                                                </a>
+                                                <a href="javascript:void(0);">{{ $item->name }}
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td style="text-transform: uppercase">{{ $item->sku }}</td>
+                                        <td>
+                                            @if ($item->category_id)
+                                                {{ $item->category->name }}
+                                            @else
+                                                Uncategorized
+                                            @endif
+                                        </td>
+                                        {{-- <td>Brand</td> --}}
+                                        <td>Ksh {{ $item->price }}</td>
+                                        {{-- <td>{{$item->unit}}</td> --}}
+                                        {{-- <td>100</td> --}}
+                                        <td>
+                                            <div class="userimgname">
+                                                <a href="javascript:void(0);" class="product-img">
+                                                    <img src="{{ $item->user->profile_photo_url }}" />
+                                                </a>
+                                                <a href="javascript:void(0);">{{ $item->user->name }}</a>
+                                            </div>
+                                        </td>
+                                        <td class="action-table-data">
+                                            <div class="edit-delete-action">
+                                                <a class="p-2 me-2 edit-icon" href="javascript:void(0);">
+                                                    <i data-feather="eye" class="feather-eye"></i>
+                                                </a>
+                                                <a class="p-2 me-2" href="javascript:void(0);">
+                                                    <i data-feather="edit" class="feather-edit"></i>
+                                                </a>
+                                                <a class="p-2" href="javascript:void(0);"
+                                                    wire:confirm='Are you sure you want to delete?'
+                                                    wire:click.prevent='delete({{ $item->id }})'>
+                                                    <i data-feather="trash-2" class="feather-trash-2"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>
