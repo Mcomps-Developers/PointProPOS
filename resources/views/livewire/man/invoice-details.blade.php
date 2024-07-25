@@ -55,7 +55,9 @@
                         </div>
                     </div>
                     <a class="btn btn-filters ms-auto">
-                        Total Credit: KES {{ number_format($invoice->amount, 2) }} |
+                        <span class="text-primary">
+                        Total Credit: KES {{ number_format($invoice->amount, 2) }}
+                        </span> |
                         <span class="text-success">
                         Paid: {{ number_format($invoice->repayments()->sum('amount_paid'), 2) }}
                         </span> |
