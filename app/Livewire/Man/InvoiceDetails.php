@@ -29,6 +29,6 @@ class InvoiceDetails extends Component
             $repaymentProgress = 0;
         }
 
-        return view('livewire.man.invoice-details', ['invoice' => $invoice, 'schedules' => $schedules, 'products' => $products, 'repaymentProgress' => $repaymentProgress])->layout('layouts.base');
+        return view('livewire.man.invoice-details', ['totalAmountPaid'=>$totalAmountPaid,'invoice' => $invoice, 'schedules' => $schedules, 'products' => $products, 'repaymentProgress' => $repaymentProgress])->layout('layouts.base');
     }
 }
