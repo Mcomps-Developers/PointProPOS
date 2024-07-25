@@ -8,6 +8,7 @@ use App\Models\InvoiceProduct;
 use App\Models\PaymentSchedule;
 use App\Models\Product;
 use App\Models\User;
+use App\Notifications\newCredit;
 use DateTime;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
@@ -152,6 +153,9 @@ class Invoices extends Component
                 $invoice->amount = $this->totalAfterDiscount;
                 $invoice->repayment_frequency = $this->duration;
                 $invoice->reference = $this->reference;
+                $invoice->subtotal = str_replace(',', '', Cart::instance('cart')->subtotal());
+                $invoice->discount = $this->discount;
+                $invoice->tax = $this->taxAfterDiscount;
                 $invoice->save();
 
                 // Add products from cart to invoice (if needed)
@@ -174,7 +178,10 @@ class Invoices extends Component
                     $paymentSchedule->status = $schedule['status'];
                     $paymentSchedule->save();
                 }
-
+                $user = User::findOrFail($invoice->user_id);
+                $company = Company::findOrFail($invoice->company_id);
+                $frequency = $this->repayment_frequency;
+                $user->notify(new newCredit($user, $invoice, $company, $frequency));
                 // Commit transaction
                 DB::commit();
                 Cart::instance('cart')->destroy();
