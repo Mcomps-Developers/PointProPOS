@@ -55,7 +55,8 @@
                         </div>
                     </div>
                     <a class="btn btn-filters ms-auto">
-                        KES {{ number_format($invoice->amount, 2) }}
+                        Total Credit: KES {{ number_format($invoice->amount, 2) }} | Paid:
+                        {{ number_format($invoice->repayments()->sum('amount_paid'), 2) }}
                     </a>
                     <div class="search-path">
                         <div class="d-flex align-items-center">
