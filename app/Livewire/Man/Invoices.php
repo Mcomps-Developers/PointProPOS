@@ -87,13 +87,22 @@ class Invoices extends Component
                 ->whereNotIn('status', $loanStatusesToExclude)
                 ->get();
 
-            $this->debtBalance = $pendingInvoices->sum('amount');
+            $debtBalance = 0;
+
+            foreach ($pendingInvoices as $invoice) {
+                $totalAmountPaid = $invoice->repayments()->sum('amount_paid');
+                $remainingBalance = $invoice->amount - $totalAmountPaid;
+                $debtBalance += $remainingBalance;
+            }
+            $this->debtBalance = $debtBalance;
+
             notyf()->position('y', 'top')->success('Client found in your database!');
         } else {
             $this->reset('email');
             notyf()->position('y', 'top')->error('Client not found!');
         }
     }
+
 
     private function handleUser()
     {
