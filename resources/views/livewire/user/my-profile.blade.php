@@ -18,7 +18,7 @@
                     <div class="profile-top">
                         <div class="profile-content">
                             <div class="profile-contentimg">
-                                <img src="{{asset('assets/img/customer/customer5.jpg')}}" alt="img" id="blah">
+                                <img src="{{ Auth::user()->profile_photo_url }}" alt="img" id="blah">
                                 <div class="profileupload">
                                     <input type="file" id="imgInp">
                                     <a href="javascript:void(0);"><img src="{{asset('assets/img/icons/edit-set.svg')}}"
