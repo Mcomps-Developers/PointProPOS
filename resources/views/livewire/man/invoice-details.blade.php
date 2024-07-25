@@ -40,7 +40,8 @@
                 <div class="mb-5 progress progress-lg custom-progress-3 progress-animate" role="progressbar"
                     aria-valuenow="{{ $repaymentProgress }}" aria-valuemin="0" aria-valuemax="100">
                     <div class="progress-bar" style="width: {{ $repaymentProgress }}%">
-                        <div class="progress-bar-value">{{ number_format($repaymentProgress, 2) }}%</div>
+                        <div class="progress-bar-value">{{ number_format($repaymentProgress, 2) }}% (KES
+                            {{ number_format($totalAmountPaid, 2) }}/{{ $invoice->amount }})</div>
                     </div>
                 </div>
             </div>
