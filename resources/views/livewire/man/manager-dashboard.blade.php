@@ -168,8 +168,8 @@
                                                         <span class="badge badge-linesuccess">Successful</span>
                                                     @else
                                                         <span title="{{ $item->failed_reason }}"
-                                                            class="badge badge-linedanger">Failed:
-                                                            <i class="fa fa-info"></i>
+                                                            class="badge badge-linedanger">Failed
+                                                            <i class="fa fa-info-circle"></i>
                                                         </span>
                                                     @endif
                                                 </small>
