@@ -130,11 +130,12 @@
                                             <span class="checkmarks"></span>
                                         </label>
                                     </th>
-                                    {{-- <th>Product Name</th> --}}
                                     <th>Reference</th>
                                     <th>Customer</th>
                                     <th>Status</th>
-                                    <th>Grand Total (KES)</th>
+                                    <th>Total (KES)</th>
+                                    <th>Amt. Paid</th>
+                                    <th>Amt Due</th>
                                     <th class="no-sort">Action</th>
                                 </tr>
                             </thead>
@@ -151,14 +152,6 @@
                                                 href="{{ route('invoice.details', ['reference' => $item->reference]) }}"><span
                                                     class="badges status-badge">INV-{{ $item->reference }}PP</span></a>
                                         </td>
-                                        {{-- <td class="productimgname">
-                                        <div class="view-product me-2">
-                                            <a href="javascript:void(0);">
-                                                <img src="assets/img/products/stock-img-01.png"  />
-                                            </a>
-                                        </div>
-                                        <a href="javascript:void(0);">Lenovo 3rd Generation</a>
-                                    </td> --}}
                                         <td>{{ $item->customer->name }}</td>
                                         <td style="text-transform: capitalize;">
                                             @if ($item->status === 'progress')
@@ -173,7 +166,11 @@
                                                 <span class="text-info">{{ $item->status }}</span>
                                             @endif
                                         </td>
-                                        <td>KES {{ $item->amount }}</td>
+                                        <td>KES {{ number_format($item->amount, 2) }}</td>
+                                        <td>KES {{ number_format($item->repayments()->sum('amount_paid'), 2) }}</td>
+                                        <td>KES
+                                            {{ number_format($item->amount - $item->repayments()->sum('amount_paid'), 2) }}
+                                        </td>
                                         <td class="action-table-data">
                                             <div class="edit-delete-action data-row">
                                                 <a class="p-2 mb-0 me-2"
