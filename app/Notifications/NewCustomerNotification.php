@@ -40,6 +40,9 @@ class NewCustomerNotification extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
+            ->success()
+            ->priority(1)
+            ->level('success')
             ->subject('Welcome')
             ->greeting('Dear ' . $this->user->name . ',')
             ->line('We are delighted to welcome you to ' . env('APP_NAME'))
