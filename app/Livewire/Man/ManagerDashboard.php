@@ -26,7 +26,7 @@ class ManagerDashboard extends Component
         $paidAmount = PaymentSchedule::whereHas('invoice', function ($query) use ($company) {
             $query->where('company_id', $company->id);
         })->sum('amount_paid');
-        $amountDue = $invoicesAmount - $paidAmount;
+        $amountDue = number_format($invoicesAmount - $paidAmount, 2);
         return view('livewire.man.manager-dashboard', ['invoicesAmount' => $invoicesAmount, 'paidAmount' => $paidAmount, 'amountDue' => $amountDue, 'products' => $products, 'customers' => $customers, 'invoices' => $invoices, 'wallet' => $wallet, 'repayments' => $repayments])->layout('layouts.base');
     }
 }
