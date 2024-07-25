@@ -22,8 +22,9 @@
                         <span><img src="{{ asset('assets/img/icons/dash2.svg') }}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>Ksh <span class="counters" data-count="4385.00">Ksh 4,385.00</span></h5>
-                        <h6>Total Sales Due</h6>
+                        <h5>KES <span class="counters" data-count="{{ $amountDue }}">KES
+                                {{ number_format($amountDue, 2) }}</span></h5>
+                        <h6>Total Credit Amt Due</h6>
                     </div>
                 </div>
             </div>
@@ -33,8 +34,9 @@
                         <span><img src="{{ asset('assets/img/icons/dash3.svg') }}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>Ksh <span class="counters" data-count="385656.50">Ksh 385,656.50</span></h5>
-                        <h6>Total Sale Amount</h6>
+                        <h5>KES <span class="counters" data-count="{{ $paidAmount }}">KES
+                                {{ number_format($paidAmount, 2) }}</span></h5>
+                        <h6>Repayments</h6>
                     </div>
                 </div>
             </div>
@@ -44,8 +46,9 @@
                         <span><img src="{{ asset('assets/img/icons/dash4.svg') }}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>Ksh <span class="counters" data-count="40000.00">Ksh 400.00</span></h5>
-                        <h6>Total Expense Amount</h6>
+                        <h5>KES <span class="counters" data-count="{{ $invoicesAmount }}">KES
+                                {{ number_format($invoicesAmount, 2) }}</span></h5>
+                        <h6>Total Credit Amount</h6>
                     </div>
                 </div>
             </div>
@@ -167,15 +170,13 @@
                                                     @if ($item->state === 'COMPLETE')
                                                         <span class="badge badge-linesuccess">Successful</span>
                                                     @else
-                                                        <span
-                                                            class="badge badge-linedanger">Failed
+                                                        <span class="badge badge-linedanger">Failed
                                                         </span>
                                                         <span title="{{ $item->failed_reason }}"
                                                             class="badge badge-linesuccess">
                                                             <i title="{{ $item->failed_reason }}"
                                                                 class="fa fa-info-circle text-info"></i>
                                                         </span>
-                                                        
                                                     @endif
                                                 </small>
                                             </td>
