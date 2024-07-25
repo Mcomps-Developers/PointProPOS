@@ -3,10 +3,12 @@
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\Repayment;
 use App\Http\Middleware\AuthAdmin;
+use App\Http\Middleware\AuthCst;
 use App\Http\Middleware\AuthManager;
 use App\Livewire\Admin\AdminDashboard;
 use App\Livewire\Admin\AllClients;
 use App\Livewire\Admin\Industries;
+use App\Livewire\Cst\CstDashboard;
 use App\Livewire\Man\AddProduct;
 use App\Livewire\Man\Categories;
 use App\Livewire\Man\Customers;
@@ -40,6 +42,9 @@ Route::get('/dashboard', function () {
             case 'adm':
                 return redirect()->route('admin.dashboard');
                 break;
+            case 'cst':
+                return redirect()->route('cst.dashboard');
+                break;
             default:
                 abort(403);
                 break;
@@ -48,6 +53,11 @@ Route::get('/dashboard', function () {
         return redirect('/login');
     }
 })->name('user.dashboard');
+
+// Customer
+Route::prefix('/account')->middleware(['auth', 'verified', AuthCst::class])->group(function () {
+    Route::get('/dashboard', CstDashboard::class)->name('cst.dashboard');
+});
 
 
 // Admin
