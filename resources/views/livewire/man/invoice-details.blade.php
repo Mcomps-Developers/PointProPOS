@@ -65,6 +65,14 @@
                             {{ number_format($invoice->amount - $invoice->repayments()->sum('amount_paid'), 2) }}
                         </span>
                     </a>
+                    <div class="search-path">
+                        <div class="d-flex align-items-center">
+                            <a class="btn btn-filter" id="filter_search">
+                                <i data-feather="filter" class="filter-icon"></i>
+                                <span><img src="{{ asset('assets/img/icons/closes.svg') }}" alt="img" /></span>
+                            </a>
+                        </div>
+                    </div>
                     <div class="form-sort">
                         <i data-feather="sliders" class="info-img"></i>
                         <select class="select">
