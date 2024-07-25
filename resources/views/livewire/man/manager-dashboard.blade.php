@@ -169,8 +169,9 @@
                                                     @else
                                                         <span title="{{ $item->failed_reason }}"
                                                             class="badge badge-linedanger">Failed
-                                                            <i class="fa fa-info-circle text-info"></i>
                                                         </span>
+                                                        <i title="{{ $item->failed_reason }}"
+                                                            class="fa fa-info-circle text-info"></i>
                                                     @endif
                                                 </small>
                                             </td>
