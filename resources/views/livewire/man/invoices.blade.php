@@ -467,10 +467,10 @@
                                                 <select class="form-control" wire:model.live='status'>
                                                     <option>-:-</option>
                                                     <option value="pending">Pending</option>
-                                                    <option value="cancelled">Cancelled</option>
-                                                    <option value="complete">Complete</option>
-                                                    <option value="progress">In Progress</option>
-                                                    <option value="defaulted">Defaulted</option>
+                                                    {{-- <option value="cancelled">Cancelled</option> --}}
+                                                    {{-- <option value="complete">Complete</option> --}}
+                                                    <option value="progress">Active</option>
+                                                    {{-- <option value="defaulted">Defaulted</option> --}}
                                                 </select>
                                                 @error('status')
                                                     <p class="text-danger">{{ $message }}</p>
