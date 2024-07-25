@@ -39,6 +39,9 @@ class RepaymentFailed extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
+        ->success()
+            ->priority(1)
+            ->level('error')
             ->subject('Payment Failed')
             ->greeting('Dear ' . $this->user->name . ',')
             ->line('Your payment of KES ' . $this->transaction->value . ' to ' . $this->company->name . ' failed because ' . $this->transaction->failed_reason)
