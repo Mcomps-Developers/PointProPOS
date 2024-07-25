@@ -87,7 +87,7 @@
                 <div class="dash-count das3">
                     <div class="dash-counts">
                         <h4>{{ $invoices }}</h4>
-                        <h5>Sales Invoice</h5>
+                        <h5>Credit Invoices</h5>
                     </div>
                     <div class="dash-imgs">
                         <i data-feather="file"></i>
