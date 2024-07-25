@@ -167,7 +167,24 @@
                                             @endif
                                         </td>
                                         <td>KES {{ number_format($item->amount, 2) }}</td>
-                                        <td>KES {{ number_format($item->repayments()->sum('amount_paid'), 2) }}</td>
+                                        <td>KES {{ number_format($item->repayments()->sum('amount_paid'), 2) }}
+                                            <div class="col-xl-12">
+                                                <div class="card-body">
+                                                    <div class="mb-5 progress progress-lg custom-progress-3 progress-animate"
+                                                        role="progressbar"
+                                                        aria-valuenow="{{ ($item->repayments()->sum('amount_paid') / $item->amount) * 100 }}"
+                                                        aria-valuemin="0" aria-valuemax="100">
+                                                        <div class="progress-bar"
+                                                            style="width: {{ number_format(($item->repayments()->sum('amount_paid') / $item->amount) * 100, 2) }}%">
+                                                            <div title="Paid KES {{ number_format($item->repayments()->sum('amount_paid'), 2) }} out of KES {{ number_format($invoice->amount, 2) }}"
+                                                                class="progress-bar-value">
+                                                                {{ number_format(($item->repayments()->sum('amount_paid') / $item->amount) * 100, 2) }}%
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
                                         <td>KES
                                             {{ number_format($item->amount - $item->repayments()->sum('amount_paid'), 2) }}
                                         </td>
