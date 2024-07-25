@@ -167,11 +167,15 @@
                                                     @if ($item->state === 'COMPLETE')
                                                         <span class="badge badge-linesuccess">Successful</span>
                                                     @else
-                                                        <span title="{{ $item->failed_reason }}"
+                                                        <span
                                                             class="badge badge-linedanger">Failed
                                                         </span>
-                                                        <i title="{{ $item->failed_reason }}"
-                                                            class="fa fa-info-circle text-info"></i>
+                                                        <span title="{{ $item->failed_reason }}"
+                                                            class="badge badge-lineinfo">
+                                                            <i title="{{ $item->failed_reason }}"
+                                                                class="fa fa-info-circle text-info"></i>
+                                                        </span>
+                                                        
                                                     @endif
                                                 </small>
                                             </td>
