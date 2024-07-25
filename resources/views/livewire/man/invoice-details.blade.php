@@ -65,14 +65,14 @@
                     <div class="form-sort">
                         <i data-feather="sliders" class="info-img"></i>
                         <select class="select">
-                            <option>Sort by Date</option>
+                            <option>Type</option>
                             {{-- <option>25 9 23</option>
                             <option>12 9 23</option> --}}
                         </select>
                     </div>
                 </div>
 
-                <div class="card" id="filter_inputs">
+                <div class="card" id="">
                     <div class="pb-0 card-body">
                         <div class="row">
                             <div class="col-lg-3 col-sm-6 col-12">
