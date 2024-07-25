@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('assets/cst/assets/css/vendor.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/cst/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/cst/assets/css/responsive.css') }}">
+    @livewireStyles
 </head>
 
 <body>
