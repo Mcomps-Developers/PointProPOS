@@ -61,7 +61,7 @@
                         <span class="text-success">
                             Paid: {{ number_format($invoice->repayments()->sum('amount_paid'), 2) }}
                         </span> |
-                        <span class="text-danger">Bal:
+                        <span class="text-danger">Due:
                             {{ number_format($invoice->amount - $invoice->repayments()->sum('amount_paid'), 2) }}
                         </span>
                     </a>
