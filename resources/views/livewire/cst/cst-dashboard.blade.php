@@ -133,7 +133,7 @@
                 <h3 class="title">Credit Purchases</h3>
                 <a href="#">View All</a>
             </div>
-            @foreach (invoices as $item)
+            @foreach ($invoices as $item)
                 <div class="single-goal single-goal-one">
                     <div class="row">
                         <div class="pr-0 col-7">
