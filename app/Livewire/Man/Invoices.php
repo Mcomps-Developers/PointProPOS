@@ -216,44 +216,33 @@ class Invoices extends Component
     private function generatePaymentSchedules($firstRepaymentDate, $repaymentFrequency, $amount, $duration)
     {
         $paymentSchedules = [];
-
-        // Calculate amount per installment and remainder
-        $amountPerInstallment = $amount / $duration;
+        $amountPerInstallment = floor($amount / $duration);
         $remainder = $amount % $duration;
 
-        // Initialize date variables
-        $dueDate = new DateTime($firstRepaymentDate); // Initialize without modification
+        $dueDate = new DateTime($firstRepaymentDate);
 
-        // Loop through the duration to generate schedules
         for ($i = 1; $i <= $duration; $i++) {
-            // Determine payment date based on repayment frequency
-            // Note: $dueDate should not be modified here, it should be modified inside the loop
             switch ($repaymentFrequency) {
                 case 'daily':
-                    // For daily frequency, increment by 1 day
                     break;
                 case 'weekly':
-                    // For weekly frequency, increment by 1 week
                     break;
                 case 'monthly':
-                    // For monthly frequency, increment by 1 month
                     break;
                 default:
-                    // Handle unsupported frequency (optional)
                     break;
             }
 
-            // Calculate the installment amount
             $installmentAmount = $amountPerInstallment;
 
-            // Add any remaining fractional amount to the last installment
-            if ($remainder > 0 && $i === $duration) {
-                $installmentAmount += $remainder;
+
+            if ($remainder > 0) {
+                $installmentAmount += 1;
+                $remainder--;
             }
 
-            // Prepare payment schedule data
             $paymentSchedules[] = [
-                'amount' => round($installmentAmount, 2), // Round to handle decimal places
+                'amount' => $installmentAmount,
                 'date_due' => $dueDate->format('Y-m-d'),
                 'payment_date' => null,
                 'status' => 'not_paid',
@@ -261,7 +250,6 @@ class Invoices extends Component
                 'updated_at' => now(),
             ];
 
-            // Modify $dueDate based on repayment frequency for the next iteration
             switch ($repaymentFrequency) {
                 case 'daily':
                     $dueDate->modify('+1 day');
@@ -281,28 +269,21 @@ class Invoices extends Component
     }
 
 
+
     private function calculateAmount()
     {
-        // Get subtotal from cart and remove commas if present
         $subtotal = str_replace(',', '', Cart::instance('cart')->subtotal());
-
-        // Convert subtotal to float
         $subtotal = (float) $subtotal;
-
-        // Calculate subtotal after discount
         $this->subtotalAfterDiscount = $subtotal - $this->discount;
-
-        // Calculate tax after discount (adjust config('cart.tax') as needed)
         $this->taxAfterDiscount = ($this->subtotalAfterDiscount * config('cart.tax')) / 100;
-
-        // Calculate total after discount and tax
         $this->totalAfterDiscount = $this->subtotalAfterDiscount + $this->taxAfterDiscount;
-
-        // Check if total after discount is negative
+        $this->totalAfterDiscount = round($this->totalAfterDiscount);
         if ($this->totalAfterDiscount < 0) {
+            notyf()->position('y', 'top')->error('The total amount cannot be negative.');
             throw new \Exception('The total amount cannot be negative.');
         }
     }
+
 
 
     private function generateReference()
