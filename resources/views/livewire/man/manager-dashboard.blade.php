@@ -11,7 +11,7 @@
                     </div>
                     <div class="dash-widgetcontent">
                         <h5>KES <span class="counters" data-count="{{ $wallet->balance }}">KES
-                                {{ number_format($wallet->balance, 2) }}</span></h5>
+                                {{ number_format($wallet->balance) }}</span></h5>
                         <h6>Wallet</h6>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                     </div>
                     <div class="dash-widgetcontent">
                         <h5>KES <span class="counters" data-count="{{ $amountDue }}">KES
-                                {{ number_format($amountDue, 2) }}</span></h5>
+                                {{ number_format($amountDue) }}</span></h5>
                         <h6>Total Credit Amt Due</h6>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="dash-widgetcontent">
                         <h5>KES <span class="counters" data-count="{{ $paidAmount }}">KES
-                                {{ number_format($paidAmount, 2) }}</span></h5>
+                                {{ number_format($paidAmount) }}</span></h5>
                         <h6>Repayments</h6>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                     </div>
                     <div class="dash-widgetcontent">
                         <h5>KES <span class="counters" data-count="{{ $invoicesAmount }}">KES
-                                {{ number_format($invoicesAmount, 2) }}</span></h5>
+                                {{ number_format($invoicesAmount) }}</span></h5>
                         <h6>Total Credit Amount</h6>
                     </div>
                 </div>
@@ -182,15 +182,15 @@
                                             </td>
                                             <td>{{ date('d M Y h:iA', strtotime($item->created_at)) }}</td>
                                             <td style="text-transform: capitalize;">{{ $item->customer->name }}</td>
-                                            <td>KES {{ number_format($item->value, 2) }}</td>
+                                            <td>KES {{ number_format($item->value) }}</td>
                                             @if ($item->state === 'COMPLETE')
-                                                <td>KES {{ number_format($item->convenience_fee, 2) }}</td>
+                                                <td>KES {{ number_format($item->convenience_fee) }}</td>
                                             @else
                                                 <td>KES 0</td>
                                             @endif
 
                                             @if ($item->state === 'COMPLETE')
-                                                <td>KES {{ number_format($item->value - $item->convenience_fee, 2) }}
+                                                <td>KES {{ number_format($item->value - $item->convenience_fee) }}
                                                 </td>
                                             @else
                                                 <td>KES 0</td>
