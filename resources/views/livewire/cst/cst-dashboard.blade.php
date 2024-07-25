@@ -283,46 +283,19 @@
             <a href="#">View All</a>
         </div>
         <ul class="transaction-inner">
-            <li class="ba-single-transaction">
-                <div class="thumb">
-                    <img src="cst/img/icon/2.png" alt="img">
-                </div>
-                <div class="details">
-                    <h5>Namecheap Inc.</h5>
-                    <p>Domain Purchase</p>
-                    <h5 class="amount">-$130</h5>
-                </div>
-            </li>
-            <li class="ba-single-transaction">
-                <div class="thumb">
-                    <img src="cst/img/icon/3.png" alt="img">
-                </div>
-                <div class="details">
-                    <h5>Namecheap Inc.</h5>
-                    <p>Domain Purchase</p>
-                    <h5 class="amount">-$130</h5>
-                </div>
-            </li>
-            <li class="ba-single-transaction">
-                <div class="thumb">
-                    <img src="cst/img/icon/4.png" alt="img">
-                </div>
-                <div class="details">
-                    <h5>Namecheap Inc.</h5>
-                    <p>Domain Purchase</p>
-                    <h5 class="amount">-$130</h5>
-                </div>
-            </li>
-            <li class="ba-single-transaction">
-                <div class="thumb">
-                    <img src="cst/img/icon/5.png" alt="img">
-                </div>
-                <div class="details">
-                    <h5>Namecheap Inc.</h5>
-                    <p>Domain Purchase</p>
-                    <h5 class="amount">-$130</h5>
-                </div>
-            </li>
+            @foreach ($repayments as $item)
+                <li class="ba-single-transaction">
+                    <div class="thumb">
+                        <img src="cst/img/icon/2.png" alt="img">
+                    </div>
+                    <div class="details">
+                        <h5 style="text-transform: uppercase">INV-{{ $item->invoice->reference }}-PP -
+                            {{ date('d M Y', strtotime($item->date_due)) }}</h5>
+                        <p>Domain Purchase</p>
+                        <h5 class="amount">-KES {{ $item->amount_paid }}</h5>
+                    </div>
+                </li>
+            @endforeach
         </ul>
     </div>
 </div>
