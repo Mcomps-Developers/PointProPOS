@@ -167,7 +167,7 @@
                                             @endif
                                         </td>
                                         <td>KES {{ number_format($item->amount, 2) }}</td>
-                                        <td>KES {{ number_format($item->repayments()->sum('amount_paid'), 2) }} <br>
+                                        <td><span style="margin-bottom: 6px;">KES {{ number_format($item->repayments()->sum('amount_paid'), 2) }}</span> <br>
                                             <small>
                                                 <div class="progress progress-sm custom-progress-3 progress-animate"
                                                     role="progressbar"
