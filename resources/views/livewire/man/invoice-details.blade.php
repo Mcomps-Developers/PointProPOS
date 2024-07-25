@@ -56,12 +56,13 @@
                     </div>
                     <a class="btn btn-filters ms-auto">
                         <span class="text-primary">
-                        Total Credit: KES {{ number_format($invoice->amount, 2) }}
+                            Total Credit: KES {{ number_format($invoice->amount, 2) }}
                         </span> |
                         <span class="text-success">
-                        Paid: {{ number_format($invoice->repayments()->sum('amount_paid'), 2) }}
+                            Paid: {{ number_format($invoice->repayments()->sum('amount_paid'), 2) }}
                         </span> |
-                        <span class="text-danger">Bal: {{ number_format($invoice->amount - $invoice->repayments()->sum('amount_paid'), 2) }}
+                        <span class="text-danger">Bal:
+                            {{ number_format($invoice->amount - $invoice->repayments()->sum('amount_paid'), 2) }}
                         </span>
                     </a>
                     <div class="search-path">
@@ -75,9 +76,13 @@
                     <div class="form-sort">
                         <i data-feather="sliders" class="info-img"></i>
                         <select class="select">
-                            <option>Type</option>
-                            {{-- <option>25 9 23</option>
-                            <option>12 9 23</option> --}}
+                            <option>Type
+                                @if ($invoice->type === 'pay_later')
+                                    Pay Later
+                                @else
+                                    Collect Later
+                                @endif
+                            </option>
                         </select>
                     </div>
                 </div>
