@@ -135,9 +135,9 @@
             </div>
             @foreach ($invoices as $item)
                 @if ($item->type === 'pay_later')
-                    <div class="single-goal single-goal-one">
+                    <div class="single-goal single-goal-three">
                     @else
-                        <div class="single-goal single-goal-four">
+                        <div class="single-goal single-goal-one">
                 @endif
                 <div class="row">
                     <div class="pr-0 col-7">
@@ -154,9 +154,9 @@
                     </div>
                     <div class="pl-0 col-5">
                         @if ($item->type === 'pay_later')
-                            <div class="circle-inner circle-inner-one">
+                            <div class="circle-inner circle-inner-three">
                             @else
-                                <div class="circle-inner circle-inner-four">
+                                <div class="circle-inner circle-inner-one">
                         @endif
                         <h6 class="goal-amount">KES {{ $item->amount }}</h6>
                         <div class="chart-circle" data-value="0.30">
