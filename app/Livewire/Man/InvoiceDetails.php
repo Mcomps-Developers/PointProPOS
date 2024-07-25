@@ -19,6 +19,16 @@ class InvoiceDetails extends Component
         $invoice = Invoice::where('reference', $this->reference)->first();
         $schedules = PaymentSchedule::orderByRaw('date_due')->where('invoice_id', $invoice->id)->get();
         $products = InvoiceProduct::where('invoice_id', $invoice->id)->get();
-        return view('livewire.man.invoice-details', ['invoice' => $invoice, 'schedules' => $schedules, 'products' => $products])->layout('layouts.base');
+
+        // Progress Bar
+        $totalAmountDue = $invoice->amount;
+        $totalAmountPaid = $invoice->repayments()->sum('amount_paid');
+        if ($totalAmountDue > 0) {
+            $repaymentProgress = ($totalAmountPaid / $totalAmountDue) * 100;
+        } else {
+            $repaymentProgress = 0;
+        }
+
+        return view('livewire.man.invoice-details', ['invoice' => $invoice, 'schedules' => $schedules, 'products' => $products, 'repaymentProgress' => $repaymentProgress])->layout('layouts.base');
     }
 }
