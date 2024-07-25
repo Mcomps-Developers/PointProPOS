@@ -171,7 +171,6 @@
                                                             ({{ $item->failed_reason }})
                                                         </span>
                                                     @endif
-
                                                 </small>
                                             </td>
                                             <td>{{ date('d M Y h:iA', strtotime($item->created_at)) }}</td>
