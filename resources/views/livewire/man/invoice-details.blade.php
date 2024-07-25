@@ -76,7 +76,7 @@
                     <div class="form-sort">
                         <i data-feather="sliders" class="info-img"></i>
                         <select class="select">
-                            <option>Type
+                            <option>
                                 @if ($invoice->type === 'pay_later')
                                     Pay Later
                                 @else
