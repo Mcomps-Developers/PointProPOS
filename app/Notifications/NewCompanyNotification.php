@@ -40,6 +40,9 @@ class NewCompanyNotification extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
+            ->success()
+            ->priority(1)
+            ->level('success')
             ->subject('Welcome')
             ->greeting('Dear ' . $this->user->name . ',')
             ->line('Thank you for choosing ' . env('APP_NAME') . ' as your Pont of Sale (POS) solution. It is great to see you make the best strategic move to revolutionize and effectively manage your sales in real time Like A Pro. Big Up!')
