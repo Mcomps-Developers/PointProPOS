@@ -81,8 +81,8 @@
                             </a>
                         </li>
                         <li>
-                            <a class="header-user" href="user-setting.html"><img
-                                    src="{{ asset('cst/img/user.png') }}" alt="img"></a>
+                            <a class="header-user" href="user-setting.html"><img src="{{ asset('cst/img/user.png') }}"
+                                    alt="img"></a>
                         </li>
                     </ul>
                 </div>
@@ -97,7 +97,8 @@
     <div class="footer-area">
         <div class="text-center footer-top" style="background-image: url(cst/img/bg/7.png);">
             <div class="container">
-                <p>© {{ config('app.name') }} {{ date('Y') }}. All Rights Reserved. Designed By S7template</p>
+                <p>© {{ config('app.name') }} {{ date('Y') }}. All Rights Reserved. Powered by <a
+                        href="https://mcomps.africa">Mcomps</a></p>
             </div>
         </div>
         <div class="container">
