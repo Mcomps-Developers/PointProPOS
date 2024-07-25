@@ -328,43 +328,6 @@
 </div>
 <!-- transaction End -->
 
-<!-- send-money start -->
-<div class="send-money-area pd-top-36 pd-bottom-40 mg-top-40" style="background-image: url(cst/img/bg/5.png);">
-    <div class="container">
-        <div class="section-title style-two">
-            <h3 class="title">Send Money</h3>
-            <a href="#">View All</a>
-        </div>
-    </div>
-    <div class="send-money-slider owl-carousel">
-        <div class="item">
-            <div class="single-send-money">
-                <img src="cst/img/send-money/1.png" alt="img">
-                <p>Alex Smith</p>
-            </div>
-        </div>
-        <div class="item">
-            <div class="single-send-money">
-                <img src="cst/img/send-money/2.png" alt="img">
-                <p>Mariano </p>
-            </div>
-        </div>
-        <div class="item">
-            <div class="single-send-money">
-                <img src="cst/img/send-money/3.png" alt="img">
-                <p>Karitika</p>
-            </div>
-        </div>
-        <div class="item">
-            <div class="single-send-money">
-                <img src="cst/img/send-money/4.png" alt="img">
-                <p>Jhone</p>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- send-money End -->
-
 <!-- bill-pay start -->
 <div class="bill-pay-area pd-top-36">
     <div class="container">
@@ -422,37 +385,4 @@
     </div>
 </div>
 <!-- bill-pay End -->
-
-<!-- blog-area start -->
-<div class="pb-2 blog-area pd-top-36 mg-top-40" style="background-image: url(cst/img/bg/6.png);">
-    <div class="container">
-        <div class="section-title">
-            <h3 class="title">Recent Posts</h3>
-            <a href="#">View All</a>
-        </div>
-        <div class="blog-slider owl-carousel">
-            <div class="item">
-                <div class="single-blog">
-                    <div class="thumb">
-                        <img src="cst/img/blog/1.png" alt="img">
-                    </div>
-                    <div class="details">
-                        <a href="blog-details.html">How to save your money in own business firm.</a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="single-blog">
-                    <div class="thumb">
-                        <img src="cst/img/blog/2.png" alt="img">
-                    </div>
-                    <div class="details">
-                        <a href="blog-details.html">How to save your money in own business firm.</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- blog-area End -->
 </div>
