@@ -14,11 +14,12 @@ class CstNotifications extends Component
 
         $unreadNotifications = $user->unreadNotifications;
         $allNotifications = $user->notifications;
-        return view('livewire.cst.cst-notifications', ['allNotifications'=>$allNotifications,'unreadNotifications' => $unreadNotifications])->layout('layouts.app');
+        return view('livewire.cst.cst-notifications', ['allNotifications' => $allNotifications, 'unreadNotifications' => $unreadNotifications])->layout('layouts.app');
     }
     public function markNotificationAsRead($notificationId)
     {
         auth()->user()->notifications()->where('id', $notificationId)->update(['read_at' => now()]);
+        notyf()->position('x', 'right')->success('Marked as read');
     }
     public function markAllNotificationsAsRead()
     {
