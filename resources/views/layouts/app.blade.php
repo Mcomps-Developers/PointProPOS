@@ -53,42 +53,7 @@
     <!-- auto notification end -->
 
     <!-- header start -->
-    <div class="header-area" style="background-image: url({{ @asset('cst/img/bg/1.png') }});">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4 col-3">
-                    <div class="menu-bar">
-                        <i class="fa fa-bars"></i>
-                    </div>
-                </div>
-                <div class="text-center col-sm-4 col-4">
-                    <a href="{{ route('cst.dashboard') }}" class="logo">
-                        <h3 class="text-white">PointPro</h3>
-                    </a>
-                </div>
-                <div class="text-right col-sm-4 col-5">
-                    <ul class="header-right">
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-envelope"></i>
-                                <span class="badge">9</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="notification.html">
-                                <i class="fa fa-bell animated infinite swing"></i>
-                                <span class="badge">6</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="header-user" href="user-setting.html"><img src="{{ asset('cst/img/user.png') }}"
-                                    alt="img"></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+    @livewire('cst.cst-header')
     <!-- header end -->
 
     {{ $slot }}
