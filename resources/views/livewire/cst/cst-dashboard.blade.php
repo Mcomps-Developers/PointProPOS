@@ -288,20 +288,23 @@
                     @php
                         $schedule = \App\Models\PaymentSchedule::findOrFail($item->api_ref);
                     @endphp
-                    <div class="details">
-                        <h5 style="text-transform: uppercase">INV-{{ $schedule->invoice->reference }}-PP -
-                            {{ date('d M Y', strtotime($schedule->date_due)) }}</h5>
-                        @if ($item->state === 'COMPLETE')
-                            <p>Successful at {{ date('d M Y h:iA', strtotime($item->created_at)) }}</p>
-                        @else
-                            <p class="text-danger">Failed at {{ date('d M Y h:iA', strtotime($item->created_at)) }}
-                                <br>
-                                <small class="text-danger">{{ $item->failed_reason }}</small>
-                            </p>
-                        @endif
+                    <a href="{{ route('transaction.details', ['tracking_id' => $item->tracking_id]) }}">
+                        <div class="details">
+                            <h5 style="text-transform: uppercase">INV-{{ $schedule->invoice->reference }}-PP -
+                                {{ date('d M Y', strtotime($schedule->date_due)) }}</h5>
+                            @if ($item->state === 'COMPLETE')
+                                <p>Successful at {{ date('d M Y h:iA', strtotime($item->created_at)) }}</p>
+                            @else
+                                <p class="text-danger">Failed at
+                                    {{ date('d M Y h:iA', strtotime($item->created_at)) }}
+                                    <br>
+                                    <small class="text-danger">{{ $item->failed_reason }}</small>
+                                </p>
+                            @endif
 
-                        <h5 class="amount">- KES {{ $schedule->amount_paid }}</h5>
-                    </div>
+                            <h5 class="amount">- KES {{ $schedule->amount_paid }}</h5>
+                        </div>
+                    </a>
                 </li>
             @endforeach
         </ul>

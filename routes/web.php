@@ -10,6 +10,7 @@ use App\Livewire\Admin\AllClients;
 use App\Livewire\Admin\Industries;
 use App\Livewire\Cst\CstDashboard;
 use App\Livewire\Cst\CstNotifications;
+use App\Livewire\Cst\TransactionDetails;
 use App\Livewire\Man\AddProduct;
 use App\Livewire\Man\Categories;
 use App\Livewire\Man\Customers;
@@ -58,7 +59,8 @@ Route::get('/dashboard', function () {
 // Customer
 Route::prefix('/account')->middleware(['auth', 'verified', AuthCst::class])->group(function () {
     Route::get('/dashboard', CstDashboard::class)->name('cst.dashboard');
-    Route::get('/notifications',CstNotifications::class)->name('cst.notifications');
+    Route::get('/notifications', CstNotifications::class)->name('cst.notifications');
+    Route::get('/transaction/{tracking_id}/details', TransactionDetails::class)->name('transaction.details');
 });
 
 
