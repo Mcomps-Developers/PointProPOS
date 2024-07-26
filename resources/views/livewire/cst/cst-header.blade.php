@@ -20,7 +20,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="notification.html">
+                        <a href="{{ route('cst.notifications') }}">
                             <i class="fa fa-bell animated infinite swing"></i>
                             <span class="badge">{{ $unreadNotifications->count() }}</span>
                         </a>
