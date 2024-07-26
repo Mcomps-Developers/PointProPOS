@@ -31,7 +31,7 @@
                                 class="fa fa-long-arrow-left"></i>{{ \Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}
                         </h5>
 
-                        @if ($notification->read)
+                        @if ($notification->data['read_at'])
                             <a class="btn btn-gray" href="#">Read</a>
                         @else
                             <a class="btn btn-blue" href="javascript:void(0);"
