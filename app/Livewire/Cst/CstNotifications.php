@@ -19,7 +19,7 @@ class CstNotifications extends Component
     public function markNotificationAsRead($notificationId)
     {
         auth()->user()->notifications()->where('id', $notificationId)->update(['read_at' => now()]);
-        notyf()->position('x', 'right')->success('Marked as read');
+        notyf()->position('x', 'right')->position('y', 'top')->success('Marked as read');
     }
     public function markAllNotificationsAsRead()
     {
