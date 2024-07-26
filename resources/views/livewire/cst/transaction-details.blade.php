@@ -41,7 +41,7 @@
                         @if ($transaction->state === 'COMPLETE')
                             <i class="fa fa-check-circle"></i>
                         @else
-                            <i class="fa fa-times"></i>
+                            <i class="fa fa-times text-danger"></i>
                         @endif
 
                     </span>
