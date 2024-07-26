@@ -27,25 +27,19 @@
                         </div>
                     </div>
                     <div class="amount-inner">
-                        <h5><i class="fa fa-long-arrow-left"></i>$169</h5>
-                        <a class="btn btn-blue" href="javascript:void(0);"
-                            wire:click="markNotificationAsRead('{{ $notification->id }}')">Read</a>
+                        <h5><i
+                                class="fa fa-long-arrow-left"></i>{{ \Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}
+                        </h5>
+
+                        @if ($notification->read)
+                            <a class="btn btn-gray" href="#">Read</a>
+                        @else
+                            <a class="btn btn-blue" href="javascript:void(0);"
+                                wire:click="markNotificationAsRead('{{ $notification->id }}')">Mark as Read</a>
+                        @endif
                     </div>
                 </div>
             @endforeach
-
-            <div class="ba-bill-pay-inner">
-                <div class="ba-single-bill-pay">
-                    <div class="details">
-                        <h5>Apple.com</h5>
-                        <p>Apple Laptop Monthly Pay System.</p>
-                    </div>
-                </div>
-                <div class="amount-inner">
-                    <h5><i class="fa fa-long-arrow-right"></i>$130</h5>
-                    <a class="btn btn-gray" href="#">Read</a>
-                </div>
-            </div>
         </div>
     </div>
 </div>
