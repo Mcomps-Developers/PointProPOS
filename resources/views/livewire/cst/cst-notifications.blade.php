@@ -28,7 +28,7 @@
                     </div>
                     <div class="amount-inner">
                         <h5><i
-                                class="fa fa-long-arrow-left"></i>{{ \Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}
+                                class="fa fa-long-arrow-right"></i>{{ \Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}
                         </h5>
 
                         @if ($notification->read_at)
