@@ -18,18 +18,22 @@
                 <a class="mb-1 mr-2 btn btn-red" href="#">Message 0</a>
                 <a class="mb-1 ml-2 btn btn-purple" href="#">Notification {{ $unreadNotifications->count() }}</a>
             </div>
-            <div class="ba-bill-pay-inner">
-                <div class="ba-single-bill-pay">
-                    <div class="details">
-                        <h5>Recived Money By Aron Fince</h5>
-                        <p>You have received a payment from Aorn Fice.</p>
+            @foreach ($allNotifications as $notification)
+                <div class="ba-bill-pay-inner">
+                    <div class="ba-single-bill-pay">
+                        <div class="details">
+                            <h5>{{ $notification->data['title'] }}</h5>
+                            <p>{{ $notification->data['message'] }}</p>
+                        </div>
+                    </div>
+                    <div class="amount-inner">
+                        <h5><i class="fa fa-long-arrow-left"></i>$169</h5>
+                        <a class="btn btn-blue" href="javascript:void(0);"
+                            wire:click="markNotificationAsRead('{{ $notification->id }}')">Read</a>
                     </div>
                 </div>
-                <div class="amount-inner">
-                    <h5><i class="fa fa-long-arrow-left"></i>$169</h5>
-                    <a class="btn btn-blue" href="#">Read</a>
-                </div>
-            </div>
+            @endforeach
+
             <div class="ba-bill-pay-inner">
                 <div class="ba-single-bill-pay">
                     <div class="details">

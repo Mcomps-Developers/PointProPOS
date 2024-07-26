@@ -25,7 +25,7 @@
 
     <ul class="nav user-menu">
 
-        <li class="nav-item nav-searchinputs">
+        {{-- <li class="nav-item nav-searchinputs">
             <div class="top-nav-search">
                 <a href="javascript:void(0);" class="responsive-search">
                     <i class="fa fa-search"></i>
@@ -57,7 +57,7 @@
                             <h6><span><i data-feather="user" class="feather-16"></i></span>Customers</h6>
                             <ul class="customers">
                                 <li>
-                                    <a href="javascript:void(0);">Aron Varu<img
+                                    <a href="javascript:void(0);">{{ Auth::user()->name }}<img
                                             src="{{ Auth::user()->profile_photo_url }}" alt class="img-fluid"></a>
                                 </li>
                                 <li>
@@ -75,7 +75,7 @@
                     </div>
                 </form>
             </div>
-        </li>
+        </li> --}}
 
         @if (Auth::user()->utype === 'man')
             {{-- <li class="nav-item dropdown has-arrow main-drop select-store-dropdown">
