@@ -2,39 +2,7 @@
     @section('title')
         My Account
     @endsection
-    <div class="ba-navbar">
-        <div class="ba-navbar-user">
-            <div class="menu-close">
-                <i class="la la-times"></i>
-            </div>
-            <div class="thumb">
-                <img src="{{ asset('cst/img/user.png') }}" alt="user">
-            </div>
-            <div class="details">
-                <h5>Raduronto kelax</h5>
-                <p>ID: 99883323</p>
-            </div>
-        </div>
-        <div class="ba-add-balance-title">
-            <h5>Add Balance</h5>
-            <p>$458786.00</p>
-        </div>
-        <div class="ba-add-balance-title style-two">
-            <h5>Deposit</h5>
-            <i class="fa fa-plus"></i>
-        </div>
-        <div class="ba-main-menu">
-            <h5>Menu</h5>
-            <ul>
-                <li><a href="{{ route('cst.dashboard') }}">Bankapp Display</a></li>
-                <li><a href="all-page.html">Transactions</a></li>
-                <li><a href="component.html">Credits</a></li>
-                <li><a href="notiFication-2.html">Notifications</a></li>
-                <li><a href="signup.html">Logout</a></li>
-            </ul>
-            <a class="btn btn-purple" href="#">View Profile</a>
-        </div>
-    </div>
+    
     <!-- navbar end -->
 
     <!-- navbar end -->
