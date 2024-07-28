@@ -31,7 +31,7 @@
                             </div>
                         </li>
                     @else
-                        <li class="ba-single-transactionstyle-two">
+                        <li class="ba-single-transaction style-two">
                             <div class="details">
                                 <h5>INV-{{ $schedule->invoice->reference }}-PP</h5>
                                 <p>{{ date('d M Y', strtotime($schedule->date_due)) }}</p>
