@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\Repayment;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\AuthAdmin;
 use App\Http\Middleware\AuthCst;
 use App\Http\Middleware\AuthManager;
@@ -126,3 +127,6 @@ Route::controller(GoogleController::class)->group(function () {
 Route::middleware(['auth:sanctum', config('jetstream.auth_session')])->group(function () {
     Route::post('/repayment/callback', [Repayment::class, 'saveTransaction'])->name('save.transaction');
 });
+
+
+Route::post('/store-device-token', [UserController::class, 'storeDeviceToken']);

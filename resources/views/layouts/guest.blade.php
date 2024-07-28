@@ -9,14 +9,14 @@
     <meta name="robots" content="noindex, nofollow">
     <title>@yield('title') | {{ config('app.name', 'PointPro') }}</title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/img/favicon.png')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/favicon.png') }}">
 
-    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
 
-    <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/fontawesome.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/all.min.css') }}">
 
-    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     @livewireStyles
 </head>
 
@@ -25,7 +25,7 @@
         <div class="whirly-loader"> </div>
     </div>
 
-    {{$slot}}
+    {{ $slot }}
 
     <div class="customizer-links" id="setdata">
         <ul class="sticky-sidebar">
@@ -38,14 +38,34 @@
         </ul>
     </div>
 
-    <script src="{{asset('assets/js/jquery-3.7.1.min.js')}}"></script>
+    <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
 
-    <script src="{{asset('assets/js/feather.min.js')}}"></script>
+    <script src="{{ asset('assets/js/feather.min.js') }}"></script>
 
-    <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 
-    <script src="{{asset('assets/js/theme-script.js')}}"></script>
-    <script src="{{asset('assets/js/script.js')}}"></script>
+    <script src="{{ asset('assets/js/theme-script.js') }}"></script>
+    <script src="{{ asset('assets/js/script.js') }}"></script>
+    <script>
+        const subscribe = async () => {
+            try {
+                const serviceWorkerRegistration = await navigator.serviceWorker.register('/service-worker.js');
+                const subscription = await serviceWorkerRegistration.pushManager.subscribe({
+                    userVisibleOnly: true,
+                    applicationServerKey: env(VAPID_PUBLIC_KEY) // get from step 3
+                });
+
+                //store device subscription token to User's Table Column name "device_token"
+                axios.post('/store-device-token', {
+                    device_token: subscription.toJSON()
+                })
+
+            } catch (error) {
+                console.error('Error subscribing to push notifications:', error);
+                alert('Error subscribing to push notifications. Please try again.');
+            }
+        };
+    </script>
     @livewireScripts
 </body>
 
