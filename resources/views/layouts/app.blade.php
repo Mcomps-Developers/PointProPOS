@@ -52,10 +52,6 @@
     </div> --}}
     <!-- auto notification end -->
 
-    <!-- header start -->
-    @livewire('cst.cst-header')
-    <!-- header end -->
-
     {{ $slot }}
 
     <!-- Footer Area -->
