@@ -72,16 +72,16 @@
                     <div class="ba-single-bill-pay">
                         <div class="details">
                             <h5>{{ date('d M Y', strtotime($item->date_due)) }}</h5>
-                            <p>
+                            <p class="badge badge-success">
                                 @if ($item->payment_date)
                                     Paid: {{ date('d M Y', strtotime($item->payment_date)) }}
                                 @endif
                             </p>
                             <p style="text-transform: capitalize">
                                 @if ($item->status === 'paid')
-                                    <span class="badge badge-linesuccess">Paid</span>
+                                    <span class="badge badge-success">Paid</span>
                                 @else
-                                    <span class="badge badge-linedanger">Not Paid</span>
+                                    <span class="badge badge-danger">Not Paid</span>
                                     @php
                                         $dueDate = \Carbon\Carbon::parse($item->date_due);
                                         $today = \Carbon\Carbon::today();
@@ -89,9 +89,9 @@
                                     @endphp
 
                                     @if ($dueDate->lessThan($today))
-                                        <span class="badge badge-warning">Overdue</span>
+                                        <span class="badge badge-danger">Overdue</span>
                                     @elseif ($dueDate->equalTo($today))
-                                        <span class="badge badge-info">Due Today</span>
+                                        <span class="badge badge-warning">Due Today</span>
                                     @elseif ($dueDate->equalTo($tomorrow))
                                         <span class="badge badge-primary">Due Tomorrow</span>
                                     @elseif ($dueDate->greaterThanOrEqualTo($tomorrow))
