@@ -56,7 +56,7 @@
                         <h5 class="amount">KES {{ number_format(Auth::user()->wallet->balance, 2) }}</h5>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -137,23 +137,23 @@
 <div class="history-area pd-top-40">
     <div class="container">
         <div class="section-title">
-            <h3 class="title">History</h3>
+            <h3 class="title">My Summary</h3>
             <a href="#">View All</a>
         </div>
         <div class="ba-history-inner">
             <div class="row custom-gutters-20">
                 <div class="col-6">
-                    <div class="ba-single-history ba-single-history-one"
+                    <div class="ba-single-history ba-single-history-four"
                         style="background-image: url(cst/img/bg/3.png);">
                         <h6>Save</h6>
-                        <h5>KES {{ $invoices->where('type', 'pay_later')->sum('amount') }}</h5>
+                        <h5>KES {{ $invoices->where('type', 'collect_later')->sum('amount') }}</h5>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="ba-single-history ba-single-history-two"
                         style="background-image: url(cst/img/bg/3.png);">
                         <h6>Credit</h6>
-                        <h5>KES {{ $invoices->where('type', 'collect_later')->sum('amount') }}</h5>
+                        <h5>KES {{ $invoices->where('type', 'pay_later')->sum('amount') }}</h5>
                     </div>
                 </div>
                 <div class="col-6">
@@ -164,7 +164,7 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="ba-single-history ba-single-history-four"
+                    <div class="ba-single-history ba-single-history-three"
                         style="background-image: url(cst/img/bg/3.png);">
                         <h6>Due</h6>
                         <h5>KES {{ $invoices->sum('amount') - $paidAmount }}</h5>
