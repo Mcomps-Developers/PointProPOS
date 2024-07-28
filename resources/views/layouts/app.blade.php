@@ -70,7 +70,6 @@
 
         .footer-area {
             background-color: #f1f1f1;
-            margin-top: 12px;
         }
 
         .footer-bottom {
@@ -120,6 +119,7 @@
             flex: 1;
         }
     </style>
+    <hr>
     <div class="footer-area">
         <div class="container">
             <div class="text-center footer-bottom">
