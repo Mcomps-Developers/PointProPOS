@@ -12,7 +12,7 @@
             </div>
             <div class="balance-area-bg bg-transaction-details">
                 <div class="text-center balance-title">
-                    <h6>INV-{{ $invoice->reference }}-PP</h6>
+                    <h6 style="text-transform: uppercase">INV-{{ $invoice->reference }}-PP</h6>
                 </div>
                 <div class="text-center ba-balance-inner"
                     style="background-image: url({{ @asset('cst/img/bg/2.png') }});">
@@ -21,7 +21,8 @@
                     </div>
                     <h5 class="title">Amount Due</h5>
                     <h5 class="amount">KES
-                        {{ number_format($invoice->amount - $invoice->repayments()->sum('amount_paid'), 2) }}</h5>
+                        {{ number_format($invoice->amount - $invoice->repayments()->sum('amount_paid')) }}/{{ number_format($invoice->amount, 2) }}
+                    </h5>
                 </div>
             </div>
         </div>
