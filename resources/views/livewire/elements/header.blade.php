@@ -25,12 +25,12 @@
 
     <ul class="nav user-menu">
 
-        {{-- <li class="nav-item nav-searchinputs">
+        <li class="nav-item nav-searchinputs">
             <div class="top-nav-search">
                 <a href="javascript:void(0);" class="responsive-search">
                     <i class="fa fa-search"></i>
                 </a>
-                <form action="#" class="dropdown">
+                {{-- <form action="#" class="dropdown">
                     <div class="searchinputs dropdown-toggle" id="dropdownMenuClickable" data-bs-toggle="dropdown"
                         data-bs-auto-close="false">
                         <input type="text" placeholder="Search">
@@ -73,23 +73,23 @@
                             </ul>
                         </div>
                     </div>
-                </form>
+                </form> --}}
             </div>
-        </li> --}}
+        </li>
 
         @if (Auth::user()->utype === 'man')
-            {{-- <li class="nav-item dropdown has-arrow main-drop select-store-dropdown">
+            <li class="nav-item dropdown has-arrow main-drop select-store-dropdown">
                 <a href="javascript:void(0);" class="dropdown-toggle nav-link select-store" data-bs-toggle="dropdown">
                     <span class="user-info">
                         <span class="user-letter">
                             <img src="{{ asset('assets/img/store/store-01.png') }}" alt="Store Logo" class="img-fluid">
                         </span>
                         <span class="user-detail">
-                            <span class="user-name">Select Store</span>
+                            <span class="user-name">Main Store</span>
                         </span>
                     </span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right">
+                {{-- <div class="dropdown-menu dropdown-menu-right">
                     <a href="javascript:void(0);" class="dropdown-item">
                         <img src="{{ asset('assets/img/store/store-01.png') }}" alt="Store Logo" class="img-fluid">
                         Grocery Alpha
@@ -106,11 +106,11 @@
                         <img src="{{ asset('assets/img/store/store-04.png') }}" alt="Store Logo" class="img-fluid">
                         Grocery Eden
                     </a>
-                </div>
-            </li> --}}
+                </div> --}}
+            </li>
         @endif
 
-        {{-- <li class="nav-item dropdown has-arrow flag-nav nav-item-box">
+        <li class="nav-item dropdown has-arrow flag-nav nav-item-box">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="javascript:void(0);" role="button">
                 <img src="{{ asset('assets/img/flags/us.png') }}" alt="Language" class="img-fluid">
             </a>
@@ -118,7 +118,7 @@
                 <a href="javascript:void(0);" class="dropdown-item active">
                     <img src="{{ asset('assets/img/flags/us.png') }}" alt height="16"> English
                 </a>
-                <a href="javascript:void(0);" class="dropdown-item">
+                {{-- <a href="javascript:void(0);" class="dropdown-item">
                     <img src="{{ asset('assets/img/flags/fr.png') }}" alt height="16"> French
                 </a>
                 <a href="javascript:void(0);" class="dropdown-item">
@@ -126,21 +126,21 @@
                 </a>
                 <a href="javascript:void(0);" class="dropdown-item">
                     <img src="{{ asset('assets/img/flags/de.png') }}" alt height="16"> German
-                </a>
+                </a> --}}
             </div>
-        </li> --}}
+        </li>
 
         <li class="nav-item nav-item-box">
             <a href="javascript:void(0);" id="btnFullscreen">
                 <i data-feather="maximize"></i>
             </a>
         </li>
-        {{-- <li class="nav-item nav-item-box">
+        <li class="nav-item nav-item-box">
             <a href="javascript:void(0);">
                 <i data-feather="mail"></i>
                 <span class="badge rounded-pill">0</span>
             </a>
-        </li> --}}
+        </li>
 
         <li class="nav-item dropdown nav-item-box">
             <a href="javascript:void(0);" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
