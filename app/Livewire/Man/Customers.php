@@ -4,6 +4,7 @@ namespace App\Livewire\Man;
 
 use App\Models\Company;
 use App\Models\User;
+use App\Models\UserWallet;
 use App\Notifications\NewCustomerNotification;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -55,6 +56,10 @@ class Customers extends Component
             $user->utype = 'cst';
             $user->password = Hash::make($this->userPassword);
             $user->save();
+
+            $userWallet = new UserWallet();
+            $userWallet->user_id = $user->id;
+            $userWallet->save();
             $user->notify(new NewCustomerNotification($user, $company, $this->userPassword));
             notyf()->position('y', 'top')->success('Customer person created successfully!');
             return redirect()->to(request()->header('referer'));
