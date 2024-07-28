@@ -27,7 +27,7 @@
                     </li>
                     <li>
                         <a class="header-user" href="javascript:void(0);"><img
-                                src="{{ Auth::user()->profile_photo_url }}"></a>
+                                src="{{ Auth::user()->profile_photo_url }}" style="transform: scale(0.5)"></a>
                     </li>
                 </ul>
             </div>
