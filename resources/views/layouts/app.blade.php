@@ -70,18 +70,22 @@
 
         .footer-area {
             background-color: #f1f1f1;
+            /* Adjust as needed */
         }
 
         .footer-top {
             padding: 20px 0;
             color: #5d5b63;
+            /* Adjust text color */
             background-color: #333;
+            /* Adjust background color */
             color: #fff;
         }
 
         .footer-bottom {
             padding: 5px 0;
-            background-color: #5777ea;
+            background-color: #444;
+            /* Adjust background color */
             color: #fff;
         }
 
@@ -102,12 +106,14 @@
 
         .footer-bottom ul li i {
             font-size: 24px;
+            /* Adjust icon size */
             margin-bottom: 5px;
         }
 
         .footer-bottom ul li p {
             margin: 0;
             font-size: 14px;
+            /* Adjust text size */
         }
 
         .container {
@@ -122,27 +128,6 @@
 
         .main-content {
             flex: 1;
-        }
-
-        @media (max-width: 768px) {
-            .footer-bottom ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .footer-bottom ul li {
-                margin-bottom: 10px;
-            }
-
-            .footer-bottom ul li i {
-                font-size: 20px;
-                /* Adjust icon size for smaller screens */
-            }
-
-            .footer-bottom ul li p {
-                font-size: 12px;
-                /* Adjust text size for smaller screens */
-            }
         }
     </style>
     <div class="footer-area">
