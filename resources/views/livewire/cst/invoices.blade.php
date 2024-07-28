@@ -1,4 +1,7 @@
 <div>
+    @section('title')
+        Invoices
+    @endsection
     <div class="goal-area pd-top-36">
         <div class="container">
             <div class="section-title">
