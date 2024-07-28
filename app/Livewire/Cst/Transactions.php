@@ -12,7 +12,7 @@ class Transactions extends Component
     use WithPagination;
     public function render()
     {
-        $transactions = Repayment::where('user_id', Auth::id())->paginate(12);
+        $transactions = Repayment::orderByDesc('created_at')->where('user_id', Auth::id())->paginate(12);
         return view('livewire.cst.transactions', ['transactions' => $transactions])->layout('layouts.app');
     }
 }
