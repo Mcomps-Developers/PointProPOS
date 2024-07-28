@@ -113,17 +113,27 @@
                             <div class="pl-0 col-5">
                                 @if ($item->type === 'pay_later')
                                     <div class="circle-inner circle-inner-three">
-                                    @else
-                                        <div class="circle-inner circle-inner-one">
-                                @endif
-                                <h6 class="goal-amount">KES {{ $item->amount }}</h6>
-                                <div class="chart-circle"
-                                    data-value="{{ ($item->repayments->sum('amount_paid') / $item->amount) * 1000 }}">
-                                    <canvas width="52" height="52"></canvas>
-                                    <div class="text-center chart-circle-value">
-                                        {{ number_format(($item->repayments->sum('amount_paid') / $item->amount) * 100) }}%
+                                        <h6 class="goal-amount">KES {{ $item->amount }}</h6>
+                                        <div class="chart-circle"
+                                            data-value="{{ ($item->repayments->sum('amount_paid') / $item->amount) * 1000 }}">
+                                            <canvas width="52" height="52"></canvas>
+                                            <div class="text-center chart-circle-value">
+                                                {{ number_format(($item->repayments->sum('amount_paid') / $item->amount) * 100) }}%
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                @else
+                                    <div class="circle-inner circle-inner-one">
+                                        <h6 class="goal-amount">KES {{ $item->amount }}</h6>
+                                        <div class="chart-circle"
+                                            data-value="{{ ($item->repayments->sum('amount_paid') / $item->amount) * 1000 }}">
+                                            <canvas width="52" height="52"></canvas>
+                                            <div class="text-center chart-circle-value">
+                                                {{ number_format(($item->repayments->sum('amount_paid') / $item->amount) * 100) }}%
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -147,17 +157,27 @@
                             <div class="pl-0 col-5">
                                 @if ($item->type === 'pay_later')
                                     <div class="circle-inner circle-inner-three">
-                                    @else
-                                        <div class="circle-inner circle-inner-one">
-                                @endif
-                                <h6 class="goal-amount">KES {{ $item->amount }}</h6>
-                                <div class="chart-circle"
-                                    data-value="{{ ($item->repayments->sum('amount_paid') / $item->amount) * 1000 }}">
-                                    <canvas width="52" height="52"></canvas>
-                                    <div class="text-center chart-circle-value">
-                                        {{ number_format(($item->repayments->sum('amount_paid') / $item->amount) * 100) }}%
+                                        <h6 class="goal-amount">KES {{ $item->amount }}</h6>
+                                        <div class="chart-circle"
+                                            data-value="{{ ($item->repayments->sum('amount_paid') / $item->amount) * 1000 }}">
+                                            <canvas width="52" height="52"></canvas>
+                                            <div class="text-center chart-circle-value">
+                                                {{ number_format(($item->repayments->sum('amount_paid') / $item->amount) * 100) }}%
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                @else
+                                    <div class="circle-inner circle-inner-one">
+                                        <h6 class="goal-amount">KES {{ $item->amount }}</h6>
+                                        <div class="chart-circle"
+                                            data-value="{{ ($item->repayments->sum('amount_paid') / $item->amount) * 1000 }}">
+                                            <canvas width="52" height="52"></canvas>
+                                            <div class="text-center chart-circle-value">
+                                                {{ number_format(($item->repayments->sum('amount_paid') / $item->amount) * 100) }}%
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
