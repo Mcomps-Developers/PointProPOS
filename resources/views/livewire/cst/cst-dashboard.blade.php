@@ -1,6 +1,6 @@
 <div>
     @section('title')
-        My Account
+        Account
     @endsection
 
     <!-- navbar end -->
