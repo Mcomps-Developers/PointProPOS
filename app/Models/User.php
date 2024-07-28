@@ -66,4 +66,8 @@ class User extends Authenticatable implements MustVerifyEmail
             'password' => 'hashed',
         ];
     }
+
+    public function wallet(){
+        return $this->hasOne(UserWallet::class,'user_id');
+    }
 }
