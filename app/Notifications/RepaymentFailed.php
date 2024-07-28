@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use NotificationChannels\WebPush\WebPushMessage;
 
 class RepaymentFailed extends Notification
 {
@@ -30,7 +31,7 @@ class RepaymentFailed extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail', 'database'];
+        return ['mail', 'database','webpush'];
     }
 
     /**
@@ -49,7 +50,12 @@ class RepaymentFailed extends Notification
             ->action('Dashboard', url('/'))
             ->line('Thank you for using our application!');
     }
-
+    public function toWebPush(object $notifiable)
+    {
+        return (new WebPushMessage)
+            ->title('Payment Failed')
+            ->body('Your payment of KES ' . $this->transaction->value . ' to ' . $this->company->name . ' failed because ' . $this->transaction->failed_reason);
+    }
     /**
      * Get the array representation of the notification.
      *

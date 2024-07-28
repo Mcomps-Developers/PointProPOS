@@ -7,6 +7,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use NotificationChannels\WebPush\WebPushMessage;
 
 class NewCompanyNotification extends Notification
 {
@@ -31,7 +32,7 @@ class NewCompanyNotification extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail', 'database'];
+        return ['mail', 'database', 'webpush'];
     }
 
     /**
@@ -63,7 +64,12 @@ class NewCompanyNotification extends Notification
             ->action('Dashboard', url('/dashboard'))
             ->line('Thank you for choosing ' . env('APP_NAME'));
     }
-
+    public function toWebPush(object $notifiable)
+    {
+        return (new WebPushMessage)
+            ->title('Welcome')
+            ->body('Congratulations. Your business got registered.');
+    }
     /**
      * Get the array representation of the notification.
      *

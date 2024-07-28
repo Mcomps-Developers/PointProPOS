@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use NotificationChannels\WebPush\WebPushMessage;
 
 class newCredit extends Notification
 {
@@ -32,7 +33,7 @@ class newCredit extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail', 'database'];
+        return ['mail', 'database', 'webpush'];
     }
 
     /**
@@ -73,7 +74,12 @@ class newCredit extends Notification
             ->action('Dashboard', url('/dashboard'))
             ->line('If this was an error, do not hesitate to contact ' . $this->company->name . ' via +' . $this->company->phone . '. If not satisfied with their response, report the issue to pointpro@mcomps.africa');
     }
-
+    public function toWebPush(object $notifiable)
+    {
+        return (new WebPushMessage)
+            ->title('Congratulations')
+            ->body('Congratulations ' . $this->user->name . ' from ' . $this->company->name . '. Your credit has been processed with Invoice No.# INV-' . $this->invoice->reference . '-PP. Credit status is set to: ' . $this->invoice->status);
+    }
     /**
      * Get the array representation of the notification.
      *
