@@ -74,19 +74,17 @@
         }
 
         .footer-top {
-            padding: 20px 0;
+            padding: 30px 0;
             color: #5d5b63;
-            /* Adjust text color */
             background-color: #333;
-            /* Adjust background color */
             color: #fff;
         }
 
         .footer-bottom {
             padding: 5px 0;
-            background-color: #444;
+            background-color: whitesmoke;
             /* Adjust background color */
-            color: #fff;
+            color: gray;
         }
 
         .footer-bottom ul {
