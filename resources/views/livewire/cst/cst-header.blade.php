@@ -33,4 +33,29 @@
             </div>
         </div>
     </div>
+    <div class="ba-navbar">
+        <div class="ba-navbar-user">
+            <div class="menu-close">
+                <i class="la la-times"></i>
+            </div>
+            <div class="thumb">
+                <img src="{{ asset('cst/img/user.png') }}" alt="user">
+            </div>
+            <div class="details">
+                <h5>{{ Auth::user()->name }}</h5>
+                <p>Email: {{ Auth::user()->email }}</p>
+                <p>Tel: {{ Auth::user()->phone_number }}</p>
+            </div>
+        </div>
+        <div class="ba-main-menu">
+            <h5>Menu</h5>
+            <ul>
+                <li><a href="{{ route('cst.dashboard') }}">Home</a></li>
+                <li><a href="javascript:void(0);">Transactions</a></li>
+                <li><a href="javascript:void(0);">Credits</a></li>
+                <li><a href="javascript:void(0);">Notifications</a></li>
+                <li><a href="javascript:void(0);">Logout</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
