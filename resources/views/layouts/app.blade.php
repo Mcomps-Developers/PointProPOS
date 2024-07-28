@@ -68,7 +68,7 @@
                         href="https://mcomps.africa">Mcomps</a></p>
             </div>
         </div>
-        <div class="container" style="transform: scale(2)">
+        <div class="container" style="transform: scale(1)">
             <div class="text-center footer-bottom">
                 <ul>
 
