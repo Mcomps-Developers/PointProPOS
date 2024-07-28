@@ -67,7 +67,7 @@ Route::prefix('/account')->middleware(['auth', 'verified', AuthCst::class])->gro
     Route::get('/transaction/{tracking_id}/details', TransactionDetails::class)->name('transaction.details');
     Route::get('/transactions', Transactions::class)->name('cst.transactions');
     Route::get('/invoices', CstInvoices::class)->name('cst.invoices');
-    Route::get('/invoice/page=?{reference}', CstInvoiceDetails::class)->name('cst.invoice.details');
+    Route::get('/invoice/{reference}/details', CstInvoiceDetails::class)->name('cst.invoice.details');
 });
 
 

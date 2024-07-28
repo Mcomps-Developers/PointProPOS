@@ -99,10 +99,10 @@
                         <div class="single-goal single-goal-one">
                 @endif
                 <div class="row">
-                    <a href="{{ route('cst.invoice.details', ['reference' => $item->reference]) }}">
+                    
                         <div class="pr-0 col-7">
                             <div class="details">
-                                <h6 style="text-transform: uppercase">INV-{{ $item->reference }}-PP</h6>
+                                <h6 style="text-transform: uppercase"><a href="{{ route('cst.invoice.details', ['reference' => $item->reference]) }}">INV-{{ $item->reference }}-PP</a></h6>
                                 <p>
                                     @if ($item->type === 'pay_later')
                                         Credit | {{ $item->company->name }}
@@ -127,7 +127,7 @@
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    
                 </div>
             @endforeach
         </div>
