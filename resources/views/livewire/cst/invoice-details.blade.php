@@ -34,12 +34,13 @@
         <div class="container">
             <ul class="transaction-details-inner">
                 <li class="transaction-details-title">
-                    <span class="float-left">Current Status: <span>{{ $invoice->status }}</span></span>
+                    <span class="float-left">Current Status: <span
+                            style="text-transform: capitalize">{{ $invoice->status }}</span></span>
                     <span class="float-right">
                         @if ($invoice->status === 'complete')
                             <i class="fa fa-check-circle"></i>
                         @elseif ($invoice->status === 'progress')
-                            <i class="fas fa-spinner fa-spin text-primary"></i>
+                            <i class="text-white fas fa-spinner fa-spin"></i>
                         @elseif ($invoice->status === 'defaulted')
                             <i class="fas fa-exclamation-triangle text-warning"></i>
                         @elseif ($invoice->status === 'cancelled')
