@@ -143,10 +143,14 @@
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);">
+                        <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit()">
                             <i class="fa fa-lock"></i>
                             <p>Logout</p>
                         </a>
+                        <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                            @csrf
+                        </form>
                     </li>
                 </ul>
             </div>
