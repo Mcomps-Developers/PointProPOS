@@ -118,7 +118,8 @@
                                 <div class="circle-inner circle-inner-one">
                         @endif
                         <h6 class="goal-amount">KES {{ $item->amount }}</h6>
-                        <div class="chart-circle" data-value="0.30">
+                        <div class="chart-circle"
+                            data-value="{{ ($item->repayments->sum('amount_paid') / $item->amount) * 1000 }}">
                             <canvas width="52" height="52"></canvas>
                             <div class="text-center chart-circle-value">
                                 {{ number_format(($item->repayments->sum('amount_paid') / $item->amount) * 100) }}%
