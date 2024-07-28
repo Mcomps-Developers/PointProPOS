@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin;
 
 use App\Models\Company;
+use App\Models\CompanyWallet;
 use App\Models\Industry;
 use App\Models\User;
 use App\Notifications\NewCompanyNotification;
@@ -118,7 +119,10 @@ class AllClients extends Component
             $company->reference = $this->reference;
             $company->renewal_date = Carbon::now()->addMonthNoOverflow();
             $company->save();
-            $this->reset();
+
+            $wallet = new CompanyWallet();
+            $wallet->company_id = $company->id;
+            $wallet->save();
             $user->notify(new NewCompanyNotification($user, $company, $this->userPassword));
             notyf()->position('y', 'top')->success('Client created');
             return redirect()->to(request()->header('referer'));
