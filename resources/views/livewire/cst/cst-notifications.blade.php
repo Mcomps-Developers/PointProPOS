@@ -18,8 +18,8 @@
                 <a href="#"><i class="fa fa-bell"></i></a>
             </div>
             <div class="mb-2 text-center btn-wrap-area">
-                <a class="mb-1 mr-2 btn btn-red" href="#">Message 0</a>
-                <a class="mb-1 ml-2 btn btn-purple" href="#">Notification {{ $unreadNotifications->count() }}</a>
+                <a class="mb-1 mr-2 btn btn-red" href="#">Unread {{ $unreadNotifications->count() }}</a>
+                <a class="mb-1 ml-2 btn btn-purple" href="#">All {{ $allNotifications->count() }}</a>
             </div>
             @foreach ($allNotifications as $notification)
                 <div class="ba-bill-pay-inner">
