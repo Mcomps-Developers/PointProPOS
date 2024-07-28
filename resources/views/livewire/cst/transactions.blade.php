@@ -17,7 +17,7 @@
                         $schedule = \App\Models\PaymentSchedule::findOrFail($item->api_ref);
                     @endphp
                     @if ($item->state === 'COMPLETE')
-                        <li class="ba-single-transaction bg-success">
+                        <li class="ba-single-transaction style-three">
                             <div class="details">
                                 <h5>INV-{{ $schedule->invoice->reference }}-PP</h5>
                                 <p>Installment: {{ date('d M Y', strtotime($schedule->date_due)) }} |
@@ -31,7 +31,7 @@
                             </div>
                         </li>
                     @else
-                        <li class="ba-single-transaction bg-danger">
+                        <li class="ba-single-transactionstyle-two">
                             <div class="details">
                                 <h5>INV-{{ $schedule->invoice->reference }}-PP</h5>
                                 <p>{{ date('d M Y', strtotime($schedule->date_due)) }}</p>
