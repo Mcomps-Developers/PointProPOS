@@ -142,28 +142,28 @@
                 <div class="row custom-gutters-20">
                     <div class="col-6">
                         <div class="ba-single-history ba-single-history-four"
-                            style="background-image: url(cst/img/bg/3.png);">
+                            style="background-image: url({{ @asset('cst/img/bg/3.png') }});">
                             <h6>Save</h6>
                             <h5>KES {{ $invoices->where('type', 'collect_later')->sum('amount') }}</h5>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="ba-single-history ba-single-history-two"
-                            style="background-image: url(cst/img/bg/3.png);">
+                            style="background-image: url({{ @asset('cst/img/bg/3.png') }});">
                             <h6>Credit</h6>
                             <h5>KES {{ $invoices->where('type', 'pay_later')->sum('amount') }}</h5>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="ba-single-history ba-single-history-three"
-                            style="background-image: url(cst/img/bg/3.png);">
+                            style="background-image: url({{ @asset('cst/img/bg/3.png') }});">
                             <h6>Repayments</h6>
                             <h5>KES {{ $paidAmount }}</h5>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="ba-single-history ba-single-history-three"
-                            style="background-image: url(cst/img/bg/3.png);">
+                            style="background-image: url({{ @asset('cst/img/bg/3.png') }});">
                             <h6>Due</h6>
                             <h5>KES {{ $invoices->sum('amount') - $paidAmount }}</h5>
                         </div>
