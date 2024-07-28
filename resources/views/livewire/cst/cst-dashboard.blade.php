@@ -44,7 +44,10 @@
         <div class="container">
             <div class="balance-area-bg balance-area-bg-home">
                 <div class="text-center balance-title">
-                    <h6>Hello {{ Auth::user()->name }}!</h6>
+                    <h6>Hello {{ Auth::user()->name }}!
+                        <br>
+                        Welcome to {{ config('app.name') }}
+                    </h6>
                 </div>
                 <div class="text-center ba-balance-inner" style="background-image: url(cst/img/bg/2.png);">
                     <div class="icon">
