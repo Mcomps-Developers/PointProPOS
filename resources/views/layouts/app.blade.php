@@ -70,7 +70,7 @@
 
         .footer-area {
             background-color: #f1f1f1;
-            /* Adjust as needed */
+            margin-top: 12px;
         }
 
         .footer-bottom {
