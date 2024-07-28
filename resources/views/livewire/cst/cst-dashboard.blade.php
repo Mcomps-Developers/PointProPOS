@@ -48,14 +48,15 @@
                         <br>
                         Welcome to {{ config('app.name') }}
                     </h6>
-                </div>
-                <div class="text-center ba-balance-inner" style="background-image: url(cst/img/bg/2.png);">
-                    <div class="icon">
-                        <img src="{{ asset('cst/img/icon/1.png') }}" alt="img">
+                    <div class="text-center ba-balance-inner" style="background-image: url(cst/img/bg/2.png);">
+                        <div class="icon">
+                            <img src="{{ asset('cst/img/icon/1.png') }}" alt="img">
+                        </div>
+                        <h5 class="title">Wallet</h5>
+                        <h5 class="amount">KES {{ number_format(Auth::user()->wallet->balance, 2) }}</h5>
                     </div>
-                    <h5 class="title">Wallet</h5>
-                    <h5 class="amount">KES {{ number_format(Auth::user()->wallet->balance, 2) }}</h5>
                 </div>
+                
             </div>
         </div>
     </div>
