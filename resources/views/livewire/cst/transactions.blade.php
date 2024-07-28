@@ -14,7 +14,7 @@
             <ul class="transaction-inner">
                 @foreach ($transactions as $item)
                 @php
-                    $schedule = \App\Models\PaymentSchedule::findOrFail($transaction->api_ref);
+                    $schedule = \App\Models\PaymentSchedule::findOrFail($item->api_ref);
                 @endphp
                     <li class="ba-single-transaction style-two">
                         <div class="details">
