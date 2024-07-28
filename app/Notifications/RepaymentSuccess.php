@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use NotificationChannels\WebPush\WebPushChannel;
 use NotificationChannels\WebPush\WebPushMessage;
 
 class RepaymentSuccess extends Notification
@@ -35,7 +36,7 @@ class RepaymentSuccess extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail', 'database', 'webpush'];
+        return ['mail', 'database', WebPushChannel::class];
     }
 
     /**
