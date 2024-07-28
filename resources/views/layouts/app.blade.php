@@ -61,12 +61,6 @@
     {{ $slot }}
 
     <!-- Footer Area -->
-    <div class="text-center footer-top" style="background-image: url(cst/img/bg/7.png);">
-        <div class="container">
-            <p>© {{ config('app.name') }} {{ date('Y') }}. All Rights Reserved. Powered by <a
-                    href="https://mcomps.africa">Mcomps</a></p>
-        </div>
-    </div>
     <div class="footer-area">
         <div class="container" style="transform: scale(1)">
             <div class="text-center footer-bottom">
