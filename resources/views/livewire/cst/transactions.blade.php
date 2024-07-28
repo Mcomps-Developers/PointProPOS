@@ -8,38 +8,23 @@
     <div class="transaction-area pd-top-36">
         <div class="container">
             <div class="section-title">
-                <h3 class="title">Recently Transactios</h3>
+                <h3 class="title">Recent Transactions</h3>
                 <a href="#"><i class="fa fa-bell"></i></a>
             </div>
             <ul class="transaction-inner">
-                <li class="ba-single-transaction style-two">
-                    <div class="details">
-                        <h5>Namecheap Inc.</h5>
-                        <p>Domain Purchase</p>
-                        <h5 class="amount">-$130</h5>
-                    </div>
-                </li>
-                <li class="ba-single-transaction style-two">
-                    <div class="details">
-                        <h5>Namecheap Inc.</h5>
-                        <p>Domain Purchase</p>
-                        <h5 class="amount">-$160</h5>
-                    </div>
-                </li>
-                <li class="ba-single-transaction style-two">
-                    <div class="details">
-                        <h5>Namecheap Inc.</h5>
-                        <p>Domain Purchase</p>
-                        <h5 class="amount">-$890</h5>
-                    </div>
-                </li>
-                <li class="ba-single-transaction style-two">
-                    <div class="details">
-                        <h5>Namecheap Inc.</h5>
-                        <p>Domain Purchase</p>
-                        <h5 class="amount">-$1,000</h5>
-                    </div>
-                </li>
+                @foreach ($transactions as $item)
+                @php
+                    $schedule = \App\Models\PaymentSchedule::findOrFail($transaction->api_ref);
+                @endphp
+                    <li class="ba-single-transaction style-two">
+                        <div class="details">
+                            <h5>INV-{{ $schedule->invoice->reference }}-PP</h5>
+                            <p>{{ date('d M Y', strtotime($schedule->date_due)) }}</p>
+                            <h5 class="amount">KES {{ number_format($item->value, 2) }}</h5>
+                        </div>
+                    </li>
+                @endforeach
+
             </ul>
         </div>
     </div>
