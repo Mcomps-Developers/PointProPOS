@@ -6,14 +6,17 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use NotificationChannels\WebPush\WebPushMessage;
 
 class RepaymentSuccess extends Notification
 {
     use Queueable;
+
     public $user;
     public $repayment;
     public $transaction;
     public $company;
+
     /**
      * Create a new notification instance.
      */
@@ -32,7 +35,7 @@ class RepaymentSuccess extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail', 'database'];
+        return ['mail', 'database', 'webpush'];
     }
 
     /**
@@ -41,7 +44,7 @@ class RepaymentSuccess extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-        ->success()
+            ->success()
             ->priority(1)
             ->level('success')
             ->subject('Payment Successful')
@@ -53,6 +56,16 @@ class RepaymentSuccess extends Notification
     }
 
     /**
+     * Get the web push representation of the notification.
+     */
+    public function toWebPush(object $notifiable)
+    {
+        return (new WebPushMessage)
+            ->title('Payment Successful')
+            ->body('Payment of ' . $this->transaction->value . ' for ' . date('d M Y', strtotime($this->repayment->date_due)) . ' successful');
+    }
+
+    /**
      * Get the array representation of the notification.
      *
      * @return array<string, mixed>
@@ -61,7 +74,7 @@ class RepaymentSuccess extends Notification
     {
         return [
             'title' => 'Payment for ' . date('d M Y', strtotime($this->repayment->date_due)) . ' successful',
-            'message' => 'Amount KES' . $this->transaction->value,
+            'message' => 'Amount KES ' . $this->transaction->value,
             'identity' => 'payment_successful'
         ];
     }
