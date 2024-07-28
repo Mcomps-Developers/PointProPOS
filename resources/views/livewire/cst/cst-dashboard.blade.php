@@ -44,13 +44,13 @@
         <div class="container">
             <div class="balance-area-bg balance-area-bg-home">
                 <div class="text-center balance-title">
-                    <h6>Hello <br> {{ Auth::user()->name }}!</h6>
+                    <h6>Hello {{ Auth::user()->name }}!</h6>
                 </div>
                 <div class="text-center ba-balance-inner" style="background-image: url(cst/img/bg/2.png);">
                     <div class="icon">
                         <img src="{{ asset('cst/img/icon/1.png') }}" alt="img">
                     </div>
-                    <h5 class="title">Total Balance</h5>
+                    <h5 class="title">Wallet</h5>
                     <h5 class="amount">KES {{ number_format(Auth::user()->wallet->balance, 2) }}</h5>
                 </div>
             </div>
@@ -85,7 +85,7 @@
     <div class="goal-area pd-top-36">
         <div class="container">
             <div class="section-title">
-                <h3 class="title">Credit Purchases</h3>
+                <h3 class="title">Credit</h3>
                 <a href="#">View All</a>
             </div>
             @foreach ($invoices as $item)
@@ -125,64 +125,6 @@
         </div>
     </div>
     @endforeach
-
-    {{-- <div class="single-goal single-goal-two">
-        <div class="row">
-            <div class="pr-0 col-7">
-                <div class="details">
-                    <h6>App Store</h6>
-                    <p>Technology</p>
-                </div>
-            </div>
-            <div class="pl-0 col-5">
-                <div class="circle-inner circle-inner-two">
-                    <h6 class="goal-amount">$1065</h6>
-                    <div class="chart-circle" data-value="0.90">
-                        <canvas width="52" height="52"></canvas>
-                        <div class="text-center chart-circle-value">90%</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="single-goal single-goal-three">
-        <div class="row">
-            <div class="pr-0 col-7">
-                <div class="details">
-                    <h6>Gaming Software</h6>
-                    <p>Development</p>
-                </div>
-            </div>
-            <div class="pl-0 col-5">
-                <div class="circle-inner circle-inner-three">
-                    <h6 class="goal-amount">$580</h6>
-                    <div class="chart-circle" data-value="0.60">
-                        <canvas width="52" height="52"></canvas>
-                        <div class="text-center chart-circle-value">60%</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="single-goal single-goal-four">
-        <div class="row">
-            <div class="pr-0 col-7">
-                <div class="details">
-                    <h6>Racing Car</h6>
-                    <p>Playing</p>
-                </div>
-            </div>
-            <div class="pl-0 col-5">
-                <div class="circle-inner circle-inner-four">
-                    <h6 class="goal-amount">$980</h6>
-                    <div class="chart-circle" data-value="0.60">
-                        <canvas width="52" height="52"></canvas>
-                        <div class="text-center chart-circle-value">60%</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
 </div>
 </div>
 <!-- goal area End -->
