@@ -128,7 +128,7 @@
             flex: 1;
         }
     </style>
-    <div class="footer-area" style="margin-top: 12px">
+    <div class="footer-area" style="margin-top: 24px">
         <div class="container">
             <div class="text-center footer-bottom">
                 <ul>
