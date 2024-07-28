@@ -55,14 +55,92 @@
                     <span class="float-right">{{ date('d M Y', strtotime($invoice->created_at)) }}</span>
                 </li>
                 <li>
-                    <span class="float-left">First Repayment</span>
+                    <span class="float-left">Paid</span>
                     <span class="float-right"
-                        style="text-transform: uppercase">{{ date('d M Y', strtotime($invoice->firt_repayment_date)) }}</span>
+                        style="text-transform: uppercase">{{ number_format($invoice->repayments()->sum('amount_paid'), 2) }}</span>
                 </li>
             </ul>
         </div>
     </div>
-    <!-- transaction End -->
+    <div class="bill-pay-area pd-top-36">
+        <div class="container">
+            <div class="text-center section-title style-three">
+                <h3 class="title">Pay Your Monthly Bill</h3>
+            </div>
+            <div class="ba-bill-pay-inner">
+                <div class="ba-single-bill-pay">
+                    <div class="thumb">
+                        <img src="cst/img/icon/6.png" alt="img">
+                    </div>
+                    <div class="details">
+                        <h5>Envato.com</h5>
+                        <p>Standard Elements Services Subscribtion</p>
+                    </div>
+                </div>
+                <div class="amount-inner">
+                    <h5>$169</h5>
+                    <a class="btn btn-blue" href="#">Pay Now</a>
+                </div>
+            </div>
+            <div class="ba-bill-pay-inner">
+                <div class="ba-single-bill-pay">
+                    <div class="thumb">
+                        <img src="cst/img/icon/3.png" alt="img">
+                    </div>
+                    <div class="details">
+                        <h5>Apple.com</h5>
+                        <p>Apple Laptop Monthly Pay System.</p>
+                    </div>
+                </div>
+                <div class="amount-inner">
+                    <h5>$130</h5>
+                    <a class="btn btn-blue" href="#">Pay Now</a>
+                </div>
+            </div>
+            <div class="ba-bill-pay-inner">
+                <div class="ba-single-bill-pay">
+                    <div class="thumb">
+                        <img src="cst/img/icon/4.png" alt="img">
+                    </div>
+                    <div class="details">
+                        <h5>Amazon.com</h5>
+                        <p>Standard Domain Services Subscribtion</p>
+                    </div>
+                </div>
+                <div class="amount-inner">
+                    <h5>$130</h5>
+                    <a class="btn btn-blue" href="#">Pay Now</a>
+                </div>
+            </div>
+            <div class="mt-4 text-center btn-wrap">
+                <a class="readmore-btn" href="#">View All</a>
+            </div>
+        </div>
+    </div>
+    <div class="bill-pay-area pd-top-36">
+        <div class="container">
+            <div class="text-center section-title style-three">
+                <h3 class="title">Products</h3>
+            </div>
+            @foreach ($products as $item)
+            <div class="ba-bill-pay-inner">
+                <div class="ba-single-bill-pay">
+                    <div class="thumb">
+                        <img src="{{ asset('assets/img/products') }}/{{ $item->product->image }}">
+                    </div>
+                    <div class="details">
+                        <h5>{{ $item->product->name }}</h5>
+                        <p style="text-transform: uppercase">SKU: {{ $item->product->sku }} | Qty: {{ $item->qty }}</p>
+                    </div>
+                </div>
+                <div class="amount-inner">
+                    <h5>KES {{ number_format($item->amount, 2) }}</h5>
+                    <a class="btn btn-blue" href="javascript:void(0);">KES {{ number_format($item->qty * $item->amount, 2) }}</a>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
 
     <div class="text-center btn-wrap mg-top-40">
         <div class="container">
