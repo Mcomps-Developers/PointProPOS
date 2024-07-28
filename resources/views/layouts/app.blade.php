@@ -68,7 +68,7 @@
                         href="https://mcomps.africa">Mcomps</a></p>
             </div>
         </div>
-        <div class="container">
+        <div class="container" style="transform: scale(2)">
             <div class="text-center footer-bottom">
                 <ul>
 
@@ -88,12 +88,6 @@
                         <a href="{{ route('cst.transactions') }}">
                             <i class="fa fa-file-invoice"></i>
                             <p>Transactions</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);">
-                            <i class="fa fa-user"></i>
-                            <p>Account</p>
                         </a>
                     </li>
                     <li>
