@@ -39,7 +39,7 @@
                 <i class="la la-times"></i>
             </div>
             <div class="thumb">
-                <img src="{{ asset('cst/img/user.png') }}" alt="user">
+                <img src="{{ Auth::user()->profile_photo_url }}" alt="user">
             </div>
             <div class="details">
                 <h5>{{ Auth::user()->name }}</h5>
