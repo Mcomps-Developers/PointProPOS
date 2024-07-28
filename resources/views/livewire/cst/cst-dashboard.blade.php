@@ -27,11 +27,9 @@
             <h5>Menu</h5>
             <ul>
                 <li><a href="{{ route('cst.dashboard') }}">Bankapp Display</a></li>
-                <li><a href="all-page.html">Pages</a></li>
-                <li><a href="component.html">Components</a></li>
-                <li><a href="carts.html">My Cart</a></li>
-                <li><a href="user-setting.html">Setting</a></li>
-                <li><a href="notiFication-2.html">Notification</a></li>
+                <li><a href="all-page.html">Transactions</a></li>
+                <li><a href="component.html">Credits</a></li>
+                <li><a href="notiFication-2.html">Notifications</a></li>
                 <li><a href="signup.html">Logout</a></li>
             </ul>
             <a class="btn btn-purple" href="#">View Profile</a>
@@ -51,23 +49,12 @@
                         <div class="action-sheet-content">
                             <form>
                                 <div class="form-group basic">
-                                    <div class="input-wrapper">
-                                        <label class="label" for="account1">From</label>
-                                        <select class="form-control custom-select" id="account1">
-                                            <option value="0">Investment (*** 7284)</option>
-                                            <option value="1">Savings (*** 5078)</option>
-                                            <option value="2">Deposit (*** 2349)</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group basic">
                                     <label class="label">Enter Amount</label>
                                     <div class="mb-3 input-group">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text" id="input1">$</span>
+                                            <span class="input-group-text" id="input1">KES </span>
                                         </div>
-                                        <input type="text" class="form-control form-control-lg" value="768">
+                                        <input type="text" class="form-control form-control-lg" placeholder="10">
                                     </div>
                                 </div>
 
