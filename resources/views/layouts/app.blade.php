@@ -61,11 +61,85 @@
     {{ $slot }}
 
     <!-- Footer Area -->
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        .footer-area {
+            background-color: #f1f1f1;
+            /* Adjust as needed */
+        }
+
+        .footer-top {
+            padding: 20px 0;
+            color: #333;
+            /* Adjust text color */
+            background-color: #333;
+            /* Adjust background color */
+            color: #fff;
+        }
+
+        .footer-bottom {
+            padding: 10px 0;
+            background-color: #444;
+            /* Adjust background color */
+            color: #fff;
+        }
+
+        .footer-bottom ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-bottom ul li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-bottom ul li i {
+            font-size: 24px;
+            /* Adjust icon size */
+            margin-bottom: 5px;
+        }
+
+        .footer-bottom ul li p {
+            margin: 0;
+            font-size: 14px;
+            /* Adjust text size */
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .main-content {
+            flex: 1;
+        }
+    </style>
     <div class="footer-area">
-        <div class="container" style="transform: scale(1)">
+        <div class="text-center footer-top" style="background-image: url(cst/img/bg/7.png);">
+            <div class="container">
+                <p>© {{ config('app.name') }} {{ date('Y') }}. All Rights Reserved. Powered by <a
+                        href="https://mcomps.africa">Mcomps</a></p>
+            </div>
+        </div>
+        <div class="container">
             <div class="text-center footer-bottom">
                 <ul>
-
                     <li>
                         <a href="{{ route('cst.dashboard') }}">
                             <i class="fa fa-home"></i>
