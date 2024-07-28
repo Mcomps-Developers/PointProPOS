@@ -2,7 +2,7 @@
     @section('title')
         My Account
     @endsection
-    
+
     <!-- navbar end -->
 
     <!-- navbar end -->
@@ -44,14 +44,14 @@
         <div class="container">
             <div class="balance-area-bg balance-area-bg-home">
                 <div class="text-center balance-title">
-                    <h6>Welcome! <br> {{ Auth::user()->name }} - {{ config('app.name') }}</h6>
+                    <h6>Hello <br> {{ Auth::user()->name }}!</h6>
                 </div>
                 <div class="text-center ba-balance-inner" style="background-image: url(cst/img/bg/2.png);">
                     <div class="icon">
                         <img src="{{ asset('cst/img/icon/1.png') }}" alt="img">
                     </div>
                     <h5 class="title">Total Balance</h5>
-                    <h5 class="amount">$56,985.00</h5>
+                    <h5 class="amount">KES {{ number_format(Auth::user()->wallet->balance, 2) }}</h5>
                 </div>
             </div>
         </div>
