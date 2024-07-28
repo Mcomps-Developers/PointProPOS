@@ -99,33 +99,35 @@
                         <div class="single-goal single-goal-one">
                 @endif
                 <div class="row">
-                    <div class="pr-0 col-7">
-                        <div class="details">
-                            <h6 style="text-transform: uppercase">INV-{{ $item->reference }}-PP</h6>
-                            <p>
-                                @if ($item->type === 'pay_later')
-                                    Credit | {{ $item->company->name }}
-                                @else
-                                    Saving | {{ $item->company->name }}
-                                @endif
-                            </p>
-                        </div>
-                    </div>
-                    <div class="pl-0 col-5">
-                        @if ($item->type === 'pay_later')
-                            <div class="circle-inner circle-inner-three">
-                            @else
-                                <div class="circle-inner circle-inner-one">
-                        @endif
-                        <h6 class="goal-amount">KES {{ $item->amount }}</h6>
-                        <div class="chart-circle"
-                            data-value="{{ ($item->repayments->sum('amount_paid') / $item->amount) * 1000 }}">
-                            <canvas width="52" height="52"></canvas>
-                            <div class="text-center chart-circle-value">
-                                {{ number_format(($item->repayments->sum('amount_paid') / $item->amount) * 100) }}%
+                    <a href="{{ route('cst.invoice.details', ['reference' => $item->reference]) }}">
+                        <div class="pr-0 col-7">
+                            <div class="details">
+                                <h6 style="text-transform: uppercase">INV-{{ $item->reference }}-PP</h6>
+                                <p>
+                                    @if ($item->type === 'pay_later')
+                                        Credit | {{ $item->company->name }}
+                                    @else
+                                        Saving | {{ $item->company->name }}
+                                    @endif
+                                </p>
                             </div>
                         </div>
-                    </div>
+                        <div class="pl-0 col-5">
+                            @if ($item->type === 'pay_later')
+                                <div class="circle-inner circle-inner-three">
+                                @else
+                                    <div class="circle-inner circle-inner-one">
+                            @endif
+                            <h6 class="goal-amount">KES {{ $item->amount }}</h6>
+                            <div class="chart-circle"
+                                data-value="{{ ($item->repayments->sum('amount_paid') / $item->amount) * 1000 }}">
+                                <canvas width="52" height="52"></canvas>
+                                <div class="text-center chart-circle-value">
+                                    {{ number_format(($item->repayments->sum('amount_paid') / $item->amount) * 100) }}%
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             @endforeach
         </div>

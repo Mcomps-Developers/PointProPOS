@@ -11,6 +11,7 @@ use App\Livewire\Admin\AllClients;
 use App\Livewire\Admin\Industries;
 use App\Livewire\Cst\CstDashboard;
 use App\Livewire\Cst\CstNotifications;
+use App\Livewire\Cst\InvoiceDetails as CstInvoiceDetails;
 use App\Livewire\Cst\Invoices as CstInvoices;
 use App\Livewire\Cst\TransactionDetails;
 use App\Livewire\Cst\Transactions;
@@ -64,8 +65,9 @@ Route::prefix('/account')->middleware(['auth', 'verified', AuthCst::class])->gro
     Route::get('/dashboard', CstDashboard::class)->name('cst.dashboard');
     Route::get('/notifications', CstNotifications::class)->name('cst.notifications');
     Route::get('/transaction/{tracking_id}/details', TransactionDetails::class)->name('transaction.details');
-    Route::get('/transactions',Transactions::class)->name('cst.transactions');
-    Route::get('/invoices',CstInvoices::class)->name('cst.invoices');
+    Route::get('/transactions', Transactions::class)->name('cst.transactions');
+    Route::get('/invoices', CstInvoices::class)->name('cst.invoices');
+    Route::get('/invoice/page=?{reference}', CstInvoiceDetails::class)->name('cst.invoice.details');
 });
 
 
