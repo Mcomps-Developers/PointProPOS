@@ -17,7 +17,7 @@
                 <div class="text-center ba-balance-inner"
                     style="background-image: url({{ @asset('cst/img/bg/2.png') }});">
                     <div class="icon">
-                        <i class="fa fa-arrow-right"></i>
+                        <i class="fa fa-arrow-down"></i>
                     </div>
                     <h5 class="title">Amount Due</h5>
                     <h5 class="amount">KES
@@ -65,7 +65,7 @@
     <div class="bill-pay-area pd-top-36">
         <div class="container">
             <div class="text-center section-title style-three">
-                <h3 class="title">Installments</h3>
+                <h3 class="title">Payment Installments</h3>
             </div>
             @foreach ($schedules as $item)
                 <div class="ba-bill-pay-inner">
@@ -122,7 +122,7 @@
     <div class="bill-pay-area pd-top-36">
         <div class="container">
             <div class="text-center section-title style-three">
-                <h3 class="title">Products</h3>
+                <h3 class="title">Invoice Products</h3>
             </div>
             @foreach ($products as $item)
                 <div class="ba-bill-pay-inner">
@@ -136,7 +136,7 @@
                         </div>
                     </div>
                     <div class="amount-inner">
-                        <h5>KES {{ number_format($item->amount, 2) }}*{{ $item->qty }}</h5>
+                        <h5>KES {{ number_format($item->amount, 2) }} * {{ $item->qty }} (Qty)</h5>
                         <a class="btn btn-gray" href="javascript:void(0);">KES
                             {{ number_format($item->qty * $item->amount, 2) }}</a>
                     </div>
