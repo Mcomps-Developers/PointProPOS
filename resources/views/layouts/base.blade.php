@@ -79,6 +79,26 @@
 
     <script src="{{ asset('assets/plugins/theia-sticky-sidebar/ResizeSensor.js') }}"></script>
     <script src="{{ asset('assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js') }}"></script>
+    <script>
+        const subscribe = async () => {
+            try {
+                const serviceWorkerRegistration = await navigator.serviceWorker.register('/service-worker.js');
+                const subscription = await serviceWorkerRegistration.pushManager.subscribe({
+                    userVisibleOnly: true,
+                    applicationServerKey: env(VAPID_PUBLIC_KEY) // get from step 3
+                });
+
+                //store device subscription token to User's Table Column name "device_token"
+                axios.post('/store-device-token', {
+                    device_token: subscription.toJSON()
+                })
+
+            } catch (error) {
+                console.error('Error subscribing to push notifications:', error);
+                alert('Error subscribing to push notifications. Please try again.');
+            }
+        };
+    </script>
     @livewireScripts
 </body>
 
