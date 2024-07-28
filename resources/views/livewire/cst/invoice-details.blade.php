@@ -65,56 +65,58 @@
     <div class="bill-pay-area pd-top-36">
         <div class="container">
             <div class="text-center section-title style-three">
-                <h3 class="title">Pay Your Monthly Bill</h3>
+                <h3 class="title">Installments</h3>
             </div>
-            <div class="ba-bill-pay-inner">
-                <div class="ba-single-bill-pay">
-                    <div class="thumb">
-                        <img src="cst/img/icon/6.png" alt="img">
+            @foreach ($schedules as $item)
+                <div class="ba-bill-pay-inner">
+                    <div class="ba-single-bill-pay">
+                        <div class="details">
+                            <h5>{{ date('d M Y', strtotime($item->date_due)) }}</h5>
+                            <p>
+                                @if ($item->payment_date)
+                                    Paid: {{ date('d M Y', strtotime($item->payment_date)) }}
+                                @endif
+                            </p>
+                            <p style="text-transform: capitalize">
+                                @if ($item->status === 'paid')
+                                    <span class="badge badge-linesuccess">Paid</span>
+                                @else
+                                    <span class="badge badge-linedanger">Not Paid</span>
+                                    @php
+                                        $dueDate = \Carbon\Carbon::parse($item->date_due);
+                                        $today = \Carbon\Carbon::today();
+                                        $tomorrow = \Carbon\Carbon::tomorrow();
+                                    @endphp
+
+                                    @if ($dueDate->lessThan($today))
+                                        <span class="badge badge-warning">Overdue</span>
+                                    @elseif ($dueDate->equalTo($today))
+                                        <span class="badge badge-info">Due Today</span>
+                                    @elseif ($dueDate->equalTo($tomorrow))
+                                        <span class="badge badge-primary">Due Tomorrow</span>
+                                    @elseif ($dueDate->greaterThanOrEqualTo($tomorrow))
+                                        {{-- Do nothing or handle cases where due date is later than tomorrow --}}
+                                    @endif
+                                @endif
+                            </p>
+                        </div>
                     </div>
-                    <div class="details">
-                        <h5>Envato.com</h5>
-                        <p>Standard Elements Services Subscribtion</p>
+                    <div class="amount-inner">
+                        <h5 class="text-success">KES {{ number_format($item->amount_paid, 2) }}</h5>
+                        @if ($item->status === 'not_paid')
+                            <a class="btn btn-blue intaSendPayButton" href="javascript:void(0);"
+                                data-amount="{{ $item->amount - $item->amount_paid }}" data-currency="KES"
+                                data-email="{{ $item->invoice->customer->email }}"
+                                data-first_name="{{ $item->invoice->customer->name }}" data-last_name=""
+                                data-phone_number="{{ $item->invoice->customer->phone_number }}"
+                                data-api_ref="{{ $item->id }}" data-country="KE">Pay KES
+                                {{ number_format($item->amount - $item->amount_paid, 2) }}</a>
+                        @else
+                            <a class="btn btn-success" href="javascript:void(0);">Paid</a>
+                        @endif
                     </div>
                 </div>
-                <div class="amount-inner">
-                    <h5>$169</h5>
-                    <a class="btn btn-blue" href="#">Pay Now</a>
-                </div>
-            </div>
-            <div class="ba-bill-pay-inner">
-                <div class="ba-single-bill-pay">
-                    <div class="thumb">
-                        <img src="cst/img/icon/3.png" alt="img">
-                    </div>
-                    <div class="details">
-                        <h5>Apple.com</h5>
-                        <p>Apple Laptop Monthly Pay System.</p>
-                    </div>
-                </div>
-                <div class="amount-inner">
-                    <h5>$130</h5>
-                    <a class="btn btn-blue" href="#">Pay Now</a>
-                </div>
-            </div>
-            <div class="ba-bill-pay-inner">
-                <div class="ba-single-bill-pay">
-                    <div class="thumb">
-                        <img src="cst/img/icon/4.png" alt="img">
-                    </div>
-                    <div class="details">
-                        <h5>Amazon.com</h5>
-                        <p>Standard Domain Services Subscribtion</p>
-                    </div>
-                </div>
-                <div class="amount-inner">
-                    <h5>$130</h5>
-                    <a class="btn btn-blue" href="#">Pay Now</a>
-                </div>
-            </div>
-            <div class="mt-4 text-center btn-wrap">
-                <a class="readmore-btn" href="#">View All</a>
-            </div>
+            @endforeach
         </div>
     </div>
     <div class="bill-pay-area pd-top-36">
@@ -123,21 +125,23 @@
                 <h3 class="title">Products</h3>
             </div>
             @foreach ($products as $item)
-            <div class="ba-bill-pay-inner">
-                <div class="ba-single-bill-pay">
-                    <div class="thumb">
-                        <img src="{{ asset('assets/img/products') }}/{{ $item->product->image }}">
+                <div class="ba-bill-pay-inner">
+                    <div class="ba-single-bill-pay">
+                        <div class="thumb">
+                            <img src="{{ asset('assets/img/products') }}/{{ $item->product->image }}">
+                        </div>
+                        <div class="details">
+                            <h5>{{ $item->product->name }}</h5>
+                            <p style="text-transform: uppercase">SKU: {{ $item->product->sku }} | Qty:
+                                {{ $item->qty }}</p>
+                        </div>
                     </div>
-                    <div class="details">
-                        <h5>{{ $item->product->name }}</h5>
-                        <p style="text-transform: uppercase">SKU: {{ $item->product->sku }} | Qty: {{ $item->qty }}</p>
+                    <div class="amount-inner">
+                        <h5>KES {{ number_format($item->amount, 2) }}</h5>
+                        <a class="btn btn-blue" href="javascript:void(0);">KES
+                            {{ number_format($item->qty * $item->amount, 2) }}</a>
                     </div>
                 </div>
-                <div class="amount-inner">
-                    <h5>KES {{ number_format($item->amount, 2) }}</h5>
-                    <a class="btn btn-blue" href="javascript:void(0);">KES {{ number_format($item->qty * $item->amount, 2) }}</a>
-                </div>
-            </div>
             @endforeach
         </div>
     </div>
@@ -150,3 +154,68 @@
         </div>
     </div>
 </div>
+<script src="https://unpkg.com/intasend-inlinejs-sdk@3.0.4/build/intasend-inline.js"></script>
+<script>
+    new window.IntaSend({
+            publicAPIKey: '{{ env('INTASEND_PUB_KEY') }}',
+            live: true
+        })
+        .on("COMPLETE", (results) => {
+            // console.log("Success", results);
+            saveTransactionToController(results);
+        })
+        .on("FAILED", (results) => {
+            // console.log("Failed", results);
+            saveTransactionToController(results);
+        })
+        .on("RETRY", (results) => {
+            // console.log("Retry", results);
+            saveTransactionToController(results);
+        })
+        .on("IN-PROGRESS", (results) => console.log("Payment in progress status", results));
+
+    function saveTransactionToController(results) {
+        console.log('Results:', results); // Log the results
+
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        const url = '{{ env('REPAYMENT_CALL_BACK') }}';
+
+        console.log('Sending request to:', url); // Log the URL being requested
+
+        fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken
+                },
+                body: JSON.stringify({
+                    results: results
+                })
+            })
+            .then(response => {
+                console.log('Response received:', response); // Log the response received
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                // Check if the response body is empty
+                if (response.headers.get('Content-Length') === '0') {
+                    // Response body is empty, return an empty object
+                    return {};
+                }
+                // Log the response body
+                return response.text().then(text => {
+                    console.log('Response body:', text);
+                    return text ? JSON.parse(text) : {};
+                });
+            })
+            .then(data => {
+                console.log('Response data:', data); // Log the response data
+
+                // Reload the current page
+                window.location.reload();
+            })
+            .catch(error => console.error('Error saving transaction:', error));
+
+    }
+</script>
