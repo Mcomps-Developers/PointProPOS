@@ -102,7 +102,7 @@
                         </div>
                     </div>
                     <div class="amount-inner">
-                        <h5 class="text-success">KES {{ number_format($item->amount_paid, 2) }}</h5>
+                        <h5 class="text-success">Paid: KES {{ number_format($item->amount_paid, 2) }}</h5>
                         @if ($item->status === 'not_paid')
                             <a class="btn btn-blue intaSendPayButton" href="javascript:void(0);"
                                 data-amount="{{ $item->amount - $item->amount_paid }}" data-currency="KES"
