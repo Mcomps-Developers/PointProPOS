@@ -12,7 +12,6 @@
         <div class="container">
             <div class="section-title">
                 <h3 class="title">Transaction Details</h3>
-                <a class="sub-delete" href="#"><i class="fa fa-trash"></i></a>
             </div>
             <div class="balance-area-bg bg-transaction-details">
                 <div class="text-center balance-title">

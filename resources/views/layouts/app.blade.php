@@ -69,6 +69,19 @@
         <div class="container">
             <div class="text-center footer-bottom">
                 <ul>
+
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="fa fa-user"></i>
+                            <p>Account</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="fa fa-wallet"></i>
+                            <p>Credit</p>
+                        </a>
+                    </li>
                     <li>
                         <a href="{{ route('cst.dashboard') }}">
                             <i class="fa fa-home"></i>
@@ -76,27 +89,15 @@
                         </a>
                     </li>
                     <li>
-                        <a href="all-page.html">
-                            <i class="fa fa-file-text"></i>
-                            <p>Pages</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="component.html">
-                            <i class="fa fa-plus"></i>
-                            <p>Components</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="menu-bar" href="#">
+                        <a class="menu-bar" href="{{ route('cst.transactions') }}">
                             <i class="fa fa-bars"></i>
-                            <p>Menu</p>
+                            <p>Transactions</p>
                         </a>
                     </li>
                     <li>
-                        <a href="carts.html">
-                            <i class="fa fa-home"></i>
-                            <p>My Card</p>
+                        <a href="javascript:void(0);">
+                            <i class="fa fa-lock"></i>
+                            <p>Logout</p>
                         </a>
                     </li>
                 </ul>
