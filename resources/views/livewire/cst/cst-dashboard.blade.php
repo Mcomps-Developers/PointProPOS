@@ -104,9 +104,9 @@
                             <h6 style="text-transform: uppercase">INV-{{ $item->reference }}-PP</h6>
                             <p>
                                 @if ($item->type === 'pay_later')
-                                    Loan | {{ $item->company->name }}
+                                    Credit | {{ $item->company->name }}
                                 @else
-                                    Installement | {{ $item->company->name }}
+                                    Saving | {{ $item->company->name }}
                                 @endif
                             </p>
                         </div>
