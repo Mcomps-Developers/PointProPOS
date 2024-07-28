@@ -6,6 +6,7 @@ use App\Models\Company;
 use App\Models\CompanyWallet;
 use App\Models\Industry;
 use App\Models\User;
+use App\Models\UserWallet;
 use App\Notifications\NewCompanyNotification;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
@@ -89,7 +90,11 @@ class AllClients extends Component
             $user->email_verified_at = Carbon::now()->setTimezone('Africa/Nairobi');
             $user->password = Hash::make($this->userPassword);
             $user->save();
-            notyf()->position('y', 'top')->success('Contact person created');
+
+            $userWallet = new UserWallet();
+            $userWallet->user_id = $user->id;
+            $userWallet->save();
+            // notyf()->position('y', 'top')->success('Contact person created');
         } catch (\Illuminate\Database\QueryException $ex) {
             // Log the database exception
             Log::error('Database error: ' . $ex->getMessage() . ' in ' . $ex->getFile() . ' on line ' . $ex->getLine());
