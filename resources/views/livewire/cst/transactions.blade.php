@@ -18,17 +18,19 @@
                     @endphp
                     @if ($item->state === 'COMPLETE')
                         <li class="ba-single-transaction style-two">
-                            <div class="details">
-                                <h5>INV-{{ $schedule->invoice->reference }}-PP</h5>
-                                <p>Installment: {{ date('d M Y', strtotime($schedule->date_due)) }} |
-                                    @if ($item->state === 'COMPLETE')
-                                        <span class="text-success">Successful</span>
-                                    @else
-                                        <span class="text-danger">Failed</span>
-                                    @endif
-                                </p>
-                                <h5 class="amount">KES {{ number_format($item->value, 2) }}</h5>
-                            </div>
+                            <a href="{{ route('transaction.details', ['tracking_id' => $item->tracking_id]) }}">
+                                <div class="details">
+                                    <h5>INV-{{ $schedule->invoice->reference }}-PP</h5>
+                                    <p>Installment: {{ date('d M Y', strtotime($schedule->date_due)) }} |
+                                        @if ($item->state === 'COMPLETE')
+                                            <span class="text-success">Successful</span>
+                                        @else
+                                            <span class="text-danger">Failed</span>
+                                        @endif
+                                    </p>
+                                    <h5 class="amount">KES {{ number_format($item->value, 2) }}</h5>
+                                </div>
+                            </a>
                         </li>
                     @else
                         <li class="ba-single-transaction style-two">
