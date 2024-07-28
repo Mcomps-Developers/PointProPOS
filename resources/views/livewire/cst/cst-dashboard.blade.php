@@ -6,7 +6,7 @@
     <!-- navbar end -->
 
     <!-- navbar end -->
-    <div class="add-balance-inner-wrap">
+    {{-- <div class="add-balance-inner-wrap">
         <div class="container">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -36,7 +36,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- navbar end -->
 
     <!-- balance start -->
@@ -89,8 +89,8 @@
     <div class="goal-area pd-top-36">
         <div class="container">
             <div class="section-title">
-                <h3 class="title">Credit</h3>
-                <a href="#">View All</a>
+                <h3 class="title">Invoices</h3>
+                <a href="{{ route('cst.invoices') }}">View All</a>
             </div>
             @foreach ($invoices as $item)
                 @if ($item->type === 'pay_later')
@@ -126,148 +126,146 @@
                         </div>
                     </div>
                 </div>
-        </div>
-    </div>
-    @endforeach
-</div>
-</div>
-<!-- goal area End -->
-
-<!-- history start -->
-<div class="history-area pd-top-40">
-    <div class="container">
-        <div class="section-title">
-            <h3 class="title">My Summary</h3>
-            <a href="#">View All</a>
-        </div>
-        <div class="ba-history-inner">
-            <div class="row custom-gutters-20">
-                <div class="col-6">
-                    <div class="ba-single-history ba-single-history-four"
-                        style="background-image: url(cst/img/bg/3.png);">
-                        <h6>Save</h6>
-                        <h5>KES {{ $invoices->where('type', 'collect_later')->sum('amount') }}</h5>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="ba-single-history ba-single-history-two"
-                        style="background-image: url(cst/img/bg/3.png);">
-                        <h6>Credit</h6>
-                        <h5>KES {{ $invoices->where('type', 'pay_later')->sum('amount') }}</h5>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="ba-single-history ba-single-history-three"
-                        style="background-image: url(cst/img/bg/3.png);">
-                        <h6>Repayments</h6>
-                        <h5>KES {{ $paidAmount }}</h5>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="ba-single-history ba-single-history-three"
-                        style="background-image: url(cst/img/bg/3.png);">
-                        <h6>Due</h6>
-                        <h5>KES {{ $invoices->sum('amount') - $paidAmount }}</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- history End -->
-
-<!-- transaction start -->
-<div class="transaction-area pd-top-40">
-    <div class="container">
-        <div class="section-title">
-            <h3 class="title">Transactions</h3>
-            <a href="#">View All</a>
-        </div>
-        <ul class="transaction-inner">
-            @foreach ($repayments as $item)
-                <li class="ba-single-transaction">
-                    @php
-                        $schedule = \App\Models\PaymentSchedule::findOrFail($item->api_ref);
-                    @endphp
-                    <a href="{{ route('transaction.details', ['tracking_id' => $item->tracking_id]) }}">
-                        <div class="details">
-                            <h5 style="text-transform: uppercase">INV-{{ $schedule->invoice->reference }}-PP -
-                                {{ date('d M Y', strtotime($schedule->date_due)) }}</h5>
-                            @if ($item->state === 'COMPLETE')
-                                <p>Successful at {{ date('d M Y h:iA', strtotime($item->created_at)) }}</p>
-                            @else
-                                <p class="text-danger">Failed at
-                                    {{ date('d M Y h:iA', strtotime($item->created_at)) }}
-                                    <br>
-                                    <small class="text-danger">{{ $item->failed_reason }}</small>
-                                </p>
-                            @endif
-
-                            <h5 class="amount">- KES {{ $schedule->amount_paid }}</h5>
-                        </div>
-                    </a>
-                </li>
             @endforeach
-        </ul>
+        </div>
     </div>
-</div>
-<!-- transaction End -->
+    <!-- goal area End -->
 
-<!-- bill-pay start -->
-<div class="bill-pay-area pd-top-36">
-    <div class="container">
-        <div class="text-center section-title style-three">
-            <h3 class="title">Pay Your Monthly Bill</h3>
-        </div>
-        <div class="ba-bill-pay-inner">
-            <div class="ba-single-bill-pay">
-                <div class="thumb">
-                    <img src="cst/img/icon/6.png" alt="img">
-                </div>
-                <div class="details">
-                    <h5>Envato.com</h5>
-                    <p>Standard Elements Services Subscribtion</p>
-                </div>
+    <!-- history start -->
+    <div class="history-area pd-top-40">
+        <div class="container">
+            <div class="section-title">
+                <h3 class="title">My Summary</h3>
+                <a href="#">View All</a>
             </div>
-            <div class="amount-inner">
-                <h5>$169</h5>
-                <a class="btn btn-blue" href="#">Pay Now</a>
-            </div>
-        </div>
-        <div class="ba-bill-pay-inner">
-            <div class="ba-single-bill-pay">
-                <div class="thumb">
-                    <img src="cst/img/icon/3.png" alt="img">
-                </div>
-                <div class="details">
-                    <h5>Apple.com</h5>
-                    <p>Apple Laptop Monthly Pay System.</p>
-                </div>
-            </div>
-            <div class="amount-inner">
-                <h5>$130</h5>
-                <a class="btn btn-blue" href="#">Pay Now</a>
-            </div>
-        </div>
-        <div class="ba-bill-pay-inner">
-            <div class="ba-single-bill-pay">
-                <div class="thumb">
-                    <img src="cst/img/icon/4.png" alt="img">
-                </div>
-                <div class="details">
-                    <h5>Amazon.com</h5>
-                    <p>Standard Domain Services Subscribtion</p>
+            <div class="ba-history-inner">
+                <div class="row custom-gutters-20">
+                    <div class="col-6">
+                        <div class="ba-single-history ba-single-history-four"
+                            style="background-image: url(cst/img/bg/3.png);">
+                            <h6>Save</h6>
+                            <h5>KES {{ $invoices->where('type', 'collect_later')->sum('amount') }}</h5>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="ba-single-history ba-single-history-two"
+                            style="background-image: url(cst/img/bg/3.png);">
+                            <h6>Credit</h6>
+                            <h5>KES {{ $invoices->where('type', 'pay_later')->sum('amount') }}</h5>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="ba-single-history ba-single-history-three"
+                            style="background-image: url(cst/img/bg/3.png);">
+                            <h6>Repayments</h6>
+                            <h5>KES {{ $paidAmount }}</h5>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="ba-single-history ba-single-history-three"
+                            style="background-image: url(cst/img/bg/3.png);">
+                            <h6>Due</h6>
+                            <h5>KES {{ $invoices->sum('amount') - $paidAmount }}</h5>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="amount-inner">
-                <h5>$130</h5>
-                <a class="btn btn-blue" href="#">Pay Now</a>
-            </div>
-        </div>
-        <div class="mt-4 text-center btn-wrap">
-            <a class="readmore-btn" href="#">View All</a>
         </div>
     </div>
-</div>
-<!-- bill-pay End -->
+    <!-- history End -->
+
+    <!-- transaction start -->
+    <div class="transaction-area pd-top-40">
+        <div class="container">
+            <div class="section-title">
+                <h3 class="title">Transactions</h3>
+                <a href="#">View All</a>
+            </div>
+            <ul class="transaction-inner">
+                @foreach ($repayments as $item)
+                    <li class="ba-single-transaction">
+                        @php
+                            $schedule = \App\Models\PaymentSchedule::findOrFail($item->api_ref);
+                        @endphp
+                        <a href="{{ route('transaction.details', ['tracking_id' => $item->tracking_id]) }}">
+                            <div class="details">
+                                <h5 style="text-transform: uppercase">INV-{{ $schedule->invoice->reference }}-PP -
+                                    {{ date('d M Y', strtotime($schedule->date_due)) }}</h5>
+                                @if ($item->state === 'COMPLETE')
+                                    <p>Successful at {{ date('d M Y h:iA', strtotime($item->created_at)) }}</p>
+                                @else
+                                    <p class="text-danger">Failed at
+                                        {{ date('d M Y h:iA', strtotime($item->created_at)) }}
+                                        <br>
+                                        <small class="text-danger">{{ $item->failed_reason }}</small>
+                                    </p>
+                                @endif
+
+                                <h5 class="amount">- KES {{ $schedule->amount_paid }}</h5>
+                            </div>
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+    <!-- transaction End -->
+
+    <!-- bill-pay start -->
+    <div class="bill-pay-area pd-top-36">
+        <div class="container">
+            <div class="text-center section-title style-three">
+                <h3 class="title">Pay Your Monthly Bill</h3>
+            </div>
+            <div class="ba-bill-pay-inner">
+                <div class="ba-single-bill-pay">
+                    <div class="thumb">
+                        <img src="cst/img/icon/6.png" alt="img">
+                    </div>
+                    <div class="details">
+                        <h5>Envato.com</h5>
+                        <p>Standard Elements Services Subscribtion</p>
+                    </div>
+                </div>
+                <div class="amount-inner">
+                    <h5>$169</h5>
+                    <a class="btn btn-blue" href="#">Pay Now</a>
+                </div>
+            </div>
+            <div class="ba-bill-pay-inner">
+                <div class="ba-single-bill-pay">
+                    <div class="thumb">
+                        <img src="cst/img/icon/3.png" alt="img">
+                    </div>
+                    <div class="details">
+                        <h5>Apple.com</h5>
+                        <p>Apple Laptop Monthly Pay System.</p>
+                    </div>
+                </div>
+                <div class="amount-inner">
+                    <h5>$130</h5>
+                    <a class="btn btn-blue" href="#">Pay Now</a>
+                </div>
+            </div>
+            <div class="ba-bill-pay-inner">
+                <div class="ba-single-bill-pay">
+                    <div class="thumb">
+                        <img src="cst/img/icon/4.png" alt="img">
+                    </div>
+                    <div class="details">
+                        <h5>Amazon.com</h5>
+                        <p>Standard Domain Services Subscribtion</p>
+                    </div>
+                </div>
+                <div class="amount-inner">
+                    <h5>$130</h5>
+                    <a class="btn btn-blue" href="#">Pay Now</a>
+                </div>
+            </div>
+            <div class="mt-4 text-center btn-wrap">
+                <a class="readmore-btn" href="#">View All</a>
+            </div>
+        </div>
+    </div>
+    <!-- bill-pay End -->
 </div>

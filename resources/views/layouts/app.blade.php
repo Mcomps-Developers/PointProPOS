@@ -76,16 +76,17 @@
                             <p>Account</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="javascript:void(0);">
-                            <i class="fa fa-wallet"></i>
-                            <p>Credit</p>
-                        </a>
-                    </li>
+                    
                     <li>
                         <a href="{{ route('cst.dashboard') }}">
                             <i class="fa fa-home"></i>
                             <p>Home</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="fas fa-wallet"></i>
+                            <p>Invoices</p>
                         </a>
                     </li>
                     <li>
