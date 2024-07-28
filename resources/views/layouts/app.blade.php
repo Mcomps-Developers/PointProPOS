@@ -73,17 +73,9 @@
             /* Adjust as needed */
         }
 
-        .footer-top {
-            padding: 30px 0;
-            color: #5d5b63;
-            background-color: #333;
-            color: #fff;
-        }
-
         .footer-bottom {
             padding: 5px 0;
             background-color: whitesmoke;
-            /* Adjust background color */
             color: gray;
         }
 
@@ -128,7 +120,7 @@
             flex: 1;
         }
     </style>
-    <div class="footer-area" style="margin-top: 24px">
+    <div class="footer-area">
         <div class="container">
             <div class="text-center footer-bottom">
                 <ul>
