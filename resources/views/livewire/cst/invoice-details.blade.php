@@ -132,13 +132,12 @@
                         </div>
                         <div class="details">
                             <h5>{{ $item->product->name }}</h5>
-                            <p style="text-transform: uppercase">SKU: {{ $item->product->sku }} | Qty:
-                                {{ $item->qty }}</p>
+                            <p style="text-transform: uppercase">SKU: {{ $item->product->sku }}</p>
                         </div>
                     </div>
                     <div class="amount-inner">
-                        <h5>KES {{ number_format($item->amount, 2) }}</h5>
-                        <a class="btn btn-blue" href="javascript:void(0);">KES
+                        <h5>KES {{ number_format($item->amount, 2) }}*{{ $item->qty }}</h5>
+                        <a class="btn btn-gray" href="javascript:void(0);">KES
                             {{ number_format($item->qty * $item->amount, 2) }}</a>
                     </div>
                 </div>
