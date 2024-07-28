@@ -137,7 +137,6 @@
         <div class="container">
             <div class="section-title">
                 <h3 class="title">My Summary</h3>
-                <a href="#">View All</a>
             </div>
             <div class="ba-history-inner">
                 <div class="row custom-gutters-20">
