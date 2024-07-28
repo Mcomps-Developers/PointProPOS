@@ -1,8 +1,29 @@
 <div>
+    <div>
+        <div class="header-area" style="background-image: url({{ @asset('cst/img/bg/1.png') }});">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 col-3">
+                        <a class="menu-back-page" href="{{ route('cst.dashboard') }}">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                    </div>
+                    <div class="text-center col-sm-4 col-6">
+                        <div class="page-name">Notifications</div>
+                    </div>
+                    <div class="text-right col-sm-4 col-3">
+                        <div class="search header-search">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="page-title mg-top-50">
         <div class="container">
             <a class="float-left" href="{{ route('cst.dashboard') }}">Home</a>
-            <span class="float-right">Notification</span>
+            <span class="float-right">Notifications</span>
         </div>
     </div>
     <!-- page-title end -->
