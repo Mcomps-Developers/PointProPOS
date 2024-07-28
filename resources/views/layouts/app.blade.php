@@ -89,8 +89,8 @@
                         </a>
                     </li>
                     <li>
-                        <a class="menu-bar" href="{{ route('cst.transactions') }}">
-                            <i class="fa fa-bars"></i>
+                        <a href="{{ route('cst.transactions') }}">
+                            <i class="fa fa-file-invoice"></i>
                             <p>Transactions</p>
                         </a>
                     </li>
