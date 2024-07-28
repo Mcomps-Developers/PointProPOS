@@ -41,8 +41,8 @@
 
     <div class="btn-wrap mg-top-40">
         <div class="container">
-            <a class="btn-large btn-blue w-100" href="javascript:void(0);">
-                {{ $transactions->links('pagination::bootstrap-5') }}
+            <a class="btn-large btn-white w-100" href="javascript:void(0);">
+
             </a>
         </div>
     </div>
