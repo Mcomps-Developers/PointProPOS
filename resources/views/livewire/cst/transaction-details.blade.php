@@ -61,20 +61,12 @@
                         style="text-transform: uppercase">INV-{{ $schedule->invoice->reference }}-PP</span>
                 </li>
                 <li>
-                    <span class="float-left">Transaction Category</span>
-                    <span class="float-right">Repayment</span>
-                </li>
-                <li>
                     <span class="float-left">Return Receipt</span>
                     <span class="float-right">{{ $transaction->state }}</span>
                 </li>
                 <li>
-                    <span class="float-left">Purchase Date</span>
+                    <span class="float-left">Timestap</span>
                     <span class="float-right">{{ date('d M Y h:iA', strtotime($transaction->created_at)) }}</span>
-                </li>
-                <li>
-                    <span class="float-left">Total Amounts</span>
-                    <span class="float-right">KES {{ number_format($transaction->value, 2) }}</span>
                 </li>
             </ul>
         </div>
