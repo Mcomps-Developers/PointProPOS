@@ -8,7 +8,7 @@
     <div class="transaction-area pd-top-36">
         <div class="container">
             <div class="section-title">
-                <h3 class="title">Transactions</h3>
+                <h3 class="title">Today Transactions</h3>
                 <a href="#"><i class="fa fa-bell"></i></a>
             </div>
             <ul class="transaction-inner">

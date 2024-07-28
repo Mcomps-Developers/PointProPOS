@@ -1,4 +1,7 @@
 <div>
+    @section('title')
+        Notifications
+    @endsection
     <div>
         <div class="header-area" style="background-image: url({{ @asset('cst/img/bg/1.png') }});">
             <div class="container">

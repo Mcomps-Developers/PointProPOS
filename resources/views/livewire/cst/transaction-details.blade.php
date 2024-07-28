@@ -1,4 +1,7 @@
 <div>
+    @section('title')
+        Transaction Details
+    @endsection
     <div class="page-title mg-top-50">
         <div class="container">
             <a class="float-left" href="{{ route('cst.dashboard') }}">Home</a>
