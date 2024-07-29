@@ -25,7 +25,8 @@ Before installing PointPro, ensure you have the following:
 
    ```bash
    git clone https://github.com/Mcomps-Developers/pointproPOS.git
-   cd pointpro
+
+   cd pointproPOS
    ```
 
 2. **Install Dependencies**
@@ -118,4 +119,4 @@ This project is licensed under the [MIT License](LICENSE).
 For any issues or contributions, please open an issue or a pull request on [GitHub](https://github.com/Mcomps-Developers/pointproPOS).
 
 
-Feel free to contribute to  `https://github.com/Mcomps-Developers/pointproPOS` contact me at `manzolo@mcomps.africa`.
+Feel free to contribute to  `https://github.com/Mcomps-Developers/pointproPOS` contact me at [manzolo@mcomps.africa](manzolo@mcomps.africa).
