@@ -73,8 +73,8 @@
             <div class="col-xl-3 col-sm-6 col-12 d-flex">
                 <div class="dash-count das2">
                     <div class="dash-counts">
-                        <h4>150</h4>
-                        <h5>Purchase Invoice</h5>
+                        <h4>{{$transactions->count()}}</h4>
+                        <h5>All Transactions</h5>
                     </div>
                     <div class="dash-imgs">
                         <img src="{{asset('assets/img/icons/file-text-icon-01.svg')}}" class="img-fluid" alt="icon">
@@ -84,8 +84,8 @@
             <div class="col-xl-3 col-sm-6 col-12 d-flex">
                 <div class="dash-count das3">
                     <div class="dash-counts">
-                        <h4>170</h4>
-                        <h5>Sales Invoice</h5>
+                        <h4>{{ $transactions->where('state','COMPLETE')->count() }}</h4>
+                        <h5>Successful Transactions</h5>
                     </div>
                     <div class="dash-imgs">
                         <i data-feather="file"></i>
@@ -267,7 +267,7 @@
                                         <a class="p-2 me-2" href="#">
                                             <i data-feather="edit" class="feather-edit"></i>
                                         </a>
-                                        <a class="p-2  confirm-text" href="javascript:void(0);">
+                                        <a class="p-2 confirm-text" href="javascript:void(0);">
                                             <i data-feather="trash-2" class="feather-trash-2"></i>
                                         </a>
                                     </div>
