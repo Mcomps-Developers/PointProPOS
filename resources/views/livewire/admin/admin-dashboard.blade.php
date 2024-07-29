@@ -1,35 +1,41 @@
 <div class="page-wrapper">
     @section('title')
-    Dashboard
+        Dashboard
     @endsection
     <div class="content">
         <div class="row">
-            {{-- <div class="col-xl-3 col-sm-6 col-12 d-flex">
+            <div class="col-xl-3 col-sm-6 col-12 d-flex">
                 <div class="dash-widget w-100">
                     <div class="dash-widgetimg">
-                        <span><img src="{{asset('assets/img/icons/dash1.svg')}}" alt="img"></span>
+                        <span><img src="{{ asset('assets/img/icons/dash1.svg') }}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>Ksh <span class="counters" data-count="307144.00">Ksh 307,144.00</span></h5>
-                        <h6>Total Purchase Due</h6>
+                        <h5>KES <span class="counters"
+                                data-count="{{ number_format($transactions->where('state', 'COMPLETE')->sum('convenience_fee')) }}">KES
+                                {{ number_format($transactions->where('state', 'COMPLETE')->sum('convenience_fee')) }}</span>
+                        </h5>
+                        <h6>Transaction Revenue</h6>
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 col-sm-6 col-12 d-flex">
                 <div class="dash-widget dash1 w-100">
                     <div class="dash-widgetimg">
-                        <span><img src="{{asset('assets/img/icons/dash2.svg')}}" alt="img"></span>
+                        <span><img src="{{ asset('assets/img/icons/dash2.svg') }}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>Ksh <span class="counters" data-count="4385.00">Ksh 4,385.00</span></h5>
-                        <h6>Total Sales Due</h6>
+                        <h5>KES <span class="counters"
+                                data-count="{{ number_format($transactions->where('state', 'COMPLETE')->sum('charges')) }}">KES
+                                {{ number_format($transactions->where('state', 'COMPLETE')->sum('charges')) }}</span>
+                        </h5>
+                        <h6>Charges by Provider</h6>
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 col-sm-6 col-12 d-flex">
                 <div class="dash-widget dash2 w-100">
                     <div class="dash-widgetimg">
-                        <span><img src="{{asset('assets/img/icons/dash3.svg')}}" alt="img"></span>
+                        <span><img src="{{ asset('assets/img/icons/dash3.svg') }}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
                         <h5>Ksh <span class="counters" data-count="385656.50">Ksh 385,656.50</span></h5>
@@ -40,18 +46,18 @@
             <div class="col-xl-3 col-sm-6 col-12 d-flex">
                 <div class="dash-widget dash3 w-100">
                     <div class="dash-widgetimg">
-                        <span><img src="{{asset('assets/img/icons/dash4.svg')}}" alt="img"></span>
+                        <span><img src="{{ asset('assets/img/icons/dash4.svg') }}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
                         <h5>Ksh <span class="counters" data-count="40000.00">Ksh 400.00</span></h5>
                         <h6>Total Expense Amount</h6>
                     </div>
                 </div>
-            </div> --}}
+            </div>
             <div class="col-xl-3 col-sm-6 col-12 d-flex">
                 <div class="dash-count">
                     <div class="dash-counts">
-                        <h4>{{$countClients}}</h4>
+                        <h4>{{ $countClients }}</h4>
                         <h5>Customers</h5>
                     </div>
                     <div class="dash-imgs">
@@ -62,7 +68,7 @@
             <div class="col-xl-3 col-sm-6 col-12 d-flex">
                 <div class="dash-count das1">
                     <div class="dash-counts">
-                        <h4>{{$activeClients}}</h4>
+                        <h4>{{ $activeClients }}</h4>
                         <h5>Active Customers</h5>
                     </div>
                     <div class="dash-imgs">
@@ -73,18 +79,19 @@
             <div class="col-xl-3 col-sm-6 col-12 d-flex">
                 <div class="dash-count das2">
                     <div class="dash-counts">
-                        <h4>{{$transactions->count()}}</h4>
+                        <h4>{{ $transactions->count() }}</h4>
                         <h5>All Transactions</h5>
                     </div>
                     <div class="dash-imgs">
-                        <img src="{{asset('assets/img/icons/file-text-icon-01.svg')}}" class="img-fluid" alt="icon">
+                        <img src="{{ asset('assets/img/icons/file-text-icon-01.svg') }}" class="img-fluid"
+                            alt="icon">
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 col-sm-6 col-12 d-flex">
                 <div class="dash-count das3">
                     <div class="dash-counts">
-                        <h4>{{ $transactions->where('state','COMPLETE')->count() }}</h4>
+                        <h4>{{ $transactions->where('state', 'COMPLETE')->count() }}</h4>
                         <h5>Successful Transactions</h5>
                     </div>
                     <div class="dash-imgs">
@@ -203,7 +210,7 @@
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h4 class="card-title">Recent Clients</h4>
                 <div class="page-btn">
-                    <a href="{{route('admin.clients')}}" class="btn btn-primary"><i data-feather="menu"
+                    <a href="{{ route('admin.clients') }}" class="btn btn-primary"><i data-feather="menu"
                             class="me-2"></i>All Clients</a>
                 </div>
             </div>
@@ -227,41 +234,43 @@
                         </thead>
                         <tbody>
                             @foreach ($collection as $item)
-                            <tr>
-                                <td>
-                                    <label class="checkboxs">
-                                        <input type="checkbox">
-                                        <span class="checkmarks"></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <div class="productimgname">
-                                        <a href="javascript:void(0);" class="product-img stock-img">
-                                            @if ($item->logo)
-                                            <img src="{{asset('assets/img/clients')}}/{{$item->logo}}" alt="Logo">
-                                            @else
-                                            <img src="{{$item->contactPerson->profile_photo_url}}" alt="Logo">
-                                            @endif
+                                <tr>
+                                    <td>
+                                        <label class="checkboxs">
+                                            <input type="checkbox">
+                                            <span class="checkmarks"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <div class="productimgname">
+                                            <a href="javascript:void(0);" class="product-img stock-img">
+                                                @if ($item->logo)
+                                                    <img src="{{ asset('assets/img/clients') }}/{{ $item->logo }}"
+                                                        alt="Logo">
+                                                @else
+                                                    <img src="{{ $item->contactPerson->profile_photo_url }}"
+                                                        alt="Logo">
+                                                @endif
 
-                                        </a>
-                                        <a href="javascript:void(0);">{{$item->name}} </a>
-                                    </div>
-                                </td>
-                                <td style="text-transform: uppercase"><a
-                                        href="javascript:void(0);"><b>{{$item->reference}}</b></a></td>
-                                <td>{{(date('d M Y',strtotime($item->created_at)))}}</td>
-                                <td>Ksh {{$item->renewal_fee}}</td>
-                                <td class="action-table-data">
-                                    <div class="edit-delete-action">
-                                        <a class="p-2 me-2" href="#">
-                                            <i data-feather="edit" class="feather-edit"></i>
-                                        </a>
-                                        <a class="p-2 confirm-text" href="javascript:void(0);">
-                                            <i data-feather="trash-2" class="feather-trash-2"></i>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
+                                            </a>
+                                            <a href="javascript:void(0);">{{ $item->name }} </a>
+                                        </div>
+                                    </td>
+                                    <td style="text-transform: uppercase"><a
+                                            href="javascript:void(0);"><b>{{ $item->reference }}</b></a></td>
+                                    <td>{{ date('d M Y', strtotime($item->created_at)) }}</td>
+                                    <td>Ksh {{ $item->renewal_fee }}</td>
+                                    <td class="action-table-data">
+                                        <div class="edit-delete-action">
+                                            <a class="p-2 me-2" href="#">
+                                                <i data-feather="edit" class="feather-edit"></i>
+                                            </a>
+                                            <a class="p-2 confirm-text" href="javascript:void(0);">
+                                                <i data-feather="trash-2" class="feather-trash-2"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
