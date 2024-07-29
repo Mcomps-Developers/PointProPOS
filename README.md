@@ -24,7 +24,7 @@ Before installing PointPro, ensure you have the following:
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/your-username/pointpro.git
+   git clone https://github.com/Mcomps-Developers/pointproPOS.git
    cd pointpro
    ```
 
@@ -63,6 +63,11 @@ Before installing PointPro, ensure you have the following:
    - **Intasend Credentials**:
      - `INTASEND_API_KEY`
      - `INTASEND_SECRET_KEY`
+
+     - **App Settings**:
+     - `CONVINIENCE_FEE`
+     - `app_tax` in cart configurations
+     - `telescope produdction email` to only allow authorized access to logs
    
    - **Server Virtualization (Ngrok)**:
      - If using Ngrok, set the `APP_URL` to your Ngrok URL (e.g., `https://your-ngrok-url.ngrok.io`).
@@ -101,6 +106,8 @@ Access the application at the Ngrok URL or localhost URL provided.
 Once set up, you can access PointPro via the provided URL. You will be able to:
 - Enable businesses to lend to their customers.
 - Allow customers to save for purchasing commodities.
+- Allow businesses and customers to initiate payments.
+- Collect commission from the application.
 
 ## License
 
@@ -108,7 +115,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-For any issues or contributions, please open an issue or a pull request on [GitHub](https://github.com/your-username/pointpro).
-```
+For any issues or contributions, please open an issue or a pull request on [GitHub](https://github.com/Mcomps-Developers/pointproPOS).
 
-Feel free to replace placeholders like `https://github.com/your-username/pointpro` with your actual repository URL.
+
+Feel free to contribute to  `https://github.com/Mcomps-Developers/pointproPOS` contact me at `manzolo@mcomps.africa`.
