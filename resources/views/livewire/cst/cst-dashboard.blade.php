@@ -3,43 +3,6 @@
         Account
     @endsection
 
-    <!-- navbar end -->
-
-    <!-- navbar end -->
-    {{-- <div class="add-balance-inner-wrap">
-        <div class="container">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Add Balance</h5>
-                    </div>
-                    <div class="modal-body">
-                        <div class="action-sheet-content">
-                            <form>
-                                <div class="form-group basic">
-                                    <label class="label">Enter Amount</label>
-                                    <div class="mb-3 input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="input1">KES </span>
-                                        </div>
-                                        <input type="text" class="form-control form-control-lg" placeholder="10">
-                                    </div>
-                                </div>
-
-                                <div class="form-group basic">
-                                    <button type="button" class="btn-c btn-primary btn-block btn-lg"
-                                        data-dismiss="modal">Deposit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-    <!-- navbar end -->
-
-    <!-- balance start -->
     <div class="balance-area pd-top-40 mg-top-50">
         <div class="container">
             <div class="balance-area-bg balance-area-bg-home">
@@ -60,30 +23,6 @@
             </div>
         </div>
     </div>
-    <!-- balance End -->
-
-    <!-- add balance start -->
-    {{-- <div class="add-balance-area pd-top-40">
-        <div class="container">
-            <div class="ba-add-balance-title ba-add-balance-btn">
-                <h5>Top Up</h5>
-                <i class="fa fa-plus"></i>
-            </div>
-            <div class="ba-add-balance-inner mg-top-40">
-                <div class="row custom-gutters-20">
-                    <div class="col-6">
-                        <a class="btn btn-blue ba-add-balance-btn" href="#">Withdraw <i
-                                class="fa fa-arrow-down"></i></a>
-                    </div>
-                    <div class="col-6">
-                        <a class="btn btn-red ba-add-balance-btn" href="#">Send <i
-                                class="fa fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-    <!-- add balance End -->
 
     <!-- goal area Start -->
     <div class="goal-area pd-top-36">
