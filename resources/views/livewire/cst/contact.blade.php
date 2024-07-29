@@ -19,6 +19,9 @@
                 <ul>
                     <li>
                         <textarea type="text" wire:model.live='message' rows="20" class="form-control" placeholder="Talk to us...."></textarea>
+                    @error('message')
+                        <p class="text-danger">{{ $message }}</p>
+                    @enderror
                     </li>
                 </ul>
                 <button class="btn-large btn-purple w-100" type="submit">
