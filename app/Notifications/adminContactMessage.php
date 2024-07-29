@@ -10,15 +10,13 @@ use Illuminate\Notifications\Notification;
 class adminContactMessage extends Notification
 {
     use Queueable;
-    public $email;
     public $user;
     public $message;
     /**
      * Create a new notification instance.
      */
-    public function __construct($email, $user, $message)
+    public function __construct($user, $message)
     {
-        $this->email = $email;
         $this->user = $user;
         $this->message = $message;
     }
