@@ -4,7 +4,7 @@
     @endsection
     <div class="content">
         <div class="row">
-            <div class="col-xl-3 col-sm-6 col-12 d-flex">
+            {{-- <div class="col-xl-3 col-sm-6 col-12 d-flex">
                 <div class="dash-widget w-100">
                     <div class="dash-widgetimg">
                         <span><img src="{{asset('assets/img/icons/dash1.svg')}}" alt="img"></span>
@@ -47,7 +47,7 @@
                         <h6>Total Expense Amount</h6>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="col-xl-3 col-sm-6 col-12 d-flex">
                 <div class="dash-count">
                     <div class="dash-counts">
@@ -98,7 +98,7 @@
             <div class="col-xl-6 col-sm-12 col-12 d-flex">
                 <div class="card flex-fill">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="card-title mb-0">Clients History</h5>
+                        <h5 class="mb-0 card-title">Clients History</h5>
                         <div class="graph-sets">
                             <ul class="mb-0">
                                 <li>
@@ -133,9 +133,9 @@
                 </div> 
             </div>
             <div class="col-xl-6 col-sm-12 col-12 d-flex">
-                <div class="card flex-fill default-cover mb-4">
+                <div class="mb-4 card flex-fill default-cover">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h4 class="card-title mb-0">Recent Transactions</h4>
+                        <h4 class="mb-0 card-title">Recent Transactions</h4>
                         <div class="view-all-link">
                             <a href="javascript:void(0);" class="view-all d-flex align-items-center">
                                 View All<span class="ps-2 d-flex align-items-center"><i data-feather="arrow-right"
@@ -264,10 +264,10 @@
                                 <td>Ksh {{$item->renewal_fee}}</td>
                                 <td class="action-table-data">
                                     <div class="edit-delete-action">
-                                        <a class="me-2 p-2" href="#">
+                                        <a class="p-2 me-2" href="#">
                                             <i data-feather="edit" class="feather-edit"></i>
                                         </a>
-                                        <a class=" confirm-text p-2" href="javascript:void(0);">
+                                        <a class="p-2  confirm-text" href="javascript:void(0);">
                                             <i data-feather="trash-2" class="feather-trash-2"></i>
                                         </a>
                                     </div>
