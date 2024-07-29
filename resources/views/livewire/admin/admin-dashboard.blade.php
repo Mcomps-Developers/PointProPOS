@@ -4,53 +4,45 @@
     @endsection
     <div class="content">
         <div class="row">
-            <div class="col-xl-3 col-sm-6 col-12 d-flex">
+            <div class="col-xl-4 col-sm-6 col-12 d-flex">
                 <div class="dash-widget w-100">
                     <div class="dash-widgetimg">
                         <span><img src="{{ asset('assets/img/icons/dash1.svg') }}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
                         <h5>KES <span class="counters"
-                                data-count="{{ number_format($transactions->where('state', 'COMPLETE')->sum('convenience_fee')) }}">KES
-                                {{ number_format($transactions->where('state', 'COMPLETE')->sum('convenience_fee')) }}</span>
+                                data-count="{{ number_format($transactions->where('state', 'COMPLETE')->sum('convenience_fee') - $transactions->where('state', 'COMPLETE')->sum('charges'), 2) }}">KES
+                                {{ number_format($transactions->where('state', 'COMPLETE')->sum('convenience_fee') - $transactions->where('state', 'COMPLETE')->sum('charges'), 2) }}</span>
                         </h5>
-                        <h6>Transaction Revenue</h6>
+                        <h6>Earning</h6>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-sm-6 col-12 d-flex">
-                <div class="dash-widget dash1 w-100">
-                    <div class="dash-widgetimg">
-                        <span><img src="{{ asset('assets/img/icons/dash2.svg') }}" alt="img"></span>
-                    </div>
-                    <div class="dash-widgetcontent">
-                        <h5>KES <span class="counters"
-                                data-count="{{ number_format($transactions->where('state', 'COMPLETE')->sum('charges')) }}">KES
-                                {{ number_format($transactions->where('state', 'COMPLETE')->sum('charges')) }}</span>
-                        </h5>
-                        <h6>Charges by Provider</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12 d-flex">
+            <div class="col-xl-4 col-sm-6 col-12 d-flex">
                 <div class="dash-widget dash2 w-100">
                     <div class="dash-widgetimg">
                         <span><img src="{{ asset('assets/img/icons/dash3.svg') }}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>Ksh <span class="counters" data-count="385656.50">Ksh 385,656.50</span></h5>
-                        <h6>Total Sale Amount</h6>
+                        <h5>KES <span class="counters"
+                                data-count="{{ number_format($transactions->where('state', 'COMPLETE')->sum('convenience_fee'), 2) }}">KES
+                                {{ number_format($transactions->where('state', 'COMPLETE')->sum('convenience_fee'), 2) }}</span>
+                        </h5>
+                        <h6>Revenue</h6>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-sm-6 col-12 d-flex">
+            <div class="col-xl-4 col-sm-6 col-12 d-flex">
                 <div class="dash-widget dash3 w-100">
                     <div class="dash-widgetimg">
                         <span><img src="{{ asset('assets/img/icons/dash4.svg') }}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>Ksh <span class="counters" data-count="40000.00">Ksh 400.00</span></h5>
-                        <h6>Total Expense Amount</h6>
+                        <h5>KES <span class="counters"
+                                data-count="{{ number_format($transactions->where('state', 'COMPLETE')->sum('charges'), 2) }}">KES
+                                {{ number_format($transactions->where('state', 'COMPLETE')->sum('charges'), 2) }}</span>
+                        </h5>
+                        <h6>Expenses</h6>
                     </div>
                 </div>
             </div>
