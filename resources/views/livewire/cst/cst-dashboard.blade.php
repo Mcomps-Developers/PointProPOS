@@ -63,7 +63,7 @@
     <!-- balance End -->
 
     <!-- add balance start -->
-    <div class="add-balance-area pd-top-40">
+    {{-- <div class="add-balance-area pd-top-40">
         <div class="container">
             <div class="ba-add-balance-title ba-add-balance-btn">
                 <h5>Top Up</h5>
@@ -82,7 +82,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- add balance End -->
 
     <!-- goal area Start -->
