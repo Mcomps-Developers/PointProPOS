@@ -26,6 +26,7 @@ class Contact extends Component
         try {
             $user = Auth::user();
             $user->notify(new contactSuccess($user, $this->message));
+            $this->reset();
             notyf()->position('y', 'top')->success('Message sent!');
         } catch (\Exception $ex) {
             Log::error('Error: ' . $ex->getMessage() . ' in ' . $ex->getFile() . ' on line ' . $ex->getLine());
