@@ -11,7 +11,7 @@
                                             data-feather="grid"></i><span>Dashboard</span></a>
                                 </li>
                                 <li><a href="{{ route('admin.clients') }}"><i
-                                            data-feather="menu"></i><span>Clients</span></a>
+                                            data-feather="menu"></i><span>Businesses</span></a>
                                 <li><a href="{{ route('admin.industries') }}"><i
                                             data-feather="codepen"></i><span>Industries</span></a>
                                 <li><a href="/telescope" target="_/blank" class="active"><i
