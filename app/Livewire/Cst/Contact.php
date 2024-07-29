@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Cst;
 
+use App\Models\User;
 use App\Notifications\adminContactMessage;
 use App\Notifications\contactSuccess;
 use Illuminate\Support\Facades\Auth;
@@ -28,9 +29,8 @@ class Contact extends Component
         $this->validate();
         try {
             $user = Auth::user();
-            $email = 'mcompsnetwork@gmail.com';
-            $notification = new AdminContactMessage($user, $this->message);
-            Notification::route('mail', $email)->notify($notification);
+            $admin = User::where('email', 'mcompsnetwork@gmail.com')->first();
+            $admin->notify(new AdminContactMessage($user, $this->message));
             $user->notify(new contactSuccess($user, $this->message));
             $this->reset();
             notyf()->position('y', 'top')->success('Message sent!');
