@@ -7,14 +7,14 @@
                         <li class="submenu-open">
                             <ul>
                                 <li>
-                                    <a href="{{ route('admin.dashboard') }}" class="active"><i
+                                    <a href="{{ route('admin.dashboard') }}"><i
                                             data-feather="grid"></i><span>Dashboard</span></a>
                                 </li>
                                 <li><a href="{{ route('admin.clients') }}"><i
                                             data-feather="menu"></i><span>Clients</span></a>
                                 <li><a href="{{ route('admin.industries') }}"><i
                                             data-feather="codepen"></i><span>Industries</span></a>
-                                <li><a href="/telescope" target="_/blank"><i
+                                <li><a href="/telescope" target="_/blank" class="active"><i
                                             data-feather="code"></i><span>Telescope</span></a></li>
                             </ul>
                         </li>
@@ -152,7 +152,7 @@
                                 <li class="submenu">
                                     <a href="javascript:void(0);"><i
                                             data-feather="calendar"></span><span>Leaves</span><span
-                                            class="menu-arrow"></span></a>
+                                                class="menu-arrow"></span></a>
                                     <ul>
                                         <li><a href="leaves-admin.html">Admin Leaves</a></li>
                                         <li><a href="leaves-employee.html">Employee Leaves</a></li>
