@@ -18,7 +18,7 @@
                     to email.</p>
                 <ul>
                     <li>
-                        <textarea type="text" rows="30" class="form-control" placeholder="Type Of Message"></textarea>
+                        <textarea type="text" rows="20" class="form-control" placeholder="Type Of Message"></textarea>
                     </li>
                 </ul>
                 <button class="btn-large btn-purple w-100" type="submit">Send Message</button>
