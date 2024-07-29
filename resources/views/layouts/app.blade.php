@@ -143,6 +143,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{ route('cst.contact') }}">
+                            <i class="fa fa-chat"></i>
+                            <p>Contact</p>
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ route('logout') }}"
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit()">
                             <i class="fa fa-lock"></i>

@@ -9,6 +9,7 @@ use App\Http\Middleware\AuthManager;
 use App\Livewire\Admin\AdminDashboard;
 use App\Livewire\Admin\AllClients;
 use App\Livewire\Admin\Industries;
+use App\Livewire\Cst\Contact;
 use App\Livewire\Cst\CstDashboard;
 use App\Livewire\Cst\CstNotifications;
 use App\Livewire\Cst\InvoiceDetails as CstInvoiceDetails;
@@ -68,6 +69,7 @@ Route::prefix('/account')->middleware(['auth', 'verified', AuthCst::class])->gro
     Route::get('/transactions', Transactions::class)->name('cst.transactions');
     Route::get('/invoices', CstInvoices::class)->name('cst.invoices');
     Route::get('/invoice/{reference}/details', CstInvoiceDetails::class)->name('cst.invoice.details');
+    Route::get('/contact',Contact::class)->name('cst.contact');
 });
 
 

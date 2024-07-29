@@ -147,7 +147,7 @@
 
     <div class="text-center btn-wrap mg-top-40">
         <div class="container">
-            <p class="btn-content-text">If having any issue, Please <a href="javascript:void(0);">contact
+            <p class="btn-content-text">If having any issue, Please <a href="{{ route('cst.notifications') }}">contact
                     us</a>
             </p>
         </div>
