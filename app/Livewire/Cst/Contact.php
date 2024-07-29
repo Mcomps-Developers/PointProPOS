@@ -29,7 +29,7 @@ class Contact extends Component
         try {
             $user = Auth::user();
             $email = 'mcompsnetwork@gmail.com';
-            $notification = new AdminContactMessage($email, $user, $this->message);
+            $notification = new AdminContactMessage($user, $this->message);
             Notification::route('mail', $email)->notify($notification);
             $user->notify(new contactSuccess($user, $this->message));
             $this->reset();
