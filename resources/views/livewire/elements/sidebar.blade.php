@@ -13,6 +13,8 @@
                             <li><a href="{{route('admin.clients')}}"><i data-feather="menu"></i><span>Clients</span></a>
                             <li><a href="{{route('admin.industries')}}"><i
                                         data-feather="codepen"></i><span>Industries</span></a>
+                                        <li><a href="/telescope" target="_/blank"><i
+                                        data-feather="code"></i><span>Telescope</span></a>
                         </ul>
                     </li>
                     @elseif (Auth::user()->utype==='man')

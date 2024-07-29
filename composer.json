@@ -12,7 +12,7 @@
         "laravel/jetstream": "^5.1",
         "laravel/sanctum": "^4.0",
         "laravel/socialite": "^5.14",
-        "laravel/telescope": "^5.0",
+        "laravel/telescope": "^5.1",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.0",
         "php-flasher/flasher-notyf-laravel": "^2.0"
