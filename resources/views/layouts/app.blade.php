@@ -144,7 +144,7 @@
                     </li>
                     <li>
                         <a href="{{ route('cst.contact') }}">
-                            <i class="fa fa-chat"></i>
+                            <i class="fa fa-send"></i>
                             <p>Contact</p>
                         </a>
                     </li>
