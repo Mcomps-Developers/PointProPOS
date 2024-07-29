@@ -20,7 +20,7 @@
                     <li>
                         <textarea type="text" wire:model.live='message' rows="20" class="form-control" placeholder="Talk to us...."></textarea>
                     @error('message')
-                        <p class="text-danger">{{ $message }}</p>
+                        <p class="text-danger" style="margin:12px;">{{ $message }}</p>
                     @enderror
                     </li>
                 </ul>
