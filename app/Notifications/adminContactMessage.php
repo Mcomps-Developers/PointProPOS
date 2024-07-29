@@ -28,7 +28,7 @@ class adminContactMessage extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail'];
+        return ['mail', 'database'];
     }
 
     /**
@@ -60,7 +60,8 @@ class adminContactMessage extends Notification
     public function toArray(object $notifiable): array
     {
         return [
-            //
+            'title' => 'Message from ' . $this->user->name,
+            'message' => $this->message . ' (' . $this->user->email . ')'
         ];
     }
 }
