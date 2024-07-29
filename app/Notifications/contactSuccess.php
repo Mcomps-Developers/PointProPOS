@@ -39,7 +39,7 @@ class contactSuccess extends Notification
         return (new MailMessage)
             ->subject('Contact Message')
             ->greeting('Dear ' . $this->user->name . ',')
-            ->line('Thank you for contact us. We have received your message and we will act on it as fast as we can.')
+            ->line('Thank you for contacting us. We have received your message and we will act on it as fast as we can.')
             ->line('***************')
             ->line('Message')
             ->line($this->message)
