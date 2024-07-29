@@ -15,6 +15,7 @@ class AdminDashboard extends Component
         $countClients = Company::count();
         $activeClients = Company::where('renewal_date', '>=', Carbon::now())->count();
         $transactions = Repayment::all();
-        return view('livewire.admin.admin-dashboard', ['transactions' => $transactions, 'collection' => $collection, 'countClients' => $countClients, 'activeClients' => $activeClients])->layout('layouts.base');
+        $repayments = Repayment::orderByDesc('created_at')->limit(10)->get();
+        return view('livewire.admin.admin-dashboard', ['repayments'=>$repayments,'transactions' => $transactions, 'collection' => $collection, 'countClients' => $countClients, 'activeClients' => $activeClients])->layout('layouts.base');
     }
 }

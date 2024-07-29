@@ -95,17 +95,17 @@
         </div>
 
         <div class="row">
-            <div class="col-xl-6 col-sm-12 col-12 d-flex">
+            {{-- <div class="col-xl-4 col-sm-12 col-12 d-flex">
                 <div class="card flex-fill">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0 card-title">Clients History</h5>
+                        <h5 class="mb-0 card-title">Purchase & Sales</h5>
                         <div class="graph-sets">
                             <ul class="mb-0">
                                 <li>
-                                    <span>Clients</span>
+                                    <span>Sales</span>
                                 </li>
                                 <li>
-                                    <span>Earnings</span>
+                                    <span>Purchase</span>
                                 </li>
                             </ul>
                             <div class="dropdown dropdown-wraper">
@@ -130,9 +130,9 @@
                     <div class="card-body">
                         <div id="sales_charts"></div>
                     </div>
-                </div> 
-            </div>
-            <div class="col-xl-6 col-sm-12 col-12 d-flex">
+                </div>
+            </div> --}}
+            <div class="col-xl-12 col-sm-12 col-12 d-flex">
                 <div class="mb-4 card flex-fill default-cover">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h4 class="mb-0 card-title">Recent Transactions</h4>
@@ -148,61 +148,50 @@
                             <table class="table dashboard-recent-products">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Client</th>
+
+                                        <th>Reference #</th>
+                                        <th>Timestamp</th>
+                                        <th>Customer</th>
                                         <th>Amount</th>
-                                        <th>Date</th>
+                                        <th>Charges</th>
+                                        <th>Net</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td class="productimgname">
-                                            <a href="product-list.html" class="product-img">
-                                                <img src="{{asset('assets/img/products/stock-img-01.png')}}"
-                                                    alt="product">
-                                            </a>
-                                            <a href="product-list.html">Lenevo 3rd Generation</a>
-                                        </td>
-                                        <td>Ksh 12500</td>
-                                        <td>29 Mar 2023</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td class="productimgname">
-                                            <a href="product-list.html" class="product-img">
-                                                <img src="{{asset('assets/img/products/stock-img-06.png')}}"
-                                                    alt="product">
-                                            </a>
-                                            <a href="product-list.html">Bold V3.2</a>
-                                        </td>
-                                        <td>Ksh 1600</td>
-                                        <td>29 Mar 2023</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td class="productimgname">
-                                            <a href="product-list.html" class="product-img">
-                                                <img src="{{asset('assets/img/products/stock-img-02.png')}}"
-                                                    alt="product">
-                                            </a>
-                                            <a href="product-list.html">Nike Jordan</a>
-                                        </td>
-                                        <td>Ksh 2000</td>
-                                        <td>29 Mar 2023</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td class="productimgname">
-                                            <a href="product-list.html" class="product-img">
-                                                <img src="{{asset('assets/img/products/stock-img-03.png')}}"
-                                                    alt="product">
-                                            </a>
-                                            <a href="product-list.html">Apple Series 5 Watch</a>
-                                        </td>
-                                        <td>Ksh 800</td>
-                                        <td>29 Mar 2023</td>
-                                    </tr>
+                                    @foreach ($repayments as $item)
+                                        <tr>
+                                            <td>{{ $item->tracking_id }}<br>
+                                                <small>
+                                                    @if ($item->state === 'COMPLETE')
+                                                        <span class="badge badge-linesuccess">Successful</span>
+                                                    @else
+                                                        <span class="badge badge-linedanger">Failed
+                                                        </span>
+                                                        <span title="{{ $item->failed_reason }}"
+                                                            class="badge badge-linesuccess">
+                                                            <i title="{{ $item->failed_reason }}"
+                                                                class="fa fa-info-circle text-info"></i>
+                                                        </span>
+                                                    @endif
+                                                </small>
+                                            </td>
+                                            <td>{{ date('d M Y h:iA', strtotime($item->created_at)) }}</td>
+                                            <td style="text-transform: capitalize;">{{ $item->customer->name }}</td>
+                                            <td>KES {{ number_format($item->value) }}</td>
+                                            @if ($item->state === 'COMPLETE')
+                                                <td>KES {{ number_format($item->convenience_fee) }}</td>
+                                            @else
+                                                <td>KES 0</td>
+                                            @endif
+
+                                            @if ($item->state === 'COMPLETE')
+                                                <td>KES {{ number_format($item->value - $item->convenience_fee) }}
+                                                </td>
+                                            @else
+                                                <td>KES 0</td>
+                                            @endif
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
