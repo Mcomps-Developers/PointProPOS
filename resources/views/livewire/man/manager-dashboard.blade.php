@@ -10,7 +10,7 @@
                         <span><img src="{{ asset('assets/img/icons/dash1.svg') }}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>KES <span class="counters" data-count="{{ number_format($wallet->balance, 2) }}">KES
+                        <h5>KES <span class="counters" data-count="{{ $wallet->balance }}">KES
                                 {{ number_format($wallet->balance, 2) }}</span></h5>
                         <h6>Wallet</h6>
                     </div>
@@ -22,7 +22,7 @@
                         <span><img src="{{ asset('assets/img/icons/dash2.svg') }}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>KES <span class="counters" data-count="{{ number_format($amountDue, 2) }}">KES
+                        <h5>KES <span class="counters" data-count="{{ $amountDue }}">KES
                                 {{ number_format($amountDue, 2) }}
                             </span></h5>
                         <h6>Total Credit Amt Due</h6>
@@ -35,7 +35,7 @@
                         <span><img src="{{ asset('assets/img/icons/dash3.svg') }}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>KES <span class="counters" data-count="{{ number_format($paidAmount, 2) }}">KES
+                        <h5>KES <span class="counters" data-count="{{ $paidAmount }}">KES
                                 {{ number_format($paidAmount, 2) }}</span></h5>
                         <h6>Repayments</h6>
                     </div>
@@ -47,7 +47,7 @@
                         <span><img src="{{ asset('assets/img/icons/dash4.svg') }}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>KES <span class="counters" data-count="{{ number_format($invoicesAmount, 2) }}">KES
+                        <h5>KES <span class="counters" data-count="{{ $invoicesAmount }}">KES
                                 {{ number_format($invoicesAmount, 2) }}</span></h5>
                         <h6>Total Credit Amount</h6>
                     </div>
