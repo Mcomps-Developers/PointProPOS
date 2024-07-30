@@ -43,8 +43,8 @@ class completePayment extends Notification
             ->success()
             ->subject('Congratulations! Cleared!')
             ->greeting('Dear ' . $this->user->name . ',')
-            ->line('Congratulations for completing the installment payments of invoice INV-' . $this->invoice->reference . '-PP. ' . $this->company->name . ' is proud of your and they will communicate to you the way forward.')
-            ->line('Check dashboard for other services.')
+            ->line('Congratulations for completing the installment payments of invoice INV-' . $this->invoice->reference . '-PP. Our client [' . $this->company->name . '] is proud of you and they will communicate to you the way forward.')
+            ->line('Check dashboard for more exciting features.')
             ->action('Dashboard', url('/dashboard'))
             ->line('Thank you for using our application!');
     }
