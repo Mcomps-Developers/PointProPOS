@@ -10,8 +10,8 @@
                         <span><img src="{{ asset('assets/img/icons/dash1.svg') }}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>KES <span class="counters" data-count="{{ $wallet->balance }}">KES
-                                {{ number_format($wallet->balance, 2, '.', ',') }}</span></h5>
+                        <h5>KES <span class="counters" data-count="{{ number_format($wallet->balance, 2) }}">KES
+                                {{ number_format($wallet->balance, 2) }}</span></h5>
                         <h6>Wallet</h6>
                     </div>
                 </div>
@@ -22,8 +22,8 @@
                         <span><img src="{{ asset('assets/img/icons/dash2.svg') }}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>KES <span class="counters" data-count="{{ $amountDue }}">KES
-                                {{ number_format($amountDue, 2, '.', ',') }}
+                        <h5>KES <span class="counters" data-count="{{ number_format($amountDue, 2) }}">KES
+                                {{ number_format($amountDue, 2) }}
                             </span></h5>
                         <h6>Total Credit Amt Due</h6>
                     </div>
@@ -35,8 +35,8 @@
                         <span><img src="{{ asset('assets/img/icons/dash3.svg') }}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>KES <span class="counters" data-count="{{ $paidAmount }}">KES
-                                {{ number_format($paidAmount, 2, '.', ',') }}</span></h5>
+                        <h5>KES <span class="counters" data-count="{{ number_format($paidAmount, 2) }}">KES
+                                {{ number_format($paidAmount, 2) }}</span></h5>
                         <h6>Repayments</h6>
                     </div>
                 </div>
@@ -47,8 +47,8 @@
                         <span><img src="{{ asset('assets/img/icons/dash4.svg') }}" alt="img"></span>
                     </div>
                     <div class="dash-widgetcontent">
-                        <h5>KES <span class="counters" data-count="{{ $invoicesAmount }}">KES
-                                {{ number_format($invoicesAmount, 2, '.', ',') }}</span></h5>
+                        <h5>KES <span class="counters" data-count="{{ number_format($invoicesAmount, 2) }}">KES
+                                {{ number_format($invoicesAmount, 2) }}</span></h5>
                         <h6>Total Credit Amount</h6>
                     </div>
                 </div>
@@ -183,18 +183,18 @@
                                             </td>
                                             <td>{{ date('d M Y h:iA', strtotime($item->created_at)) }}</td>
                                             <td style="text-transform: capitalize;">{{ $item->customer->name }}</td>
-                                            <td>KES {{ number_format($item->value) }}</td>
+                                            <td>KES {{ number_format($item->value, 2) }}</td>
                                             @if ($item->state === 'COMPLETE')
-                                                <td>KES {{ number_format($item->convenience_fee) }}</td>
+                                                <td>KES {{ number_format($item->convenience_fee, 2) }}</td>
                                             @else
                                                 <td>KES 0</td>
                                             @endif
 
                                             @if ($item->state === 'COMPLETE')
-                                                <td>KES {{ number_format($item->value - $item->convenience_fee) }}
+                                                <td>KES {{ number_format($item->value - $item->convenience_fee, 2) }}
                                                 </td>
                                             @else
-                                                <td>KES 0</td>
+                                                <td>KES 0.00</td>
                                             @endif
                                         </tr>
                                     @endforeach
