@@ -44,7 +44,10 @@ class Repayment extends Controller
             $transaction->failed_reason = $results['failed_reason'];
             $repayment = PaymentSchedule::findOrFail($results['api_ref']);
             $transaction->user_id = $repayment->invoice->user_id;
-            $transaction->convenience_fee = (env('CONVENIENCE_FEE') / 100) * $results['value'];
+            $convenience_fee = (env('CONVENIENCE_FEE') / 100) * $results['value'];
+            // Cap the convenience fee to a maximum of 200
+            $convenience_fee = min($convenience_fee, 200);
+            $transaction->convenience_fee = $convenience_fee;
             $transaction->company_id = $repayment->invoice->company_id;
             $transaction->save();
             if ($transaction->state === 'COMPLETE') {
