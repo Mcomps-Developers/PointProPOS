@@ -115,7 +115,7 @@
                                         <th>Timestamp</th>
                                         <th>Customer</th>
                                         <th>Amount</th>
-                                        <th>Charges</th>
+                                        <th>Charges {{ env('CONVENIENCE_FEE') }}%</th>
                                         <th>Net</th>
                                     </tr>
                                 </thead>
