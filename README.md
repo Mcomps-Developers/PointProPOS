@@ -110,6 +110,9 @@ Once set up, you can access PointPro via the provided URL. You will be able to:
 - Allow businesses and customers to initiate payments.
 - Collect commission from the application.
 
+## Challenges
+- There were no major challenges experienced.
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
