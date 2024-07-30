@@ -436,7 +436,7 @@
                                     <div class="row">
                                         <div class="col-lg-3 col-md-6 col-sm-12">
                                             <div class="mb-3 input-blocks">
-                                                <label>Order Tax</label>
+                                                <label>Order Tax ({{ config('cart.tax') }})%</label>
                                                 <input type="text" value="{{ Cart::instance('cart')->tax }}"
                                                     disabled />
                                             </div>
