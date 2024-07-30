@@ -25,7 +25,7 @@
                         <h5>KES <span class="counters" data-count="{{ $amountDue }}">KES
                                 {{ number_format($amountDue, 2) }}
                             </span></h5>
-                        <h6>Total Credit Amt Due</h6>
+                        <h6>Total Due</h6>
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                     <div class="dash-widgetcontent">
                         <h5>KES <span class="counters" data-count="{{ $paidAmount }}">KES
                                 {{ number_format($paidAmount, 2) }}</span></h5>
-                        <h6>Repayments</h6>
+                        <h6>Paid</h6>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                     <div class="dash-widgetcontent">
                         <h5>KES <span class="counters" data-count="{{ $invoicesAmount }}">KES
                                 {{ number_format($invoicesAmount, 2) }}</span></h5>
-                        <h6>Total Credit Amount</h6>
+                        <h6>Total Credit</h6>
                     </div>
                 </div>
             </div>
