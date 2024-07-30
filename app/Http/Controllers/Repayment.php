@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use App\Models\CompanyWallet;
+use App\Models\Invoice;
 use App\Models\PaymentSchedule;
 use App\Models\Repayment as ModelsRepayment;
 use App\Models\User;
+use App\Notifications\completePayment;
 use App\Notifications\RepaymentFailed;
 use App\Notifications\RepaymentSuccess;
 use Carbon\Carbon;
@@ -42,7 +44,7 @@ class Repayment extends Controller
             $transaction->failed_reason = $results['failed_reason'];
             $repayment = PaymentSchedule::findOrFail($results['api_ref']);
             $transaction->user_id = $repayment->invoice->user_id;
-            $transaction->convenience_fee = env('CONVENIENCE_FEE');
+            $transaction->convenience_fee = (env('CONVENIENCE_FEE') / 100) * $results['value'];
             $transaction->company_id = $repayment->invoice->company_id;
             $transaction->save();
             if ($transaction->state === 'COMPLETE') {
@@ -87,13 +89,26 @@ class Repayment extends Controller
                 $repayment->payment_date = Carbon::now();
                 $repayment->save();
             }
-            $user = User::findOrFail($transaction->user_id);
-            $company = Company::findOrFail($transaction->company_id);
-            $user->notify(new RepaymentSuccess($user, $repayment, $transaction, $company));
-            notyf()
-                ->position('x', 'right')
-                ->position('y', 'top')
-                ->success('Transaction successful');
+            $invoice = Invoice::findOrFail($repayment->invoice_id);
+            if ($invoice->amount - $invoice->repayments->sum('amount_paid') == 0) {
+                $invoice->status = 'complete';
+                $invoice->save();
+                $user = User::findOrFail($transaction->user_id);
+                $company = Company::findOrFail($transaction->company_id);
+                $user->notify(new completePayment($user, $company, $invoice));
+                notyf()
+                    ->position('x', 'right')
+                    ->position('y', 'top')
+                    ->success('Wow! Invoice payment is complete!');
+            } else {
+                $user = User::findOrFail($transaction->user_id);
+                $company = Company::findOrFail($transaction->company_id);
+                $user->notify(new RepaymentSuccess($user, $repayment, $transaction, $company));
+                notyf()
+                    ->position('x', 'right')
+                    ->position('y', 'top')
+                    ->success('Transaction successful');
+            }
         } catch (\Exception $e) {
             Log::error('Unexpected Exception on updating schedule. Details: ' . $e->getMessage());
             notyf()
