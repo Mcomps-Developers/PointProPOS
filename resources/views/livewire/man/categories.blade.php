@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <ul class="table-top-head">
-                    <li>
+                    {{-- <li>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Pdf"><img
                                 src="{{asset('assets/img/icons/pdf.svg')}}" alt="img" /></a>
                     </li>
@@ -23,7 +23,7 @@
                     <li>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Print"><i data-feather="printer"
                                 class="feather-rotate-ccw"></i></a>
-                    </li>
+                    </li> --}}
                     <li>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Refresh"><i data-feather="rotate-ccw"
                                 class="feather-rotate-ccw"></i></a>
@@ -66,7 +66,7 @@
                     </div>
 
                     <div class="card" id="filter_inputs">
-                        <div class="card-body pb-0">
+                        <div class="pb-0 card-body">
                             <div class="row">
                                 <div class="col-lg-3 col-sm-6 col-12">
                                     <div class="input-blocks">
@@ -148,11 +148,11 @@
                                     </td>
                                     <td class="action-table-data">
                                         <div class="edit-delete-action">
-                                            {{-- <a class="me-2 p-2" href="#" data-bs-toggle="modal"
+                                            {{-- <a class="p-2 me-2" href="#" data-bs-toggle="modal"
                                                 data-bs-target="#edit-category">
                                                 <i data-feather="edit" class="feather-edit"></i>
                                             </a> --}}
-                                            <a class="confirm-text p-2" href="javascript:void(0);"
+                                            <a class="p-2 confirm-text" href="javascript:void(0);"
                                                 data-item-id="{{ $item->id }}">
                                                 <i data-feather="trash-2" class="feather-trash-2"></i>
                                             </a>
@@ -171,9 +171,9 @@
     <div class="modal fade" id="add-category" wire:ignore.self>
         <div class="modal-dialog modal-dialog-centered custom-modal-two">
             <div class="modal-content">
-                <div class="page-wrapper-new p-0">
+                <div class="p-0 page-wrapper-new">
                     <div class="content">
-                        <div class="modal-header border-0 custom-modal-header">
+                        <div class="border-0 modal-header custom-modal-header">
                             <div class="page-title">
                                 <h4>Create Category</h4>
                             </div>
@@ -208,7 +208,7 @@
                                         wire:loading.remove>Create Category</button>
                                     <button class="btn btn-warning-light" type="button" disabled wire:target="create"
                                         wire:loading>
-                                        <span class="spinner-grow spinner-grow-sm align-middle" role="status"
+                                        <span class="align-middle spinner-grow spinner-grow-sm" role="status"
                                             aria-hidden="true"></span>
                                         Creating...
                                     </button>
@@ -224,9 +224,9 @@
     <div class="modal fade" id="edit-category">
         <div class="modal-dialog modal-dialog-centered custom-modal-two">
             <div class="modal-content">
-                <div class="page-wrapper-new p-0">
+                <div class="p-0 page-wrapper-new">
                     <div class="content">
-                        <div class="modal-header border-0 custom-modal-header">
+                        <div class="border-0 modal-header custom-modal-header">
                             <div class="page-title">
                                 <h4>Edit Category</h4>
                             </div>
