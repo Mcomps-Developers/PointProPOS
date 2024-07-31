@@ -21,19 +21,19 @@
                                 <x-validation-errors class="mb-4 text-danger" />
 
                                 @session('status')
-                                <div class="mb-4 font-medium text-sm text-success">
+                                <div class="mb-4 text-sm font-medium text-success">
                                     {{ $value }}
                                 </div>
                                 @endsession
                             </div>
-                            <div class="form-login mb-3">
+                            <div class="mb-3 form-login">
                                 <label class="form-label">Email Address</label>
                                 <div class="form-addons">
                                     <input type="email" placeholder="example@domain.com" name="email" class="form- control">
                                     <img src="{{asset('assets/img/icons/mail.svg')}}" alt="img">
                                 </div>
                             </div>
-                            <div class="form-login mb-3">
+                            <div class="mb-3 form-login">
                                 <label class="form-label">Password</label>
                                 <div class="pass-group">
                                     <input type="password" placeholder="Password" name="password" class="pass-input form-control">
@@ -44,7 +44,7 @@
                                 <div class="row">
                                     <div class="col-12 d-flex align-items-center justify-content-between">
                                         <div class="custom-control custom-checkbox">
-                                            <label class="checkboxs ps-4 mb-0 pb-0 line-height-1">
+                                            <label class="pb-0 mb-0 checkboxs ps-4 line-height-1">
                                                 <input type="checkbox" name="remember" class="form-control">
                                                 <span class="checkmarks"></span>Remember me
                                             </label>
@@ -64,21 +64,21 @@
                             </div>
                             <div class="form-sociallink">
                                 <ul class="d-flex">
-                                    <li>
+                                    {{-- <li>
                                         <a href="javascript:void(0);" class="facebook-logo">
                                             <img src="{{asset('assets/img/icons/facebook-logo.svg')}}" alt="Facebook">
                                         </a>
-                                    </li>
+                                    </li> --}}
                                     <li>
                                         <a href="{{ route('auth.google') }}">
                                             <img src="{{asset('assets/img/icons/google.png')}}" alt="Google">
                                         </a>
                                     </li>
-                                    <li>
+                                    {{-- <li>
                                         <a href="javascript:void(0);" class="apple-logo">
                                             <img src="{{asset('assets/img/icons/apple-logo.svg')}}" alt="Apple">
                                         </a>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                                 <div class="my-4 d-flex justify-content-center align-items-center copyright-text">
                                     <p>Copyright &copy; {{ date('Y') }} {{config('app.name')}}. All rights reserved</p>
